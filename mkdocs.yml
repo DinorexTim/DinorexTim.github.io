@@ -1,13 +1,83 @@
 site_name: Dinorex 's blog
+copyright: 'Copyright &copy; 2023 - 2024 Dinorex'
+repo_name: 'DINOREXNB.github.io'
+repo_url: 'https://github.com/DINOREXNB/DINOREXNB.github.io'
+
 theme:
   name: material
   language: zh
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
   palette:
-    scheme: default
-    primary: indigo
-    accent: indigo
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
 
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.prune
+    - navigation.indexes
+    - search.share
+    - search.highlight
+    - search.suggest
+    - header.autohide
+    - navigation.footer
 extra:
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/DINOREXNB
+    - icon: fontawesome/brands/qq 
+      link: https://user.qzone.qq.com/1819539569
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+markdown_extensions:
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.critic:
+      mode: view
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      linenums_style: pymdownx-inline
+      line_spans: __span
+      use_pygments: true
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - md_in_html
+  - toc:
+      permalink: true
+  - tables
+plugins:
+  - blog
+nav:
+  - About me: index.md
+  - 课程笔记:
+    - 大二上:
+      - 马原: 
+        - 马原串讲记录: 马原串讲记录.md
