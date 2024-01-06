@@ -1,0 +1,13 @@
+site_name: Dinorex 's blog
+theme:
+  name: material
+  language: zh
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/DINOREXNB
