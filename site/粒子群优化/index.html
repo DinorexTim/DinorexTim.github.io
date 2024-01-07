@@ -786,6 +786,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    基本原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    基本流程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    算法分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    算法拓展
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    案例实操
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -975,6 +1010,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    基本原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    基本流程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    算法分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    算法拓展
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    案例实操
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -995,10 +1065,71 @@
 
 <h1 id="_1">粒子群优化算法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">相关背景<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>粒子群算法是一种进化计算技术，在1995年提出，源于对鸟群的捕食行为研究，利用群体的个体信息共享使整个群体的运动在问题求解空间中产生从无序到有序的演化过程从而获得最优解。</p>
+<p>粒子群算法(PSO)是一种进化计算技术，在1995年提出，源于对鸟群的捕食行为研究，利用群体的个体信息共享使整个群体的运动在问题求解空间中产生从无序到有序的演化过程从而获得最优解。</p>
 <h2 id="_3">基础知识<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>问：已知A为全局最优，B和C如何移动才能到达A点？</p>
-<p><img alt="2020AB1-0" src="https://dinorexnb.github.io/docs/images/2020AB1-0.png" /></p>
+<p><img alt="2020AB1-0" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/2020AB1-0.png?raw=true" /></p>
+<p>该过程如何用数学表达式描述？</p>
+<ol>
+<li>某个粒子的移动有大小，有方向（即位移矢量）</li>
+<li>每个点的位置都是一个坐标</li>
+</ol>
+<div class="arithmatex">\[(1,1)=(2,3)+\alpha\to\alpha=(1,1)-(2,3)=(-1,-2)\]</div>
+<h2 id="_4">基本原理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>假设在一个D维的目标搜索空间中，有N个粒子组成的一个群落，其中第i个粒子表示为一个D维向量</p>
+<div class="arithmatex">\[X_i=(x_{i1},x_{i2},\dots,x_{iD}),i=1,2,\dots,N\]</div>
+<p>第i个粒子的"飞行"速度也是一个D维向量，记作：</p>
+<div class="arithmatex">\[V_i=(v_{i1},v_{i2},\dots,v_{iD}),i=1,2,\dots,N\]</div>
+<p>在第t代的第i个粒子向t+1代进化时，根据以下式子更新：</p>
+<div class="arithmatex">\[v_{ij}(t+1)=wv_{ij}(t)+c_1r_1(t)[p_{ij}(t)-x_{ij}]+c_2r_2(t)[p_{gj}(t)-x_{ij}(t)]\]</div>
+<div class="arithmatex">\[x_{ij}(t+1)=x_{ij}(t)+v_{ij}(t+1)\]</div>
+<blockquote>
+<p><span class="arithmatex">\(wv_{ij}(t)\)</span>项表示粒子的“惯性”</p>
+<p><span class="arithmatex">\(c_1r_1(t)[p_{ij}(t)-x_{ij}]\)</span>项表示往个体最优解方向</p>
+<p><span class="arithmatex">\(c_2r_2(t)[p_{gj}(t)-x_{ij}(t)]\)</span>项表示往全局最优解的方向</p>
+<p><span class="arithmatex">\(w\)</span>为惯性权重，<span class="arithmatex">\(c_1\)</span>表示个体学习系数，<span class="arithmatex">\(c_2\)</span>表示全局学习系数，<span class="arithmatex">\(r_1,r_2\)</span>为随机数</p>
+</blockquote>
+<p><del>假如某粒子下一代适应度更差，则应该阻止该粒子本轮迭代，让其他粒子迭代后进行下一轮迭代？</del></p>
+<h2 id="_5">基本流程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>输入参数<span class="arithmatex">\(w:0.5-0.8\)</span>；<span class="arithmatex">\(c_1,c_2:0.1-2\)</span>；<span class="arithmatex">\(v_{max},x_{max}:\)</span>取决于优化函数</p>
+</li>
+<li>
+<p>初始化种群x</p>
+</li>
+<li>计算个体<strong>适应度</strong>*</li>
+<li>更新粒子速度-&gt;更新粒子位置</li>
+<li>并计算新位置的适应度，若新位置适应度更高，将该粒子的位置进行更新，否则不更新</li>
+<li>判断是否满足终止条件，是则退出，否则继续迭代</li>
+</ul>
+<blockquote>
+<p>一般的，优化目标是<strong>最小化</strong>一个函数值，所以个体计算出的函数值越小，适应度越高</p>
+</blockquote>
+<h2 id="_6">算法分析<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>优点：</p>
+<ul>
+<li>原理简单</li>
+<li>参数少</li>
+<li>实现容易</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>容易陷入局部最优</li>
+<li>迭代后期收敛速度慢</li>
+</ul>
+<blockquote>
+<p>在迭代前期应该让<span class="arithmatex">\(w\)</span>较大，将整个搜索空间充分搜索，在迭代后期让<span class="arithmatex">\(w\)</span>较小，充分“向其他粒子学习”</p>
+</blockquote>
+<h2 id="_7">算法拓展<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ol>
+<li>实现参数自适应变化</li>
+<li>引入其他机制，比如随机扰动，后期压缩最大速度等</li>
+<li>结合其他智能算法：遗传算法，模拟退火算法等等</li>
+</ol>
+<h2 id="_8">案例实操<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>求解<span class="arithmatex">\(f(x)=xsin(x)cos(2x)-2xsin(3x)+3xsin(4x)\)</span>在[0,50]的最小值</p>
+<p><img alt="2020AB1-1" src="https://github.com/DINOREXNB/blob/main/docs/images/2020AB1-1.png" /></p>
 
 
 
