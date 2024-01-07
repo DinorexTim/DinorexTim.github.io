@@ -4,6 +4,8 @@ repo_name: 'DINOREXNB.github.io'
 repo_url: 'https://github.com/DINOREXNB/DINOREXNB.github.io'
 
 theme:
+  logo: https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/assets/logo.png?raw=true
+  favicon: https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/assets/logo.png?raw=true
   name: material
   language: zh
   icon:
