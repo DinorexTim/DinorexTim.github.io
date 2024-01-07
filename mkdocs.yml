@@ -70,6 +70,7 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.superfences
   - md_in_html
+  - attr_list
   - toc:
       permalink: true
   - tables
