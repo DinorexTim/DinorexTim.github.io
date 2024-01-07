@@ -776,6 +776,19 @@
     简单模型
   </a>
   
+    <nav class="md-nav" aria-label="简单模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    一维热方程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -953,6 +966,19 @@
     简单模型
   </a>
   
+    <nav class="md-nav" aria-label="简单模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    一维热方程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -994,10 +1020,11 @@
 <ul>
 <li>所以回焊炉内部的温度是连续的折线</li>
 </ul>
+<p><img alt="2020AQA1-0" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2020AQ1-0.png?raw=true" /></p>
 <h2 id="_3">一些记号<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><span class="arithmatex">\(v\quad 传送带速度\)</span></p>
 <p><span class="arithmatex">\(h(x)\quad 回焊炉内的稳定温度场\)</span></p>
-<p><span class="arithmatex">\(z\quad 锡焊厚度方向变量\)</span></p>
+<p><span class="arithmatex">\(z\quad 锡焊厚度方向变量\quad (测温处z=0.075mm)\)</span></p>
 <p><span class="arithmatex">\(u(z,t)\quad 锡焊内部z处在t时刻的温度\)</span></p>
 <p><span class="arithmatex">\(c\quad 锡膏热容\)</span></p>
 <p><span class="arithmatex">\(\rho \quad 锡膏密度\)</span></p>
@@ -1008,7 +1035,28 @@
 <li>视锡膏为质点（不考虑厚度因素）</li>
 </ul>
 <div class="arithmatex">\[u(z,t)=u(t)\]</div>
-<p><img align="left" alt="2020AQA1.1" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2020AQ1-1.png" /></p>
+<p><img alt="2020AQA1-1" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2020AQ1-1.png?raw=true" /></p>
+<ul>
+<li>锡膏吸收的热量与环境温度和锡膏的温度差成正比</li>
+</ul>
+<div class="arithmatex">\[\int_{t_1}^{t_2}h(t)(f(t)-u(t))dt\]</div>
+<ul>
+<li>锡膏热量的变化与锡膏时间段温差成正比</li>
+</ul>
+<div class="arithmatex">\[k(u(t_2)-u(t_1))\]</div>
+<ul>
+<li>令<span class="arithmatex">\(t_2\to t_1\)</span>，取极限可得</li>
+</ul>
+<div class="arithmatex">\[\frac{du}{dt}=k(f(t)-u(t))\]</div>
+<div class="arithmatex">\[u(0)=25\]</div>
+<blockquote>
+<p>锡膏参数与温度相关，k不是常数，应该分段做拟合，根据不同温区进行参数拟合</p>
+</blockquote>
+<h3 id="_5">一维热方程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[u_{tt}(z,t)=a^2u_{zz}(z,t)\quad a^2=\frac{k}{c\rho}\quad l=0.015mm\]</div>
+<div class="arithmatex">\[-u_z(0,t)=h_1(f(t)-u(0,t))\quad 热方程第三类边界条件\quad h_1=h/k\]</div>
+<div class="arithmatex">\[u_z(l,t)=h_1(f(t)-u(l,t))\]</div>
+<div class="arithmatex">\[u(z,0)=25,\quad 0≤z≤l\quad 初值条件\]</div>
 
 
 
