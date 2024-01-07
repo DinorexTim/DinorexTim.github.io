@@ -134,7 +134,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -812,7 +812,7 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    一些记号
+    符号说明
   </a>
   
 </li>
@@ -1009,7 +1009,7 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    一些记号
+    符号说明
   </a>
   
 </li>
@@ -1081,7 +1081,7 @@
 <li>所以回焊炉内部的温度是连续的折线</li>
 </ul>
 <p><img alt="2020AQA1-0" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2020AQ1-0.png?raw=true" /></p>
-<h2 id="_3">一些记号<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">符号说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><span class="arithmatex">\(v\quad 传送带速度\)</span></p>
 <p><span class="arithmatex">\(h(x)\quad 回焊炉内的稳定温度场\)</span></p>
 <p><span class="arithmatex">\(z\quad 锡焊厚度方向变量\quad (测温处z=0.075mm)\)</span></p>
@@ -1126,7 +1126,13 @@
 <p>得到差分方程</p>
 <div class="arithmatex">\[\frac{u_{i,j+1}-u_{i,j}}{\Delta t}=a^2\cdot\frac{u_{i-1,j}-2u_{i,j}+u_{i+1,j}}{(\Delta z)^2}\]</div>
 <p>将该方程化为C-N隐格式：</p>
-<p>$$$$</p>
+<div class="arithmatex">\[\frac{u_{i,j+1}-u_{i,j}}{\Delta t}=\frac{a^2}{2}\cdot\frac{(u_{i-1,j}+u_{i-1,j+1})-2(u_{i,j}+u_{i,j+1})+(u_{i+1,j}+u_{i+1,j+1})}{(\Delta z)^2}\]</div>
+<p>由<strong>第三类边界条件</strong>求端点温度</p>
+<div class="arithmatex">\[-\frac{u_{2,j+1}-u_{1,j+1}}{\Delta z}+h_1u_{1,j+1}=h_1f_{j+1}\]</div>
+<p>得到</p>
+<div class="arithmatex">\[(1+h_1\Delta z)u_{1,j+1}-u_{2,j+1}=h_1f_{j+1}\Delta z\quad(左端点)\]</div>
+<div class="arithmatex">\[(1+h_1\Delta z)u_{m+1,j+1}-u_{m,j+1}=h_1f_{j+1}\Delta z\quad(右端点)\]</div>
+<p><img alt="2020AQA1-2" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2020AQ1-2.png?raw=true" /></p>
 
 
 
