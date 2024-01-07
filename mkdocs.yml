@@ -77,6 +77,7 @@ markdown_extensions:
   - tables
 plugins:
   - blog
+  - search
 nav:
   - About me: index.md
   - 课程笔记:
@@ -95,6 +96,8 @@ nav:
         - 题目: 2020AQ.md
         - Q1: 2020AQ1.md
         - Q2: 2020AQ2.md
+        - Q3: 2020AQ3.md
+        - Q4: 2020AQ4.md
     - 中学物竞:
       - 物竞心得分享: 物竞心得分享.md
   
