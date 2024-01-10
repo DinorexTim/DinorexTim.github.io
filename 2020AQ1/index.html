@@ -813,7 +813,7 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    简单模型（国奖无缘类）
+    简单模型（无缘国奖类）
   </a>
   
 </li>
@@ -1080,7 +1080,7 @@
 <ul>
 <li>回焊炉，在垂直于传送带上的截面上温度相同，回焊炉内形成一个稳定的一维温度场</li>
 <li>不考虑热辐射的影响（注意措辞，比较tricky，最好别写成“假设没有热辐射”）</li>
-<li>电子元件以及焊锡在水平方向上没有热量传递</li>
+<li>电子元件以及焊锡在水平方向上<strong>没有热量传递</strong></li>
 <li>热量在焊锡内部（在垂直方向：焊锡厚度）的传导均可视为一维热传导模型</li>
 <li>每个小温区的温度视为常数</li>
 </ul>
@@ -1106,7 +1106,7 @@
 <p><span class="arithmatex">\(\rho \quad 锡膏密度\)</span></p>
 <p><span class="arithmatex">\(k\quad 锡膏热传导率\)</span></p>
 <p><span class="arithmatex">\(h \quad 锡膏与空气的热交换系数\)</span></p>
-<h2 id="_4">简单模型（国奖无缘类）<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">简单模型（无缘国奖类）<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>视锡膏为质点（不考虑厚度因素）</li>
 </ul>
@@ -1153,6 +1153,10 @@
 <div class="arithmatex">\[-0.5ru_{i-1,j+1}+(1+r)u_{i,j+1}-0.5ru_{i+1,j+1}=0.5u_{i-1,j}+(1-r)u_{i,j}+0.5ru_{i+1,j}\]</div>
 <p>可以转化为线性方程组求解</p>
 <div class="arithmatex">\[\left(\begin{matrix}1+h_1\Delta z &amp; -1 &amp;&amp;&amp;\\-r&amp;2(1+r)&amp;-r&amp;&amp;\\&amp;-r&amp;2(1+r)&amp;-r&amp;&amp;\\&amp;&amp;-r&amp;2(1+r)&amp;-r&amp;\\&amp;&amp;&amp;-1&amp;1+h_1\Delta z\end{matrix}\right)_{(m+1,m+1)}\left(\begin{matrix}u_{1,j+1}\\u_{2,j+1}\\u_{3,j+1}\\u_{4,j+1}\\u_{5,j+1}\end{matrix}\right)\]</div>
+<div class="arithmatex">\[=\left(\begin{matrix} &amp;&amp;&amp;&amp;\\-r&amp;2(1+r)&amp;-r&amp;&amp;\\&amp;-r&amp;2(1+r)&amp;-r&amp;&amp;\\&amp;&amp;-r&amp;2(1+r)&amp;-r&amp;\\&amp;&amp;&amp;&amp;\end{matrix}\right)\left(\begin{matrix}u_{1,j}\\u_{2,j}\\u_{3,j}\\u_{4,j}\\u_{5,j}\end{matrix}\right)+\left(\begin{matrix}h_1f_{j+1\Delta z}\\ \\ \\ \\h_1f_{ij+1}\Delta z\end{matrix}\right)\]</div>
+<blockquote>
+<p>利用时间为0的温度初值求解下一时刻的温度</p>
+</blockquote>
 <h2 id="_7">最小二乘法做参数拟合<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>由模型求得的温度记为<span class="arithmatex">\(u_i=u_i(a,h)\)</span>，实验数据温度为<span class="arithmatex">\(\bar{u_i}\)</span></p>
 <div class="arithmatex">\[F(a,h)=\sum(u_i(a,h)-\bar{u_i})^2\]</div>
