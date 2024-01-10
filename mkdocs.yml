@@ -35,12 +35,13 @@ theme:
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.prune
-    - navigation.indexes
     - search.share
     - search.highlight
     - search.suggest
     - header.autohide
     - navigation.footer
+    - toc.follow
+    - toc.integrate
 extra:
   social:
     - icon: fontawesome/brands/github-alt
