@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../CUPT%E5%AE%A3%E8%AE%B2%E4%BC%9A/">
+        <link rel="prev" href="../2020AQ4/">
       
       
-        <link rel="next" href="../%E5%B7%AE%E5%88%86%E6%96%B9%E7%A8%8B/">
+        <link rel="next" href="../%E7%89%A9%E7%AB%9E%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>中心差分法 - Dinorex 's blog</title>
+        <title>碎碎念 - Dinorex 's blog</title>
       
     
     
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              中心差分法
+              碎碎念
             
           </span>
         </div>
@@ -649,152 +649,34 @@
                 
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
-            
+  
+  
+    <a href="../%E4%B8%AD%E5%BF%83%E5%B7%AE%E5%88%86%E6%B3%95/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     相关基础
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_1">
-            <span class="md-nav__icon md-icon"></span>
-            相关基础
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+        <span class="md-nav__icon md-icon"></span>
       
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    中心差分法
-  </span>
+    </a>
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    中心差分法
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    问题提出
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    一阶导数和二阶导数的二阶中心差分格式
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%B7%AE%E5%88%86%E6%96%B9%E7%A8%8B/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    差分方程
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    粒子群优化PSO
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -843,9 +725,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../2020Atips/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -854,6 +745,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -959,25 +851,21 @@
   
 
 
-  <h1>中心差分法</h1>
-
-<h2 id="_1">问题提出<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>已知一系列的数据点<span class="arithmatex">\((x_i,y_i),i=1,2,\dots\)</span>，且横坐标等间距，如何计算/估计一阶导数f'(x)以及二阶导数f''(x)？</p>
-<h2 id="_2">一阶导数和二阶导数的二阶中心差分格式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="_1">碎碎念<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <ul>
-<li>
-<p>假如从左至右一共有三个点<span class="arithmatex">\(A(x_0,y_0)，B(x_0+h,y_1)，C(x_0+2h,y_2)\)</span>，如何利用点B及其左右一个点的坐标(共三个点的坐标)，来估计点B处一阶导数和二阶导数呢？</p>
-</li>
-<li>
-<p>一阶导数的二阶中心差分格式</p>
+<li>理论部分展开论述，如果不给出优化问题的模型（你要求解的是什么），说明你的理论部分不完善，评委一般不会花时间看你的文字描述，因为你要拟合参数，必然会给出优化模型。优化模型不给都是白搭。</li>
+<li>一般来说省奖不看程序，答案正确与否表示你的方法、程序是否正确</li>
+<li>务必标注参考文献，表示你对别人研究成果的尊重</li>
+<li>附录中务必附上代码、程序，不要仅放到支撑材料里面（审评的时候是不会看的）</li>
+<li>不要过于依赖库函数(eg:scipy的odeint)，最好能够自编程实现，要在代码中体现你自己的思想</li>
+<li>论文分三大部分去写<ul>
+<li>理论部分：包含你的模型理论部分和算法理论部分</li>
+<li>模型求解部分：结果的表述。给出流程图和文字描述（解法思想）</li>
+<li>结论表述部分：解问题不要问1求1，在求解过程中会有很多中间量，有很多重要的参数，要关注参量之间的关系，有助于挖掘规律（比如Q2当中各个参量与过炉速度之间都是单调函数）</li>
+<li>结果分析部分：如参变量对结果的影响，<del>有助于提高论文艺术性，水论文长度</del></li>
+</ul>
 </li>
 </ul>
-<div class="arithmatex">\[f'(x_0+h)=\frac{f(x_0+2h)-f(x_0)}{2h}\]</div>
-<ul>
-<li>二阶导数的二阶中心差分格式</li>
-</ul>
-<div class="arithmatex">\[f''(x_0+h)=\left(\frac{f(x_0)-f(x_0+h)}{h}-\frac{f(x_0+h)-f(x_0+2h)}{h}\right)/h\]</div>
-<div class="arithmatex">\[=\frac{f(x_0)-2f(x_0+h)+f(x_0+2h)}{h^2}\]</div>
 
 
 
@@ -999,7 +887,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../CUPT%E5%AE%A3%E8%AE%B2%E4%BC%9A/" class="md-footer__link md-footer__link--prev" aria-label="上一页: CUPT宣讲会">
+          <a href="../2020AQ4/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Q4">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
@@ -1009,20 +897,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                CUPT宣讲会
+                Q4
               </div>
             </div>
           </a>
         
         
           
-          <a href="../%E5%B7%AE%E5%88%86%E6%96%B9%E7%A8%8B/" class="md-footer__link md-footer__link--next" aria-label="下一页: 差分方程">
+          <a href="../%E7%89%A9%E7%AB%9E%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB/" class="md-footer__link md-footer__link--next" aria-label="下一页: 物竞心得分享">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                差分方程
+                物竞心得分享
               </div>
             </div>
             <div class="md-footer__button md-icon">
