@@ -99,7 +99,8 @@ nav:
         - Q2: 2020AQ2.md
         - Q3: 2020AQ3.md
         - Q4: 2020AQ4.md
-      - 碎碎念: 2020Atips.md
+        - code: 2020Acode.md
+        - 碎碎念: 2020Atips.md
     - 中学物竞:
       - 物竞心得分享: 物竞心得分享.md
   
