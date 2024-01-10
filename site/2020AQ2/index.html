@@ -249,8 +249,6 @@
         <a href="../%E9%A9%AC%E5%8E%9F%E4%B8%B2%E8%AE%B2%E8%AE%B0%E5%BD%95/" class="md-tabs__link">
           
   
-    
-  
   课程笔记
 
         </a>
@@ -284,8 +282,6 @@
       <li class="md-tabs__item md-tabs__item--active">
         <a href="../CUPT%E5%AE%A3%E8%AE%B2%E4%BC%9A/" class="md-tabs__link">
           
-  
-    
   
   比赛
 
@@ -324,7 +320,9 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Dinorex &#39;s blog" class="md-nav__button md-logo" aria-label="Dinorex 's blog" data-md-component="logo">
       
@@ -374,10 +372,6 @@
   
     
     
-      
-        
-      
-    
     
     
     
@@ -417,10 +411,6 @@
   
     
     
-      
-        
-      
-    
     
     
     
@@ -459,10 +449,6 @@
   
   
     
-    
-      
-        
-      
     
     
     
@@ -519,14 +505,6 @@
   
     
     
-      
-        
-      
-        
-      
-        
-      
-    
     
     
     
@@ -565,10 +543,6 @@
   
   
     
-    
-      
-        
-      
     
     
     
@@ -639,12 +613,6 @@
   
     
     
-      
-        
-      
-        
-      
-    
     
     
     
@@ -683,14 +651,6 @@
   
   
     
-    
-      
-        
-      
-        
-      
-        
-      
     
     
     
@@ -731,18 +691,6 @@
   
   
     
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
     
@@ -943,10 +891,6 @@
   
     
     
-      
-        
-      
-    
     
     
     
@@ -1021,39 +965,6 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    使用二分法求解
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           
             <div class="md-content" data-md-component="content">
@@ -1067,18 +978,25 @@
 
 <h1 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h1>
 <h2 id="_1">使用二分法求解<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>根据题目所给的制程界限，需要满足：</p>
 <ul>
-<li>模型: max v</li>
-<li>根据题目所给的制程界限，需要满足：<ul>
-<li>温度斜率绝对值不大于3<span class="arithmatex">\(\quad|u_i-u_{i-1}&lt;3*0.5|\)</span></li>
-<li>温度上升过程中在150℃~190℃的时间T1<span class="arithmatex">\(\quad60≤T_1≤120\)</span></li>
-<li>温度大于217℃时间T2<span class="arithmatex">\(\quad40≤T_2≤90\)</span></li>
-<li>最大温度在240~250之间<span class="arithmatex">\(\quad 240≤\max\cdot u≤250\)</span></li>
+<li>温度斜率绝对值不大于3</li>
 </ul>
-</li>
+<div class="arithmatex">\[|u_i-u_{i-1}|&lt;3*0.5\]</div>
+<ul>
+<li>温度上升过程中在150℃~190℃的时间T1</li>
 </ul>
+<div class="arithmatex">\[60≤T_1≤120\]</div>
+<ul>
+<li>温度大于217℃时间T2</li>
+</ul>
+<div class="arithmatex">\[40≤T_2≤90\]</div>
+<ul>
+<li>最大温度在240~250之间</li>
+</ul>
+<div class="arithmatex">\[ 240≤\max u≤250\]</div>
 <p>考查斜率绝对值，T1、T2以及max u与过炉速度之间的关系</p>
-<p>斜率绝对值关于过炉速度单增；T1、T2以及max u关于过炉速度单减，可由二分法求max v</p>
+<p>斜率绝对值关于过炉速度单增；T1、T2以及max u关于过炉速度单减，可由<strong>二分法</strong>求的各个参数对应的最大速度<span class="arithmatex">\(v_i\)</span>，<span class="arithmatex">\(\min(v_i),i\in \{1,2,3,4\}\)</span>即为最大过炉速度</p>
 
 
 
@@ -1189,7 +1107,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.prune", "navigation.indexes", "search.share", "search.highlight", "search.suggest", "header.autohide", "navigation.footer"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.prune", "search.share", "search.highlight", "search.suggest", "header.autohide", "navigation.footer", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
