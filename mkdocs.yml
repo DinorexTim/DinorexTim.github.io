@@ -32,13 +32,12 @@ theme:
     - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.sections
     - navigation.prune
+    - navigation.top
     - search.share
     - search.highlight
     - search.suggest
-    - header.autohide
     - navigation.footer
     - toc.follow
     - toc.integrate
