@@ -9,7 +9,7 @@ import pandas as pd
 from getFurnacetemperature import *
 
 plt.rcParams['font.sans-serif'] = ['SimHei']  # 指定默认字体
-plt.rcParams['axes.unicode_minus'] = False  
+plt.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
 
 solder_thickness = 0.015
 delta_t = 0.5
@@ -105,7 +105,7 @@ def CN(m = 100, # 焊接区域厚度的切割份数
         for index in range(experiment_temperature.T[1].size):
             while np.array([t,u])[0][tmp]<19:
                 tmp+=1
-            sum+=np.abs((np.array([t, u])[1][tmp+index]-experiment_temperature[index][1]))
+            sum+=(np.array([t, u])[1][tmp+index]-experiment_temperature[index][1])**2
         return sum
 
 def pso():
@@ -115,8 +115,8 @@ def pso():
     xlimit_a=[0.0001,0.001] # a位置界限
     vlimit_a=[-0.0002,0.0002] # a速度界限
     
-    xlimit_h=[0,10000] # h位置界限
-    vlimit_h=[-1000,1000] # h速度界限
+    xlimit_h=[3000,12000] # h位置界限
+    vlimit_h=[-1300,1300] # h速度界限
 
     # 初始化种群
     x_a=np.array([
@@ -149,6 +149,8 @@ def pso():
     ])
 
     w=np.linspace(1.1,0.3,cnt_max) # 惯性系数
+    w=np.append(w,np.linspace(0.6,0.6,20))
+    cnt_max+=20
     c1=0.6 # 个体学习参数
     c2=0.6 # 全局学习系数
     
@@ -169,8 +171,8 @@ def pso():
     for index in range(x_a[0].size):
         temp=CN(100,x_a.T[index],x_h.T[index],70/60)
         if(global_best > temp):
-            global_best_a=x_a.T[index][:]
-            global_best_h=x_h.T[index][:]
+            global_best_a=np.copy(x_a.T[index])
+            global_best_h=np.copy(x_h.T[index])
             global_best=temp
             
     # 进行迭代
@@ -182,39 +184,39 @@ def pso():
         r2=np.array(np.random.rand(num_to_optimize))
         for index in range(x_a[0].size):
             # 更新a,v速度
-            va_temp=w[cnt]*v_a.T[index] + c1*r1*(individual_best_a.T[index]-x_a.T[index]) + c2*r2*(global_best_a-x_a.T[index])
-            vh_temp=w[cnt]*v_h.T[index] + c1*r1*(individual_best_h.T[index]-x_h.T[index]) + c2*r2*(global_best_h-x_h.T[index])
+            va_temp=np.copy(w[cnt]*v_a.T[index] + c1*r1*(individual_best_a.T[index]-x_a.T[index]) + c2*r2*(global_best_a-x_a.T[index]))
+            vh_temp=np.copy(w[cnt]*v_h.T[index] + c1*r1*(individual_best_h.T[index]-x_h.T[index]) + c2*r2*(global_best_h-x_h.T[index]))
             if not ((va_temp >= vlimit_a[0]).all() and (va_temp <= vlimit_a[1]).all()):
                 for pos in range(va_temp.size):
                     if va_temp[pos]>vlimit_a[1]:
                         va_temp[pos]=vlimit_a[1]
                     elif va_temp[pos]<vlimit_a[0]:
                         va_temp[pos]=vlimit_a[0]
-            v_a.T[index]=va_temp
+            v_a.T[index]=np.copy(va_temp)
             if not ((vh_temp >= vlimit_h[0]).all() and (vh_temp <= vlimit_h[1]).all()):
                 for pos in range(vh_temp.size):
                     if vh_temp[pos]>vlimit_h[1]:
                         vh_temp[pos]=vlimit_h[1]
                     elif vh_temp[pos]<vlimit_h[0]:
                         vh_temp[pos]=vlimit_h[0]
-            v_h.T[index]=vh_temp
+            v_h.T[index]=np.copy(vh_temp)
             # 更新a,v位置
             if (x_a.T[index]+v_a.T[index]>=xlimit_a[0]).any() and (x_a.T[index]+v_a.T[index]<=xlimit_a[1]).any() and (x_h.T[index]+v_h.T[index]>=xlimit_h[0]).any() and (x_h.T[index]+v_h.T[index]<=xlimit_h[1]).any():
                 # 更新个体历史最优
-                x_a.T[index] = x_a.T[index]+v_a.T[index]
-                x_h.T[index] = x_h.T[index]+v_h.T[index]
+                x_a.T[index] = np.copy(x_a.T[index]+v_a.T[index])
+                x_h.T[index] = np.copy(x_h.T[index]+v_h.T[index])
                 tmp = CN(100,x_a.T[index],x_h.T[index],70/60)
                 if individual_best[index] > tmp: # 只有优于个体历史最佳时才进行更新
-                    individual_best_a.T[index] = x_a.T[index]
-                    individual_best_h.T[index] = x_h.T[index]
+                    individual_best_a.T[index] = np.copy(x_a.T[index])
+                    individual_best_h.T[index] = np.copy(x_h.T[index])
                     individual_best[index] = tmp
                 # 更新全局历史最优
                 if global_best > tmp:
                     print("*******")
                     print("发现全局更优解:",tmp)
                     print("*******")
-                    global_best_a = x_a.T[index]
-                    global_best_h = x_h.T[index]
+                    global_best_a = np.copy(x_a.T[index])
+                    global_best_h = np.copy(x_h.T[index])
                     global_best = tmp
          
             print("a:",global_best_a)
@@ -299,6 +301,168 @@ if __name__ == "__main__":
 
 ## Q2
 
+### Q2.py
+```python
+from Q2peakTemperature import *
+from Q2slope import *
+from Q2temperature150To190 import *
+from Q2temperature217 import *
+
+v_result=np.zeros(4)
+
+# 最大斜率
+max_slope=3
+# 传送带速度范围
+v_range=[65/60,100/60]
+
+# 当前速度
+mid=(v_range[0]+v_range[1])/2
+high=v_range[1]
+low=v_range[0]
+# 最大迭代次数
+cnt_max=15
+
+# 已知a,h
+a= np.array([0.00068095, 0.00080617 ,0.00091174 ,0.00069781, 0.00050876])
+h= np.array([9983.39272247, 4681.68896512, 9237.15138045, 8110.32864819 ,5665.62009518])
+
+def dichotomy_slope(mid):
+    cnt=0
+    while cnt<cnt_max:
+        print("迭代次数:",cnt+1)
+        if max_slope == Maxslope(mid):
+            return mid
+        if max_slope > Maxslope(mid):# 加判断条件
+            mid=(mid+high)/2
+        else:
+            mid=(mid+low)/2
+        cnt+=1
+    return mid
+
+def dichotomy_peak(mid):
+    cnt=0
+    while cnt<cnt_max:
+        print("迭代次数:",cnt+1)
+        if PeakTemperature(mid):# 加判断条件
+            mid=(mid+high)/2
+        else:
+            mid=(mid+low)/2
+        cnt+=1
+    return mid
+
+def dichotomy_217(mid):
+    cnt=0
+    while cnt<cnt_max:
+        print("迭代次数:",cnt+1)
+        if Temperature217(mid):# 加判断条件
+            mid=(mid+high)/2
+        else:
+            mid=(mid+low)/2
+        cnt+=1
+    return mid
+
+def dichotomy_150to190(mid):
+    cnt=0
+    while cnt<cnt_max:
+        print("迭代次数:",cnt+1)
+        if Temperature150To190(mid):# 加判断条件
+            mid=(mid+high)/2
+        else:
+            mid=(mid+low)/2
+        cnt+=1
+    return mid
+
+v_result[0]=dichotomy_slope(mid)
+v_result[1]=dichotomy_peak(mid)
+v_result[2]=dichotomy_217(mid)
+v_result[3]=dichotomy_150to190(mid)
+
+print(v_result)
+```
+
+### Q2slope.py
+
+```python
+from Q1 import *
+
+def Maxslope(speed):
+    maxslope=0
+    a= np.array([0.00068095, 0.00080617 ,0.00091174 ,0.00069781, 0.00050876])
+    h= np.array([9983.39272247, 4681.68896512, 9237.15138045, 8110.32864819 ,5665.62009518])
+    ut=CN(100,a,h,speed,1)
+    ut=ut.T
+    for index in range(ut.T[0].size-1):
+        if maxslope < np.abs(ut[index+1][1]-ut[index][1])/0.5:
+            maxslope = np.abs(ut[index+1][1]-ut[index][1])/0.5
+    return maxslope
+```
+
+### Q2peakTemperature.py
+
+```python
+from Q1 import *
+
+def PeakTemperature(speed):
+    a= np.array([0.00068095, 0.00080617 ,0.00091174 ,0.00069781, 0.00050876])
+    h= np.array([9983.39272247, 4681.68896512, 9237.15138045, 8110.32864819 ,5665.62009518])
+    ut=CN(100,a,h,speed,1)
+    u = ut[1]
+    if np.max(u) >= 240:
+        return 1
+    else:
+        return 0
+
+if __name__ == "__main__":
+    a = PeakTemperature(np.array([1, 245, 3]))
+    print(a)
+```
+
+### Q2temperature217.py
+
+```python
+from Q1 import *
+
+def Temperature217(speed):
+    a= np.array([0.00068095, 0.00080617 ,0.00091174 ,0.00069781, 0.00050876])
+    h= np.array([9983.39272247, 4681.68896512, 9237.15138045, 8110.32864819 ,5665.62009518])
+    ut=CN(100,a,h,speed,1)
+    u = ut[1]
+    a = u[u > 217]
+    b = len(a)
+    if b*0.5 >= 40:
+        return 1
+    else:
+        return 0
+
+if __name__ == "__main__":
+    a = Temperature217(np.array([1, 245, 3, 255]))
+    print(a)
+```
+
+### Q2temperature150To190.py
+
+```python
+from Q1 import *
+
+def Temperature150To190(speed):
+    a= np.array([0.00068095, 0.00080617 ,0.00091174 ,0.00069781, 0.00050876])
+    h= np.array([9983.39272247, 4681.68896512, 9237.15138045, 8110.32864819 ,5665.62009518])
+    ut=CN(100,a,h,speed,1)
+    u = ut[1]
+    diff_u = np.diff(u)
+    a = u[1:][diff_u > 0]
+    a = a[(a > 150) & (a < 190)]
+    b = len(a)
+    if b * 0.5 >= 60:
+        return 1
+    else:
+        return 0
+
+
+if __name__ == "__main__":
+    a = Temperature150To190(np.array([[1,1,1,1,1,1],[1, 45,155, 160, 3, 255]]))
+    print(a)
+```
 ## Q3
 
 ## Q4
