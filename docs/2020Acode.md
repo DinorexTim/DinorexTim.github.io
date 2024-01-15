@@ -9,7 +9,7 @@ import pandas as pd
 from getFurnacetemperature import *
 
 plt.rcParams['font.sans-serif'] = ['SimHei']  # 指定默认字体
-plt.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
+plt.rcParams['axes.unicode_minus'] = False  
 
 solder_thickness = 0.015
 delta_t = 0.5
@@ -101,7 +101,7 @@ def CN(m = 100, # 焊接区域厚度的切割份数
     else:
         sum=0
         tmp=0
-        experiment_temperature=np.array(pd.read_csv('fujian.csv'))
+        experiment_temperature=np.array(pd.read_csv('附件.csv'))
         for index in range(experiment_temperature.T[1].size):
             while np.array([t,u])[0][tmp]<19:
                 tmp+=1
@@ -111,53 +111,47 @@ def CN(m = 100, # 焊接区域厚度的切割份数
 def pso():
     num_to_optimize=5
     N=20 # 种群个数
-    d=1 # 维度
-    cnt_max=20 # 最大迭代次数
+    cnt_max=40 # 最大迭代次数
     xlimit_a=[0.0001,0.001] # a位置界限
-    vlimit_a=[-0.00002,0.00002] # a速度界限
+    vlimit_a=[-0.0002,0.0002] # a速度界限
     
     xlimit_h=[0,10000] # h位置界限
-    vlimit_h=[-800,800] # h速度界限
-    
-    w=0.8 # 惯性系数
-    c1=0.5 # 个体学习参数
-    c2=0.5 # 全局学习系数
+    vlimit_h=[-1000,1000] # h速度界限
 
     # 初始化种群
     x_a=np.array([
-        np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=20),
-        np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=20),
-        np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=20),
-        np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=20),
-        np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=20)
+        np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=N),
+        np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=N),
+        np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=N),
+        np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=N),
+        np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=N)
     ])
     x_h=np.array([
-        np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=20),
-        np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=20),
-        np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=20),
-        np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=20),
-        np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=20)
+        np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=N),
+        np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=N),
+        np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=N),
+        np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=N),
+        np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=N)
     ])
     v_a=np.array([
-        np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=20),
-        np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=20),
-        np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=20),
-        np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=20),
-        np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=20)
+        np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=N),
+        np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=N),
+        np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=N),
+        np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=N),
+        np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=N)
     ])
     v_h=np.array([
-        np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=20),
-        np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=20),
-        np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=20),
-        np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=20),
-        np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=20)
+        np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=N),
+        np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=N),
+        np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=N),
+        np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=N),
+        np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=N)
     ])
-    # x_a=np.full((num_to_optimize,len(np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=20))),np.random.uniform(low=xlimit_a[0], high=xlimit_a[1], size=20))
-    # x_h=np.full((num_to_optimize,len(np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=20))),np.random.uniform(low=xlimit_h[0], high=xlimit_h[1], size=20))
-    # # 初始化个体速度
-    # v_a=np.full((num_to_optimize,len(np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=20))),np.random.uniform(low=-vlimit_a[0], high=vlimit_a[1], size=20))
-    # v_h=np.full((num_to_optimize,len(np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=20))),np.random.uniform(low=-vlimit_h[0], high=vlimit_h[1], size=20))
 
+    w=np.linspace(1.1,0.3,cnt_max) # 惯性系数
+    c1=0.6 # 个体学习参数
+    c2=0.6 # 全局学习系数
+    
     # 个体历史最优
     individual_best=np.zeros(x_a[0].size)
     for index in range(individual_best.shape[0]):
@@ -173,7 +167,7 @@ def pso():
 
     # 初始化全局最优
     for index in range(x_a[0].size):
-        temp=CN(100,x_a.T[index][:],x_h.T[index][:],70/60)
+        temp=CN(100,x_a.T[index],x_h.T[index],70/60)
         if(global_best > temp):
             global_best_a=x_a.T[index][:]
             global_best_h=x_h.T[index][:]
@@ -184,59 +178,62 @@ def pso():
         print("*******")
         print("迭代次数: ",cnt+1)
         print("*******")
-        r1=np.full(num_to_optimize,np.random.rand(1))
-        r2=np.full(num_to_optimize,np.random.rand(1))
+        r1=np.array(np.random.rand(num_to_optimize))
+        r2=np.array(np.random.rand(num_to_optimize))
         for index in range(x_a[0].size):
             # 更新a,v速度
-            va_temp=w*v_a.T[index] + c1*r1*(individual_best_a.T[index]-x_a.T[index]) + c2*r2*(global_best_a-x_a.T[index])
-            vh_temp=w*v_h.T[index] + c1*r1*(individual_best_h.T[index]-x_h.T[index]) + c2*r2*(global_best_h-x_h.T[index])
+            va_temp=w[cnt]*v_a.T[index] + c1*r1*(individual_best_a.T[index]-x_a.T[index]) + c2*r2*(global_best_a-x_a.T[index])
+            vh_temp=w[cnt]*v_h.T[index] + c1*r1*(individual_best_h.T[index]-x_h.T[index]) + c2*r2*(global_best_h-x_h.T[index])
             if not ((va_temp >= vlimit_a[0]).all() and (va_temp <= vlimit_a[1]).all()):
                 for pos in range(va_temp.size):
                     if va_temp[pos]>vlimit_a[1]:
                         va_temp[pos]=vlimit_a[1]
-                    else:
+                    elif va_temp[pos]<vlimit_a[0]:
                         va_temp[pos]=vlimit_a[0]
             v_a.T[index]=va_temp
             if not ((vh_temp >= vlimit_h[0]).all() and (vh_temp <= vlimit_h[1]).all()):
                 for pos in range(vh_temp.size):
-                    if vh_temp[pos]>vlimit_a[1]:
+                    if vh_temp[pos]>vlimit_h[1]:
                         vh_temp[pos]=vlimit_h[1]
-                    else:
+                    elif vh_temp[pos]<vlimit_h[0]:
                         vh_temp[pos]=vlimit_h[0]
             v_h.T[index]=vh_temp
             # 更新a,v位置
             if (x_a.T[index]+v_a.T[index]>=xlimit_a[0]).any() and (x_a.T[index]+v_a.T[index]<=xlimit_a[1]).any() and (x_h.T[index]+v_h.T[index]>=xlimit_h[0]).any() and (x_h.T[index]+v_h.T[index]<=xlimit_h[1]).any():
+                # 更新个体历史最优
                 x_a.T[index] = x_a.T[index]+v_a.T[index]
                 x_h.T[index] = x_h.T[index]+v_h.T[index]
-                # 更新个体历史最优
-                tmp = CN(100,x_a.T[index][:],x_h.T[index][:],70/60)
-                if individual_best[index] > tmp:
+                tmp = CN(100,x_a.T[index],x_h.T[index],70/60)
+                if individual_best[index] > tmp: # 只有优于个体历史最佳时才进行更新
                     individual_best_a.T[index] = x_a.T[index]
                     individual_best_h.T[index] = x_h.T[index]
                     individual_best[index] = tmp
                 # 更新全局历史最优
                 if global_best > tmp:
+                    print("*******")
+                    print("发现全局更优解:",tmp)
+                    print("*******")
                     global_best_a = x_a.T[index]
                     global_best_h = x_h.T[index]
                     global_best = tmp
+         
             print("a:",global_best_a)
-            print("h",global_best_h)
-            print(global_best)
-            
+            print("h:",global_best_h)
+            print(global_best)   
     return global_best_a,global_best_h,global_best
 
 if __name__ == "__main__":
     a,h,globalbest=pso()
-    test = CN(150, a, h, 70/60, 1)
+    test = CN(100, a, h, 70/60, 1)
     test = test.T
-    u = pd.read_csv('fujian.csv')
+    u = pd.read_csv('附件.csv')
     u = np.array(u)
 
     plt.figure(figsize=(14, 6))
     plt.subplots_adjust(wspace=0.5)
     plt.subplot(121)
-    plt.plot(test[38:-2, 0], test[38:-2, 1], label='实验温度')
-    plt.plot(u[:, 0],u[:, 1], label='模型温度')
+    plt.plot(test[38:-2, 0], test[38:-2, 1], label='模型温度')
+    plt.plot(u[:, 0],u[:, 1], label='实验温度')
     plt.legend()
     plt.subplot(122)
     delta = test[38:-1, 1] - u[:, 1]
@@ -298,7 +295,6 @@ if __name__ == "__main__":
         y = np.append(y, getFurnacetemperature(v))
     plt.plot(x, y, label='炉内温度')
     plt.show()
-
 ```
 
 ## Q2
