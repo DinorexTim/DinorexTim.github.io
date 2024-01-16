@@ -68,6 +68,8 @@ markdown_extensions:
       use_pygments: true
       pygments_lang_class: true
   - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - md_in_html
   - attr_list
   - toc:
