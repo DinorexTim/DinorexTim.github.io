@@ -20,7 +20,7 @@
     
     
       
-        <title>遗传算法 - Dinorex 's blog</title>
+        <title>遗传算法GA - Dinorex 's blog</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              遗传算法
+              遗传算法GA
             
           </span>
         </div>
@@ -791,12 +791,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    遗传算法
+    遗传算法GA
   </span>
   
 
@@ -807,7 +809,7 @@
         
   
   <span class="md-ellipsis">
-    遗传算法
+    遗传算法GA
   </span>
   
 
@@ -819,6 +821,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -827,14 +831,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     背景
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     基本原理
   </a>
   
@@ -842,14 +846,49 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    解码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    复制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    交叉
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    变异
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    算法实现
+  </a>
   
 </li>
       
@@ -1007,6 +1046,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1015,14 +1056,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     背景
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     基本原理
   </a>
   
@@ -1030,14 +1071,49 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    解码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    复制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    交叉
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    变异
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    算法实现
+  </a>
   
 </li>
       
@@ -1059,18 +1135,15 @@
   
 
 
-  <h1>遗传算法</h1>
-
-<h2 id="_1">背景<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>模拟生物在自然环境中的遗传和进化过程而形成的自适应全局优化搜索算法</li>
-</ul>
-<h2 id="_2">基本原理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="_1">遗传算法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">背景<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>模拟生物在自然环境中的遗传和进化过程而形成的自适应全局优化搜索算法</p>
+<h2 id="_3">基本原理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <figure>
 <p><img alt="2020Ab1-2" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2020AB1-2.png?raw=true" /></p>
 <figcaption>每个个体进行上述进化，然后择优录取</figcaption>
 </figure>
-<h3 id="_3">编码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_4">编码<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>将问题的可行解，抽象编码为适用于遗传算法的形式</p>
 <ul>
 <li>二进制编码，将数值转化为二进制串，用于求解问题<ul>
@@ -1080,6 +1153,47 @@
 <li>TSP问题，比如10个城市，某个解可以表示为<span class="arithmatex">\([3,2,1,4,5,7,8,9,0]\)</span></li>
 <li><mark>根据不同问题进行不同的抽象实现</mark></li>
 </ul>
+<p>若要实现每个数值都能分配独一无二的串，那么串所能表示的数值个数就要大于数值解的个数，一个长度为n的串能表示<span class="arithmatex">\(2^n\)</span>个数</p>
+<h3 id="_5">解码<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>一个区间范围为<span class="arithmatex">\([a,b]\)</span>， 区间长度为L，串长为<span class="arithmatex">\(n\)</span>，当前串对应十进制T，则该串对应实值解为</p>
+<div class="arithmatex">\[X=a+T\cdot \frac{b-a}{2^n -1}\]</div>
+<blockquote>
+<p>可以简单理解为：当前值=区间最小值+该二进制串对应十进制*精度</p>
+</blockquote>
+<h3 id="_6">复制<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>个体进行复制，进行概率<span class="arithmatex">\(p_c\)</span>进行基因的交叉</p>
+<ul>
+<li>将个体适应度大小映射为概率进行复制：适应度高的个体有更大概率复制，且复制的份数越多——轮盘赌法</li>
+<li>对适应度高的前N/4的个体进行复制，然后把后N/4的个体替换掉——"精英产生精英"</li>
+<li>也可以随机将下一个个体替换掉</li>
+<li>也可以随机将适应度高的解替换掉</li>
+</ul>
+<h3 id="_7">交叉<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>个体按顺序两两按概率交叉，如1和2,2和3</li>
+<li>也可以多个同时进行交叉</li>
+<li>也可以对适应度高的前N/2个体进行相互交叉</li>
+<li>也可以不按顺序交叉，对每个个体随机从前N/2个中选一个进行个体交叉</li>
+<li>也可以进行多段交叉</li>
+</ul>
+<h3 id="_8">变异<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>每个个体都进行变异</li>
+<li>只对适应度低的后N/4或N/2进行变异</li>
+<li>可以按适应度大小映射为概率变异</li>
+<li>也可以是多个位点变异</li>
+</ul>
+<h2 id="_9">算法实现<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>复制：按适应度大小映射为概率，进行轮盘赌复制</li>
+<li>交叉：1和2,3和4，以一定概率决定是否交叉，若交叉，则二者随机选择一段进行交叉</li>
+<li>变异，按照一定概率决定该个体是否变异，若变异，随机选择一个位点进行变异，按位取反</li>
+</ul>
+<p>对于个体<span class="arithmatex">\(x_i\)</span>，计算对应适应度<span class="arithmatex">\(f(x_i)\to p_i=f(x_i)/\sum f(x_i)\)</span></p>
+<blockquote>
+<p>轮盘赌基本思想：适应度越高的解，按道理越应该高概率的进行复制，且复制份数应该越多</p>
+</blockquote>
+<p><img alt="2020Ab1-3" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2020AB1-3.png?raw=true" /></p>
 
 
 
