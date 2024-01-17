@@ -892,6 +892,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    算法分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    启发式算法本质乱谈
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    案例实操
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1117,6 +1138,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    算法分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    启发式算法本质乱谈
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    案例实操
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1190,10 +1232,32 @@
 <li>变异，按照一定概率决定该个体是否变异，若变异，随机选择一个位点进行变异，按位取反</li>
 </ul>
 <p>对于个体<span class="arithmatex">\(x_i\)</span>，计算对应适应度<span class="arithmatex">\(f(x_i)\to p_i=f(x_i)/\sum f(x_i)\)</span></p>
-<blockquote>
-<p>轮盘赌基本思想：适应度越高的解，按道理越应该高概率的进行复制，且复制份数应该越多</p>
-</blockquote>
+<p>轮盘赌基本思想：适应度越高的解，按道理越应该高概率的进行复制，且复制份数应该越多，我们生成随机数，判断该随机数所在区间，则该区间对应的个体发生复制</p>
 <p><img alt="2020Ab1-3" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2020AB1-3.png?raw=true" /></p>
+<blockquote>
+<p>将上图的概率序列进行累加获得一个累加和序列，仅需要判断大于生成的随机数的最小索引即可，从而在进行随机复制片段选取时避免了<code>if-else</code>类型的区间判断</p>
+</blockquote>
+<h2 id="_10">算法分析<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ul>
+<li>优点<ul>
+<li>参数少，具有理论优势</li>
+<li>变异机制赋予了群体跳出局部极值的能力</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>容易陷入局部最优，算法实现较为繁琐</li>
+</ul>
+</li>
+</ul>
+<h2 id="_11">启发式算法本质乱谈<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>基本思想是择优进化，好的根据一定策略变得更好，差的更具一定策略向更好的方向发展，哪怕下一次的解不好，大不了就不更新，也就是所谓的保底机制</p>
+<p>若没有任何策略，则随机生成一个初始解，每次循环再随机生成一个解，如果新的解比旧解好，就更新（择优进化），否则不更新</p>
+<blockquote>
+<p>称之为随机大法(Stochastic Big)，<del>简称SB大法</del></p>
+</blockquote>
+<h2 id="_12">案例实操<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>求解<span class="arithmatex">\(f(x)=abs(x\sin x(x)\cos(2x)-2x\sin(3x)+3x\sin (4x))\)</span>在[0,50]的最大值</p>
+<p><img alt="2020Ab1-4" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2020AB1-4.png?raw=true" /></p>
 
 
 
