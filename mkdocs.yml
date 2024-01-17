@@ -39,6 +39,7 @@ theme:
     - search.highlight
     - search.suggest
     - navigation.footer
+    - content.code.copy
 extra:
   social:
     - icon: fontawesome/brands/github-alt
