@@ -89,6 +89,10 @@ nav:
       - CUPT宣讲会: CUPT宣讲会.md 
       - 赛题分析 液滴显微镜: 液滴显微镜.md
       - 校赛总结 液滴显微镜: 液滴显微镜总结.md
+      - CUPT培训:
+        - 研究题目流程: 研究题目流程.md
+        - COMSOL使用教程: COMSOL.md
+        - Tracker使用教程: Tracker.md
     - 数学建模:
       - 相关基础:
         - 中心差分法: 中心差分法.md
