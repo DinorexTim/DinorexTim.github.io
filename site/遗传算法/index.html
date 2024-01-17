@@ -939,7 +939,7 @@
       
         <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    启发式算法本质乱谈
+    启发式算法本质
   </a>
   
 </li>
@@ -1185,7 +1185,7 @@
       
         <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    启发式算法本质乱谈
+    启发式算法本质
   </a>
   
 </li>
@@ -1287,8 +1287,10 @@
 </ul>
 </li>
 </ul>
-<h2 id="_11">启发式算法本质乱谈<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
-<p>基本思想是择优进化，好的根据一定策略变得更好，差的更具一定策略向更好的方向发展，哪怕下一次的解不好，大不了就不更新，也就是所谓的保底机制</p>
+<h2 id="_11">启发式算法本质<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>可以用一个公式来概括启发式算法</p>
+<div class="arithmatex">\[启发式算法=优化策略+保底机制\]</div>
+<p>启发式算法的基本思想是择优进化，好的根据一定策略变得更好，差的更具一定策略向更好的方向发展，哪怕下一次的解不好，大不了就不更新，也就是所谓的<strong>保底机制</strong></p>
 <p>若没有任何策略，则随机生成一个初始解，每次循环再随机生成一个解，如果新的解比旧解好，就更新（择优进化），否则不更新</p>
 <blockquote>
 <p>称之为随机大法(Stochastic Big)，<del>简称SB大法</del></p>
