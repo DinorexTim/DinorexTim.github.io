@@ -100,6 +100,7 @@ nav:
         - 差分方程: 差分方程.md
         - 粒子群优化PSO: 粒子群优化.md
         - 遗传算法GA: 遗传算法.md
+      - 数据搜索网站: data.md
       - 2020国赛A题复现: 
         - 题目: 2020AQ.md
         - Q1: 2020AQ1.md
@@ -108,6 +109,9 @@ nav:
         - Q4: 2020AQ4.md
         - code: 2020Acode.md
         - 碎碎念: 2020Atips.md
+      - 2023美赛A题复现:
+        - 题目: 2023mcm.md
+        - Lotka-Volterra模型: Lotka-Volterra模型.md
     - 中学物竞:
       - 物竞心得分享: 物竞心得分享.md
   
