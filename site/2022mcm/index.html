@@ -1089,9 +1089,32 @@
 <li>在从鲍威尔湖到米德湖的过程中，不考虑支流的影响(因为这条河的主流水比支流多得多)</li>
 </ol>
 <h2 id="_3">资源分配网络构建<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>由于在水运和水电的过程中存在不可避免的自然损失和消耗，引入运输速率来衡量从大坝i到j州的传输效率，即成功传播的百分比</p>
 <figure>
-<p><img alt="2022" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2022mcmb0.png?raw=true" width="400" /></p>
+<p><img alt="2022" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2022mcmb0.png?raw=true" width="600" /></p>
 <figcaption>供水和电力需求的分配网络</figcaption>
+</figure>
+<p>令<span class="arithmatex">\(v_{ij}^{(t)}\)</span>为t时刻大坝i可运输至j州的用于日常使用的水体积</p>
+<p>令<span class="arithmatex">\(\alpha_{ij}\)</span>为传输效率</p>
+<p>令<span class="arithmatex">\(d_{j}\)</span>为单位时间内j州的日常用水的需求量</p>
+<p>根据上述定义，我们可以得到如下恒等式</p>
+<div class="arithmatex">\[\sum_{i=1}^{2}\alpha_{ij}v_{ij}^{(t)}=d_j^{water},j=1,2,3,4,5\]</div>
+<p>对于用电同理，令<span class="arithmatex">\(w_{ij}^{(t)}\)</span>表示t时刻大坝i可运输至j州的电能</p>
+<p>令<span class="arithmatex">\(\gamma_{ij}\)</span>为传输效率，我们可以得到如下恒等式</p>
+<div class="arithmatex">\[\sum_{i=1}^{2}\gamma_{ij}w_{ij}^{(t)}=d_{j}^{elec},j=1,2,3,4,5\]</div>
+<p>进一步得到更新鲍威尔湖的t+1时刻储水量<span class="arithmatex">\(V_1^{(t+1)}\)</span>的公式</p>
+<div class="arithmatex">\[V_1^{(t+1)}=V_1^{(t)}-\sum_{j=1}^{5}(v_{1j}^{(t)}+u_{1j}^{(t)})+v_f\Delta t\]</div>
+<blockquote>
+<p><span class="arithmatex">\(v_f\)</span>表示来自格伦峡谷上游的流入速率，<span class="arithmatex">\(\Delta t\)</span>表示一定间隔的时间长度</p>
+</blockquote>
+<p>对于米德湖t+1时刻的储水量<span class="arithmatex">\(V_2^{(t+1)}\)</span>，我们可以同理可得迭代公式</p>
+<div class="arithmatex">\[V_2^{(t+1)}=V_2^{(t)}-\sum_{j=1}^{5}(v_{2j}^{(t)}+u_{2j}^{(t)})-v_f\Delta t\]</div>
+<blockquote>
+<p>与鲍威尔湖迭代公式不同之处在于最后一项为“-”，因为米德湖有部分水流入鲍威尔湖</p>
+</blockquote>
+<figure>
+<p><img alt="2022" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2022mcmb1.png?raw=true" width="600" /></p>
+<figcaption>双坝串联示意图</figcaption>
 </figure>
 
 
