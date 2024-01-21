@@ -110,9 +110,9 @@ nav:
         - Q4: 2020AQ4.md
         - code: 2020Acode.md
         - 碎碎念: 2020Atips.md
-      - 2023美赛A题复现:
+      - 2023美赛B题复现: 
         - 题目: 2023mcm.md
-        - Lotka-Volterra模型: Lotka-Volterra模型.md
+        - 相关资料/数据: 2023mcmData.md
       - 2022美赛B题分析: 2022mcm.md
     - 中学物竞:
       - 物竞心得分享: 物竞心得分享.md

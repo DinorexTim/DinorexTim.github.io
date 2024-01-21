@@ -1098,17 +1098,17 @@
 <p>令<span class="arithmatex">\(\alpha_{ij}\)</span>为传输效率</p>
 <p>令<span class="arithmatex">\(d_{j}\)</span>为单位时间内j州的日常用水的需求量</p>
 <p>根据上述定义，我们可以得到如下恒等式</p>
-<div class="arithmatex">\[\sum_{i=1}^{2}\alpha_{ij}v_{ij}^{(t)}=d_j^{water},j=1,2,3,4,5\]</div>
+<div class="arithmatex">\[\sum_{i=1}^{2}\alpha_{ij}v_{ij}^{(t)}=d_j^{water},j=1,2,3,4,5\quad(1)\]</div>
 <p>对于用电同理，令<span class="arithmatex">\(w_{ij}^{(t)}\)</span>表示t时刻大坝i可运输至j州的电能</p>
 <p>令<span class="arithmatex">\(\gamma_{ij}\)</span>为传输效率，我们可以得到如下恒等式</p>
-<div class="arithmatex">\[\sum_{i=1}^{2}\gamma_{ij}w_{ij}^{(t)}=d_{j}^{elec},j=1,2,3,4,5\]</div>
+<div class="arithmatex">\[\sum_{i=1}^{2}\gamma_{ij}w_{ij}^{(t)}=d_{j}^{elec},j=1,2,3,4,5\quad(2)\]</div>
 <p>进一步得到更新鲍威尔湖的t+1时刻储水量<span class="arithmatex">\(V_1^{(t+1)}\)</span>的公式</p>
-<div class="arithmatex">\[V_1^{(t+1)}=V_1^{(t)}-\sum_{j=1}^{5}(v_{1j}^{(t)}+u_{1j}^{(t)})+v_f\Delta t\]</div>
+<div class="arithmatex">\[V_1^{(t+1)}=V_1^{(t)}-\sum_{j=1}^{5}(v_{1j}^{(t)}+u_{1j}^{(t)})+v_f\Delta t\quad(3)\]</div>
 <blockquote>
 <p><span class="arithmatex">\(v_f\)</span>表示来自格伦峡谷上游的流入速率，<span class="arithmatex">\(\Delta t\)</span>表示一定间隔的时间长度</p>
 </blockquote>
 <p>对于米德湖t+1时刻的储水量<span class="arithmatex">\(V_2^{(t+1)}\)</span>，我们可以同理可得迭代公式</p>
-<div class="arithmatex">\[V_2^{(t+1)}=V_2^{(t)}-\sum_{j=1}^{5}(v_{2j}^{(t)}+u_{2j}^{(t)})-v_f\Delta t\]</div>
+<div class="arithmatex">\[V_2^{(t+1)}=V_2^{(t)}-\sum_{j=1}^{5}(v_{2j}^{(t)}+u_{2j}^{(t)})-v_f\Delta t\quad(4)\]</div>
 <blockquote>
 <p>与鲍威尔湖迭代公式不同之处在于最后一项为“-”，因为米德湖有部分水流入鲍威尔湖</p>
 </blockquote>
@@ -1116,6 +1116,21 @@
 <p><img alt="2022" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/2022mcmb1.png?raw=true" width="600" /></p>
 <figcaption>双坝串联示意图</figcaption>
 </figure>
+<p>为了简化模型，将两个大坝简化为两个圆柱体进行计算，可以得出t时刻水坝i的水位</p>
+<div class="arithmatex">\[h_i^{(t)}=\frac{V_i^{(t)}}{S_i},i=1,2\quad(5)\]</div>
+<blockquote>
+<p><span class="arithmatex">\(S_i\)</span>表示湖底部面积</p>
+</blockquote>
+<p>接下来考虑电能的转化，定义<span class="arithmatex">\(u_{ij}^{(t)}\)</span>为t时刻大坝i流向j州用于发电的水的体积，根据物理学中的机械能守恒定律，可以得到如下能量转化公式</p>
+<div class="arithmatex">\[w_{ij}^{(t)}=\beta_i\rho_{water}u_{ij}^{(t)}gh_i\quad i\in \{1,2\},j\in\{1,2,3,4,5\}\quad(6)\]</div>
+<blockquote>
+<p><span class="arithmatex">\(\beta_i\)</span>表示发电机的能量转化效率，<span class="arithmatex">\(\rho_{water}\)</span>表示水的密度，<span class="arithmatex">\(g\)</span>表示重力加速度</p>
+</blockquote>
+<p>与此同时需要保证当水位高度<span class="arithmatex">\(h_i\)</span>大于等于发电所需最低高度<span class="arithmatex">\(h_i^{lowest}\)</span>，因为发电机功率与大坝水位高度成正比，定义比例系数<span class="arithmatex">\(\eta_i\)</span>，有总发电功率</p>
+<div class="arithmatex">\[\sum_{j=1}^5w_{ij}^{(t)}≤\begin{cases}\eta_ih_i^{(t)}\Delta t&amp;h_i≥h_i^{lowest}\\0&amp;else\end{cases},i=1,2\quad(7)\]</div>
+<p>为了尽量节省水资源，需要将<span class="arithmatex">\(v_{ij}^{(t)}\)</span>与<span class="arithmatex">\(u_{ij}^{(t)}\)</span>控制到最小</p>
+<p>得到目标函数为</p>
+<div class="arithmatex">\[\min_{v_{ij}^{(t)},u_{ij}^{(t)}}\sum_{i=1}^{2}\sum_{j=1}^{5}v_{ij}^{(t)}+\sum_{i=1}^{2}\sum_{j=1}^{5}u_{ij}^{(t)}\quad(8)\]</div>
 
 
 
