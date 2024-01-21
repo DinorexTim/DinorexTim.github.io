@@ -29,7 +29,7 @@ $$x_{i}=1-\frac{|x_{i}-x_{best}|}{M}$$
   
 $$M=max\{a-min[x_{i}],max[x_{i}]-b\}$$
 
-$$x_{i}=\begin{cases}a-\frac{a-x}{M}&x<a\\1&a≤x≤b\\1-\frac{x-b}{M}&x>b\end{cases}$$
+$$x_{i}=\begin{cases}1-\frac{a-x}{M}&x<a\\1&a≤x≤b\\1-\frac{x-b}{M}&x>b\end{cases}$$
 
 ### 标准化处理
 
