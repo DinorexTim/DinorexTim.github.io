@@ -6,6 +6,12 @@
 
 [http://kenyalaw.org/kl/fileadmin/pdfdownloads/Acts/WildlifeConservationandManagement%20Act2013.pdf](http://kenyalaw.org/kl/fileadmin/pdfdownloads/Acts/WildlifeConservationandManagement%20Act2013.pdf)
 
+> pdf
+
+[http://kenyalaw.org:8181/exist/kenyalex/actview.xql?actid=No.%2047%20of%202013](http://kenyalaw.org:8181/exist/kenyalex/actview.xql?actid=No.%2047%20of%202013)
+
+> 网页版
+
 ## 马赛马拉保护区地图
 
 [https://www.masaimara.travel/maps.php#masai-map](https://www.masaimara.travel/maps.php#masai-map)
