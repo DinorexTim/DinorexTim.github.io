@@ -1,4 +1,6 @@
 
+## 数据搜索
+
 1. [https://freegisdata.rtwilson.com/](https://freegisdata.rtwilson.com/)
 
     行政规划、地形、气候、土地利用、水文、交通、人口地名相关的GIS数据集
@@ -23,3 +25,8 @@
 7. 各级政府官网
 8. 维基百科底部参考资料
 
+## 作图
+
+1. https://matplotlib.org/
+2. https://seaborn.pydata.org/
+3. https://colorable.jxnblk.com（配色）
