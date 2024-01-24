@@ -24,6 +24,9 @@
 6. [https://eia.gov](https://eia.gov)
 7. 各级政府官网
 8. 维基百科底部参考资料
+9. [https://github.com/awesomedata/awesome-public-datasets](https://github.com/awesomedata/awesome-public-datasets)
+
+    github公共数据集
 
 ## 作图
 
