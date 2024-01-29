@@ -1199,6 +1199,8 @@
 <blockquote>
 <p>其中<span class="arithmatex">\(b_i\)</span>表示种群<span class="arithmatex">\(i\)</span>的内禀增长率，<span class="arithmatex">\(a_ij\)</span>表示种群<span class="arithmatex">\(i\)</span>对种群<span class="arithmatex">\(i\)</span>的影响性质和强度</p>
 </blockquote>
+<p>化为矩阵形式</p>
+<div class="arithmatex">\[\left(\begin{matrix}\frac{dx_1}{dt}\\\dots\\\frac{dx_n}{dt}\end{matrix}\right)=\left(\begin{matrix}x_1&amp;\dots&amp;x_1\\\dots&amp;&amp;\dots\\x_n&amp;\dots&amp;x_n\end{matrix}\right)\left[\left(\begin{matrix}a_{11}&amp;\dots&amp;a_{1n}\\\dots&amp;&amp;\dots\\a_{n1}&amp;\dots&amp;a_{nn}\end{matrix}\right)\left(\begin{matrix}x_1\\\dots\\x_n\end{matrix}\right)+\left(\begin{matrix}b_1\\\dots\\b_n\end{matrix}\right)\right]\]</div>
 <h2 id="b">参数b的量化<a class="headerlink" href="#b" title="Permanent link">&para;</a></h2>
 <p>内禀增长率（b）指在给定的物理和生物的条件下，具有稳定的年龄组配的种群的最大瞬时增长率</p>
 <p>仅考虑降雨量与气温对一个种群内禀增长率的影响，经分析可得温度与降水量均为<code>中间型指标</code>，即越接近于“最佳指标”，获得的评价越高。</p>
@@ -1213,7 +1215,7 @@
 </blockquote>
 <p>对于植物，定义<span class="arithmatex">\(t_{max}\)</span>为内禀增长率不低于<span class="arithmatex">\(1\)</span>的最高温度，<span class="arithmatex">\(t_{min}\)</span>为内禀增长率不低于<span class="arithmatex">\(1\)</span>的最低温度，得到</p>
 <div class="arithmatex">\[\lambda_2=2\ln 3\]</div>
-<p>引入温带大陆性气候地区的三种植物，初始化种群数量，随机生成天气状况，在一封闭生态系统中进行演化得到如下图像</p>
+<p>引入温带大陆性气候地区的三种植物，植物1,3和植物2,3为共生关系，植物1,2为竞争关系，初始化种群数量，随机生成天气状况，在一封闭生态系统中进行演化得到如下图像</p>
 <p><img alt="2023mcmq1-0" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/2023mcmq1-0.png?raw=true" /></p>
 <p>在<a href="https://earthdata.nasa.gov/">https://earthdata.nasa.gov/</a>查询到科罗拉多地区17-22年的气象数据，代入模型当中，得到如下图像</p>
 <p><img alt="2023mcmq1-1" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/2023mcmq1-1.png?raw=true" /></p>
