@@ -395,3 +395,66 @@ if __name__=="__main__":
     print(str0)
     # Q2(5,np.array([0,1,2,3,4]))
 ```
+
+## Q3.py
+
+```python
+from mcm2023 import *
+from mpl_toolkits.mplot3d import Axes3D
+def Q3(co1,co2):
+    # 物种数量
+    N=3
+    # 切片数
+    num_of_slices=48
+
+    def func(x: list, t, b: list, a: list):
+        dx0dt = x[0] * (b[0][int(t)] - a[0][0] * x[0] - a[0][1] * x[1] + a[0][2] * x[2])
+        dx1dt = x[1] * (b[1][int(t)] - a[1][0] * x[0] - a[1][1] * x[1] + a[1][2] * x[2])
+        dx2dt = x[2] * (b[2][int(t)] + a[2][0] * x[0] + a[2][1] * x[1] - a[2][2] * x[2])
+        return [dx0dt, dx1dt, dx2dt]
+
+    t = np.linspace(0, num_of_slices-1, num_of_slices)
+    t = [int(x) for x in t]
+    x0 = [10, 10, 15]
+
+    a=np.full((N,N),0.3)
+    for index in range(a[0].size):
+        a[index][index]=0.5
+    a*=co1
+    b=np.zeros((N,num_of_slices))
+
+    weather=genRandomWeather(num_of_slices)
+    for index in range(N):
+        df=getCSV(index)
+        b[index]=co2*getb(weather[0],weather[1],
+            (df[1]+df[2])/2,
+            (df[3]+df[4])/2,
+            (df[2]-df[1]),
+            (df[4]-df[3])
+        )
+        
+    sol = odeint(func, x0, t, args=(b, a))
+    return np.average(sol.T[0])+np.average(sol.T[1])+np.average(sol.T[2])
+
+if __name__ == "__main__":
+    cnt=1
+    x=np.linspace(1.01,1.20,20)
+    y=np.linspace(0.99,0.80,20)
+    z=np.zeros((20,20))
+    for co1 in x:
+        for co2 in y:
+            print(cnt)
+            cnt+=1
+            z[int(100*(co1-1.01))][int(100*(0.99-co2))]=Q3(co1,co2)
+    print(z)
+    # 绘制三维热力图
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    x, y = np.meshgrid(x, y)
+    heat_map = ax.plot_surface(x, y, z, cmap='viridis')
+    fig.colorbar(heat_map, ax=ax, label='population sum')
+    ax.set_xlabel('X/a coefficient')
+    ax.set_ylabel('Y/b coefficient')
+    ax.set_zlabel('Z/population sum')
+    plt.show()
+```
