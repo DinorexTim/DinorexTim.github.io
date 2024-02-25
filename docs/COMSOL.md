@@ -46,7 +46,15 @@
 
 用于在x,y,z方向上生成相同的几何体素
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol4.png?raw=true){width=200}
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol5.png?raw=true){width=400}
+
+- 阵列操作选项
+
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol6.png?raw=true){width=400}
+
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol7.png?raw=true){width=400}
+
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol8.png?raw=true){width=400}
 
 ### 几何模型定义的逻辑
 
