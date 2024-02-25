@@ -10,7 +10,7 @@
 
 ## 定义问题：热微执行器
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol1.png?raw=true){width=400}
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol1.png?raw=true){width=200}
 
 - 问题描述：
     - 在执行器一段施加电压
