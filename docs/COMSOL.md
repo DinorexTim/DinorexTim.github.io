@@ -28,4 +28,18 @@
 |-|-|-|-|
 |获得执行器通电后的热变形情况|三维|电流<br>固体传热<br>固体力学|电磁热<br>热膨胀|
 
-## 
+## 几何建模
+
+### 三维模型
+
+- 几何体素
+
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol2.png?raw=true){width=200}
+
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol3.png?raw=true){width=200}
+
+- 几何操作
+
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol4.png?raw=true){width=200}
+
+每个对象包含“域”、“边界”、“边”、“点”属性
