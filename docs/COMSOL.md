@@ -10,6 +10,8 @@
 
 ## 定义问题：热微执行器
 
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol1.png?raw=true){width=400}
+
 - 问题描述：
     - 在执行器一段施加电压
     - 电流生成热
@@ -25,3 +27,5 @@
 |定义分析目标|几何维度|确定所需物理场|确定多物理场耦合|
 |-|-|-|-|
 |获得执行器通电后的热变形情况|三维|电流<br>固体传热<br>固体力学|电磁热<br>热膨胀|
+
+## 
