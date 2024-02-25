@@ -64,6 +64,17 @@
 
 ![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol9.png?raw=true){width=400}
 
+#### 布尔操作
+
+- 并集
+- 交集
+- 差集
+
+<figure markdown>
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol10.png?raw=true){width=400}
+<figcaption>圆柱与长方体进行差集运算后几何图像</figcaption>
+</figure>
+
 ### 几何模型定义的逻辑
 
 **几何体素的定义>>变换操作>>逻辑操作**
