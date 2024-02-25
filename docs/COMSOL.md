@@ -85,7 +85,7 @@
 可以选取平面绘制二维图像，方便进行变换操作（拉伸，旋转等）
 
 <figure markdown>
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol10.png?raw=true){width=400}
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol11.png?raw=true){width=400}
 </figure>
 
 ### 几何模型定义的逻辑
