@@ -22,7 +22,7 @@
 
 ![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol1.png?raw=true){width=200}
 
-定义问题逻辑：
+### 定义问题逻辑
 
 |定义分析目标|几何维度|确定所需物理场|确定多物理场耦合|
 |-|-|-|-|
@@ -30,16 +30,24 @@
 
 ## 几何建模
 
-### 三维模型
+### 几何体素
 
-- 几何体素
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol2.png?raw=true){width=200 align=right}
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol2.png?raw=true){width=200}
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol3.png?raw=true){width=150}
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol3.png?raw=true){width=200}
+每个对象包含“域”、“边界”、“边”、“点”属性
 
-- 几何操作
+### 几何操作
 
 ![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol4.png?raw=true){width=200}
 
-每个对象包含“域”、“边界”、“边”、“点”属性
+#### 阵列
+
+用于在x,y,z方向上生成相同的几何体素
+
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol4.png?raw=true){width=200}
+
+### 几何模型定义的逻辑
+
+**几何体素的定义>>变换操作>>逻辑操作**
