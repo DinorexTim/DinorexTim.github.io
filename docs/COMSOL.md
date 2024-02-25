@@ -10,8 +10,6 @@
 
 ## 定义问题：热微执行器
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol1.png?raw=true){width=200}
-
 - 问题描述：
     - 在执行器一段施加电压
     - 电流生成热
@@ -21,6 +19,8 @@
 > 多物理场：电+热+结构力学
 >
 > 建模难点在于如何反向简化模型
+
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol1.png?raw=true){width=200}
 
 定义问题逻辑：
 
