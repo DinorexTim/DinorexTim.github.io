@@ -46,23 +46,28 @@
 
 用于在x,y,z方向上生成相同的几何体素，快速构建零部件
 
+<figure markdown>
 ![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol5.png?raw=true){width=500}
+<figcaption>变换前几何体素</figcaption>
+</figure>
 
-阵列操作选项：
-
+<figure markdown>
 ![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol6.png?raw=true){width=400}
-
 ![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol7.png?raw=true){width=400}
+<figcaption>阵列操作选项</figcaption>
+</figure>
 
-阵列变换效果：
-
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol8.png?raw=true){width=500}
+<figure markdown>
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol8.png?raw=true){width=400}
+<figcaption>阵列变换效果</figcaption>
+</figure>
 
 #### 移动
 
-移动特定几何体素
-
+<figure markdown>
 ![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol9.png?raw=true){width=400}
+<figcaption>移动特定几何体素选项</figcaption>
+</figure>
 
 #### 布尔操作
 
@@ -73,6 +78,14 @@
 <figure markdown>
 ![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol10.png?raw=true){width=400}
 <figcaption>圆柱与长方体进行差集运算后几何图像</figcaption>
+</figure>
+
+#### 工作平面
+
+可以选取平面绘制二维图像，方便进行变换操作（拉伸，旋转等）
+
+<figure markdown>
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol10.png?raw=true){width=400}
 </figure>
 
 ### 几何模型定义的逻辑
