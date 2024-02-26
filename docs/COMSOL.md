@@ -131,7 +131,7 @@ $$Ma=\frac{|u|}{a}=\frac{流速}{音速}$$
 
 ### 层流
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol12.png?raw=true){width=400 align=right}
+![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol12.png?raw=true){width=250 align=right}
 
 - 求解NS方程
     - 针对低雷诺数情况
@@ -141,4 +141,33 @@ $$Ma=\frac{|u|}{a}=\frac{流速}{音速}$$
 - 可以切换至蠕动流
     - 忽略惯性项
 - 定义参考压力水平（默认为:$1[atm]$）
+  
+### 流动压力
 
+- 压力驱动流体运动
+    - NS方程只计算压力梯度，不计算绝对值
+    - 需要使用绝对压力材料属性
+- 两种方法计算压力：
+    - $\Delta p - p_A$，直接求解绝对压力
+        - 管道流、高马赫流
+    - $\Delta p << p_A$，求解绝对压力$p_A=p_{ref}+p$
+
+### 流体属性
+
+- 密度
+- 动力粘性
+    - 牛顿流体：应力正比于应变
+    - 非牛顿流体
+
+### 初始值
+
+稳态：初始值=数值上的初始猜测
+- 进作为迭代的起始点，没有物理意义
+- 边界条件不需要与初始值一致
+
+顺态：初始值=物理上的初始状态
+- 顺态问题t0时刻的物理解
+- 所有边界条件必须与初始值必须一致
+- 流程：
+    - 使用收敛的稳态解作为初始值
+    - 使用常规初始值（零速度、零压力）和边界条件
