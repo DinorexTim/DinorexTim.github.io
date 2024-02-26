@@ -909,6 +909,75 @@
     初始值
   </a>
   
+    <nav class="md-nav" aria-label="初始值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    进出口条件的组合
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    充分发展的流动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    出口位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    壁边界条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    内部壁
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    对称、轴对称和周期性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    流量控制装置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    压力点约束
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    冲突的边界条件
+  </a>
+  
 </li>
         
       </ul>
@@ -1468,6 +1537,75 @@
     初始值
   </a>
   
+    <nav class="md-nav" aria-label="初始值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    进出口条件的组合
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    充分发展的流动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    出口位置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    壁边界条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    内部壁
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    对称、轴对称和周期性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    流量控制装置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    压力点约束
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    冲突的边界条件
+  </a>
+  
 </li>
         
       </ul>
@@ -1695,6 +1833,92 @@
 - 流程：
     - 使用收敛的稳态解作为初始值
     - 使用常规初始值（零速度、零压力）和边界条件</p>
+<h4 id="_18">进出口条件的组合<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<ul>
+<li>适定条件<ul>
+<li>速度进口，压力出口</li>
+<li>压力进口，速度出口</li>
+</ul>
+</li>
+<li>“稍有难度”条件：<ul>
+<li>压力进口，压力出口</li>
+</ul>
+</li>
+<li>病态条件<ul>
+<li>速度进口，速度出口</li>
+</ul>
+</li>
+</ul>
+<h3 id="_19">充分发展的流动<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li>定义了一个虚拟区域的长度，进口特征长度的10倍，让流体先进行一段流动</li>
+<li>可以在任意形状的进出口定义层流/湍流的速度分布</li>
+<li>与“内部壁”冲突</li>
+</ul>
+<h3 id="_20">出口位置<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li>如果在出口附近存在特定的流动结构（尾迹、回流），需要将出口延长至完全包含该流动结构</li>
+</ul>
+<h3 id="_21">壁边界条件<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>滑移<ul>
+<li>法向速度为0 </li>
+<li><span class="arithmatex">\(u\cdot n=0\)</span></li>
+</ul>
+</li>
+<li>无滑移<ul>
+<li>壁上速度为0 </li>
+<li><span class="arithmatex">\(u=0\)</span></li>
+</ul>
+</li>
+<li>滑动壁<ul>
+<li>指定切向速度 </li>
+<li><span class="arithmatex">\(u=u_{w,proj}\)</span></li>
+</ul>
+</li>
+<li>移动壁<ul>
+<li>指定壁运动速度 </li>
+<li><span class="arithmatex">\(u=u_w\)</span></li>
+</ul>
+</li>
+<li>渗漏壁<ul>
+<li>流体渗漏进或通过多孔壁离开求解域</li>
+</ul>
+</li>
+</ul>
+<h3 id="_22">内部壁<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li>使用内部壁结构可以避免对薄结构进行网格划分</li>
+</ul>
+<h3 id="_23">对称、轴对称和周期性<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>极大减小内存需求和计算时间</li>
+<li>流场和几何必须为对称/轴对称/周期性</li>
+</ul>
+<h3 id="_24">流量控制装置<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<ul>
+<li>将装置作为边界而非域的一部分</li>
+<li>压力边界<ul>
+<li>风扇和格栅可以作为出口和入口</li>
+<li>真空泵为出口</li>
+<li>内部风扇和滤网作为内部边界</li>
+</ul>
+</li>
+</ul>
+<h3 id="_25">压力点约束<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<ul>
+<li>如果没有边界条件限定系统压力，需要使用其他方式来限定</li>
+<li>当考虑重力时，出口压力不能设为常数<ul>
+<li>要考虑静水压力的影响</li>
+</ul>
+</li>
+</ul>
+<h3 id="_26">冲突的边界条件<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<ol>
+<li>入口与出口相邻</li>
+<li>同时指定入口和出口速度</li>
+<li>边界条件与载荷冲突</li>
+</ol>
 
 
 
