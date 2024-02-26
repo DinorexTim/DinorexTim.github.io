@@ -890,6 +890,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    流动压力
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    流体属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    初始值
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1428,6 +1449,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    流动压力
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    流体属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    初始值
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1603,7 +1645,7 @@
 </li>
 </ul>
 <h3 id="_14">层流<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
-<p><img align="right" alt="image" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol12.png?raw=true" width="400" /></p>
+<p><img align="right" alt="image" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol12.png?raw=true" width="250" /></p>
 <ul>
 <li>求解NS方程<ul>
 <li>针对低雷诺数情况</li>
@@ -1618,6 +1660,41 @@
 </li>
 <li>定义参考压力水平（默认为:<span class="arithmatex">\(1[atm]\)</span>）</li>
 </ul>
+<h3 id="_15">流动压力<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>压力驱动流体运动<ul>
+<li>NS方程只计算压力梯度，不计算绝对值</li>
+<li>需要使用绝对压力材料属性</li>
+</ul>
+</li>
+<li>两种方法计算压力：<ul>
+<li><span class="arithmatex">\(\Delta p - p_A\)</span>，直接求解绝对压力<ul>
+<li>管道流、高马赫流</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(\Delta p &lt;&lt; p_A\)</span>，求解绝对压力<span class="arithmatex">\(p_A=p_{ref}+p\)</span></li>
+</ul>
+</li>
+</ul>
+<h3 id="_16">流体属性<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li>密度</li>
+<li>动力粘性<ul>
+<li>牛顿流体：应力正比于应变</li>
+<li>非牛顿流体</li>
+</ul>
+</li>
+</ul>
+<h3 id="_17">初始值<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>稳态：初始值=数值上的初始猜测
+- 进作为迭代的起始点，没有物理意义
+- 边界条件不需要与初始值一致</p>
+<p>顺态：初始值=物理上的初始状态
+- 顺态问题t0时刻的物理解
+- 所有边界条件必须与初始值必须一致
+- 流程：
+    - 使用收敛的稳态解作为初始值
+    - 使用常规初始值（零速度、零压力）和边界条件</p>
 
 
 
