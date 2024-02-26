@@ -846,6 +846,53 @@
     3 CFD接口
   </a>
   
+    <nav class="md-nav" aria-label="3 CFD接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    单相流
+  </a>
+  
+    <nav class="md-nav" aria-label="单相流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    使用雷诺数确定流型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    雷诺数计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    马赫数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    层流
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1337,6 +1384,53 @@
     3 CFD接口
   </a>
   
+    <nav class="md-nav" aria-label="3 CFD接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    单相流
+  </a>
+  
+    <nav class="md-nav" aria-label="单相流">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    使用雷诺数确定流型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    雷诺数计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    马赫数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    层流
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1470,15 +1564,59 @@
 <h3 id="_9">几何模型定义的逻辑<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p><strong>几何体素的定义&gt;&gt;变换操作&gt;&gt;逻辑操作</strong></p>
 <h2 id="3-cfd">3 CFD接口<a class="headerlink" href="#3-cfd" title="Permanent link">&para;</a></h2>
+<h3 id="_10">单相流<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h4 id="_11">使用雷诺数确定流型<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[Re_L=\frac{\rho UL}{\mu}=\frac{惯性力}{粘性力}\]</div>
 <ul>
-<li>流体方程及边界条件</li>
-<li>蠕动流、层流和非牛顿流体建模</li>
-<li>湍流建模</li>
-<li>多相流仿真</li>
-<li>薄膜流和管道流</li>
-<li>非等温流建模</li>
-<li>多孔介质与地下水流</li>
-<li>流体中的粒子追踪</li>
+<li>低雷诺数(&lt;&lt;1)：蠕动流<ul>
+<li>粘性力阻碍了所有流体脉动的产生</li>
+<li>可逆的平滑流型</li>
+</ul>
+</li>
+<li>中等雷诺数(~1-2000)：层流<ul>
+<li>惯性力重要性增加</li>
+<li>粘性力被限制在边界层、剪切层、尾迹内部</li>
+<li>规则、平滑流型</li>
+</ul>
+</li>
+<li>高雷诺数(&gt;4000)：湍流</li>
+</ul>
+<h4 id="_12">雷诺数计算<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li>平板流 <span class="arithmatex">\(Re_x=\frac{Ux}{\nu}\)</span></li>
+<li>圆球扰流 <span class="arithmatex">\(Re_L=\frac{UL}{\nu}\)</span></li>
+<li>管流 <span class="arithmatex">\(Re_{Dh}=\frac{UD_h}{\nu}\quad D_h=\frac{4A(横截面积)}{P(周长)}\)</span></li>
+<li>圆管流 <span class="arithmatex">\(Re_D=\frac{UD}{\nu}\)</span></li>
+</ul>
+<h4 id="_13">马赫数<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[Ma=\frac{|u|}{a}=\frac{流速}{音速}\]</div>
+<ul>
+<li><span class="arithmatex">\(Ma=0\)</span>:正规的不可压缩流动<ul>
+<li>音速无限大（假设），扰动瞬时传播</li>
+<li>抛物型Navier-Stokes方程</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(0&lt;Ma&lt;0.3\)</span>:“弱”可压缩流动<ul>
+<li>小和中等梯度亚音速流</li>
+<li>密度变化不超过5%</li>
+</ul>
+</li>
+</ul>
+<h3 id="_14">层流<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><img align="right" alt="image" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol12.png?raw=true" width="400" /></p>
+<ul>
+<li>求解NS方程<ul>
+<li>针对低雷诺数情况</li>
+<li>瞬态或稳态求解器</li>
+<li>不可压缩或可压缩（<span class="arithmatex">\(Ma&lt;0.3\)</span>）</li>
+</ul>
+</li>
+<li>可以切换到湍流模型</li>
+<li>可以切换至蠕动流<ul>
+<li>忽略惯性项</li>
+</ul>
+</li>
+<li>定义参考压力水平（默认为:<span class="arithmatex">\(1[atm]\)</span>）</li>
 </ul>
 
 
