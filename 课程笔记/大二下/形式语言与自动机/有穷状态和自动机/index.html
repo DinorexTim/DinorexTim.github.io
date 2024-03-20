@@ -774,6 +774,26 @@
     确定的有穷自动机（DFA）
   </a>
   
+    <nav class="md-nav" aria-label="确定的有穷自动机（DFA）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    组成结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dfa_1" class="md-nav__link">
+    DFA设计方法
+  </a>
+  
 </li>
       
     </ul>
@@ -1354,6 +1374,26 @@
     确定的有穷自动机（DFA）
   </a>
   
+    <nav class="md-nav" aria-label="确定的有穷自动机（DFA）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    组成结构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dfa_1" class="md-nav__link">
+    DFA设计方法
+  </a>
+  
 </li>
       
     </ul>
@@ -1394,8 +1434,53 @@
 <li><mark>有一个开始状态</mark></li>
 <li><mark>有一些终止（或接受）状态</mark>，表示到目前为止所读入的字符构成的字符串是语言的一个句子</li>
 </ul>
+<h3 id="_3">组成结构<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li><span class="arithmatex">\(Q\)</span>: 有穷状态集</li>
+<li><span class="arithmatex">\(\Sigma\)</span>: 有穷输入符号集或字母表</li>
+<li><span class="arithmatex">\(\delta\)</span>: <span class="arithmatex">\(Q\times \Sigma\to Q\)</span>状态转移函数</li>
+<li><span class="arithmatex">\(q_0\in Q\)</span>: 初始状态</li>
+<li><span class="arithmatex">\(F\subseteq Q\)</span>: 终结状态集或接受状态集</li>
+</ol>
 <p>例：用DFA表示电视遥控开关</p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy2-2.png?raw=true" width="400" /></p>
+<ul>
+<li>字母表<span class="arithmatex">\(\Sigma=\{p\}\)</span>，p——按开关键</li>
+<li>有穷状态集<span class="arithmatex">\(Q\)</span><ul>
+<li>电视关(<span class="arithmatex">\(q_0\)</span>)</li>
+<li>电视开(<span class="arithmatex">\(q_1\)</span>)</li>
+</ul>
+</li>
+<li>状态转移函数<span class="arithmatex">\(\delta\)</span></li>
+</ul>
+<div class="arithmatex">\[\delta(q_0,p)=q1,\delta(q_1,p)=q_0\]</div>
+<p>例：设计DFA，在任何由0和1组成的字符串中，接受含有01子串的全部串</p>
+<ul>
+<li>字母表<span class="arithmatex">\(\Sigma=\{0,1\}\)</span></li>
+<li>有穷状态集<span class="arithmatex">\(Q\)</span><ul>
+<li>初始状态<span class="arithmatex">\(q_0\)</span>：还没有看到0</li>
+<li><span class="arithmatex">\(q_1\)</span>：已经看到了0</li>
+<li><span class="arithmatex">\(q_2\)</span>：已经看到了01</li>
+</ul>
+</li>
+<li>状态转移函数</li>
+</ul>
+<div class="arithmatex">\[\delta(q_0,0)=q_1,\delta(q_1,1)=q_2,\delta(q_2,0)=q_2\]</div>
+<div class="arithmatex">\[\delta(q_0,1)=q_0,\delta(q_1,0)=q_1,\delta(q_2,0)=q_2\]</div>
+<h2 id="dfa_1">DFA设计方法<a class="headerlink" href="#dfa_1" title="Permanent link">&para;</a></h2>
+<p>法一</p>
+<ul>
+<li>从初始状态开始，对每个状态，依次确定每个字符作为输入时，可能到达的状态：<ul>
+<li>如果到达的状态是之前已出现的状态，建立当前状态到应到达状态的边；</li>
+<li>如果到达的状态是之前未出现的状态，增加新的状态，建立当前状态到新增状态的边</li>
+</ul>
+</li>
+<li>确定终止状态</li>
+</ul>
+<p>法二</p>
+<ul>
+<li>从初始状态开始，重点关注可以到达结束状态的路径，然后对每个节点补充其他字符作为输入时的边和状态</li>
+</ul>
 
 
 
