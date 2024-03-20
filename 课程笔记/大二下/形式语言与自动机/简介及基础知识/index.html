@@ -1572,11 +1572,14 @@
 <p><mark>字符串x的n次幂(n≥0)</mark>：递归定义为</p>
 <div class="arithmatex">\[x^n=\begin{cases}\epsilon&amp;n=0\\x^{n-1}x&amp;n&gt;0\end{cases}\]</div>
 <p>那么，若<span class="arithmatex">\(\Sigma\)</span>为字母表，则<span class="arithmatex">\(\Sigma^n\)</span>为<span class="arithmatex">\(\Sigma\)</span>上长度为n的字符串的集合。</p>
-<p>如果<span class="arithmatex">\(\Sigma=\{0,1\}\)</span>，有<span class="arithmatex">\(\Sigma^0=\{\epsilon\}\)</span>，Σ<sup>1={0，1}，Σ</sup>2={00，01，10，11},Σ^3={000，001，010，011，100,101,110,111},…</p>
+<p>如果<span class="arithmatex">\(\Sigma=\{0,1\}\)</span>，有<span class="arithmatex">\(\Sigma^0=\{\epsilon\}\)</span>，</p>
+<p><span class="arithmatex">\(\Sigma^1=\{0,1\}\)</span></p>
+<p><span class="arithmatex">\(\Sigma^2=\{00，01，10，11\}\)</span></p>
+<p><span class="arithmatex">\(\Sigma^3=\{000，001，010，011，100,101,110,111\}\)</span>...</p>
 <p>克林闭包</p>
-<div class="arithmatex">\[{{\Sigma}}^*=\bigcup_{i=0}^{\infty} \Sigma\]</div>
+<div class="arithmatex">\[{{\Sigma}}^*=\bigcup_{i=0}^{\infty} \Sigma_i\]</div>
 <p>正闭包</p>
-<div class="arithmatex">\[{{\Sigma}}^*=\bigcup_{i=1}^{\infty} \Sigma\]</div>
+<div class="arithmatex">\[{{\Sigma}}^*=\bigcup_{i=1}^{\infty} \Sigma_i\]</div>
 <h3 id="_9">语言<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>若<span class="arithmatex">\(\Sigma\)</span>为字母表且<span class="arithmatex">\(\forall L \subseteq {\Sigma}^*\)</span>, 则L称为字母表<span class="arithmatex">\(\Sigma\)</span>上的语言</p>
 <blockquote>
