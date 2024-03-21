@@ -137,16 +137,20 @@ try {
 
 1. 定义：客观存在的具体实体，具有明确定义的状态和行为
 2. 特征：标识符、属性、操作
+
     1. 属性：与对象关联的变量，描述对象的静态特性
     2. 操作：与对相关联的函数，描述对象的动态特性
 
 ### 类
 
 1. 与对象
+
     1. 类是对象的抽象，是创建对象的模板
     2. 对象是类的具体事例
     3. 同一个类可以定义多个对象
+
 2. 二者比较
+
     1. 类是静态的，在程序设计的时候就定义好了
     2. 对象是动态的，在程序执行的时候可以被创建、修改、删除
 
@@ -159,20 +163,20 @@ try {
 ```java
 // 见上表
 public class Person {
-                private String name;    // private: 只有本类能访问。
-                protected int age;      // protected: 包外不能访问。但如果子类在包外，也能访问。
-                int id;                 // friendly: 包外不能访问。如果子类在包外，也不能访问。
-                public boolean gender;  // public: 谁都可以访问
+    private String name;    // private: 只有本类能访问。
+    protected int age;      // protected: 包外不能访问。但如果子类在包外，也能访问。
+    int id;                 // friendly: 包外不能访问。如果子类在包外，也不能访问。
+    public boolean gender;  // public: 谁都可以访问
 
-                public Person(String name, int age) {
-                                this.name = name;
-                                this.age = age;
-                                id = 1;
-                }
+    public Person(String name, int age) {
+                    this.name = name;
+                    this.age = age;
+                    id = 1;
+    }
 
-                public Person(String name) {
-                                this(name, 22);
-                }
+    public Person(String name) {
+                    this(name, 22);
+    }
 }
 ```
 
@@ -180,31 +184,40 @@ public class Person {
 
 1. 静态成员属于类所有而不是某一具体对象所有
 2. 加载时间
+
     1. 静态成员在类加载的时候被静态地分配地址空间和方法的入口地址
     2. 静态属性当且仅当在类初次加载的时候初始化
+
 3. 实例
+
     1. 非静态对象在创建对象的时候初始化，存在多个实例副本，各个对象之间的副本不互相影响
     2. 静态对象被所有的对象共享，在内存中只有一个副本
+
 4. `static` 属性是全局属性，可以直接通过类名访问，所以又叫类属性
 5. 调用限制
+    
     1. `static` 方法不可访问非 `static` 的方法：非 `static` 的对象必须要实例化才能访问调
     2. 非 `static` 的方法可以访问 `static` 的方法：通过类名访问
+
 6. 静态块
+    
     1. 可以放在类的任何地方，类中可以有多个 `static` 块
     2. 语法：
         
         ```java
         class Person {
-                        static {
-                                totalNum = 10000;
-                                System.out.println("static block run!");
-                        }
+            static {
+                    totalNum = 10000;
+                    System.out.println("static block run!");
+            }
         }
         ```
         
     3. 生命周期：在类加载的时候执行且只执行一次
     4. 用法：用于初始化静态变量和调用静态方法
+
 7. 静态是否破坏了面向对象的特性？
+
     1. 静态属于类而非具体对象
     2. 具有一定程度上的全局性：初始化时加载到内存，并且所有对象有访问权限
     3. 保持类的封装性
