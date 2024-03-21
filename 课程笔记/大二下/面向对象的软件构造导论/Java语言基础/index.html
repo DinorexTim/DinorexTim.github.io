@@ -1806,7 +1806,9 @@
 <h3 id="_15">对象<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <ol>
 <li>定义：客观存在的具体实体，具有明确定义的状态和行为</li>
-<li>特征：标识符、属性、操作<ol>
+<li>
+<p>特征：标识符、属性、操作</p>
+<ol>
 <li>属性：与对象关联的变量，描述对象的静态特性</li>
 <li>操作：与对相关联的函数，描述对象的动态特性</li>
 </ol>
@@ -1814,13 +1816,17 @@
 </ol>
 <h3 id="_16">类<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <ol>
-<li>与对象<ol>
+<li>
+<p>与对象</p>
+<ol>
 <li>类是对象的抽象，是创建对象的模板</li>
 <li>对象是类的具体事例</li>
 <li>同一个类可以定义多个对象</li>
 </ol>
 </li>
-<li>二者比较<ol>
+<li>
+<p>二者比较</p>
+<ol>
 <li>类是静态的，在程序设计的时候就定义好了</li>
 <li>对象是动态的，在程序执行的时候可以被创建、修改、删除</li>
 </ol>
@@ -1831,37 +1837,45 @@
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/java2-2.png?raw=true" width="400" /></p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><span class="c1">// 见上表</span>
 </span><span id="__span-9-2"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-3"><span class="w">                </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">    </span><span class="c1">// private: 只有本类能访问。</span>
-</span><span id="__span-9-4"><span class="w">                </span><span class="kd">protected</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">      </span><span class="c1">// protected: 包外不能访问。但如果子类在包外，也能访问。</span>
-</span><span id="__span-9-5"><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">                 </span><span class="c1">// friendly: 包外不能访问。如果子类在包外，也不能访问。</span>
-</span><span id="__span-9-6"><span class="w">                </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">gender</span><span class="p">;</span><span class="w">  </span><span class="c1">// public: 谁都可以访问</span>
+</span><span id="__span-9-3"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">    </span><span class="c1">// private: 只有本类能访问。</span>
+</span><span id="__span-9-4"><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">      </span><span class="c1">// protected: 包外不能访问。但如果子类在包外，也能访问。</span>
+</span><span id="__span-9-5"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">                 </span><span class="c1">// friendly: 包外不能访问。如果子类在包外，也不能访问。</span>
+</span><span id="__span-9-6"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">gender</span><span class="p">;</span><span class="w">  </span><span class="c1">// public: 谁都可以访问</span>
 </span><span id="__span-9-7">
-</span><span id="__span-9-8"><span class="w">                </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-9"><span class="w">                                </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-</span><span id="__span-9-10"><span class="w">                                </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
-</span><span id="__span-9-11"><span class="w">                                </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-9-12"><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-9-8"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-9"><span class="w">                    </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-9-10"><span class="w">                    </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-9-11"><span class="w">                    </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-9-12"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-9-13">
-</span><span id="__span-9-14"><span class="w">                </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-15"><span class="w">                                </span><span class="k">this</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">);</span>
-</span><span id="__span-9-16"><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-9-14"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-15"><span class="w">                    </span><span class="k">this</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">);</span>
+</span><span id="__span-9-16"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-9-17"><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="_18">静态类<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <ol>
 <li>静态成员属于类所有而不是某一具体对象所有</li>
-<li>加载时间<ol>
+<li>
+<p>加载时间</p>
+<ol>
 <li>静态成员在类加载的时候被静态地分配地址空间和方法的入口地址</li>
 <li>静态属性当且仅当在类初次加载的时候初始化</li>
 </ol>
 </li>
-<li>实例<ol>
+<li>
+<p>实例</p>
+<ol>
 <li>非静态对象在创建对象的时候初始化，存在多个实例副本，各个对象之间的副本不互相影响</li>
 <li>静态对象被所有的对象共享，在内存中只有一个副本</li>
 </ol>
 </li>
-<li><code>static</code> 属性是全局属性，可以直接通过类名访问，所以又叫类属性</li>
-<li>调用限制<ol>
+<li>
+<p><code>static</code> 属性是全局属性，可以直接通过类名访问，所以又叫类属性</p>
+</li>
+<li>
+<p>调用限制</p>
+<ol>
 <li><code>static</code> 方法不可访问非 <code>static</code> 的方法：非 <code>static</code> 的对象必须要实例化才能访问调</li>
 <li>非 <code>static</code> 的方法可以访问 <code>static</code> 的方法：通过类名访问</li>
 </ol>
@@ -1873,10 +1887,10 @@
 <li>
 <p>语法：</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-2"><span class="w">                </span><span class="kd">static</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-3"><span class="w">                        </span><span class="n">totalNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span>
-</span><span id="__span-10-4"><span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;static block run!&quot;</span><span class="p">);</span>
-</span><span id="__span-10-5"><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-10-2"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><span class="w">            </span><span class="n">totalNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span>
+</span><span id="__span-10-4"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;static block run!&quot;</span><span class="p">);</span>
+</span><span id="__span-10-5"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-10-6"><span class="p">}</span>
 </span></code></pre></div>
 </li>
@@ -1884,7 +1898,11 @@
 <p>生命周期：在类加载的时候执行且只执行一次</p>
 </li>
 <li>用法：用于初始化静态变量和调用静态方法</li>
-<li>静态是否破坏了面向对象的特性？</li>
+</ol>
+</li>
+<li>
+<p>静态是否破坏了面向对象的特性？</p>
+<ol>
 <li>静态属于类而非具体对象</li>
 <li>具有一定程度上的全局性：初始化时加载到内存，并且所有对象有访问权限</li>
 <li>保持类的封装性</li>
