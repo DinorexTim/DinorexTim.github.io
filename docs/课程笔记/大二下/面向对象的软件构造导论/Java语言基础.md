@@ -154,7 +154,7 @@ try {
 
 类的访问权限：
 
-![Untitled](Java%20%E5%9F%BA%E7%A1%80%203a7a1a506d2a49c1bc5676caeba39fbe/Untitled%201.png)
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/java2-2.png?raw=true){width=400}
 
 ```java
 // 见上表
