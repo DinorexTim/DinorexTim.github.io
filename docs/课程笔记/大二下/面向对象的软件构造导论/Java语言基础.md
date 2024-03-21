@@ -2,7 +2,17 @@
 
 因为 Java 语言和 C/C++ 在很多语法上相似甚至完全一致（例如各种控制语句），因此这里只列出 Java 与 C 家族不同的语言特性。
 
+## 命名规范
+
+1. 变量名、对象名、方法名、包名等标识符全部采用**小写字母**；如果标识符由多个单词组成，则其首字母小写、其后所有单词**仅首字母大写**，如:`getAge`
+2. 不能与关键字、以及特殊值同名，如：`false`, `for`, `while`
+3. **常量名全部大写**，单词间由下划线隔开。如：`MONTH_OF_YEAR`
+4. 类名的每个单词**首字母大写**，如：`HelloWorldClass`
+
 ## 数据类型
+
+- Java属于强类型语言，必须为每个变量声明一种类型
+- Java按照数据类型可以将变量分为两类，==基本数据类型和引用数据类型==
 
 ### 基本数据类型
 
@@ -21,7 +31,7 @@ Java 一共有 8 种「基本数据类型」。
 
 ### 引用类型
 
-类 `class`、接口 `interface` 和数组都是引用类型。
+类 `class`、接口 `interface` 和数组都是引用数据类型。
 
 ## 输入输出
 
@@ -33,14 +43,14 @@ Java 的标准输入流是一个 `InputStream` 对象，有两种常用的读取
     
     ```java
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-    stdin.readLine() // <= 得到用户输入的字符串
+    stdin.readLine(); // <= 得到用户输入的字符串
     ```
     
 - 用 `java.util.Scanner` 对 `System.in` 进行封装。
     
     ```java
     Scanner stdin = new Scanner(System.in);
-    stdin.nextLine() // <= 得到用户输入的字符串
+    stdin.nextLine(); // <= 得到用户输入的字符串
     ```
     
 
