@@ -1,4 +1,4 @@
-# Java 基础
+# Java语言基础
 
 因为 Java 语言和 C/C++ 在很多语法上相似甚至完全一致（例如各种控制语句），因此这里只列出 Java 与 C 家族不同的语言特性。
 
@@ -119,11 +119,22 @@ int[][] arr = new int[][]{ { 1, 4, 2}, {2, 1}, {9, 1, 5, 6} };
 
 ## 异常
 
+异常关键字:
+
+- `try`：用于监听
+- `catch`：用于捕获异常
+- `finally`：finally语句块总会被执行。主要用于回收try块里面的物力资源（如数据库连接、网络连接和磁盘文件）
+
+> 只有`finally`块执行完成后，才会回来执行`try`和`catch`块的`return`或者`throw`语句，如果`finally`中使用过`return`或者`throw`等终止方法的语句，则不会跳回执行，直接停止
+
+- `throws`：==用在方法签名中==，用于声明该方法可能抛出的异常
+- `throw`：用于抛出一个语句异常
+
 Java 的异常捕获结构为 `try` - `catch` - `finally`。其中 `catch` 和 `finally` 可以只出现一个。
 
 ```java
 try {
-                // 做点啥
+    // 做点啥
 } catch (/** 异常 **/) {
     // 出现异常时做的事
 } finally {
@@ -169,13 +180,13 @@ public class Person {
     public boolean gender;  // public: 谁都可以访问
 
     public Person(String name, int age) {
-                    this.name = name;
-                    this.age = age;
-                    id = 1;
+        this.name = name;
+        this.age = age;
+        id = 1;
     }
 
     public Person(String name) {
-                    this(name, 22);
+        this(name, 22);
     }
 }
 ```
@@ -196,7 +207,7 @@ public class Person {
 4. `static` 属性是全局属性，可以直接通过类名访问，所以又叫类属性
 5. 调用限制
     
-    1. `static` 方法不可访问非 `static` 的方法：非 `static` 的对象必须要实例化才能访问调
+    1. `static` 方法不可访问非 `static` 的方法：非 `static` 的对象必须要实例化才能访问
     2. 非 `static` 的方法可以访问 `static` 的方法：通过类名访问
 
 6. 静态块
@@ -207,8 +218,8 @@ public class Person {
         ```java
         class Person {
             static {
-                    totalNum = 10000;
-                    System.out.println("static block run!");
+                totalNum = 10000;
+                System.out.println("static block run!");
             }
         }
         ```
