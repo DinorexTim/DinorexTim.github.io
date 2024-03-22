@@ -796,6 +796,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    扩展转移函数
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1434,6 +1441,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    扩展转移函数
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1528,6 +1542,14 @@
 <p>例：设计DFA接收以下语言</p>
 <div class="arithmatex">\[L=\{x|x\in \{0,1\}^* \wedge x中至少包含一个子串010\}\]</div>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy2-4.png?raw=true" width="400" /></p>
+<h2 id="_4">扩展转移函数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>扩展状态转移函数<span class="arithmatex">\(\delta\)</span>到字符串，定义扩展转移函数<span class="arithmatex">\(\hat{\delta}\)</span>:</p>
+<div class="arithmatex">\[\hat{\delta}=\begin{cases}q&amp;w=\epsilon\\\delta(\hat{\delta}(q,x),a)&amp;w=xa\end{cases}\]</div>
+<blockquote>
+<p>其中，a是一个字符，w和x是字符串</p>
+</blockquote>
+<p>例：接受全部含有01子串的DFA，<span class="arithmatex">\(\hat{\delta}处理串0101的过程\)</span></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy2-5.png?raw=true" width="400" /></p>
 
 
 
