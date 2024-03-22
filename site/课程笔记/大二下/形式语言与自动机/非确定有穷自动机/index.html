@@ -74,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -750,6 +755,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    非确定有穷自动机NFA
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -759,6 +775,37 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    状态转移函数
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1341,6 +1388,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    状态转移函数
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1368,8 +1437,30 @@
 <li>使用非确定有穷自动机</li>
 </ul>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy4-2.png?raw=true" width="400" /></p>
-<p>同一状态在相同的输入下, 可以有<strong>多个转移状态</strong>，这样自动机在某一时刻可以处在多个状态</p>
-<p>因此给定一个输入和当前状态，<mark>状态转移函数的输出是一个<strong>状态集</strong></mark></p>
+<p>针对上述情形，有如下运转模式：</p>
+<ul>
+<li>开始处于<span class="arithmatex">\(q_0\)</span>，如果读入1，则状态保持在<span class="arithmatex">\(q_0\)</span>；</li>
+<li>读入0的话，处于两个状态，<span class="arithmatex">\(q_0\)</span>和<span class="arithmatex">\(q_1\)</span>；</li>
+<li>并且在<span class="arithmatex">\(q_1\)</span>的时候，只有读入1，才可以跳转到<span class="arithmatex">\(q_2\)</span>；</li>
+<li>即只有以01结尾，才可能跳转到状态<span class="arithmatex">\(q_2\)</span> 。</li>
+</ul>
+<blockquote>
+<p>同一状态在相同的输入下, 可以有<strong>多个转移状态</strong>，这样自动机在某一时刻可以处在多个状态<br>
+因此给定一个输入和当前状态，<mark>状态转移函数的输出是一个<strong>状态集</strong></mark></p>
+</blockquote>
+<h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>定义：非确定有穷自动机(NFA, Non-deterministic Finite Automaton)A为五元组(<span class="arithmatex">\(Q,\Sigma,\delta,q_0,F\)</span>)</p>
+<ol>
+<li><span class="arithmatex">\(Q\)</span>: 有穷状态集；</li>
+<li><span class="arithmatex">\(\Sigma\)</span>: 有穷输入符号集或字母表；</li>
+<li><span class="arithmatex">\(\delta\)</span>: <span class="arithmatex">\(Q\times \Sigma\to2^Q\)</span> 状态转移函数；</li>
+<li><span class="arithmatex">\(q_0\subseteq Q\)</span>: 初始状态</li>
+<li><span class="arithmatex">\(F\subseteq Q\)</span>: 终结状态集或接受状态集。</li>
+</ol>
+<p>注:<span class="arithmatex">\(2^Q\)</span>是幂集，即2^Q={S│S⊂Q} (S是Q的子集)
+δ(q,a)={p_1,p_2,…,p_n}</p>
+<h2 id="_2">状态转移函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>......</p>
 
 
 
