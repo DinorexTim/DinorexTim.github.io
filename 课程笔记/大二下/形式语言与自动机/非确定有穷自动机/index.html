@@ -1457,10 +1457,17 @@
 <li><span class="arithmatex">\(q_0\subseteq Q\)</span>: 初始状态</li>
 <li><span class="arithmatex">\(F\subseteq Q\)</span>: 终结状态集或接受状态集。</li>
 </ol>
-<p>注:<span class="arithmatex">\(2^Q\)</span>是幂集，即2^Q={S│S⊂Q} (S是Q的子集)
-δ(q,a)={p_1,p_2,…,p_n}</p>
+<blockquote>
+<p><span class="arithmatex">\(2^Q\)</span>是幂集，即<span class="arithmatex">\(2^Q=\{S│S\subset Q\}\)</span> (S是Q的子集)</p>
+</blockquote>
+<p><span class="arithmatex">\(\delta(q,a)=\{p_1,p_2,…,p_n\}\)</span></p>
 <h2 id="_2">状态转移函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>......</p>
+<p>扩展<span class="arithmatex">\(\delta\)</span>到字符串，定义扩展转移函数为<span class="arithmatex">\(\hat{\delta}:Q\times \Sigma^*\to 2^Q\)</span>为</p>
+<div class="arithmatex">\[\hat{\delta}(q,w)=\begin{cases}\{q\}&amp;w=\epsilon\\\\\bigcup_{p\in\hat{\delta}(q,x)}\delta(p,a)&amp;w=xa\end{cases}\]</div>
+<blockquote>
+<p>上式中<span class="arithmatex">\(a\)</span>是一个字符，<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(x\)</span>是字符串<br></p>
+</blockquote>
+<p>当w不为空串的时候，先输入前面的字符串x，可以到达多个状态<span class="arithmatex">\(\hat{\delta}(q,x)\)</span>。对每个状态应用状态转移函数，然后把状态求并集即可</p>
 
 
 
