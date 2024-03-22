@@ -803,6 +803,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dfa_2" class="md-nav__link">
+    DFA语言与正则语言
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1448,6 +1455,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dfa_2" class="md-nav__link">
+    DFA语言与正则语言
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1546,10 +1560,15 @@
 <p>扩展状态转移函数<span class="arithmatex">\(\delta\)</span>到字符串，定义扩展转移函数<span class="arithmatex">\(\hat{\delta}\)</span>:</p>
 <div class="arithmatex">\[\hat{\delta}=\begin{cases}q&amp;w=\epsilon\\\delta(\hat{\delta}(q,x),a)&amp;w=xa\end{cases}\]</div>
 <blockquote>
-<p>其中，a是一个字符，w和x是字符串</p>
+<p>上式中<span class="arithmatex">\(a\)</span>是一个字符，<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(x\)</span>是字符串</p>
 </blockquote>
 <p>例：接受全部含有01子串的DFA，<span class="arithmatex">\(\hat{\delta}处理串0101的过程\)</span></p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy2-5.png?raw=true" width="400" /></p>
+<h2 id="dfa_2">DFA语言与正则语言<a class="headerlink" href="#dfa_2" title="Permanent link">&para;</a></h2>
+<p>若<span class="arithmatex">\(D=(Q,\Sigma,\delta,q_0,F)\)</span>是一个DFA，则<span class="arithmatex">\(D\)</span>接受的语言为</p>
+<div class="arithmatex">\[L(D)=\{w\in \Sigma^*|\hat{\delta}(q_0,w)\in F\}\]</div>
+<p>即所有能使DFA从开始状态到达接受状态的符号串集合</p>
+<p>如果语言L是某个DFA <span class="arithmatex">\(D\)</span>的语言，则称其为<strong>正则语言</strong></p>
 
 
 
