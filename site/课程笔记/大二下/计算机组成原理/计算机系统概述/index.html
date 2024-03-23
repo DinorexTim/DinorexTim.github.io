@@ -1445,7 +1445,28 @@
 </li>
 <li>主频*时钟周期=1</li>
 <li>时钟周期数：时钟周期的数量</li>
-<li>指令平均时钟周期（CPI:Clock Cycle Per Instruction）</li>
+<li>指令平均时钟周期（CPI:Clock Cycle Per Instruction）<ul>
+<li>程序CPU时钟周期数=程序指令书*CPI</li>
+</ul>
+</li>
+<li>IPC(Instruction Per Clock Cycle)=1/CPI</li>
+<li>IPS(Instruction Per Second)<span class="arithmatex">\(\to\)</span>MIPS(Million IPS)</li>
+<li>MFLOPS<ul>
+<li>浮点操作执行次数/执行时间/<span class="arithmatex">\(10^6\)</span></li>
+</ul>
+</li>
+<li>CPU执行时间<ul>
+<li>执行任务在CPU上所花费的时间</li>
+<li>CPU执行时间=程序指令数<em>CPI</em>时钟周期</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>CPU执行时间不包括等待I/O或运行其他程序的时间</p>
+</blockquote>
+<ul>
+<li>响应时间：执行时间，完成某任务所需要的总时间</li>
+<li>吞吐率：带宽，单位时间完成的任务数量</li>
 </ul>
 
 
