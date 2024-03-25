@@ -147,12 +147,14 @@ Java 的异常捕获结构为 `try` - `catch` - `finally`。其中 `catch` 和 `
 ```java
 try {
     // 做点啥
-} catch (/** 异常 **/) {
+} catch (Exception e1|Exception e2|...) {
     // 出现异常时做的事
 } finally {
     // 不管出现异常与否都要做的事
 }
 ```
+
+> `throw`与`throws`均为消极处理异常方式，仅负责抛出异常
 
 ## 类与对象
 
@@ -244,3 +246,22 @@ public class Person {
     1. 静态属于类而非具体对象
     2. 具有一定程度上的全局性：初始化时加载到内存，并且所有对象有访问权限
     3. 保持类的封装性
+
+## Java虚拟机与垃圾回收
+
+### JVM
+
+==虚拟机==：指的是通过软件**模拟**的具有完全硬件系统的运行在一个完全隔离环境中的计算机系统
+
+JVM是通过软件来模拟`Java`字节码的指令集，是`Java`程序的运行环境
+
+如今JVM不仅支持`Java`，还支持`Kotlin`，`Groovy`等语言，黄钻混过后的字节码文件都能通过Java虚拟机进行运行和处理
+
+### JVM体系结构
+
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/java2-4.png?raw=true){width=400 align=right}
+
+主要包含两个子系统和两个组件
+
+- `Class Loader`（类装载器）和`Execution`（执行引擎）子系统
+- `Runtime Data Area`（运行时数据区域）和`Native Interface`（本地接口）组件
