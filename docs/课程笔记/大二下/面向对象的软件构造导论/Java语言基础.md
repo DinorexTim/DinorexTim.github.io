@@ -129,6 +129,8 @@ int[][] arr = new int[][]{ { 1, 4, 2}, {2, 1}, {9, 1, 5, 6} };
 
 ## 异常
 
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/java2-3.png?raw=true){width=400 align=right}
+
 异常关键字:
 
 - `try`：用于监听
@@ -164,7 +166,7 @@ try {
 
 ### 类
 
-1. 与对象
+1. 类与对象
 
     1. 类是对象的抽象，是创建对象的模板
     2. 对象是类的具体事例
