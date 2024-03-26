@@ -714,6 +714,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    补数表示法
+  </a>
+  
+    <nav class="md-nav" aria-label="补数表示法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    补码求原码快捷方式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    反码表示
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    三种机器数小结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    移码表示
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1422,6 +1463,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    补数表示法
+  </a>
+  
+    <nav class="md-nav" aria-label="补数表示法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    补码求原码快捷方式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    反码表示
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    三种机器数小结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    移码表示
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1469,9 +1551,61 @@
 <h2 id="_3">原码表示法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="_4">整数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>带符号的绝对值表示</p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz2-1.png?raw=true" /></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz2-1.png?raw=true" width="600" /></p>
 <h3 id="_5">小数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz2-2.png?raw=true" /></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz2-2.png?raw=true" width="560" /></p>
+<blockquote>
+<p>0的原码？+0与-0原码不一样</p>
+</blockquote>
+<h2 id="_6">补数表示法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>例：从下午5点一直到凌晨3点，一共经过了多少个小时？</p>
+<p>逆时针：有5-2=3</p>
+<p>顺时针：有5+10=3+<mark>12</mark></p>
+<p>则-2可以用+10代替，称+10为-2（以12为模）的补数</p>
+<blockquote>
+<p>一个负数加上“模”即得该负数的补数<br>
+正数的补数即为其本身</p>
+</blockquote>
+<h3 id="_7">补码求原码快捷方式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>当真值为负时，<mark>补码除符号位外，每位取反，末位加1</mark>，即为该负数原码</li>
+</ul>
+<p>例：<span class="arithmatex">\(x=-1010\)</span></p>
+<p>有<span class="arithmatex">\(x_补=-0110\)</span></p>
+<h2 id="_8">反码表示<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>原码<strong>每位取反</strong>即为反码</p>
+</li>
+<li>
+<p>整数反码定义：</p>
+</li>
+</ul>
+<div class="arithmatex">\[[x]_{反}\begin{cases}0,x&amp;2^n&gt;x≥0\\(2^{n+1}-1)+x&amp;0≥x&gt;-2^n(\text{mod}2^{n+1}-1)\end{cases}\]</div>
+<ul>
+<li>小数反码定义：</li>
+</ul>
+<div class="arithmatex">\[|x|_{反}=\begin{cases}x&amp;1≥x≥0\\(2-2^{-n})+x&amp;0≥x&gt;-1(\text{mod}2-2^{-n})\end{cases}\]</div>
+<h2 id="_9">三种机器数小结<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>最高位为符号位，<strong>书写上</strong>用“，”（整数）或者“.”（小数）将数值部分和符号位分开</li>
+<li>对于正数：符号位为0，原码=补码=反码</li>
+<li>对于负数，补码<span class="arithmatex">\(\leftrightarrow\)</span>原码的方法：<ul>
+<li>原码除符号位外每一位取反，末尾加1<span class="arithmatex">\(\to\)</span>补码</li>
+</ul>
+</li>
+<li>当真值为负时，已知补码求原码方法：<ul>
+<li>补码除了符号位之外，每位取反，末位+1</li>
+<li>补码除符号位外，末位-1，再每位取反</li>
+</ul>
+</li>
+</ul>
+<h2 id="_10">移码表示<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p><img align="right" alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz2-3.png?raw=true" width="300" /></p>
+<div class="arithmatex">\[[x]_{移}=2^n+x(2^n&gt;x≥-2^n)\]</div>
+<blockquote>
+<p>x为真值，n为整数的位数</p>
+</blockquote>
 
 
 
