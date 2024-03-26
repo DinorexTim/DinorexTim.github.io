@@ -104,4 +104,50 @@ wget https://raw.githubusercontent.com/secretflow/scql/main/examples/scdb-tutori
 
 ## 客户端上的用户创建
 
-https://github.com/secretflow/scql/blob/3d1294a93a54f291485f91ba32e1abf55b9e93f0/cmd/scqltool/main.go
+这一部分是针对自定义客户端来写的，[官方文档快速开始部分](https://www.secretflow.org.cn/zh-CN/docs/scql/0.5.0b2/intro/tutorial#create-database-user-and-tables)有一创建用户的步骤
+
+```bash
+# ./scqltool genCreateUserStmt --user alice --passwd some_password --party alice --pem examples/scdb-tutorial/engine/alice/conf/ed25519key.pem
+root> CREATE USER `alice` PARTY_CODE 'alice' IDENTIFIED BY 'some_password' WITH '2023-08-23T20:03:34.268353853+08:00' '/oWeDbslKFQaqM6aOumnQY56i6MQKNNz84v0nkdhniXS0eBNX/q3n4IYz2EkABgKD+nkIVFtBokQqx5fr29CBw==' 'MCowBQYDK2VwAyEAzvfiNl1c1TjcvaTQBAxpG93MzHRGwuUBrPI3qf5N2XQ='
+```
+
+这里使用了`scqltool`来生成创建用户的语句，查看创建用户的命令，不难得出需要指定用户的姓名、密码以及参与方`ed25519key.pem`所在路径
+
+在官方教程里，使用的`ed25519key.pem`文件位于`docker`容器内部的`example`文件夹下方；如果想使用本地的`ed25519key.pem`，或者不想在docker里面输入那段命令再手动复制到客户端执行，或许可以自己编写一个生成“创建用户语句”的脚本
+
+创建用户语句的结构大部分都比较清晰，只有时间戳之前的两段比较迷惑，第二段比较明显，就是从`ed25519.pem`内加载出的公钥，而第一段尚不清楚。
+
+去查看了下[项目有关sqlbuilder的测试代码](https://github.com/secretflow/scql/blob/main/pkg/util/sqlbuilder/sqlbuilder_test.go#L75)的部分，可以看到有下面这部分
+
+```golang
+func TestBuildCreateUserStmtWithPubkeyAuth(t *testing.T) {
+	r := require.New(t)
+
+	expectSql := "CREATE USER `alice` PARTY_CODE 'ALICE' IDENTIFIED BY 'some_passwd' WITH '2023-08-18T18:12:04.00507585+08:00' 'FKNla5+qiybxx0Tx5gGpn5bHX1+0NgKJPNshq1eCT00/Pogu3QAPXJneUdtYQlmaf7dW1Vr25t+oDLRV9+TiCA==' 'MCowBQYDK2VwAyEA8tjoIkf3mIyz/HGdjBD+p/SDxlzHiNDcaTmhF3dHjZY='"
+	mockTime, err := time.Parse(time.RFC3339Nano, "2023-08-18T18:12:04.00507585+08:00")
+	r.NoError(err)
+
+	privPemData := []byte(`
+-----BEGIN PRIVATE KEY-----
+MC4CAQAwBQYDK2VwBCIEIBSXcCv5G1YpIZSD127ImyGnlqA9s9HCpk7jYbl7OQZ5
+-----END PRIVATE KEY-----
+`)
+	block, _ := pem.Decode(privPemData)
+	r.True(block != nil && block.Type == "PRIVATE KEY")
+
+    // 这里导出的”？？？“和.pem文件内的公钥部分
+	priv, err := x509.ParsePKCS8PrivateKey(block.Bytes)
+	r.NoError(err)
+
+	builder := NewCreateUserStmtBuilder()
+	sql, err := builder.SetUser("alice").SetParty("ALICE").SetPassword("some_passwd").AuthByPubkeyWithPrivateKey(priv).MockTime(mockTime).ToSQL()
+
+	r.NoError(err)
+	r.Equal(expectSql, sql)
+}
+```
+
+可以看出是将预期`sql`和scqltool生成`sql`进行对比测试，然后"那两段"貌似就是在`priv, err := x509.ParsePKCS8PrivateKey(block.Bytes)`生成的
+
+一波百科后发现：这个crypto/x509实际是Go标准库中的一个包，提供对 X.509 标准的支持，该标准定义了公钥证书和私钥存储的格式；然后这个`ParsePKCS8PrivateKey`方法实际是该函数用于解析 PKCS#8 编码的私钥。PKCS#8 是用于存储私钥信息的标准语法。它允许私钥使用密码进行加密，尽管此函数不处理解密。如果私钥已加密，则必须在传递给该函数之前对其进行解密
+
