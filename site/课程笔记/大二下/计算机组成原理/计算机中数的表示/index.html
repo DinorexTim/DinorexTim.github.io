@@ -762,6 +762,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    浮点表示
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1518,6 +1525,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    浮点表示
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1627,6 +1641,24 @@
 <li>小数点按照约定方式标出</li>
 </ul>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz2-4.png?raw=true" width="500" /></p>
+<blockquote>
+<p>小数点右移n位，实际上是让表示范围乘上<span class="arithmatex">\(2^n\)</span></p>
+</blockquote>
+<h2 id="_12">浮点表示<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>浮点数一般形式</p>
+<div class="arithmatex">\[N=S\times r^j\]</div>
+<blockquote>
+<p>S：尾数，j：阶码，r：基数<br>
+计算机中通常取2,4,8,16</p>
+</blockquote>
+<ul>
+<li>当<span class="arithmatex">\(r=2\)</span>，<span class="arithmatex">\(N=11.0101=0.110101\times 2^{10}\)</span>（规格化数）</li>
+<li>计算机中<ul>
+<li>S：小数、可正可负</li>
+<li>j：整数、可正可负</li>
+</ul>
+</li>
+</ul>
 
 
 
