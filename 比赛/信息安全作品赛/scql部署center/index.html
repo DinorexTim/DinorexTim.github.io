@@ -864,7 +864,41 @@
       
         <li class="md-nav__item">
   <a href="#scql" class="md-nav__link">
-    scql系统的基本架构
+    scql系统基本架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    部署流程（多机部署）
+  </a>
+  
+    <nav class="md-nav" aria-label="部署流程（多机部署）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    配置引擎
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    身份验证文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    客户端上的用户创建
   </a>
   
 </li>
@@ -1372,7 +1406,41 @@
       
         <li class="md-nav__item">
   <a href="#scql" class="md-nav__link">
-    scql系统的基本架构
+    scql系统基本架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    部署流程（多机部署）
+  </a>
+  
+    <nav class="md-nav" aria-label="部署流程（多机部署）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    配置引擎
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    身份验证文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    客户端上的用户创建
   </a>
   
 </li>
@@ -1396,10 +1464,90 @@
 
 
 <h1 id="_1">包含可信第三方的部署<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>声明：一切以<a href="https://www.secretflow.org.cn/zh-CN/docs/scql/0.5.0b2/topics">隐语官方文档</a>为准</p>
+<p><strong>声明</strong>：一切以<a href="https://www.secretflow.org.cn/zh-CN/docs/scql/0.5.0b2/topics">隐语官方文档</a>为准</p>
 <p>官方部署文档有的地方说的不太清楚，我把自己的一点个人理解和自己的部署流程写在下面作为参考（）</p>
-<h2 id="scql">scql系统的基本架构<a class="headerlink" href="#scql" title="Permanent link">&para;</a></h2>
+<h2 id="scql">scql系统基本架构<a class="headerlink" href="#scql" title="Permanent link">&para;</a></h2>
 <p><img alt="image" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/xxaq1-1.png?raw=true" width="400" /></p>
+<p>简单来说就是两个参与方想要用双方的数据进行一些“操作”，于是他们将自己的数据放进scql系统当中取进行计算从而得到他们想要的查询结果</p>
+<p>在这个查询过程当中，<code>scql</code>系统中的<code>SCDB</code>负责转化用户的查询语句转化“执行图”(我把他理解为一种计算任务)；然后把计算任务下发给各个参与查询的<code>SCQLEngine</code>。而<code>SCQLEngine</code>则会执行下发的计算任务，在本机进行计算后将计算结果发送给<code>SCDB</code></p>
+<h2 id="_2">部署流程（多机部署）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>这里的话大部分和<a href="https://www.secretflow.org.cn/zh-CN/docs/scql/0.5.0b2/topics/deployment/how-to-deploy-centralized-cluster#step-1-deploy-scqlengine">官方部署文档</a>步骤大同小异，主要在配置本地的数据集，还有用户注册上做了一些说明</p>
+<h3 id="_3">配置引擎<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1">--listen_port=8080
+</span><span id="__span-0-2">--datasource_router=embed
+</span><span id="__span-0-3">--enable_driver_authorization=false
+</span><span id="__span-0-4">--server_enable_ssl=false
+</span><span id="__span-0-5">--driver_enable_ssl_as_client=false
+</span><span id="__span-0-6">--peer_engine_enable_ssl_as_client=false
+</span><span id="__span-0-7">--embed_router_conf={&quot;datasources&quot;:[{&quot;id&quot;:&quot;ds001&quot;,&quot;name&quot;:&quot;mysql db&quot;,&quot;kind&quot;:&quot;MYSQL&quot;,&quot;connection_str&quot;:&quot;db=alice;user=root;password=__MYSQL_ROOT_PASSWORD__;host=mysql;auto-reconnect=true&quot;}],&quot;rules&quot;:[{&quot;db&quot;:&quot;*&quot;,&quot;table&quot;:&quot;*&quot;,&quot;datasource_id&quot;:&quot;ds001&quot;}]}
+</span><span id="__span-0-8"># party authentication flags
+</span><span id="__span-0-9">--enable_self_auth=true
+</span><span id="__span-0-10">--enable_peer_auth=true
+</span><span id="__span-0-11">--private_key_pem_path=/home/admin/engine/conf/ed25519key.pem
+</span><span id="__span-0-12">--authorized_profile_path=/home/admin/engine/conf/authorized_profile.json
+</span></code></pre></div>
+<p>如果要在使用本地mysql的数据集需要修改<code>embed_router_conf</code>项</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1">&quot;datasources&quot;: [
+</span><span id="__span-1-2">  {
+</span><span id="__span-1-3">    &quot;id&quot;: &quot;ds001&quot;,
+</span><span id="__span-1-4">    &quot;name&quot;: &quot;mysql db for scql&quot;,
+</span><span id="__span-1-5">    &quot;kind&quot;: &quot;MYSQL&quot;,
+</span><span id="__span-1-6">    &quot;connection_str&quot;: &quot;${connection_str}&quot;
+</span><span id="__span-1-7">  }
+</span><span id="__span-1-8">],
+</span><span id="__span-1-9">&quot;rules&quot;:[
+</span><span id="__span-1-10">  {
+</span><span id="__span-1-11">    &quot;db&quot;: &quot;*&quot;,
+</span><span id="__span-1-12">    &quot;table&quot;: &quot;*&quot;,
+</span><span id="__span-1-13">    &quot;datasource_id&quot;: &quot;ds001&quot;
+</span><span id="__span-1-14">  }
+</span><span id="__span-1-15">]
+</span></code></pre></div>
+<ul>
+<li><code>connection_str</code>一项可以参考如下配置，其中<code>db</code>为你的数据库名称，<code>user</code>是你的数据库的用户名（一般为<code>root</code>），<code>password</code>是连接数据库的密码，<code>host</code>是主机名称/IP地址（一般为<code>localhost:3306</code>）</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1">db=${db};user=${user};password=${password};host=${host}
+</span></code></pre></div>
+<h3 id="_4">身份验证文件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>scql 0.3.0b1版本重构去除了GRM，使用公私钥验证来保证安全，因此engine、scdb都需要依赖额外的公私钥</p>
+</blockquote>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><span class="c1"># 生成私钥</span>
+</span><span id="__span-3-2">openssl<span class="w"> </span>genpkey<span class="w"> </span>-algorithm<span class="w"> </span>ed25519<span class="w"> </span>-out<span class="w"> </span>ed25519key.pem
+</span><span id="__span-3-3">
+</span><span id="__span-3-4"><span class="c1"># 从私钥文件中提取公钥，并将其输出为DER格式，然后对DER格式的公钥进行Base64编码</span>
+</span><span id="__span-3-5">openssl<span class="w"> </span>pkey<span class="w"> </span>-in<span class="w"> </span>ed25519key.pem<span class="w">  </span>-pubout<span class="w"> </span>-outform<span class="w"> </span>DER<span class="w"> </span><span class="p">|</span><span class="w"> </span>base64
+</span><span id="__span-3-6">
+</span><span id="__span-3-7"><span class="c1"># 链接疑似失效（）</span>
+</span><span id="__span-3-8">wget<span class="w"> </span>https://raw.githubusercontent.com/secretflow/scql/main/examples/scdb-tutorial/engine/alice/conf/authorized_profile.json
+</span></code></pre></div>
+<p>官方文档在这里用<a href="https://zh.wikipedia.org/wiki/OpenSSL"><code>openssl</code></a>生成了一个私钥存储在<code>ed25519key.pem</code>文件里，文档的意思应该是要让你手动把非己方的公钥放到<code>authorized_profile.json</code>这个文件里面作为参与方身份验证；这个配置文件的<code>parties</code>数组内应该是可以添加多个参与方，如果有新用户(比如<code>carol</code>)进来，就在每个旧用户的这个配置文件后面添加新用户的公钥即可（新用户的配置文件内也要添加所有旧用户的公钥）</p>
+<ul>
+<li>alice方的<code>authorized_json.profile</code>内容如下</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1">{
+</span><span id="__span-4-2">    &quot;parties&quot;: [
+</span><span id="__span-4-3">        {
+</span><span id="__span-4-4">            &quot;party_code&quot;: &quot;bob&quot;,
+</span><span id="__span-4-5">            &quot;public_key&quot;: &quot;__BOB_PUBLIC_KEY__&quot;
+</span><span id="__span-4-6">        }
+</span><span id="__span-4-7">    ]
+</span><span id="__span-4-8">}
+</span></code></pre></div>
+<ul>
+<li>bob方的<code>authorized_json.profile</code>内容如下</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1">{
+</span><span id="__span-5-2">    &quot;parties&quot;: [
+</span><span id="__span-5-3">        {
+</span><span id="__span-5-4">            &quot;party_code&quot;: &quot;alice&quot;,
+</span><span id="__span-5-5">            &quot;public_key&quot;: &quot;__ALICE_PUBLIC_KEY__&quot;
+</span><span id="__span-5-6">        }
+</span><span id="__span-5-7">    ]
+</span><span id="__span-5-8">}
+</span></code></pre></div>
+<h2 id="_5">客户端上的用户创建<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>https://github.com/secretflow/scql/blob/3d1294a93a54f291485f91ba32e1abf55b9e93f0/cmd/scqltool/main.go</p>
 
 
 
