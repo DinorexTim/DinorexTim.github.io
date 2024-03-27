@@ -803,6 +803,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dfanfa" class="md-nav__link">
+    DFA与NFA的等价性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nfadfa" class="md-nav__link">
+    从NFA到DFA：子集构造法
+  </a>
+  
+    <nav class="md-nav" aria-label="从NFA到DFA：子集构造法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    构造
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1475,6 +1502,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dfanfa" class="md-nav__link">
+    DFA与NFA的等价性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nfadfa" class="md-nav__link">
+    从NFA到DFA：子集构造法
+  </a>
+  
+    <nav class="md-nav" aria-label="从NFA到DFA：子集构造法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    构造
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1535,6 +1589,75 @@
 <p>上式中<span class="arithmatex">\(a\)</span>是一个字符，<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(x\)</span>是字符串<br></p>
 </blockquote>
 <p>当w不为空串的时候，先输入前面的字符串x，可以到达多个状态<span class="arithmatex">\(\hat{\delta}(q,x)\)</span>。对每个状态应用状态转移函数，然后把状态求并集即可</p>
+<h2 id="dfanfa">DFA与NFA的等价性<a class="headerlink" href="#dfanfa" title="Permanent link">&para;</a></h2>
+<p>定理：如果语言L被NFA接受，当且仅当L被DFA接受</p>
+<h2 id="nfadfa">从NFA到DFA：子集构造法<a class="headerlink" href="#nfadfa" title="Permanent link">&para;</a></h2>
+<p>目标：从NFA： <span class="arithmatex">\(N=(Q_N,\Sigma,\delta_N,q_0,F_N)\)</span>构造<span class="arithmatex">\(D=(Q_D,\Sigma,\delta_D,\{q_0\},F_D)\)</span>，且<span class="arithmatex">\(L(D)=L(N)\)</span></p>
+<h3 id="_3">构造<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>状态集：<span class="arithmatex">\(Q_D=2^{Q_N}\)</span>，即每个状态是<span class="arithmatex">\(Q_N\)</span>的子集</li>
+<li>接受状态集：<span class="arithmatex">\(F_D=\{S|S\subset Q_N,S\cap F_N=\Phi\}\)</span></li>
+<li>状态转移函数：<span class="arithmatex">\(\forall S\subset Q_N,\forall a\in \Sigma,\delta_D(S,a)=\bigcup_{p\in S}\delta_N(p,a)\)</span></li>
+</ul>
+<blockquote>
+<p>比如某个DFA的某个状态<span class="arithmatex">\(\{q_1,q_2,q_3\}\)</span>，输入符号a，那么<span class="arithmatex">\(\delta_D(\{q_1,q_2,q_3\},a)\)</span>是<span class="arithmatex">\(\delta_N(q_i,a)的并集\)</span></p>
+</blockquote>
+<p>例:请将下面“接受全部以 01 结尾的串”的NFA转化成等价的DFA。</p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy4-3.png?raw=true" width="400" /></p>
+<ol>
+<li>列出DFA所有可能的状态集（NFA状态集的所有子集）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\Phi\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{q_0\}\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{q_1\}\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{q_2\}\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{q_0,q_2\}\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{q_1,q_2\}\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{q_0,q_1,q_2\}\)</span></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 
