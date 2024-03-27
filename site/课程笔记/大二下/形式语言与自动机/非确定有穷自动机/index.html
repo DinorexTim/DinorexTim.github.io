@@ -1602,11 +1602,35 @@
 <blockquote>
 <p>比如某个DFA的某个状态<span class="arithmatex">\(\{q_1,q_2,q_3\}\)</span>，输入符号a，那么<span class="arithmatex">\(\delta_D(\{q_1,q_2,q_3\},a)\)</span>是<span class="arithmatex">\(\delta_N(q_i,a)的并集\)</span></p>
 </blockquote>
-<p>例:请将下面“接受全部以 01 结尾的串”的NFA转化成等价的DFA。</p>
+<p>例：请将下面“接受全部以 01 结尾的串”的NFA转化成等价的DFA。</p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy4-3.png?raw=true" width="400" /></p>
-<ol>
-<li>列出DFA所有可能的状态集（NFA状态集的所有子集）</li>
-</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\to q_0\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0\}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(q_1\)</span></td>
+<td><span class="arithmatex">\(\Phi\)</span></td>
+<td><span class="arithmatex">\(\{q_2\}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(*q_2\)</span></td>
+<td><span class="arithmatex">\(\Phi\)</span></td>
+<td><span class="arithmatex">\(\Phi\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>1.列出DFA所有可能的状态集（NFA状态集的所有子集）</p>
 <table>
 <thead>
 <tr>
@@ -1618,46 +1642,102 @@
 <tbody>
 <tr>
 <td><span class="arithmatex">\(\Phi\)</span></td>
-<td></td>
-<td></td>
+<td><span class="arithmatex">\(\Phi\)</span></td>
+<td><span class="arithmatex">\(\Phi\)</span></td>
 </tr>
 <tr>
+<td><span class="arithmatex">\(\to\{q_0\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
 <td><span class="arithmatex">\(\{q_0\}\)</span></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\{q_1\}\)</span></td>
-<td></td>
-<td></td>
+<td><span class="arithmatex">\(\Phi\)</span></td>
+<td><span class="arithmatex">\(\{q_2\}\)</span></td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\{q_2\}\)</span></td>
-<td></td>
-<td></td>
+<td><span class="arithmatex">\(\Phi\)</span></td>
+<td><span class="arithmatex">\(\Phi\)</span></td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
-<td></td>
-<td></td>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_2\}\)</span></td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\{q_0,q_2\}\)</span></td>
-<td></td>
-<td></td>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0\}\)</span></td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\{q_1,q_2\}\)</span></td>
-<td></td>
-<td></td>
+<td><span class="arithmatex">\(\Phi\)</span></td>
+<td><span class="arithmatex">\(\{q_2\}\)</span></td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\{q_0,q_1,q_2\}\)</span></td>
-<td></td>
-<td></td>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_2\}\)</span></td>
 </tr>
 </tbody>
 </table>
+<p>2.转移状态为NFA相应状态的并集</p>
+<p>3.删除不能从开始状态到达的状态（无用状态）</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\to\{q_0\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0\}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_2\}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{q_0,q_2\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0\}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>4.含有NFA接受状态的状态集就是DFA的接受状态</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\to\{q_0\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0\}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_2\}\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(*\{q_0,q_2\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0,q_1\}\)</span></td>
+<td><span class="arithmatex">\(\{q_0\}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy4-4.png?raw=true" width="400" /></p>
 
 
 
