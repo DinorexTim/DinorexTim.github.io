@@ -149,5 +149,51 @@ MC4CAQAwBQYDK2VwBCIEIBSXcCv5G1YpIZSD127ImyGnlqA9s9HCpk7jYbl7OQZ5
 
 可以看出是将预期`sql`和scqltool生成`sql`进行对比测试，然后"那两段"貌似就是在`priv, err := x509.ParsePKCS8PrivateKey(block.Bytes)`生成的
 
-一波百科后发现：这个crypto/x509实际是Go标准库中的一个包，提供对 X.509 标准的支持，该标准定义了公钥证书和私钥存储的格式；然后这个`ParsePKCS8PrivateKey`方法实际是用于解析 PKCS#8 编码的私钥。PKCS#8 是用于存储私钥信息的标准语法。它允许私钥使用密码进行加密，尽管此函数不处理解密。如果私钥已加密，则必须在传递给该函数之前对其进行解密
+一波百科后发现：这个crypto/x509实际是Go标准库中的一个包，提供对 X.509 标准的支持，该标准定义了公钥证书和私钥存储的格式；然后这个`ParsePKCS8PrivateKey`方法实际是用于解析 PKCS#8 编码的私钥。PKCS#8 是用于存储私钥信息的标准语法。它允许私钥使用密码进行加密，“第一段”应该是程序读取并解析了.pem的私钥文件，并使用`crypto/x509.ed25519.ParsePKCS8PrivateKey`函数将其解析为Ed25519私钥
 
+大致实现如下：
+
+```golang
+package main
+
+import (
+    "crypto/x509"
+    "crypto/ed25519"
+    "encoding/pem"
+    "encoding/base64"
+    "fmt"
+    "log"
+)
+
+func main() {
+    pemData := []byte(`-----BEGIN PRIVATE KEY-----
+MC4CAQAwBQYDK2VwBCIEIBSXcCv5G1YpIZSD127ImyGnlqA9s9HCpk7jYbl7OQZ5
+-----END PRIVATE KEY-----`)
+
+    block, _ := pem.Decode(pemData)
+    if block == nil {
+        log.Fatal("Failed to decode PEM data")
+    }
+
+    privKey, err := x509.ParsePKCS8PrivateKey(block.Bytes)
+    if err != nil {
+        log.Fatalf("Failed to parse private key: %v", err)
+    }
+
+    ed25519PrivKey, ok := privKey.(ed25519.PrivateKey)
+    if !ok {
+        log.Fatal("Invalid Ed25519 private key")
+    }
+
+    privKeyBytes := []byte(ed25519PrivKey)
+    privKeyEncoded := base64.StdEncoding.EncodeToString(privKeyBytes)
+
+    fmt.Println(privKeyEncoded)
+}
+```
+
+至此，已经弄清了创建用户语句的所有结构，可以编写一个shell脚本，具体如下
+
+```bash
+
+```
