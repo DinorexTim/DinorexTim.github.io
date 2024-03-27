@@ -6,7 +6,7 @@ $\epsilon-NFA$：对NFA进行扩展，在不输入任何字符的情况下（空
 
 ## 定义
 
-带空转移非确定有穷自动机($\epsilon$-NFA, Non-deterministic Finite Automaton)A为五元组($Q,\Sigma,\delta,q_0,F$)
+带空转移非确定有穷自动机($\epsilon-NFA$)A为五元组$A=(Q,\Sigma,\delta,q_0,F)$
 
 1. $Q$: 有穷状态集；
 2. $\Sigma$: 有穷输入符号集或字母表；
