@@ -1582,7 +1582,48 @@
 </span><span id="__span-7-25"><span class="p">}</span>
 </span></code></pre></div>
 <p>可以看出是将预期<code>sql</code>和scqltool生成<code>sql</code>进行对比测试，然后"那两段"貌似就是在<code>priv, err := x509.ParsePKCS8PrivateKey(block.Bytes)</code>生成的</p>
-<p>一波百科后发现：这个crypto/x509实际是Go标准库中的一个包，提供对 X.509 标准的支持，该标准定义了公钥证书和私钥存储的格式；然后这个<code>ParsePKCS8PrivateKey</code>方法实际是用于解析 PKCS#8 编码的私钥。PKCS#8 是用于存储私钥信息的标准语法。它允许私钥使用密码进行加密，尽管此函数不处理解密。如果私钥已加密，则必须在传递给该函数之前对其进行解密</p>
+<p>一波百科后发现：这个crypto/x509实际是Go标准库中的一个包，提供对 X.509 标准的支持，该标准定义了公钥证书和私钥存储的格式；然后这个<code>ParsePKCS8PrivateKey</code>方法实际是用于解析 PKCS#8 编码的私钥。PKCS#8 是用于存储私钥信息的标准语法。它允许私钥使用密码进行加密，“第一段”应该是程序读取并解析了.pem的私钥文件，并使用<code>crypto/x509.ed25519.ParsePKCS8PrivateKey</code>函数将其解析为Ed25519私钥</p>
+<p>大致实现如下：</p>
+<div class="language-golang highlight"><pre><span></span><code><span id="__span-8-1"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-8-2">
+</span><span id="__span-8-3"><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-4"><span class="w">    </span><span class="s">&quot;crypto/x509&quot;</span>
+</span><span id="__span-8-5"><span class="w">    </span><span class="s">&quot;crypto/ed25519&quot;</span>
+</span><span id="__span-8-6"><span class="w">    </span><span class="s">&quot;encoding/pem&quot;</span>
+</span><span id="__span-8-7"><span class="w">    </span><span class="s">&quot;encoding/base64&quot;</span>
+</span><span id="__span-8-8"><span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-8-9"><span class="w">    </span><span class="s">&quot;log&quot;</span>
+</span><span id="__span-8-10"><span class="p">)</span>
+</span><span id="__span-8-11">
+</span><span id="__span-8-12"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-13"><span class="w">    </span><span class="nx">pemData</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">`-----BEGIN PRIVATE KEY-----</span>
+</span><span id="__span-8-14"><span class="s">MC4CAQAwBQYDK2VwBCIEIBSXcCv5G1YpIZSD127ImyGnlqA9s9HCpk7jYbl7OQZ5</span>
+</span><span id="__span-8-15"><span class="s">-----END PRIVATE KEY-----`</span><span class="p">)</span>
+</span><span id="__span-8-16">
+</span><span id="__span-8-17"><span class="w">    </span><span class="nx">block</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">pem</span><span class="p">.</span><span class="nx">Decode</span><span class="p">(</span><span class="nx">pemData</span><span class="p">)</span>
+</span><span id="__span-8-18"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">block</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-19"><span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="s">&quot;Failed to decode PEM data&quot;</span><span class="p">)</span>
+</span><span id="__span-8-20"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-21">
+</span><span id="__span-8-22"><span class="w">    </span><span class="nx">privKey</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">x509</span><span class="p">.</span><span class="nx">ParsePKCS8PrivateKey</span><span class="p">(</span><span class="nx">block</span><span class="p">.</span><span class="nx">Bytes</span><span class="p">)</span>
+</span><span id="__span-8-23"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-24"><span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;Failed to parse private key: %v&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span>
+</span><span id="__span-8-25"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-26">
+</span><span id="__span-8-27"><span class="w">    </span><span class="nx">ed25519PrivKey</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">privKey</span><span class="p">.(</span><span class="nx">ed25519</span><span class="p">.</span><span class="nx">PrivateKey</span><span class="p">)</span>
+</span><span id="__span-8-28"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-29"><span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="s">&quot;Invalid Ed25519 private key&quot;</span><span class="p">)</span>
+</span><span id="__span-8-30"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-31">
+</span><span id="__span-8-32"><span class="w">    </span><span class="nx">privKeyBytes</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">ed25519PrivKey</span><span class="p">)</span>
+</span><span id="__span-8-33"><span class="w">    </span><span class="nx">privKeyEncoded</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">base64</span><span class="p">.</span><span class="nx">StdEncoding</span><span class="p">.</span><span class="nx">EncodeToString</span><span class="p">(</span><span class="nx">privKeyBytes</span><span class="p">)</span>
+</span><span id="__span-8-34">
+</span><span id="__span-8-35"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">privKeyEncoded</span><span class="p">)</span>
+</span><span id="__span-8-36"><span class="p">}</span>
+</span></code></pre></div>
+<p>至此，已经弄清了创建用户语句的所有结构，可以编写一个shell脚本，具体如下</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1">
+</span></code></pre></div>
 
 
 

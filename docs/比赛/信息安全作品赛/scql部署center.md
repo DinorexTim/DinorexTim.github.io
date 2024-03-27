@@ -115,7 +115,11 @@ root> CREATE USER `alice` PARTY_CODE 'alice' IDENTIFIED BY 'some_password' WITH 
 
 在官方教程里，使用的`ed25519key.pem`文件位于`docker`容器内部的`example`文件夹下方；如果想使用本地的`ed25519key.pem`，或者不想在docker里面输入那段命令再手动复制到客户端执行，或许可以自己编写一个生成“创建用户语句”的脚本
 
-创建用户语句的结构大部分都比较清晰，只有时间戳之前的两段比较迷惑，第二段比较明显，就是从`ed25519.pem`内加载出的公钥，而第一段尚不清楚。
+创建用户语句的结构大部分都比较清晰，只有最后的“两段”比较迷惑，第二段比较明显，就是从`ed25519.pem`内加载出的公钥，而第一段尚不清楚。
+
+```bash
+'/oWeDbslKFQaqM6aOumnQY56i6MQKNNz84v0nkdhniXS0eBNX/q3n4IYz2EkABgKD+nkIVFtBokQqx5fr29CBw==' 'MCowBQYDK2VwAyEAzvfiNl1c1TjcvaTQBAxpG93MzHRGwuUBrPI3qf5N2XQ='
+```
 
 去查看了下[项目有关sqlbuilder的测试代码](https://github.com/secretflow/scql/blob/main/pkg/util/sqlbuilder/sqlbuilder_test.go#L75)的部分，可以看到有下面这部分
 
@@ -149,7 +153,7 @@ MC4CAQAwBQYDK2VwBCIEIBSXcCv5G1YpIZSD127ImyGnlqA9s9HCpk7jYbl7OQZ5
 
 可以看出是将预期`sql`和scqltool生成`sql`进行对比测试，然后"那两段"貌似就是在`priv, err := x509.ParsePKCS8PrivateKey(block.Bytes)`生成的
 
-一波百科后发现：这个crypto/x509实际是Go标准库中的一个包，提供对 X.509 标准的支持，该标准定义了公钥证书和私钥存储的格式；然后这个`ParsePKCS8PrivateKey`方法实际是用于解析 PKCS#8 编码的私钥。PKCS#8 是用于存储私钥信息的标准语法。它允许私钥使用密码进行加密，“第一段”应该是程序读取并解析了.pem的私钥文件，并使用`crypto/x509.ed25519.ParsePKCS8PrivateKey`函数将其解析为Ed25519私钥
+一波百科后发现：这个`crypto/x509`实际是Go标准库中的一个包，提供对 X.509 标准的支持，该标准定义了公钥证书和私钥存储的格式；然后这个`ParsePKCS8PrivateKey`方法实际是用于解析 PKCS#8 编码的私钥。PKCS#8 是用于存储私钥信息的标准语法，它允许私钥使用密码进行加密；“第一段”应该是程序读取并解析了.pem的私钥文件，并使用`crypto/x509.ed25519.ParsePKCS8PrivateKey`函数将其解析为Ed25519私钥
 
 大致实现如下：
 
