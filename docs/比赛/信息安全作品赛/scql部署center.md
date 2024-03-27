@@ -196,8 +196,4 @@ MC4CAQAwBQYDK2VwBCIEIBSXcCv5G1YpIZSD127ImyGnlqA9s9HCpk7jYbl7OQZ5
 }
 ```
 
-至此，已经弄清了创建用户语句的所有结构，可以编写一个shell脚本，具体如下
-
-```bash
-
-```
+至此，已经弄清了创建用户语句的所有结构
