@@ -149,5 +149,5 @@ MC4CAQAwBQYDK2VwBCIEIBSXcCv5G1YpIZSD127ImyGnlqA9s9HCpk7jYbl7OQZ5
 
 可以看出是将预期`sql`和scqltool生成`sql`进行对比测试，然后"那两段"貌似就是在`priv, err := x509.ParsePKCS8PrivateKey(block.Bytes)`生成的
 
-一波百科后发现：这个crypto/x509实际是Go标准库中的一个包，提供对 X.509 标准的支持，该标准定义了公钥证书和私钥存储的格式；然后这个`ParsePKCS8PrivateKey`方法实际是该函数用于解析 PKCS#8 编码的私钥。PKCS#8 是用于存储私钥信息的标准语法。它允许私钥使用密码进行加密，尽管此函数不处理解密。如果私钥已加密，则必须在传递给该函数之前对其进行解密
+一波百科后发现：这个crypto/x509实际是Go标准库中的一个包，提供对 X.509 标准的支持，该标准定义了公钥证书和私钥存储的格式；然后这个`ParsePKCS8PrivateKey`方法实际是用于解析 PKCS#8 编码的私钥。PKCS#8 是用于存储私钥信息的标准语法。它允许私钥使用密码进行加密，尽管此函数不处理解密。如果私钥已加密，则必须在传递给该函数之前对其进行解密
 
