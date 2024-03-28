@@ -12,7 +12,7 @@
         <link rel="prev" href="../Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">
       
       
-        <link rel="next" href="../../%E5%BD%A2%E5%BC%8F%E8%AF%AD%E8%A8%80%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA/%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+        <link rel="next" href="../static%E4%BF%AE%E9%A5%B0%E7%AC%A6/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -758,10 +758,91 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    类的声明构造
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    封装性
+  </a>
+  
+    <nav class="md-nav" aria-label="封装性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gettersetter" class="md-nav__link">
+    通过getter/setter对属性进行访问
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    类的构造方法
+  </a>
+  
+    <nav class="md-nav" aria-label="类的构造方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#this" class="md-nav__link">
+    this 关键字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    默认构造方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    类的访问域
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../static%E4%BF%AE%E9%A5%B0%E7%AC%A6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    static修饰符
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1481,6 +1562,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    类的声明构造
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    封装性
+  </a>
+  
+    <nav class="md-nav" aria-label="封装性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gettersetter" class="md-nav__link">
+    通过getter/setter对属性进行访问
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    类的构造方法
+  </a>
+  
+    <nav class="md-nav" aria-label="类的构造方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#this" class="md-nav__link">
+    this 关键字
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    默认构造方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    类的访问域
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1520,6 +1662,149 @@
 </span><span id="__span-0-7"><span class="n">enrol</span><span class="p">()</span><span class="w"> </span><span class="err">——</span><span class="n">操作方法</span>
 </span><span id="__span-0-8"><span class="nf">take_course</span><span class="p">()</span>
 </span></code></pre></div>
+<h2 id="_2">类的声明构造<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="p">{</span>
+</span><span id="__span-1-2"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-1-3"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-1-4">
+</span><span id="__span-1-5"><span class="w">    </span><span class="n">setName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">){...}</span>
+</span><span id="__span-1-6"><span class="w">    </span><span class="n">getName</span><span class="p">(){...}</span>
+</span><span id="__span-1-7"><span class="p">}</span>
+</span></code></pre></div>
+<ul>
+<li>成员变量<ul>
+<li>作用：表示类和对象的属性、状态</li>
+<li>类型：可以是<strong>基本</strong>类型和<strong>引用类</strong>类型</li>
+</ul>
+</li>
+<li>成员方法<ul>
+<li>实质：实现某一功能的程序段，可以改变成员变量的属性和状态</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>访问控制符<br>
+<code>public</code>：可被公开访问<br>
+<code>private</code>：私有<br>
+<code>protected</code>：受保护<br>
+<code>default</code>：默认<br></p>
+</blockquote>
+<h2 id="_3">封装性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><span class="c1">//不使用封装</span>
+</span><span id="__span-2-2"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="p">{</span>
+</span><span id="__span-2-3"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-2-4"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-2-5"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">tell</span><span class="p">(){</span>
+</span><span id="__span-2-6"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;姓名: &quot;</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s">&quot;,&quot;</span><span class="o">+</span><span class="s">&quot;年龄: &quot;</span><span class="o">+</span><span class="n">age</span><span class="p">);</span>
+</span><span id="__span-2-7"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-8"><span class="p">}</span>
+</span><span id="__span-2-9">
+</span><span id="__span-2-10"><span class="c1">//使用封装</span>
+</span><span id="__span-2-11"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="p">{</span>
+</span><span id="__span-2-12"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-2-13"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-2-14"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">tell</span><span class="p">(){</span>
+</span><span id="__span-2-15"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;姓名: &quot;</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s">&quot;,&quot;</span><span class="o">+</span><span class="s">&quot;年龄: &quot;</span><span class="o">+</span><span class="n">age</span><span class="p">);</span>
+</span><span id="__span-2-16"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-17"><span class="p">}</span>
+</span></code></pre></div>
+<p>若直接运行下方代码，编译器会报错，因为外部无法直接调用类内部的属性</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><span class="n">Person</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">();</span>
+</span><span id="__span-3-2"><span class="n">per</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“</span><span class="n">张三</span><span class="err">”</span><span class="w"> </span><span class="p">;</span>
+</span><span id="__span-3-3"><span class="n">per</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">30</span><span class="p">;</span>
+</span><span id="__span-3-4"><span class="n">per</span><span class="p">.</span><span class="na">tell</span><span class="p">();</span>
+</span></code></pre></div>
+<h3 id="gettersetter">通过<code>getter/setter</code>对属性进行访问<a class="headerlink" href="#gettersetter" title="Permanent link">&para;</a></h3>
+<p>在Java开发标准规定中，只要是属性封装，设置和取得就要依靠<code>setter</code>和<code>getter</code>方法完成操作</p>
+<p>如：<code>Setter: public void setName(String n){}</code></p>
+<p><code>Getter: public String getName(){}</code></p>
+<h2 id="_4">类的构造方法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>构造方法（constructor）是一种特殊方法<ul>
+<li>用来构造并初始化（new）该类的一个<strong>新的对象</strong></li>
+<li><mark>构造方法和类名<strong>同名</strong></mark>，而且<strong>不返回数据类型</strong></li>
+</ul>
+</li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-4-3"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-4-4"><span class="w">    </span><span class="c1">//…</span>
+</span><span id="__span-4-5"><span class="w">    </span><span class="n">Person</span><span class="p">(</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-6"><span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</span><span id="__span-4-7"><span class="w">        </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</span><span id="__span-4-8"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-9"><span class="p">}</span>
+</span><span id="__span-4-10"><span class="n">Person</span><span class="w"> </span><span class="n">Li</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="err">“</span><span class="n">Li</span><span class="w"> </span><span class="n">Lei</span><span class="err">”</span><span class="p">,</span><span class="mi">19</span><span class="p">);</span>
+</span><span id="__span-4-11"><span class="n">Person</span><span class="w"> </span><span class="n">Han</span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="err">“</span><span class="n">Han</span><span class="w"> </span><span class="n">Meimei</span><span class="err">”</span><span class="p">);</span><span class="w"> </span><span class="c1">// error</span>
+</span><span id="__span-4-12"><span class="n">Person</span><span class="w"> </span><span class="n">Han</span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="err">“</span><span class="n">Han</span><span class="w"> </span><span class="n">Meimei</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">);</span><span class="w"> </span>
+</span></code></pre></div>
+<h3 id="this">this 关键字<a class="headerlink" href="#this" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">){</span>
+</span><span id="__span-5-2"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-5-3"><span class="w">    </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-5-4"><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>构造函数的两个参数能够表达出含义，但是输入参数和Person类定义的私有变量名称一致，导致name=name，age=age。无法区分哪个是私有变量，哪个是输入变量。</p>
+</blockquote>
+<p>采用<code>this</code>关键字，将上方代码修改为</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-6-3"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-6-4"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-5"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-6-6"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-6-7"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-8"><span class="w">    </span><span class="c1">// 编写setter、getter</span>
+</span><span id="__span-6-9"><span class="w">    </span><span class="err">…</span>
+</span><span id="__span-6-10"><span class="p">}</span><span class="w"> </span>
+</span></code></pre></div>
+<h3 id="_5">默认构造方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>类都有一个至多个构造方法</li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><span class="w">    </span><span class="c1">// …</span>
+</span><span id="__span-7-3"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-4"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;一个新的对象&quot;</span><span class="p">);</span>
+</span><span id="__span-7-5"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-6"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-7"><span class="w">        </span><span class="k">this</span><span class="p">();</span><span class="w"> </span><span class="c1">// 调用本类中的无参构造</span>
+</span><span id="__span-7-8"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-7-9"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-10"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">){</span>
+</span><span id="__span-7-11"><span class="w">        </span><span class="k">this</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w"> </span><span class="c1">// 调用有一个参数的构造</span>
+</span><span id="__span-7-12"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-7-13"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-14"><span class="w">    </span><span class="c1">// …</span>
+</span><span id="__span-7-15"><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>一个类中如果有多个构造方法，则需有一个不用<code>this</code>调用的构造方法作为出口</p>
+</blockquote>
+<ul>
+<li>若没有定义任何构造方法，系统会自动产生一个构造方法，称作<strong>默认构造方法</strong></li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><span class="c1">// 默认构造函数</span>
+</span><span id="__span-8-2"><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(){</span>
+</span><span id="__span-8-4">
+</span><span id="__span-8-5"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-6"><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="_6">类的访问域<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>定义：本类及本类内部的成员（成员变量、成员方法、内部类）对
+其他类的可见性，即这些内容是否允许其他类访问</p>
+<ul>
+<li><code>public</code>：该类可以被其他类所访问</li>
+<li><code>default</code>：该类只能被同一个包中的类访问</li>
+<li><code>private</code>：无法被其他类所访问</li>
+<li><code>protected</code>：可以被子类访问，以及子类的子类（作用于<strong>继承</strong>关系）</li>
+</ul>
+<blockquote>
+<p>包(package)： 在java编程中，经常把功能相似或相关的类或者接口放在一个包里；可以避免名字冲突；也限定了访问权限。</p>
+</blockquote>
 
 
 
@@ -1564,13 +1849,13 @@
         
         
           
-          <a href="../../%E5%BD%A2%E5%BC%8F%E8%AF%AD%E8%A8%80%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA/%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-footer__link md-footer__link--next" aria-label="下一页: 简介及基础知识">
+          <a href="../static%E4%BF%AE%E9%A5%B0%E7%AC%A6/" class="md-footer__link md-footer__link--next" aria-label="下一页: static修饰符">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                简介及基础知识
+                static修饰符
               </div>
             </div>
             <div class="md-footer__button md-icon">
