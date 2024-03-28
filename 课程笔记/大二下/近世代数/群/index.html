@@ -709,6 +709,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    群的阶
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    性质
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    半群
+  </a>
+  
+    <nav class="md-nav" aria-label="半群">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    定理
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1495,6 +1536,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    群的阶
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    性质
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    半群
+  </a>
+  
+    <nav class="md-nav" aria-label="半群">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    定理
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1533,7 +1615,58 @@
 <p>定义：如果对G中任意两个元素a，b有</p>
 <div class="arithmatex">\[a\circ b=b\circ a\]</div>
 <p>即G的代数运算满足交换律，则称G为交换群（可换群）或Abel群；否则称其为非交换群（非可换群）或非Abel群</p>
-<p>例：整数集<span class="arithmatex">\(Z\)</span>对于数的普通加法显然做成了一个交换群0是它的单位元，整数-a是整数a的左逆元</p>
+<blockquote>
+<p>整数集<span class="arithmatex">\(Z\)</span>对于数的普通加法显然做成了一个交换群0是它的单位元，整数-a是整数a的左逆元</p>
+</blockquote>
+<p>例：设G为整数集，问：G对运算<span class="arithmatex">\(a\circ b=a+b+4\)</span>是否成群？</p>
+<blockquote>
+<p>一般来说：对于一个集合，要考察它是否成群，不仅要注意它的元素是什么，更应该注意它的<strong>代数运算</strong>是什么，同一个集合，对这个代数运算可能作成群，但是对另外一个代数运算却不一定，即使对两个不同的代数运算都可以作成群，一般来说都被认为是两个不同的群</p>
+</blockquote>
+<h2 id="_2">群的阶<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>定义：一个群G中包含元素的个数为n，则称n为群G的阶，记为<span class="arithmatex">\(|G|=n\)</span>，无线群的阶称为无限，被认为是大于任意的正数</p>
+<blockquote>
+<p>如<span class="arithmatex">\(|G|&gt;1\)</span>，G既可能是阶大于1的有限群，也有可能是无线群</p>
+</blockquote>
+<p>例：全体n次单位根，对于数的普通乘法作成一个群，这个群记作<span class="arithmatex">\(U_n\)</span>，并称作n次单位根群</p>
+<blockquote>
+<p>n次单位根：n次单位根是复数域上的特殊数，它们是满足以下方程的复数解：<br>
+<span class="arithmatex">\(z^n=1\)</span><br>
+其中，n是正整数。解这个方程得到的复数就是n次单位根。解通常以极坐标形式表示，即<br>
+<span class="arithmatex">\(z^k=e^{2\pi i k/n}\)</span></p>
+</blockquote>
+<h2 id="_3">性质<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>定理1：群G的左单位元也是右单位元，并且是唯一的</p>
+<p>定理2：群G中任意元素a的左逆元<span class="arithmatex">\(a^{-1}\)</span>也是右逆元，并且唯一</p>
+<p>推论1：在群中消去律成立，即</p>
+<div class="arithmatex">\[ab=ac\Rightarrow b=c\]</div>
+<div class="arithmatex">\[ba=ca\Rightarrow b=c\]</div>
+<blockquote>
+<p>两边分别左乘、右乘<span class="arithmatex">\(a^-1\)</span>即可证明</p>
+</blockquote>
+<h2 id="_4">半群<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>定义：设<span class="arithmatex">\(S\)</span>是一个非空集合，如果他有一个代数运算<strong>满足结合律</strong>，则称S是一个<strong>半群</strong></p>
+<p>如果半群<span class="arithmatex">\(S\)</span>中有元素<span class="arithmatex">\(e\)</span>，它对<span class="arithmatex">\(S\)</span>中的任意元素a都有</p>
+<div class="arithmatex">\[ea=a\]</div>
+<p>则称<span class="arithmatex">\(e\)</span>为半群的一个<strong>左单位元</strong>；如果在<span class="arithmatex">\(S\)</span>中有元素<span class="arithmatex">\(e'\)</span>，它对<span class="arithmatex">\(S\)</span>中的任意元素a都有</p>
+<div class="arithmatex">\[ae'=a\]</div>
+<p>则称<span class="arithmatex">\(e'\)</span>为半群的一个<strong>右单位元</strong></p>
+<p>如果一个半群<span class="arithmatex">\(S\)</span>有单位元（既是左单位元又是右单位元），则称<span class="arithmatex">\(S\)</span>为有单位元的半群，或简称为<strong>幺半群（monoid）</strong></p>
+<h3 id="_5">性质<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>在一个半群中，可能既没有左单位元，也没有右单位元；可能只有左单位元，而没有右单位元；也可能只有右单位元，而没有左单位元。但是，如果既有左单位元又有右单位元，则二者必相等，它就是半群的<strong>唯一的单位元</strong></li>
+</ol>
+<blockquote>
+<p>如正整数集对普通乘法作成一个半群，而且是一个幺半群，1是单位元</p>
+</blockquote>
+<h2 id="_6">定理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>定理3：设G是一个半群，则G作成群的充要条件是，对G中任意元素a，b方程</p>
+<div class="arithmatex">\[ax=b\quad ya=b\]</div>
+<p>在G中都有解</p>
+<p>证明：必要性：若G作成群则任意元素都有逆元存在，故有方程解</p>
+<div class="arithmatex">\[x=a^{-1}b\quad y=ba^{-1}\]</div>
+<p>充分性：首先，对任意的固定元素<span class="arithmatex">\(b\in G\)</span>，由于上述两个方程总有解，则存在<span class="arithmatex">\(e\)</span>使得<span class="arithmatex">\(eb=b\)</span>，而对于<span class="arithmatex">\(\forall a\in G\)</span>，有<span class="arithmatex">\(bx=a\)</span>总有解<span class="arithmatex">\(c\)</span>，于是<span class="arithmatex">\(bc=a\)</span></p>
+<div class="arithmatex">\[ea=e(bc)=(eb)c=bc=a\]</div>
+<p>即，<span class="arithmatex">\(e\)</span>是G的左单位元</p>
 
 
 
