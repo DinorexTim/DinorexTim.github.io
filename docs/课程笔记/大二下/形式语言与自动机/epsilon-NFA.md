@@ -30,6 +30,16 @@ $\forall p\in \text{ECLOSE}(q),若r\in\delta(p,\epsilon),则r\in\text{ECLOSE}(q)
 
 ![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy5-2.png?raw=true){width=400}
 
+> $\text{ECLOSE}(1)=\{1,2,5,3,4\}\quad\text{ECLOSE}(2)=\{2,3,4\}$
+
+## 扩展状态转移函数
+
+定义：扩展$\delta$到字符串，定义扩展状态转移函数$\hat{\delta}:Q\times\Sigma^*\to 2^Q$为：
+
+$$\hat{\delta}(q,w)=\begin{cases}
+\text{ECLOSE}(q)&w=\epsilon\\\text{ECLOSE}(\cup_{p\in\hat{\delta}(q,x)}\delta(p,a))&w=xa
+\end{cases}$$
+
 ## 定理
 
 如果语言L被$\epsilon-NFA$接受，当且仅当L被DFA接受
