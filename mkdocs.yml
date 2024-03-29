@@ -44,8 +44,6 @@ extra:
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/DINOREXNB
-    - icon: fontawesome/brands/qq 
-      link: https://user.qzone.qq.com/1819539569
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -106,6 +104,7 @@ nav:
         - 确定的有穷自动机DFA: 课程笔记/大二下/形式语言与自动机/确定的有穷自动机.md
         - 非确定有穷自动机NFA: 课程笔记/大二下/形式语言与自动机/非确定有穷自动机.md
         - epsilon-NFA: 课程笔记/大二下/形式语言与自动机/epsilon-NFA.md
+        - 正则表达式和正则语言: 课程笔记/大二下/形式语言与自动机/正则表达式和正则语言.md
       - 毛泽东思想和中国特色社会主义理论体系概论:
         - 毛概序章: 课程笔记/大二下/毛泽东思想和中国特色社会主义理论体系概论/毛概序章.md
         - 毛概串讲记录: 课程笔记/大二下/毛泽东思想和中国特色社会主义理论体系概论/毛概串讲记录.md

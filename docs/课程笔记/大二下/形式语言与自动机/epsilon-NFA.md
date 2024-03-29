@@ -17,3 +17,24 @@ $\epsilon-NFA$：对NFA进行扩展，在不输入任何字符的情况下（空
 例：$L=\{w\in\{0,1\}^*|w倒数3个字符至少有一个是1\}$的$\epsilon-NFA$
 
 ![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy5-1.png?raw=true){width=400}
+
+## 状态的$\epsilon$-闭包
+
+定义：状态q的$\epsilon$-闭包，记为$\text{ECLOSE}(q)$，表示从q经过$\epsilon\epsilon\dots\epsilon$序列可到达的全部状态集合（即经过0个或>0个空转移到达的状态集合）
+
+递归定义：
+
+$q\in\text{ECLOSE}(q)$
+
+$\forall p\in \text{ECLOSE}(q),若r\in\delta(p,\epsilon),则r\in\text{ECLOSE}(q)$
+
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy5-2.png?raw=true){width=400}
+
+## 定理
+
+如果语言L被$\epsilon-NFA$接受，当且仅当L被DFA接受
+
+子集构造法（消除空转移）：如果$\epsilon-NFA\quad E=(Q_E,\Sigma,\delta_E,q_E,F_E)$，构造DFA
+
+$$D=(Q_D,\Sigma,\delta_D,q_D,F_D)$$
+
