@@ -825,6 +825,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    扩展状态转移函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     定理
   </a>
   
@@ -1524,6 +1531,13 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    扩展状态转移函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     定理
   </a>
   
@@ -1572,7 +1586,15 @@
 <p><span class="arithmatex">\(q\in\text{ECLOSE}(q)\)</span></p>
 <p><span class="arithmatex">\(\forall p\in \text{ECLOSE}(q),若r\in\delta(p,\epsilon),则r\in\text{ECLOSE}(q)\)</span></p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy5-2.png?raw=true" width="400" /></p>
-<h2 id="_2">定理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><span class="arithmatex">\(\text{ECLOSE}(1)=\{1,2,5,3,4\}\quad\text{ECLOSE}(2)=\{2,3,4\}\)</span></p>
+</blockquote>
+<h2 id="_2">扩展状态转移函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>定义：扩展<span class="arithmatex">\(\delta\)</span>到字符串，定义扩展状态转移函数<span class="arithmatex">\(\hat{\delta}:Q\times\Sigma^*\to 2^Q\)</span>为：</p>
+<div class="arithmatex">\[\hat{\delta}(q,w)=\begin{cases}
+\text{ECLOSE}(q)&amp;w=\epsilon\\\text{ECLOSE}(\cup_{p\in\hat{\delta}(q,x)}\delta(p,a))&amp;w=xa
+\end{cases}\]</div>
+<h2 id="_3">定理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>如果语言L被<span class="arithmatex">\(\epsilon-NFA\)</span>接受，当且仅当L被DFA接受</p>
 <p>子集构造法（消除空转移）：如果<span class="arithmatex">\(\epsilon-NFA\quad E=(Q_E,\Sigma,\delta_E,q_E,F_E)\)</span>，构造DFA</p>
 <div class="arithmatex">\[D=(Q_D,\Sigma,\delta_D,q_D,F_D)\]</div>

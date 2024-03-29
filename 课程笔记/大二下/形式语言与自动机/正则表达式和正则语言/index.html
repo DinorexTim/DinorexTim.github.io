@@ -74,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -790,6 +795,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    正则表达式和正则语言
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -799,6 +815,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    语言运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    四则运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    正则表达式的递归定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    正则表达式单则运算以及括号的优先级
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1448,6 +1516,49 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    语言运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    四则运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    正则表达式的递归定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    正则表达式单则运算以及括号的优先级
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1466,7 +1577,55 @@
 
   <h1>正则表达式和正则语言</h1>
 
-
+<h2 id="_1">正则表达式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>有穷自动机<ul>
+<li>通过抽象机器装置扫描和接受字符串识别正则语言</li>
+</ul>
+</li>
+<li>正则表达式<ul>
+<li>通过代数式表示或产生正则语言，便于正则语言的处理</li>
+<li>正则表达式所表示的语言与正则语言等价</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">语言运算<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>设L和M两个语言，那么</p>
+<ul>
+<li>并： <span class="arithmatex">\(L\cup M=\{w|w\in L 或w\in M\}\)</span></li>
+<li>连接：<span class="arithmatex">\(L\cdot M\{w|w=xy,x\in L,    y\in M\}\)</span></li>
+<li>幂： <span class="arithmatex">\(L^0=\{\epsilon\},L^1=L,L^n=L^{n-1}\cdot L\)</span></li>
+</ul>
+<h2 id="_3">四则运算<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>任何数都是四则运算表达式</p>
+<p>如果a和b是四则运算表达式，那么</p>
+<div class="arithmatex">\[a+b,a-b,a\times b,a\div b,(a)\]</div>
+<p>都是四则运算表达式</p>
+<h2 id="_4">正则表达式的递归定义<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>基础1：<span class="arithmatex">\(\phi\)</span>是一个正则表达式，表示空语言<span class="arithmatex">\(\phi\)</span></li>
+<li>基础2：<span class="arithmatex">\(\epsilon\)</span>是一个正则表达式，表示语言<span class="arithmatex">\(\epsilon\)</span></li>
+<li>
+<p>基础3：对于任何一个符号a，a是一个正则表达式，表示语言<span class="arithmatex">\(\{a\}\)</span>，其中有一个长度为1的字符串</p>
+</li>
+<li>
+<p>归纳1：如果<span class="arithmatex">\(E_1,E_2\)</span>是正则表达式，那么<span class="arithmatex">\(E_1+E_2\)</span>也是正则表达式，且<span class="arithmatex">\(L(E_1+E_2)=L(E_1)\cup L(E_2)\)</span></p>
+</li>
+<li>归纳2：如果<span class="arithmatex">\(E_1,E_2\)</span>是正则表达式，那么<span class="arithmatex">\(E_1E_2\)</span>也是正则表达式，且<span class="arithmatex">\(L(E_1E_2)=L(E_1)L(E_2)\)</span></li>
+<li>归纳3：如果E是正则表达式，则<span class="arithmatex">\(E^*\)</span>也是正则表达式</li>
+<li>归纳4：如果E是正则表达式，则<span class="arithmatex">\((E)\)</span>也是正则表达式，表示语言<span class="arithmatex">\(L(E)\)</span></li>
+</ul>
+<h2 id="_5">正则表达式单则运算以及括号的优先级<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<div class="arithmatex">\[括号&gt;*&gt;连接&gt;+\]</div>
+<p>例：<span class="arithmatex">\(1+01*=1+(0(1*))\)</span></p>
+<p><span class="arithmatex">\((1*)=\{\epsilon,1,11,111,1111,\dotsb\}\)</span></p>
+<p><span class="arithmatex">\(0(1*)=\{0,01,011,0111,01111,\dotsb\}\)</span></p>
+<p><span class="arithmatex">\(1+01*=\{1,0,01,011,0111,01111,\dotsb\}\)</span></p>
+<p>例：设计由0和1组成的正则表达式<span class="arithmatex">\(E\)</span>使得</p>
+<div class="arithmatex">\[L_1(E)=\{w|w至少包含三个连续的0\}\]</div>
+<div class="arithmatex">\[L_2(E)=\{w|w以01结尾\}\]</div>
+<div class="arithmatex">\[L_3(E)=\{w|w的开头字符和结尾字符相同\}\]</div>
+<div class="arithmatex">\[L_4(E)=\{w|w由于交替的0和1组成\}\]</div>
 
 
 
