@@ -819,6 +819,94 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    抽象类与接口
+  </a>
+  
+    <nav class="md-nav" aria-label="抽象类与接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    抽象类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    接口 VS 抽象类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    多态
+  </a>
+  
+    <nav class="md-nav" aria-label="多态">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    实现方式
+  </a>
+  
+    <nav class="md-nav" aria-label="实现方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    重写
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    抽象类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    多继承
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1623,6 +1711,94 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    抽象类与接口
+  </a>
+  
+    <nav class="md-nav" aria-label="抽象类与接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    抽象类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    接口 VS 抽象类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    多态
+  </a>
+  
+    <nav class="md-nav" aria-label="多态">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    实现方式
+  </a>
+  
+    <nav class="md-nav" aria-label="实现方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    重写
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    抽象类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    多继承
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1805,6 +1981,143 @@
 <blockquote>
 <p>包(package)： 在java编程中，经常把功能相似或相关的类或者接口放在一个包里；可以避免名字冲突；也限定了访问权限。</p>
 </blockquote>
+<h2 id="_7">抽象类与接口<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">抽象类<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>抽象类是不能实例化的</li>
+<li><strong>只能被继承</strong>，保证子类实现其定义的抽象方法</li>
+<li>可用于实现<strong>多态</strong></li>
+</ul>
+<h3 id="_9">接口<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>抽象类中，抽象方法本质上是定义接口规范，保证子类都有相同的接口实现</p>
+<p>比抽象类还要抽象：没有字段，所有方法都是抽象方法</p>
+<h3 id="vs">接口 VS 抽象类<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>抽象类</th>
+<th>接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>抽象方法</td>
+<td>可以定义抽象方法</td>
+<td>可以定义抽象方法</td>
+</tr>
+<tr>
+<td>字段</td>
+<td>可以定义字段</td>
+<td>无字段</td>
+</tr>
+<tr>
+<td>继承</td>
+<td>只可以extends一个class</td>
+<td>可以implement多个interface</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>均不能使用<code>new</code>创建一个对象<br>
+接口是特殊的抽象类：接口里面的所有方法都是抽象方法，接口里面的所有属性都是常量</p>
+</blockquote>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Student</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Interface1</span><span class="p">,</span><span class="w"> </span><span class="n">Interface2</span><span class="p">{</span>
+</span><span id="__span-9-2"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-9-3"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-9-4"><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-9-5"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">getDuty</span><span class="p">(){</span>
+</span><span id="__span-9-6"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;好好学习&quot;</span><span class="p">);</span>
+</span><span id="__span-9-7"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-8"><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-9-9"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">getMission</span><span class="p">(){</span>
+</span><span id="__span-9-10"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;为中华之崛起而读书&quot;</span><span class="p">);</span>
+</span><span id="__span-9-11"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-12"><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="_10">多态<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ul>
+<li>多态（Polymorphism）是面向对象编程的三大重要特性之一</li>
+<li>多态是同一个行为具有多种表现形态的能力<ul>
+<li>不同情况下的不同处理方式</li>
+<li>程序中定义的变量和方法在编程时并不确定，而是在程序运行期间才确定</li>
+</ul>
+</li>
+</ul>
+<h3 id="_11">实现方式<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>重写（继承）</li>
+<li>抽象类和抽象方法</li>
+<li>接口</li>
+</ul>
+<h4 id="_12">重写<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<ul>
+<li>父类中的某些方法对子类并不一定适用，需要重写/覆盖(override)父类中的这个方法</li>
+<li>重写：如果在子类中定义一个方法，其名称、参数、返回类型正好与父类中某个方法相同，那么可以说，子类的方法重写了父类的方法</li>
+</ul>
+<h4 id="_13">抽象类<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><span class="c1">//定义一个抽象类</span>
+</span><span id="__span-10-2"><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Person</span><span class="p">{</span>
+</span><span id="__span-10-3"><span class="w">    </span><span class="c1">//抽象方法</span>
+</span><span id="__span-10-4"><span class="w">    </span><span class="c1">//没有方法体，用abstract做修饰</span>
+</span><span id="__span-10-5"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">getTarget</span><span class="p">();</span>
+</span><span id="__span-10-6"><span class="p">}</span>
+</span><span id="__span-10-7">
+</span><span id="__span-10-8"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Engineer</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Person</span><span class="p">{</span>
+</span><span id="__span-10-9"><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-10-10"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">getTarget</span><span class="p">(){</span>
+</span><span id="__span-10-11"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;技术改变世界&quot;</span><span class="p">);</span>
+</span><span id="__span-10-12"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-13"><span class="p">}</span>
+</span><span id="__span-10-14">
+</span><span id="__span-10-15"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Scientist</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Person</span><span class="p">{</span>
+</span><span id="__span-10-16"><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-10-17"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">getTarget</span><span class="p">(){</span>
+</span><span id="__span-10-18"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;勇攀科学高峰&quot;</span><span class="p">);</span>
+</span><span id="__span-10-19"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-20"><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="_14">接口<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nf">GetTarget</span><span class="p">(){</span>
+</span><span id="__span-11-2"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">getTarget</span><span class="p">();</span>
+</span><span id="__span-11-3"><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Talent</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="nf">GetTarget</span><span class="p">(){</span>
+</span><span id="__span-12-2"><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-12-3"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">getTarget</span><span class="p">(){</span>
+</span><span id="__span-12-4"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;打造国之重器&quot;</span><span class="p">);</span>
+</span><span id="__span-12-5"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-6"><span class="p">}</span>
+</span><span id="__span-12-7">
+</span><span id="__span-12-8"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Entrepreneur</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="nf">GetTarget</span><span class="p">(){</span>
+</span><span id="__span-12-9"><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-12-10"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">getTarget</span><span class="p">(){</span>
+</span><span id="__span-12-11"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;促进共同富裕&quot;</span><span class="p">);</span>
+</span><span id="__span-12-12"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-13"><span class="p">}</span>
+</span><span id="__span-12-14">
+</span><span id="__span-12-15"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-16"><span class="w">    </span><span class="n">Person</span><span class="w"> </span><span class="n">Zhang</span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Talent</span><span class="p">();</span>
+</span><span id="__span-12-17"><span class="w">    </span><span class="n">Zhang</span><span class="p">.</span><span class="na">getTarget</span><span class="p">();</span>
+</span><span id="__span-12-18"><span class="w">    </span><span class="n">Person</span><span class="w"> </span><span class="n">Ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Entrepreneur</span><span class="p">();</span>
+</span><span id="__span-12-19"><span class="w">    </span><span class="n">Han</span><span class="p">.</span><span class="na">getTarget</span><span class="p">();</span>
+</span><span id="__span-12-20"><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="_15">多继承<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>多继承存在的问题：</p>
+<ol>
+<li>若子类继承的父类中拥有相同的成员变量，子类在引用该变量时将无法判别使用哪个父类的成员变量。</li>
+<li>
+<p>若一个子类继承的多个父类拥有相同方法，同时子类并未覆盖该方法（若覆盖，则直接使用子类中该方法），那么调用该方法时将无法确定调用哪个父类的方法。</p>
+</li>
+<li>
+<p>实现方法</p>
+<ul>
+<li>内部类</li>
+<li>接口</li>
+</ul>
+</li>
+</ol>
 
 
 
