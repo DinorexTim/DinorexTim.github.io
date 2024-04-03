@@ -74,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -810,6 +815,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    自动机到正则表达式
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -819,6 +835,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定理
+  </a>
+  
+    <nav class="md-nav" aria-label="定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    证明：递归法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1468,6 +1521,34 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定理
+  </a>
+  
+    <nav class="md-nav" aria-label="定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    证明：递归法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1489,7 +1570,39 @@
 <ul>
 <li>DFA，NFA，<span class="arithmatex">\(\epsilon\)</span>-NFA和正则表达式在表示语言的能力上是等价的</li>
 </ul>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-1.png?raw=true" /></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-1.png?raw=true" width="600" /></p>
+<h2 id="_1">定理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>若<span class="arithmatex">\(L=L(A)\)</span>是某DFA <span class="arithmatex">\(A\)</span>的语言，那么存在正则表达式R满足<span class="arithmatex">\(L=L(R)\)</span></p>
+<h3 id="_2">证明：递归法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>对A的状态进行编号，令1为开始状态，即<span class="arithmatex">\(A=(\{1,2,3,\dots,n\},\Sigma,\delta,1,F)\)</span></p>
+<p>设正则表达式 <span class="arithmatex">\(R_{i,j}^{(k)}\)</span> 表示从<span class="arithmatex">\(i\)</span>到<span class="arithmatex">\(j\)</span>但中间节点状态编号不超过<span class="arithmatex">\(k\)</span>全部路径的字符串集(简称k-路径):</p>
+<ul>
+<li><strong>归纳基础</strong>：<span class="arithmatex">\(k=0\)</span>, <span class="arithmatex">\(R_{i,j}^{(0)}\)</span>为从<span class="arithmatex">\(i\)</span>直接到<span class="arithmatex">\(j\)</span>，没有经过任何中间节点的字符串集合</li>
+<li><strong>情况一</strong>：<span class="arithmatex">\(i\neq j\)</span><ul>
+<li>没有i到j的状态转移 <span class="arithmatex">\(R_{i,j}^{(0)}=\phi\)</span></li>
+<li>有一个i到j的转移 <span class="arithmatex">\(R_{i,j}^{(0)}=a\)</span></li>
+<li>有多个i到j的转移 <span class="arithmatex">\(R_{i,j}^{(0)}=a_1+\dots+a_t\)</span></li>
+</ul>
+</li>
+<li><strong>情况二</strong>:<span class="arithmatex">\(i=j\)</span><ul>
+<li>状态i没有到自身的转移 <span class="arithmatex">\(R_{i,j}^{(0)}=\epsilon\)</span></li>
+<li>状态i有一个到自身的转移 <span class="arithmatex">\(R_{i,j}^{(0)}=a+\epsilon\)</span></li>
+<li>状态i有多个到自身的转移 <span class="arithmatex">\(R_{i,j}^{(0)}=a_1+\dots+a_t+\epsilon\)</span></li>
+</ul>
+</li>
+<li><strong><span class="arithmatex">\(R_{i,j}^{(k)}\)</span>有两种情况</strong><ul>
+<li>不经过状态k</li>
+<li>经过状态k一次或多次</li>
+</ul>
+</li>
+</ul>
+<p>得到如下递归关系</p>
+<div class="arithmatex">\[R_{i,j}^{(k)}=R_{i,j}^{(k-1)}+R_{i,k}^{(k-1)}(R_{k,k}^{(k-1)})^*R_{k,j}^{(k-1)}\]</div>
+<blockquote>
+<p>实际上为「“不经过k”的状态节点集合」与「经过了k节点的集合」<br>
+「经过了k节点的集合」当中“经过k节点”的状态又分为两种：不经过/经过，可以由下面这张图表示</p>
+</blockquote>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-2.png?raw=true" width="600" /></p>
 
 
 
