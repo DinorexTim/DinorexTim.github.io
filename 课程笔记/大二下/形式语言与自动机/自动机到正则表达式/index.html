@@ -882,12 +882,32 @@
     状态消除法
   </a>
   
-    <nav class="md-nav" aria-label="状态消除法">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to" class="md-nav__link">
+    正则表达式 to 自动机
+  </a>
+  
+    <nav class="md-nav" aria-label="正则表达式 to 自动机">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    示例
+    定理
+  </a>
+  
+    <nav class="md-nav" aria-label="定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    证明
   </a>
   
 </li>
@@ -1593,12 +1613,32 @@
     状态消除法
   </a>
   
-    <nav class="md-nav" aria-label="状态消除法">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to" class="md-nav__link">
+    正则表达式 to 自动机
+  </a>
+  
+    <nav class="md-nav" aria-label="正则表达式 to 自动机">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    示例
+    定理
+  </a>
+  
+    <nav class="md-nav" aria-label="定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    证明
   </a>
   
 </li>
@@ -1670,6 +1710,9 @@
 「经过了k节点的集合」当中“经过k节点”的状态又分为两种：经过1次/多次，可以由下图表示</p>
 </blockquote>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-2.png?raw=true" width="600" /></p>
+<p>如果1是开始结点，则和DFA等价的正则表达式就是</p>
+<div class="arithmatex">\[\bigcup_{j\in F}R_{1,j}^{(n)}\]</div>
+<p>即从状态1（开始状态）到终结状态的所有路径的集合。</p>
 <h2 id="dfa-to">DFA to 正则表达式<a class="headerlink" href="#dfa-to" title="Permanent link">&para;</a></h2>
 <p>例：把下图所示DFA转换成正则表达式。这个DFA接收至少含有一个0的串</p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-4.png?raw=true" width="400" /></p>
@@ -1680,8 +1723,24 @@
 <li>利用空转移，增加新的开始和结束状态</li>
 <li>DFA中的“路径”与正则表达式运算（连接，加，闭包）的关系</li>
 </ul>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-5.png?raw=true" width="600" /></p>
-<h4 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-5.png?raw=true" width="400" /></p>
+<blockquote>
+<p>在删除状态节点时，要为被删除的状态S的每个“入”和“出”路径的组合, 补一条等价的新路径, 并用新的正则表达式表示</p>
+</blockquote>
+<h2 id="to">正则表达式 to 自动机<a class="headerlink" href="#to" title="Permanent link">&para;</a></h2>
+<h3 id="_4">定理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>每个正则表达式定义的语言，都可被有穷自动机识别</p>
+<h4 id="_5">证明<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p><img align="right" alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-7.png?raw=true" width="300" />
+- 归纳基础
+  - 对正则表达式∅，有ε−NFA
+  - 对正则表达式ε，有ε−NFA
+  - ∀a∈Σ，对正则表达式a，有ε−NFA</p>
+<p><img align="right" alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-8.png?raw=true" width="300" />
+- 归纳递推
+    - r+s的ε−NFA
+    - rs的ε−NFA:
+    - r^∗的ε−NFA</p>
 
 
 
