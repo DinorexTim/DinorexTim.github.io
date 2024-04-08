@@ -12,7 +12,7 @@
         <link rel="prev" href="../%E7%AD%89%E4%BB%B7%E5%85%B3%E7%B3%BB%E4%B8%8E%E9%9B%86%E5%90%88%E5%88%86%E7%B1%BB/">
       
       
-        <link rel="next" href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/">
+        <link rel="next" href="../%E5%BE%AA%E7%8E%AF%E7%BE%A4%E3%80%81%E5%8F%98%E6%8D%A2%E7%BE%A4/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>群 - Dinorex 's blog</title>
+        <title>群、元素的阶、子群 - Dinorex 's blog</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              群
+              群、元素的阶、子群
             
           </span>
         </div>
@@ -665,7 +665,7 @@
           
   
   <span class="md-ellipsis">
-    群
+    群、元素的阶、子群
   </span>
   
 
@@ -676,7 +676,7 @@
         
   
   <span class="md-ellipsis">
-    群
+    群、元素的阶、子群
   </span>
   
 
@@ -929,6 +929,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#1_6" class="md-nav__link">
+    推论1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_6" class="md-nav__link">
+    推论2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    定理5
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -938,6 +959,26 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BE%AA%E7%8E%AF%E7%BE%A4%E3%80%81%E5%8F%98%E6%8D%A2%E7%BE%A4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    循环群、变换群
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1940,6 +1981,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#1_6" class="md-nav__link">
+    推论1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_6" class="md-nav__link">
+    推论2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    定理5
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1963,7 +2025,7 @@
   
 
 
-  <h1>群</h1>
+  <h1>群、元素的阶、子群</h1>
 
 <h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>非空集合G是他的一个代数运算，如果满足以下条件：</p>
@@ -2180,13 +2242,18 @@
 <p>由此可得对群的任意三个非空子集A，B，C均有</p>
 <div class="arithmatex">\[(AB)C=A(BC)\quad A(B\cup C)=(AB)\cup(AC)\]</div>
 <div class="arithmatex">\[(AB)^{-1}=B^{-1}A^{-1}\]</div>
-<p>定理5证明</p>
-<p>要证明这个结论，我们可以使用反证法。假设存在<span class="arithmatex">\(n\)</span>和<span class="arithmatex">\(m\)</span>，满足<span class="arithmatex">\(n \nmid m\)</span>，但对于任何素数<span class="arithmatex">\(p\)</span>，都无法找到满足上述等式的素数。</p>
-<p>因为<span class="arithmatex">\(n \nmid m\)</span>，我们知道存在一个素数<span class="arithmatex">\(p_0\)</span>，其在<span class="arithmatex">\(m\)</span>的质因数分解中出现次数比在<span class="arithmatex">\(n\)</span>的质因数分解中少。也就是说，存在一个整数<span class="arithmatex">\(k\)</span>，使得<span class="arithmatex">\(m = p_0^k m_1\)</span>，其中<span class="arithmatex">\(p_0 \nmid m_1\)</span>。</p>
-<p>然而，根据定理：任何自然数都可以唯一地表示为素数的乘积（质因数分解定理），我们可以将<span class="arithmatex">\(m\)</span>和<span class="arithmatex">\(n\)</span>分别表示为其质因数的乘积。因此，我们可以将<span class="arithmatex">\(n\)</span>表示为<span class="arithmatex">\(n = p_1^{t_1} p_2^{t_2} \cdots p_r^{t_r} n_1\)</span>，其中<span class="arithmatex">\(p_1, p_2, \ldots, p_r\)</span>是不同的素数，<span class="arithmatex">\(t_1, t_2, \ldots, t_r\)</span>是正整数，<span class="arithmatex">\(n_1\)</span>是与这些素数互素的正整数。</p>
-<p>现在，我们可以观察到<span class="arithmatex">\(p_0 \neq p_i\)</span>（对于所有<span class="arithmatex">\(i\)</span>），因为如果<span class="arithmatex">\(p_0 = p_i\)</span>，那么<span class="arithmatex">\(p_0 \mid m\)</span>和<span class="arithmatex">\(p_0 \mid n\)</span>，这与题设矛盾。所以我们得到了<span class="arithmatex">\(p_0\)</span>与<span class="arithmatex">\(p_i\)</span>不相等的结论。</p>
-<p>现在，考虑<span class="arithmatex">\(n\)</span>的质因数分解，可以看出在<span class="arithmatex">\(n\)</span>的质因数分解中，素数<span class="arithmatex">\(p_0\)</span>是不存在的。因此，我们可以将<span class="arithmatex">\(n\)</span>的质因数分解中与<span class="arithmatex">\(m\)</span>的质因数分解中的素数分开来，即<span class="arithmatex">\(n = p^t n_1\)</span>，其中<span class="arithmatex">\(p\)</span>是<span class="arithmatex">\(m\)</span>的质因数分解中的一个素数，<span class="arithmatex">\(t \leq k\)</span>。然而，这与我们的假设矛盾，因为我们假设对于所有素数<span class="arithmatex">\(p\)</span>，不存在这样的素数<span class="arithmatex">\(p\)</span>可以满足这个等式。</p>
-<p>所以我们得出结论：如果<span class="arithmatex">\(n \nmid m\)</span>，则必然存在素数<span class="arithmatex">\(p\)</span>满足上述等式。</p>
+<div class="arithmatex">\[(A^{-1})^{-1}=A\]</div>
+<h3 id="1_6">推论1<a class="headerlink" href="#1_6" title="Permanent link">&para;</a></h3>
+<p>设H是群G的一个非空子集，则</p>
+<div class="arithmatex">\[H≤G\Leftrightarrow HH=H\quad \&amp; \quad H^{-1}=H\]</div>
+<h3 id="2_6">推论2<a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h3>
+<p>设H是G的一个非空子集，则</p>
+<div class="arithmatex">\[H≤G\Leftrightarrow HH^{-1}=H\]</div>
+<p>特别地，若H是G的一个非空有限子集，则</p>
+<div class="arithmatex">\[H≤G\Leftrightarrow HH=H\]</div>
+<h3 id="5_1">定理5<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h3>
+<p>设H，K是群G的两个子群，则</p>
+<div class="arithmatex">\[HK≤G\Leftrightarrow HK=KH\]</div>
 
 
 
@@ -2231,13 +2298,13 @@
         
         
           
-          <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" class="md-footer__link md-footer__link--next" aria-label="下一页: 计算机系统概述">
+          <a href="../%E5%BE%AA%E7%8E%AF%E7%BE%A4%E3%80%81%E5%8F%98%E6%8D%A2%E7%BE%A4/" class="md-footer__link md-footer__link--next" aria-label="下一页: 循环群、变换群">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                计算机系统概述
+                循环群、变换群
               </div>
             </div>
             <div class="md-footer__button md-icon">
