@@ -1723,7 +1723,7 @@
 <li>利用空转移，增加新的开始和结束状态</li>
 <li>DFA中的“路径”与正则表达式运算（连接，加，闭包）的关系</li>
 </ul>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-5.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-5.png?raw=true" width="300" /></p>
 <blockquote>
 <p>在删除状态节点时，要为被删除的状态S的每个“入”和“出”路径的组合, 补一条等价的新路径, 并用新的正则表达式表示</p>
 </blockquote>
@@ -1731,16 +1731,22 @@
 <h3 id="_4">定理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>每个正则表达式定义的语言，都可被有穷自动机识别</p>
 <h4 id="_5">证明<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p><img align="right" alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-7.png?raw=true" width="300" />
-- 归纳基础
-  - 对正则表达式∅，有ε−NFA
-  - 对正则表达式ε，有ε−NFA
-  - ∀a∈Σ，对正则表达式a，有ε−NFA</p>
-<p><img align="right" alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-8.png?raw=true" width="300" />
-- 归纳递推
-    - r+s的ε−NFA
-    - rs的ε−NFA:
-    - r^∗的ε−NFA</p>
+<p><img align="left" alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-7.png?raw=true" width="110" /></p>
+<ul>
+<li>归纳基础</li>
+<li>对正则表达式∅，有ε−NFA</li>
+<li>对正则表达式ε，有ε−NFA</li>
+<li>∀a∈Σ，对正则表达式a，有ε−NFA</li>
+</ul>
+<p><img align="left" alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-8.png?raw=true" width="200" /></p>
+<ul>
+<li>归纳递推<ul>
+<li>r+s的ε−NFA</li>
+<li>rs的ε−NFA:</li>
+<li>r^∗的ε−NFA</li>
+</ul>
+</li>
+</ul>
 
 
 
