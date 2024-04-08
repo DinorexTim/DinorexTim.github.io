@@ -74,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -676,6 +681,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    循环群、变换群
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -685,6 +701,57 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    生成系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    循环群
+  </a>
+  
+    <nav class="md-nav" aria-label="循环群">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    定理1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1448,6 +1515,48 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    生成系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    循环群
+  </a>
+  
+    <nav class="md-nav" aria-label="循环群">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    定理1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1466,7 +1575,31 @@
 
   <h1>循环群、变换群</h1>
 
-
+<h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>设M是群G中的一个非空子集，G中包含M的子群总是存在，所有包含&lt;M&gt;的
+子群的交记为 。则&lt;M&gt;仍为群G的一个子群，且G中任何一个子群只要包含M就会包含&lt;M&gt;。所以&lt;M&gt;是群G中包含M的<strong>最小子群</strong></li>
+</ul>
+<h2 id="_2">生成系<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>定义1：称&lt;M&gt;为群G中由子集M生成的子群，并把M叫做这个子群的生成系</p>
+<blockquote>
+<p>一个群或子群可能有很多的生成系，甚至可以是无限多个生成系<br>
+集合M的元素可以是无限个，也可以是有限个</p>
+</blockquote>
+<h2 id="_3">循环群<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>定义2：如果群G可以由一个元素a生成，即<span class="arithmatex">\(G=&lt;a&gt;\)</span>，则称G为由a生成的一个循环群，并称a是G的一个生成元</p>
+<p>于是，<span class="arithmatex">\(&lt;a&gt;\)</span>是由一切形如</p>
+<div class="arithmatex">\[a^k（a是任何整数）\]</div>
+<p>的元素作成群，如<span class="arithmatex">\(&lt;a&gt;=\{\dots,a^{-2},a^{-1},e,a^1,a^2\dots\}\)</span></p>
+<blockquote>
+<p>循环群必为交换群</p>
+</blockquote>
+<p>例：整数加群Z为无限循环群，n次单位根群<span class="arithmatex">\(U_n\)</span>是一个n阶循环群</p>
+<div class="arithmatex">\[U_n=&lt;\epsilon&gt;=\{1,\epsilon,\epsilon^2\dots,\epsilon^{n-1}\}\]</div>
+<p>这n个复数互异，对于任意整数k，<span class="arithmatex">\(\epsilon^k\)</span>必与这n个中的一个相等</p>
+<h3 id="1">定理1<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>设G=&lt;a&gt;为任一循环群</p>
+<p>则当<span class="arithmatex">\(|a|=\infty\)</span>，<span class="arithmatex">\(G=&lt;a&gt;=\{\dots,a^{-2},a^{-1},e,a^1,a^2\dots\}\)</span>为<strong>无限循环群</strong>，并且和<strong>整数加群同构</strong></p>
 
 
 
