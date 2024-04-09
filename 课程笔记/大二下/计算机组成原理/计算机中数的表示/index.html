@@ -769,6 +769,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    浮点数表示范围
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    浮点数的规格化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    二进制浮点数规格化
+  </a>
+  
+    <nav class="md-nav" aria-label="二进制浮点数规格化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    二进制数规格化特例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee-754" class="md-nav__link">
+    IEEE 754标准
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1599,6 +1640,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    浮点数表示范围
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    浮点数的规格化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    二进制浮点数规格化
+  </a>
+  
+    <nav class="md-nav" aria-label="二进制浮点数规格化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    二进制数规格化特例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ieee-754" class="md-nav__link">
+    IEEE 754标准
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1715,8 +1797,8 @@
 <p>浮点数一般形式</p>
 <div class="arithmatex">\[N=S\times r^j\]</div>
 <blockquote>
-<p>S：尾数，j：阶码，r：基数<br>
-计算机中通常取2,4,8,16</p>
+<p><span class="arithmatex">\(S\)</span>：尾数，<span class="arithmatex">\(j\)</span>：阶码，<span class="arithmatex">\(r\)</span>：基数<br>
+计算机中通常取<span class="arithmatex">\(2,4,8,16\)</span></p>
 </blockquote>
 <ul>
 <li>当<span class="arithmatex">\(r=2\)</span>，<span class="arithmatex">\(N=11.0101=0.110101\times 2^{10}\)</span>（规格化数）</li>
@@ -1726,6 +1808,95 @@
 </ul>
 </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>j阶码</th>
+<th></th>
+<th>S尾数</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(j_f\)</span></td>
+<td><span class="arithmatex">\(j_1j_2\dots j_m\)</span></td>
+<td><span class="arithmatex">\(S_f\)</span></td>
+<td><span class="arithmatex">\(S_1S_2\dots S_n\)</span></td>
+</tr>
+<tr>
+<td>阶符</td>
+<td>阶码数值部分</td>
+<td>数符</td>
+<td>尾数的数值部分</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><span class="arithmatex">\(j_i,S_i\)</span>取0或1</p>
+</blockquote>
+<h2 id="_13">浮点数表示范围<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<ol>
+<li>上溢：阶码&gt;最大阶码</li>
+<li>下溢：阶码&lt;最小阶码 按机器零处理</li>
+</ol>
+<p>例：设机器数字长为24位，想表示±3万的十进制数，在保证数的最大精度的前提下，除阶符、数符<strong>各取1</strong>位外，阶码数值、尾数数值各取几位？</p>
+<div class="arithmatex">\[2^{14}=16384\quad 2^{15}=32768\]</div>
+<p>至少需要15位二进制数才能表示±3万之间的十进制数</p>
+<div class="arithmatex">\[2^{15}\times 0.xxx\dots xxx\]</div>
+<p><span class="arithmatex">\(m=4,n=18\)</span></p>
+<h2 id="_14">浮点数的规格化<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>基数不同，浮点数的规格化形式不同（类似科学计数法）</p>
+<ul>
+<li>r=2，尾数最高位为1</li>
+<li>r=4，尾数最高2位不全为0</li>
+<li>r=8，尾数最高3位不全为0</li>
+</ul>
+</li>
+<li>
+<p>尾数和阶码<strong>保持不变</strong>的情况下，基数r越大，可表示的浮点数</p>
+<ul>
+<li>范围越大</li>
+<li>精度越低</li>
+</ul>
+</li>
+</ul>
+<h2 id="_15">二进制浮点数规格化<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<ul>
+<li>二进制规格化数的定义<ul>
+<li>1/2≤|S|&lt;1</li>
+</ul>
+</li>
+<li>规格化数的判断</li>
+</ul>
+<blockquote>
+<p>机器判断方法：原码：不论正数、负数，第一数位为1；补码：符号位和第1，数位不同</p>
+</blockquote>
+<h3 id="_16">二进制数规格化特例<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(S=-\frac{1}{2}\quad S=-1\)</span></p>
+<h2 id="ieee-754">IEEE 754标准<a class="headerlink" href="#ieee-754" title="Permanent link">&para;</a></h2>
+<ul>
+<li>减少符号位</li>
+<li>非 “0” 的有效位最高位为“1”（隐含）</li>
+</ul>
+<table>
+    <tr>
+        <th>S（数符）</th>
+        <th colspan="3">阶码</th>
+        <th colspan="3">尾数</th>
+    </tr>
+</table>
+
+<ul>
+<li>单精度（32-bit）</li>
+</ul>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz2-5.png?raw=true" width="600" /></p>
+<ul>
+<li>双精度（64-bit）</li>
+</ul>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz2-6.png?raw=true" width="600" /></p>
 
 
 
