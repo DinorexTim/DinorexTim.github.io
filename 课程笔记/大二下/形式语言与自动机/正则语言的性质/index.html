@@ -901,6 +901,19 @@
     封闭原理
   </a>
   
+    <nav class="md-nav" aria-label="封闭原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    交运算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1593,6 +1606,19 @@
     封闭原理
   </a>
   
+    <nav class="md-nav" aria-label="封闭原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    交运算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1661,6 +1687,15 @@
 <p>在扩展到语言，对<span class="arithmatex">\(\forall L\subseteq \Sigma^*\)</span></p>
 <div class="arithmatex">\[h(L)=\{h(w)|w\in L\}\]</div>
 </blockquote>
+<h3 id="_5">交运算<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>若DFA <span class="arithmatex">\(A_L,A_M和A\)</span>的定义如下：</p>
+<div class="arithmatex">\[A_L=(Q_L,\Sigma,\delta_L,q_L,F_L)\]</div>
+<div class="arithmatex">\[A_M=(Q_M,\Sigma,\delta_M,q_M,F_M)\]</div>
+<div class="arithmatex">\[A=(Q_L\times Q_M,\Sigma,\delta,(q_L,q_M),F_L\times F_M)\]</div>
+<p>其中<span class="arithmatex">\(\delta((p,q),a)=(\delta_L(p,a),\delta_M(q,a))\)</span></p>
+<p>对于任意<span class="arithmatex">\(w\in \Sigma^*,\hat{\delta}((q_L,q_M),w)=(\hat{\delta}(q_L,w),\hat{\delta}(q_M,w))\)</span></p>
+<p>例：<span class="arithmatex">\(L_1:1*0(0+1)*\)</span>,<span class="arithmatex">\(L_2:0*1(0+1)*\)</span></p>
+<p><img alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy8-1.png?raw=true" width="600" /></p>
 
 
 
