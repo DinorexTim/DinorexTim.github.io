@@ -1,6 +1,6 @@
 ## 定义1
 
-设H是群G的一个子群，$a\in G$，则称群G的子集
+设$H$是群$G$的一个子群，$a\in G$，则称群G的子集
 
 $$aH=\{ax|x\in H\}$$
 
@@ -18,4 +18,7 @@ $$Ha=\{xa|x\in H\}$$
 2. $a\in H\Leftrightarrow aH = H$
 3. $b\in aH\Leftrightarrow aH=bH$
 4. $aH=bH\Leftrightarrow a^{-1}b\in H（或b^{-1}a\in H）$
-5. 若$aH\cap bH，则c\in aH,c\in bH$
+5. 若$aH\cap bH\neq \Phi，则aH=bH$
+
+> 根据性质5，不难得出可以得到群G的一个**分类**
+
