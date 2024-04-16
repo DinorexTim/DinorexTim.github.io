@@ -796,6 +796,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    恢复余数法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    不恢复余数法（加减交替）
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1638,6 +1652,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    恢复余数法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    不恢复余数法（加减交替）
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1699,6 +1727,7 @@
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-4.png?raw=true" width="600" /></p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-5.png?raw=true" width="600" /></p>
 <h2 id="_9">除法运算<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p><img align="right" alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-6.png?raw=true" width="280" /></p>
 <h3 id="_10">分析笔算除法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <ul>
 <li>商符单独处理</li>
@@ -1707,7 +1736,25 @@
 <li>如果部分余数大于除数，则减右移的除数</li>
 <li>上商位置不固定</li>
 </ul>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-6.png?raw=true" width="500" /></p>
+<h3 id="_11">恢复余数法<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>符号位单独处理，取除数和被除数绝对值进行运算</p>
+<ol>
+<li>余数（被除数）减去除数<span class="arithmatex">\([y^*]_补(+[y^*]_补)\to 余数\)</span></li>
+<li>if 余数为负（不够减）<ul>
+<li>then 商上0，余数+[y*]补（恢复余数）</li>
+<li>else (够减) 商上1</li>
+</ul>
+</li>
+<li>if 循环次数&lt;数据位数n <ul>
+<li>then 余数<strong>逻辑左移</strong>一位，加[-y*]补 ；重复步骤2</li>
+</ul>
+</li>
+</ol>
+<h3 id="_12">不恢复余数法（加减交替）<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>余数为正，上商1，逻辑左移1位，+[– y*]补</li>
+<li>余数为负，上商0，逻辑左移1位，+[ y*]补</li>
+</ul>
 
 
 
