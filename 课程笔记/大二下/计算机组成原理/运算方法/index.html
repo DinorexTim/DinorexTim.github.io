@@ -735,6 +735,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    补码一位乘法运算
+  </a>
+  
+    <nav class="md-nav" aria-label="补码一位乘法运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    小数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booth" class="md-nav__link">
+    Booth算法（小数，被乘数、乘数符号任意）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booth_1" class="md-nav__link">
+    Booth算法递推公式
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1516,6 +1550,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    补码一位乘法运算
+  </a>
+  
+    <nav class="md-nav" aria-label="补码一位乘法运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    小数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booth" class="md-nav__link">
+    Booth算法（小数，被乘数、乘数符号任意）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booth_1" class="md-nav__link">
+    Booth算法递推公式
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1561,6 +1629,17 @@
 <h3 id="_5">加减法运算<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>例：设A=0.1011，B=-0.0101，用补码求A+B=？</p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-2.png?raw=true" width="400" /></p>
+<h3 id="_6">补码一位乘法运算<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="_7">小数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>被乘数任意，乘数为正（类似原码乘），但加和移位按补码规则运算，积的符号自然形成</li>
+<li>被乘数任意，乘数为负，乘数<span class="arithmatex">\([y]_补\)</span>，去掉符号位，操作同上，最后加<span class="arithmatex">\([–x]_补\)</span>，校正</li>
+</ul>
+<h3 id="booth">Booth算法（小数，被乘数、乘数符号任意）<a class="headerlink" href="#booth" title="Permanent link">&para;</a></h3>
+<p>设x和y的补码表示分别为[x]补=x0.x1x2…xn，[y]补=y0.y1y2…yn。</p>
+<div class="arithmatex">\[\begin{split}[x\times y]_{补}=[x]_补[0.y_1y_2\dots y_n+y_0.0_10_2\dots0_n]_补\\=(y_1-y_0)[x]_补+2^{-1}\{(y_3-y_2)[x]_补\dots+2^{-1}\{(y_{n+1}-y_n)[x]_{补}+0\}\dots\}\}\end{split}\]</div>
+<h3 id="booth_1">Booth算法递推公式<a class="headerlink" href="#booth_1" title="Permanent link">&para;</a></h3>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-3.png?raw=true" width="400" /></p>
 
 
 
