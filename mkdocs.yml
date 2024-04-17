@@ -6,7 +6,7 @@ repo_url: 'https://github.com/DINOREXNB/DINOREXNB.github.io'
 theme:
   logo: https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/assets/logo.png?raw=true
   name: material
-  language: en
+  language: zh
   icon:
     previous: fontawesome/solid/angle-left
     next: fontawesome/solid/angle-right
