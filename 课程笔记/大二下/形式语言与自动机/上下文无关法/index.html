@@ -903,6 +903,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cfg" class="md-nav__link">
+    上下文无关文法(CFG)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    归约和派生
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1575,6 +1589,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cfg" class="md-nav__link">
+    上下文无关文法(CFG)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    归约和派生
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1606,6 +1634,35 @@
 <p>如果语言L的字符串都是回文，则称L为回文语言</p>
 <div class="arithmatex">\[L=\{w\in \Sigma^*|w=w^R\}\]</div>
 <p>例：字母表Σ = {0, 1} 上的回文语言</p>
+<p>如何定义？</p>
+<p>使用嵌套定义表示这种递归的结构：令A为回文语言中的字符串</p>
+<p>有<span class="arithmatex">\(A\to \epsilon,A\to0,A\to 1\)</span></p>
+<p><span class="arithmatex">\(A\to0A0,A\to1A1\)</span></p>
+<h2 id="cfg">上下文无关文法(CFG)<a class="headerlink" href="#cfg" title="Permanent link">&para;</a></h2>
+<p>G是一个四元组<span class="arithmatex">\(G=(V,T,P,S)\)</span></p>
+<ul>
+<li>V:变元的有穷集, 变元也称为非终结符或语法范畴</li>
+<li>T:终结符的有穷集（即字母表），且<span class="arithmatex">\(V\cap T=\phi\)</span></li>
+<li>P:产生式的有穷集，每个产生式包括:<ul>
+<li>一个变元，称为产生式的头(head)或左部；</li>
+<li>一个产生式符号→，读作定义为;</li>
+<li>一个(V⋃T)^∗中的符号串, 称为体(body)或右部（由变元和终结符组成的字符串）</li>
+</ul>
+</li>
+<li>S:初始符号S∈V，表示文法开始的地方</li>
+</ul>
+<blockquote>
+<p>产生式：<span class="arithmatex">\(A\to \alpha，读作A定义为\alpha\)</span>，若有多个A的产生式，<br>
+则可以简写为<span class="arithmatex">\(A\to\alpha_1|\alpha_2|\dots|\alpha_n\)</span><br>
+文法中变元A的全体产生式，称为A产生式<br></p>
+</blockquote>
+<p>例：回文字符串</p>
+<p>定义变元A，有产生式集<span class="arithmatex">\(\{A\to 0|1|0A0|1A1|\}\)</span></p>
+<h2 id="_3">归约和派生<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>从字符串到文法变元的分析过程, 称为归约</li>
+<li>从文法变元到字符串的分析过程, 称为派生</li>
+</ul>
 
 
 
