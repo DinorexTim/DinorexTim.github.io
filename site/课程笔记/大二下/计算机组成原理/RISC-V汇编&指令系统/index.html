@@ -76,6 +76,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -676,6 +681,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    RISC-V汇编&指令系统
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -685,6 +701,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    指令集架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isa" class="md-nav__link">
+    ISA位宽
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1410,6 +1464,35 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    指令集架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isa" class="md-nav__link">
+    ISA位宽
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1428,7 +1511,38 @@
 
   <h1>RISC-V汇编&指令系统</h1>
 
-
+<h2 id="_1">基本概念<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>指令系统（指令集，IS：Instruction Set）</li>
+<li><strong>指令集系统架构</strong>（ISA）<ul>
+<li>简称架构，也可以称为：处理器架构、指令集体系结构</li>
+<li>包含了程序员正确编写二进制机器语言程序所需的全部信息</li>
+<li>例如：如何使用硬件、指令格式、操作种类、操作数所能存放的寄存器组和结构，包括每个寄存器名称、编号、长度、用途</li>
+</ul>
+</li>
+<li>系列机<ul>
+<li>基本指令系统相同，基本系统结构相同的计算机</li>
+<li>实际是为了解决<strong>软件兼容</strong>的问题，给定一个ISA，可以有不同的实现方式；例如：AMD/Intel CPU都是X86-64指令集，ARM ISA也有不同的实现方式</li>
+<li>IBM 360是第一个将<strong>ISA与其实现分离</strong>的系列机</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">指令集架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ISA——抽象层，软件子系统与硬件子系统的桥梁和接口</li>
+</ul>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz4-1.png?raw=true" width="600" /></p>
+<div class="arithmatex">\[
+ISA功能\quad\begin{cases}
+数据类型\\存储模型\\软件可见的处理器状态\\指令集\\系统模型\\外部接口\\\dots
+\end{cases}
+\quad ISA特性\quad\begin{cases}
+    成本和资源占用低\\简洁性：指令规整简洁\\架构和具体实现分离\\可扩展\\易于编程\\性能好\\\dots
+\end{cases}
+\]</div>
+<h2 id="isa">ISA位宽<a class="headerlink" href="#isa" title="Permanent link">&para;</a></h2>
+<p>指的是<strong>通用寄存器的宽度</strong>，决定了<strong>寻址范围的大小</strong>，数据运算能力的强弱</p>
+<p>ISA位宽和指令编码长度<strong>不一定相等</strong>，在64位架构中，也存在大量的16位编码</p>
 
 
 
