@@ -12,7 +12,7 @@
         <link rel="prev" href="../%E7%BD%AE%E6%8D%A2%E7%BE%A4/">
       
       
-        <link rel="next" href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/">
+        <link rel="next" href="../%E7%BE%A4%E5%90%8C%E6%80%81%E4%B8%8E%E5%90%8C%E6%9E%84/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -785,6 +785,61 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    定理1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    定义2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lagrange" class="md-nav__link">
+    Lagrange定理
+  </a>
+  
+    <nav class="md-nav" aria-label="Lagrange定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    推论1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    定理3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    定理4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    推论
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -794,6 +849,26 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BE%A4%E5%90%8C%E6%80%81%E4%B8%8E%E5%90%8C%E6%9E%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    群同态与同构
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1590,6 +1665,61 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    定理1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    定义2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lagrange" class="md-nav__link">
+    Lagrange定理
+  </a>
+  
+    <nav class="md-nav" aria-label="Lagrange定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    推论1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    定理3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    定理4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    推论
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1634,8 +1764,65 @@
 <li>若<span class="arithmatex">\(aH\cap bH\neq \Phi，则aH=bH\)</span></li>
 </ol>
 <blockquote>
-<p>根据性质5，不难得出可以得到群G的一个<strong>分类</strong></p>
+<p>根据性质5，不难得出群G的所有左陪集可以构成群G的一个<strong>分类</strong>，其两个元素属于同一个类当且仅当<span class="arithmatex">\(a^{-1}b\in H\)</span></p>
+<p>若aH,bH,...为群G关于子群H的所有不同左陪集，则有</p>
+<div class="arithmatex">\[G=aH\cup bH\cup cH\cup \dots\]</div>
+<p>称其为群G关于<strong>子群H的左陪集分解</strong>，称<span class="arithmatex">\(\{a,b,c,\dots\}\)</span>是G关于子群H的一个<strong>左陪集代表系</strong></p>
 </blockquote>
+<h3 id="1_1">定理1<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>设H是群G的一个子群，又令</p>
+<div class="arithmatex">\[L=\{aH|a\in G\}\quad R=\{Ha|a\in G\}\]</div>
+<p>则L和R之间存在一个双射，从而左、右陪集的个数火鹤都为无限或者都有限且个数相等</p>
+<p>存在一个双射<span class="arithmatex">\(\phi:aH\to Ha^{-1}\)</span></p>
+<p>单射：若Ha=Hb，则<span class="arithmatex">\(ba^{-1}\in H\)</span>，从而<span class="arithmatex">\((b^{-1})^{-1}a^{-1}\in H\)</span>，故有<span class="arithmatex">\(a^{-1}H=b^{-1}H\)</span></p>
+<p>满射：对任意<span class="arithmatex">\(Ha\in R\)</span>，总存在<span class="arithmatex">\(a^{-1}\in G\)</span>是的<span class="arithmatex">\(\phi(a^{-1}H)=Ha\)</span></p>
+<h3 id="2">定义2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>群G中关于子群H的互异的左（或右）陪集的个数叫做H在G里的<strong>指数</strong>，记作</p>
+<div class="arithmatex">\[(G:H)\]</div>
+<blockquote>
+<p>例如<span class="arithmatex">\((S_3:H)=3\)</span>，当然，指数可能无限也有可能有限</p>
+</blockquote>
+<h2 id="lagrange">Lagrange定理<a class="headerlink" href="#lagrange" title="Permanent link">&para;</a></h2>
+<p>设H是G的一个子群，则</p>
+<div class="arithmatex">\[|G|=|H|(G:H),\quad 即(G:H)=|\frac{|G|}{|H|}\]</div>
+<blockquote>
+<p>任何子群的阶和指数都是群G的阶的因数</p>
+</blockquote>
+<p>证明：令<span class="arithmatex">\((G:H)=s\)</span>，且</p>
+<div class="arithmatex">\[G=a_1H\cup a_2H\cup\dots\cup a_s H\]</div>
+<p>是G关于子群H的左陪集分解。由于</p>
+<div class="arithmatex">\[\phi:a_1h\to a_jh(\forall h\in M)\]</div>
+<p><mark>是左陪集<span class="arithmatex">\(a_iH\)</span>到<span class="arithmatex">\(a_jH\)</span>的一个双射??</mark>，从而<span class="arithmatex">\(|a_iH|=|a_jH|\)</span></p>
+<h3 id="1_2">推论1<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<p>有限群中每个元素的的阶都整除群的阶</p>
+<blockquote>
+<p>注：素数阶群必为循环群</p>
+</blockquote>
+<h3 id="3">定理3<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>设G是一个有限群，又K≤H≤G ，则</p>
+<div class="arithmatex">\[(G:K)(H:K)=(G:K)\]</div>
+<p>证明：由Lagrange定理，<span class="arithmatex">\(|G|=|H|(G:H)=|K|(G:K)\)</span>，而<span class="arithmatex">\(|H|=|K|(H:K)\)</span>，可得结论成立</p>
+<h3 id="4">定理4<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>设H，K是群G的两个有限子群</p>
+<div class="arithmatex">\[|HK|=\frac{|H|\cdot|K|}{|H\cap K|}\]</div>
+<p>证明：</p>
+<p>设<span class="arithmatex">\(H\cap K≤H，设\frac{|H|}{|H\cap K|}=m\)</span>，且</p>
+<div class="arithmatex">\[H=h_1(H\cap K)\cup h_2(H\cap K)\cup\dots \cup h_m(H\cap K)\]</div>
+<p>右乘<span class="arithmatex">\(K\)</span>有<span class="arithmatex">\(HK=h_1K\cup h_2K\cup\dots \cup h_mK\)</span></p>
+<blockquote>
+<p>证明 <span class="arithmatex">\((H \cap K)K \subseteq K\)</span>： </p>
+<p>任取 <span class="arithmatex">\(x \in (H \cap K)K\)</span>，则存在 <span class="arithmatex">\(h \in H \cap K\)</span> 和 <span class="arithmatex">\(k \in K\)</span> 使得 <span class="arithmatex">\(x = hk\)</span>。</p>
+<p>因为 <span class="arithmatex">\(H \cap K\)</span> 是 <span class="arithmatex">\(H\)</span> 和 <span class="arithmatex">\(K\)</span> 的交集，所以 <span class="arithmatex">\(h \in K\)</span>。</p>
+<p>既然 <span class="arithmatex">\(h\)</span> 和 <span class="arithmatex">\(k\)</span> 都属于 <span class="arithmatex">\(K\)</span>，而 <span class="arithmatex">\(K\)</span> 是一个子群，根据子群的封闭性质，<span class="arithmatex">\(hk \in K\)</span>。因此，<span class="arithmatex">\(x \in K\)</span>。这说明 <span class="arithmatex">\((H \cap K)K \subseteq K\)</span>。</p>
+<p>证明 <span class="arithmatex">\(K \subseteq (H \cap K)K\)</span>： 任取 <span class="arithmatex">\(k \in K\)</span>。</p>
+<p>注意到单位元 <span class="arithmatex">\(e \in H \cap K\)</span>（因为 <span class="arithmatex">\(e\)</span> 是群 <span class="arithmatex">\(G\)</span> 的单位元，同时属于所有子群）。</p>
+<p>所以我们可以写 <span class="arithmatex">\(k = ek\)</span>，其中 <span class="arithmatex">\(e \in H \cap K\)</span> 且 <span class="arithmatex">\(k \in K\)</span>。</p>
+<p>这表明 <span class="arithmatex">\(k \in (H \cap K)K\)</span>。因此，<span class="arithmatex">\(K \subseteq (H \cap K)K\)</span>。</p>
+</blockquote>
+<p>又因为<span class="arithmatex">\(h_iK\cap h_jK=\Phi,i\neq j\)</span></p>
+<p>从而<span class="arithmatex">\(|HK|=m|K|\)</span></p>
+<h3 id="_3">推论<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>设p,q是两个素数且p&lt;q，则pq阶群G最多有一个q阶子群</p>
 
 
 
@@ -1680,13 +1867,13 @@
         
         
           
-          <a href="../../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" class="md-footer__link md-footer__link--next" aria-label="下一页: 计算机系统概述">
+          <a href="../%E7%BE%A4%E5%90%8C%E6%80%81%E4%B8%8E%E5%90%8C%E6%9E%84/" class="md-footer__link md-footer__link--next" aria-label="下一页: 群同态与同构">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                计算机系统概述
+                群同态与同构
               </div>
             </div>
             <div class="md-footer__button md-icon">
