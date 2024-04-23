@@ -128,8 +128,15 @@ main: add  t0, x0,  x0
     - RV321指令集通用寄存器是32位，RV641是64位
 - 内存
     - 可执行在寄存器和内存之间的读写
-    - ......
+    - 读写操作使用字节为基本单位进行寻址
+    - RV64可以访问最多$2^{64}$个字节的内存空间，即$2^{61}$个存储单元
 
+### 汇编语言的变量
+
+1. 不能使用变量（如`int a; float b;`）
+2. 汇编语言的操作对象以寄存器为主
+
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz4-2.png?raw=true){width=600}
 
 ### 整型加法
 
