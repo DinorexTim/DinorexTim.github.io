@@ -837,28 +837,42 @@
         
           <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
-    常数运算元
+    整数乘法与除法
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_16" class="md-nav__link">
-    相关运算
+    常数运算元
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_17" class="md-nav__link">
-    数据传输
+    相关运算
   </a>
   
-    <nav class="md-nav" aria-label="数据传输">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_18" class="md-nav__link">
+    位操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    数据传输（主存访问指令）
+  </a>
+  
+    <nav class="md-nav" aria-label="数据传输（主存访问指令）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
     相关指令
   </a>
   
@@ -870,28 +884,35 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    如何在起始状态存储值到内存中
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    字节序
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_21" class="md-nav__link">
-    符号扩展
+    传输一个字节的数据
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_22" class="md-nav__link">
+    如何在起始状态存储值到内存中
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    字节序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    符号扩展
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
     其他的存储与加载指令
   </a>
   
@@ -1776,28 +1797,42 @@
         
           <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
-    常数运算元
+    整数乘法与除法
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_16" class="md-nav__link">
-    相关运算
+    常数运算元
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_17" class="md-nav__link">
-    数据传输
+    相关运算
   </a>
   
-    <nav class="md-nav" aria-label="数据传输">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_18" class="md-nav__link">
+    位操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    数据传输（主存访问指令）
+  </a>
+  
+    <nav class="md-nav" aria-label="数据传输（主存访问指令）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
     相关指令
   </a>
   
@@ -1809,28 +1844,35 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    如何在起始状态存储值到内存中
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    字节序
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_21" class="md-nav__link">
-    符号扩展
+    传输一个字节的数据
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_22" class="md-nav__link">
+    如何在起始状态存储值到内存中
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    字节序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    符号扩展
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
     其他的存储与加载指令
   </a>
   
@@ -2073,13 +2115,26 @@ u表示为无符号数</p>
 <li>C: <code>a=b-c;</code></li>
 <li>RISC-V: <code>sub s1, s2, s3</code></li>
 </ul>
-<h4 id="_15">常数运算元<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<h4 id="_15">整数乘法与除法<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<ul>
+<li>乘法RISC-V：<code>mul rd, rs1, rs2</code><ul>
+<li>将计算结果写入寄存器<code>rd</code>，忽略算术溢出</li>
+<li>要得到高32位积，如果操作数都是有符号数，就用<code>mulh</code>指令</li>
+<li>如果一个有符号一个无符号，可以用mulhsu指令</li>
+</ul>
+</li>
+<li>除法RISC-V：<code>div rd, rs1, rs2</code><ul>
+<li>将计算结果向零舍入，将这些数视为二进制补码，商写入寄存器rd</li>
+</ul>
+</li>
+</ul>
+<h4 id="_16">常数运算元<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
 <ul>
 <li>immediate number</li>
 <li>可以将常数存入寄存器中进行运算</li>
 <li>有一个特殊的寄存器x0，村入了一个特定常数0，且该寄存器的值不可修改</li>
 </ul>
-<h4 id="_16">相关运算<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<h4 id="_17">相关运算<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
 <ul>
 <li><span class="arithmatex">\(eg:a=(b+c)-(d+e);\)</span></li>
 </ul>
@@ -2088,13 +2143,33 @@ u表示为无符号数</p>
 </span><span id="__span-1-3">add t2, s3, s4
 </span><span id="__span-1-4">sub s0, t1, t2
 </span></code></pre></div>
-<h4 id="_17">数据传输<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
-<p><code>memop reg, off(bAddr)</code></p>
+<h4 id="_18">位操作<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<ul>
+<li>按位逻辑运算<ul>
+<li>寄存器操作数：<code>and x5, x6, x7</code></li>
+<li>立即数操作：<code>andi x5, x6, 3</code></li>
+</ul>
+</li>
+<li>RISC-V中没有NOT，按位取反<ul>
+<li><code>xori x5, x6, -1</code>可以得到<span class="arithmatex">\(x5=\bar{x6}\)</span></li>
+</ul>
+</li>
+<li>移位运算<ul>
+<li>左移相当于乘以2</li>
+<li>逻辑右移，在最高位添加0</li>
+<li>算术右移：在最高位添加符号位</li>
+<li>移位的位数可以是<strong>立即数</strong>或者<strong>寄存器中的值</strong></li>
+<li>slli, srli, srai只需要最多移动63位？？？只会使用immediate低6位的值</li>
+</ul>
+</li>
+</ul>
+<h4 id="_19">数据传输（主存访问指令）<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p><code>memop reg, offset(bAddr)</code></p>
 <blockquote>
 <p>memop:操作运算符</p>
 <p>reg：寄存器</p>
 <p>bAddr: 基地址</p>
-<p>off：偏移值</p>
+<p>offset：偏移值</p>
 </blockquote>
 <ul>
 <li>内存都是字节寻址</li>
@@ -2102,8 +2177,12 @@ u表示为无符号数</p>
 <li>在c语言中我们可见的最小数据类型是char，为一个字节（8bit），所有的数据类型都是8bit的整数倍</li>
 <li>在字寻址每个地址的每个部分相隔4个字节</li>
 <li>指针算数在汇编中不会自动完成</li>
+<li>不同的体系结构对字（word）的定义不同(RISC-V中 1word = 4 bytes)</li>
+<li>内存是按照字节进行编址，不是按照字进行编址的</li>
+<li>字的地址为字内最低位字节的地址(小端模式)</li>
+<li>按字对齐，地址最后两位为0（4的倍数）</li>
 </ul>
-<h5 id="_18">相关指令<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h5>
+<h5 id="_20">相关指令<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h5>
 <ul>
 <li><strong>load word(lw)</strong><ul>
 <li>获取某个寄存器中的数据或者基地址加上内存的偏移量处的数据</li>
@@ -2125,7 +2204,14 @@ u表示为无符号数</p>
 </span><span id="__span-3-2">lw t0, s2     # t0=A[3]+b
 </span><span id="__span-3-3">sw t0, 40(s3) # A[10]=t0=A[3]+b
 </span></code></pre></div>
-<h4 id="_19">如何在起始状态存储值到内存中<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<h4 id="_21">传输一个字节的数据<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<p>使用专门的字节传输指令<code>lb,sb</code></p>
+<ul>
+<li>lb/sb使用的是低字节</li>
+<li>如果是sb指令，高56位(RVRV64)/24位(RVRV32)被忽略</li>
+<li>如果是lb指令，高56位(RVRV64)/24位(RVRV32)做符号扩展</li>
+</ul>
+<h4 id="_22">如何在起始状态存储值到内存中<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"># 汇编器指令类型之一，制定内存的数据存储，也可以将其视作内存的静态位置
 </span><span id="__span-4-2"># 在数字后面可以添加多个数字，用逗号隔开，便可以得到一个数组
 </span><span id="__span-4-3">.data
@@ -2140,7 +2226,7 @@ u表示为无符号数</p>
 </span><span id="__span-4-12">    lw t2, 0(t1)
 </span><span id="__span-4-13">    lw t3, 4(t1)
 </span></code></pre></div>
-<h4 id="_20">字节序<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<h4 id="_23">字节序<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>如何存储字符或者短整型？</li>
 <li>大字节序：最高字节位在地址最低位</li>
@@ -2167,13 +2253,13 @@ u表示为无符号数</p>
 </tr>
 </tbody>
 </table>
-<h4 id="_21">符号扩展<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<h4 id="_24">符号扩展<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
 <ul>
 <li>指在保留数字符号（正负性）及其数值的情况下增加二进制数字位数的操作</li>
 <li>若为正数，如001010，则直接在最高位前添加0</li>
 <li>若为负数，如11 1111 0001（十进制的-15），则直接在最高位添加1</li>
 </ul>
-<h4 id="_22">其他的存储与加载指令<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<h4 id="_25">其他的存储与加载指令<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
 <h5 id="byte-instruction">Byte instruction<a class="headerlink" href="#byte-instruction" title="Permanent link">&para;</a></h5>
 <ul>
 <li>load byte(lb)<ul>
