@@ -188,7 +188,7 @@ add t2, s3, s4
 sub s0, t1, t2
 ```
 
-#### 位操作
+### 位操作
 
 - 按位逻辑运算
     - 寄存器操作数：`and x5, x6, x7`
@@ -202,7 +202,16 @@ sub s0, t1, t2
     - 移位的位数可以是**立即数**或者**寄存器中的值**
     - slli, srli, srai只需要最多移动63位？？？只会使用immediate低6位的值
 
-#### 数据传输（主存访问指令）
+> 注意区分`and`和`add`！
+
+### 比较
+
+- 有符号数的比较：Set Less Than(slt:通过比较两个操作数的大小来对目标寄存器进行设置)
+    - `slt dst, reg1, reg2`，若`reg1<reg2`，返回1，否则返回0
+- 无符号数的比较
+    - `sltu dst, src1, src2`，若`src1<src2`，返回1，否则返回0
+
+### 数据传输（主存访问指令）
 
 `memop reg, offset(bAddr)`
 
@@ -224,7 +233,7 @@ sub s0, t1, t2
 - 字的地址为字内最低位字节的地址(小端模式)
 - 按字对齐，地址最后两位为0（4的倍数）
 
-##### 相关指令
+#### 相关指令
 
 - **load word(lw)**
 	- 获取某个寄存器中的数据或者基地址加上内存的偏移量处的数据
@@ -305,3 +314,107 @@ lb s2,0(s0) # s2=0xFFFFFF80
 # 此时只看s2的最低1字节内容（16进制最低的两位）
 sb s2,2(s0) # *(s0)=0x00800180
 ```
+
+## 条件分支（跳转）语句
+
+- 条件为真则转到标签所指的语句执行，否则顺序执行
+- `beq reg1,reg2,label #branch if equal`
+    - 如果reg1中的值=reg2中的值, 程序跳转到label处继续执行
+- `bne reg1,reg2,label #branch if equal`
+    - 如果reg1中的值≠reg2中的值, 程序跳转到label处继续执行
+- `blt reg1,reg2,label #branch if less than`
+    - 如果reg1 < reg2, 程序跳转到label处继续执行
+- `bge reg1,reg2,label #branch if greater than or equal`
+    - 如果**reg1 >= reg2**, 程序跳转到label处继续执行
+
+> 注意:没有依据标志位的跳转（与x86不同）
+
+## 无条件跳转指令
+
+- `jal rd, offset   # (jump and link)`
+    - 将下一条指令的地址PC+4保存在寄存器rd（一般使用**x1/ra**）
+- `jalr rd, oddset(rs1)   #(jump and link register)`
+    - 把PC+4存到rd中
+    - 类似jal，但是跳转到rsl+offset地址处的指令（更远）
+    - 可以用于过程**返回**
+    - 如果rd用x0，那么相当于只跳转不返回
+
+## RISC-V伪指令
+
+- 方便程序员编程
+- 通过汇编语言的变化或者组合来实现，不是硬件实现
+
+例：
+```RISC-V
+# 将src存入dst
+mv dst, src
+
+# 装入一个立即数
+li dst, imm
+```
+
+实际硬件实现
+
+```RISC-V
+addi dst, src, 0
+
+addi dst, x0, imm
+```
+
+## RV64I实现C语言（部分）
+
+### 实现for循环
+
+```c
+long long int A[20];
+long long int sum = 0;
+for (long long int i = 0; i < 20; i++){
+    sum += A[i];
+}
+```
+假设数组A的首地址保存在 x8，sum保存在x10中
+
+```RISC-V
+    add x9, x8, x0 # x9=&A[0]
+    add x10, x0, x0# sum=0
+    add x11, x0, x0 # i=0
+    addi x13, x0, 20 # x13=20
+Loop:
+    bge x11, x13, Done
+    ld x12,0(x9) # x12=A[i]
+    add x10, x10, x12
+    addi x9, x9, 8 # &A[i+1]
+    addi x11, x11, 1 # i++
+    beq x0, x0, Loop
+Done:
+```
+
+### 实现while循环
+
+```c
+long long int save[100];
+while(save[i]==k){
+    i+=1;
+}
+```
+
+假设i存储在x22中，k存储在x24中，save数组元素的地址保存在x25中
+
+```RISC-V
+Loop:
+    slli x10, x22, 3  # 8*i
+    add x10, x10, x25 # save[]+8*i
+    ld x9, 0(x10) # save[i]->x9
+    bne x9, x24, Exit # save[i]!=k Exit
+    addi x22, x22, 1 # i+=1
+    beq x0, x0, Loop
+Exit: ...
+```
+
+## 基本块
+
+- 基本块是这样的指令序列
+- 没有嵌入分支（除非在末尾）
+- 没有分支目标（除非在开头）
+- 编译器可以识别基本块以进行优化
+- 先进的处理器能够加速基本块的执行
