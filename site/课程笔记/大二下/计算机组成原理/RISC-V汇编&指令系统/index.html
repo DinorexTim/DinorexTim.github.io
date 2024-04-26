@@ -2465,7 +2465,7 @@ u表示为无符号数</p>
 <li>将下一条指令的地址PC+4保存在寄存器rd（一般使用<strong>x1/ra</strong>）</li>
 </ul>
 </li>
-<li><code>jalr rd, oddset(rs1)   #(jump and link register)</code><ul>
+<li><code>jalr rd, offset(rs1)   #(jump and link register)</code><ul>
 <li>把PC+4存到rd中</li>
 <li>类似jal，但是跳转到rsl+offset地址处的指令（更远）</li>
 <li>可以用于过程<strong>返回</strong></li>
