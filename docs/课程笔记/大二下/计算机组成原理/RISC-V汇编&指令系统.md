@@ -333,7 +333,7 @@ sb s2,2(s0) # *(s0)=0x00800180
 
 - `jal rd, offset   # (jump and link)`
     - 将下一条指令的地址PC+4保存在寄存器rd（一般使用**x1/ra**）
-- `jalr rd, oddset(rs1)   #(jump and link register)`
+- `jalr rd, offset(rs1)   #(jump and link register)`
     - 把PC+4存到rd中
     - 类似jal，但是跳转到rsl+offset地址处的指令（更远）
     - 可以用于过程**返回**
