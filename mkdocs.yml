@@ -1,7 +1,7 @@
 site_name: Dinorex 's blog
 copyright: 'In the face of defeat, let perseverance be your guide.'
-repo_name: 'DINOREXNB.github.io'
-repo_url: 'https://github.com/DINOREXNB/DINOREXNB.github.io'
+# repo_name: 'DINOREXNB.github.io'
+# repo_url: 'https://github.com/DINOREXNB/DINOREXNB.github.io'
 
 theme:
   logo: https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/assets/logo.png?raw=true
