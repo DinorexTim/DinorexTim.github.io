@@ -799,11 +799,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#booth" class="md-nav__link">
     booth算法（小数，被乘数、乘数符号任意）
@@ -815,6 +810,11 @@
   <a href="#booth_1" class="md-nav__link">
     booth算法（整数，被乘数、乘数符号任意）
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1789,11 +1789,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#booth" class="md-nav__link">
     booth算法（小数，被乘数、乘数符号任意）
@@ -1805,6 +1800,11 @@
   <a href="#booth_1" class="md-nav__link">
     booth算法（整数，被乘数、乘数符号任意）
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1993,15 +1993,32 @@
 <p><mark>连同符号位一起相加</mark>，符号位产生的进位自然丢掉</p>
 </blockquote>
 <p>例：设A=0.1011，B=-0.0101，用<strong>补码运算</strong>求A+B=？</p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-2.png?raw=true" width="400" /></p>
+<details>
+    <summary>解答</summary>
+
+<img style="width:500px" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-2.png?raw=true">
+
+</details>
+
 <blockquote>
 <p>已知<span class="arithmatex">\([X]_补\)</span>，可以通过：包括符号位在内，每位取反，末位加1求出<span class="arithmatex">\([-X]_补\)</span></p>
 </blockquote>
 <p>例：已知机器数长为8位（包含1位符号位），设A=15，B=24，用补码求解A-B</p>
 <p>已知<span class="arithmatex">\(A=15=0001111,B=0011000\)</span></p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-2_5.png?raw=true" width="500" /></p>
+<details>
+    <summary>解答</summary>
+
+<img style="width:500px" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-2_5.png?raw=true">
+
+</details>
+
 <p>例：已知机器数长为8位（包含1位符号位），设A=-97，B=41，用补码求解A-B</p>
-<p>有<span class="arithmatex">\([A]_补+[-B]_补=10,1110110=[A-B]_补\)</span>，有<span class="arithmatex">\(A-B=+118\)</span>（溢出）</p>
+<details>
+    <summary>解答</summary>
+有$[A]_补+[-B]_补=10,1110110=[A-B]_补$，有$A-B=+118$（溢出）
+
+</details>
+
 <h4 id="_7">一位符号位判定溢出<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>参加加法的两个数（减法时+减数相反数的补码）<ul>
@@ -2024,7 +2041,13 @@
 <li>结果的双符号位<strong>不同</strong> <strong>溢出</strong></li>
 </ul>
 <p>设机器数字为9位（含2位符号位），且<span class="arithmatex">\(A=-97，B=41\)</span>，用补码求<span class="arithmatex">\(A-B\)</span></p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz4-3_5.png?raw=true" width="600" /></p>
+<details>
+    <summary>解答</summary>
+
+<img style="width:500px" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz4-3_5.png?raw=true">
+
+</details>
+
 <h3 id="_9">乘法运算<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <h4 id="_10">原码一位乘法运算规则<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2058,12 +2081,12 @@
 <li>被乘数任意，乘数为负，乘数<span class="arithmatex">\([y]_补\)</span>，去掉符号位，操作同上，最后加<span class="arithmatex">\([–x]_补\)</span>，校正</li>
 </ul>
 <div class="arithmatex">\[\begin{align*}&amp;[X]_补\times [Y]_补=[X]_补\times [10_1\dots 0_n+0Y_{n-1}\dots Y_1Y_0]_补 \\ &amp;=[X]_补\times [0Y_{n-1}\dots Y_1Y_0]_补+(-2^n)[X]_补 \\ &amp;=[X]_补\times [0Y_{n-1}\dots Y_1Y_0]_补+2^n[-X]_补 \end{align*}\]</div>
-<h3 id="booth">booth算法（小数，被乘数、乘数符号任意）<a class="headerlink" href="#booth" title="Permanent link">&para;</a></h3>
+<h4 id="booth">booth算法（小数，被乘数、乘数符号任意）<a class="headerlink" href="#booth" title="Permanent link">&para;</a></h4>
 <p>设x和y的补码表示分别为<span class="arithmatex">\([x]_补=x_0.x_1x_2\dots x_n,[y]_补=y_0.y_1y_2\dots y_n\)</span></p>
 <div class="arithmatex">\[\begin{align*}&amp;[x\times y]_补=[x]_补\times[0.y_1y_2\dots y_n+y_0.0_10_2\dots 0_n]_补 \\ &amp;=[x]_补(0.y_1y_2\dots y_n)+ [x]_补\times (-y_0)\\&amp;=[x]_补[-y_0+(y_1 2^0-y_1 2^{-1})+(y_2 2^{-1}- y_2 2^{-2})+\dots+(y_n2^{-(n-1)}-y_n2^{-n})] \\&amp;=[x]_补[(y_1-y_0)+(y_2-y_1)2^{-1}+\dots+(y_n-y_{n-1})2^{-(n-1)}+(y_{n+1}-y_{n})2^{-n}]\\&amp;=(y_1-y_0)[x]_补+2^{-1}\{(y_2-y_1)[x]_补+2^{-1}\{(y_3-y_2)[x]_补\dots+2^{-1}\{y_{n+1}-y_n\}[x]_补+0\}\}\end{align*}\]</div>
 <p>booth小数算法递推公式</p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-3.png?raw=true" width="600" /></p>
-<h3 id="booth_1">booth算法（整数，被乘数、乘数符号任意）<a class="headerlink" href="#booth_1" title="Permanent link">&para;</a></h3>
+<h4 id="booth_1">booth算法（整数，被乘数、乘数符号任意）<a class="headerlink" href="#booth_1" title="Permanent link">&para;</a></h4>
 <p>booth整数递推公式</p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz3-3_5.png?raw=true" width="600" /></p>
 <h3 id="_13">乘法器硬件示意图<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
