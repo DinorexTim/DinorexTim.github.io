@@ -1744,11 +1744,16 @@
 \end{split}\]</div>
 <h2 id="_5">下推自动机接受的语言<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>PDA <span class="arithmatex">\(P = (Q, Σ, Γ, δ, q_0, Z_0, F)\)</span>的语言一般通过终态方式接受来定义，记为<span class="arithmatex">\(\text{L}(P)\)</span>，定义为</p>
-<div class="arithmatex">\[L(P)= {w |(q_0, w,Z_0)⊢^∗(p, ε, γ), p ∈ F}\]</div>
+<div class="arithmatex">\[\text{L}(P)= {w |(q_0, w,Z_0)⊢^∗(p, ε, γ), p ∈ F}\]</div>
 <p>即能够使PDA到达终态的符号串的集合</p>
 <p>也有另外一种PDA定义的语言是以空栈方式接受的语言，记为<span class="arithmatex">\(N(P)\)</span>，定义为</p>
 <div class="arithmatex">\[\text{N}(P)=\{w|(q_0,w,Z_0)\vdash* (p,\epsilon,\epsilon)\}\]</div>
 <p>即能够使得PDA的栈变空的符号串集合</p>
+<p>例：设PDA接受的语言示例L：识别<span class="arithmatex">\(L_{wwr}=\{ww^R|w\in (0+1)^*\}\)</span>的PDA <span class="arithmatex">\(P\)</span></p>
+<p>以终态方式接受：</p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy9-3.png?raw=true"></p>
+<p>以空栈方式接受：</p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy9-4.png?raw=true"></p>
 <h2 id="_6">从终态方式到空栈方式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>定理:如果PDA <span class="arithmatex">\(P_F\)</span>以终态方式接受语言L, 那么一定存在PDA <span class="arithmatex">\(P_N\)</span>以空栈方式接受L</p>
 
