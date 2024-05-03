@@ -1726,11 +1726,29 @@
 <h2 id="_4">转移符号<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>在PDA的一个动作下，由ID I到ID J的变化，称为ID的转移。具体的，如果 (p, β) ∈ δ(q, a, Z), 由 (q, aw, Zα) 到 (p, w, βα) 的变化, 称为ID的转移</p>
 <p><span class="arithmatex">\(⊢P\)</span>,或者<span class="arithmatex">\(⊢\)</span>（当所指PDA明确时） 记为</p>
+<blockquote>
+<p>扩展<span class="arithmatex">\(\vdash 到\vdash^*\)</span>，表示经过0个或多个动作进行转移</p>
+</blockquote>
 <div class="arithmatex">\[(q, aw, Zα)⊢(p, w, βα)\]</div>
+<p>例：语言<span class="arithmatex">\(L_{01}=\{0^n1^n|n≥1\}\)</span>的PDA，识别000111的ID序列</p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy9-2.png?raw=true"></p>
+<div class="arithmatex">\[\begin{split}
+    (q_0,000111,Z_0)\vdash\\
+    (q_0,00111,0Z_0)\vdash\\
+    (q_0,0111,00Z_0)\vdash\\
+    (q_0,111,000Z_0)\vdash\\
+    (q_1,11,00Z_0)\vdash\\
+    (q_1,1,0Z_0)\vdash\\
+    (q_1,\epsilon,Z_0)\vdash\\
+    (q_2,\epsilon,Z_0)
+\end{split}\]</div>
 <h2 id="_5">下推自动机接受的语言<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>PDA <span class="arithmatex">\(P = (Q, Σ, Γ, δ, q_0, Z_0, F)\)</span>的语言一般通过终态方式接受来定义，记为<span class="arithmatex">\(\text{L}(P)\)</span>，定义为</p>
 <div class="arithmatex">\[L(P)= {w |(q_0, w,Z_0)⊢^∗(p, ε, γ), p ∈ F}\]</div>
 <p>即能够使PDA到达终态的符号串的集合</p>
+<p>也有另外一种PDA定义的语言是以空栈方式接受的语言，记为<span class="arithmatex">\(N(P)\)</span>，定义为</p>
+<div class="arithmatex">\[\text{N}(P)=\{w|(q_0,w,Z_0)\vdash* (p,\epsilon,\epsilon)\}\]</div>
+<p>即能够使得PDA的栈变空的符号串集合</p>
 <h2 id="_6">从终态方式到空栈方式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>定理:如果PDA <span class="arithmatex">\(P_F\)</span>以终态方式接受语言L, 那么一定存在PDA <span class="arithmatex">\(P_N\)</span>以空栈方式接受L</p>
 
