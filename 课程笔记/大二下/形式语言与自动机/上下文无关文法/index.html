@@ -917,6 +917,19 @@
     归约和派生
   </a>
   
+    <nav class="md-nav" aria-label="归约和派生">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1623,6 +1636,19 @@
     归约和派生
   </a>
   
+    <nav class="md-nav" aria-label="归约和派生">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1685,6 +1711,14 @@
 <li>从字符串到文法变元的分析过程, 称为归约</li>
 <li>从文法变元到字符串的分析过程, 称为派生</li>
 </ul>
+<h3 id="_4">定义<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>若上下文无关文法 <span class="arithmatex">\(G = (V, T, P, S)\)</span>, 设 <span class="arithmatex">\(α, β, γ ∈ (V ∪ T)^∗, A ∈ V , A → γ ∈ P\)</span>, 那么称在<span class="arithmatex">\(G\)</span>中由 <span class="arithmatex">\(αAβ\)</span> 可<strong>派生</strong>出 <span class="arithmatex">\(αγβ\)</span>, 记为</p>
+<div class="arithmatex">\[\alpha A \beta\xRightarrow[G]{} \alpha \gamma \beta\]</div>
+<p>相应地，称<span class="arithmatex">\(\alpha\gamma\beta\)</span>可归约为<span class="arithmatex">\(\alpha A \beta\)</span></p>
+<blockquote>
+<p>派生指的是用产生式<span class="arithmatex">\(A\to \gamma\)</span>的右部分<span class="arithmatex">\(\gamma\)</span>替换串<span class="arithmatex">\(\alpha A\beta\)</span>中变元A得到串<span class="arithmatex">\(\alpha\gamma\beta\)</span>的过程</p>
+</blockquote>
+<p>例：使用算术表达式文法<span class="arithmatex">\(G_{exp}\)</span>，将a*(a+b00)归约的过程</p>
 
 
 
