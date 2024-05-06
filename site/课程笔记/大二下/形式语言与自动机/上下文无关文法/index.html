@@ -932,6 +932,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最左派生与最右派生
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    文法的语言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cfl" class="md-nav__link">
+    上下文无关语言(CFL)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    文法的歧义性
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1651,6 +1679,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最左派生与最右派生
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    文法的语言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cfl" class="md-nav__link">
+    上下文无关语言(CFL)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    文法的歧义性
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1694,7 +1750,7 @@
 <li>P:产生式的有穷集，每个产生式包括:<ul>
 <li>一个变元，称为产生式的头(head)或左部；</li>
 <li>一个产生式符号→，读作定义为;</li>
-<li>一个(V⋃T)^∗中的符号串, 称为体(body)或右部（由变元和终结符组成的字符串）</li>
+<li>一个<span class="arithmatex">\((V⋃T)^∗\)</span>中的符号串, 称为体(body)或右部（由变元和终结符组成的字符串）</li>
 </ul>
 </li>
 <li>S:初始符号S∈V，表示文法开始的地方</li>
@@ -1719,6 +1775,38 @@
 <p>派生指的是用产生式<span class="arithmatex">\(A\to \gamma\)</span>的右部分<span class="arithmatex">\(\gamma\)</span>替换串<span class="arithmatex">\(\alpha A\beta\)</span>中变元A得到串<span class="arithmatex">\(\alpha\gamma\beta\)</span>的过程</p>
 </blockquote>
 <p>例：使用算术表达式文法<span class="arithmatex">\(G_{exp}\)</span>，将a*(a+b00)归约的过程</p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy9-1.png?raw=true" style="width:150px;margin-right:30%;" align=right></p>
+<ol>
+<li>I*(I+I00)</li>
+<li>I*(I+I0)</li>
+<li>I*(I+I)</li>
+<li>E*(E+E)</li>
+<li>E*(E)</li>
+<li>E*E</li>
+<li>E</li>
+</ol>
+<h2 id="_5">最左派生与最右派生<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>为限制派生的随意性, 要求只替换符号串中最左边变元的派生过程, 称为最左派生；只替换最右的，称为最右派生，分别记为</p>
+<div class="arithmatex">\[\xRightarrow[lm]{}\quad \xRightarrow[rm]{}\]</div>
+<blockquote>
+<p>任何派生都有等价的最左派生和最右派生</p>
+</blockquote>
+<h2 id="_6">文法的语言<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>定义：上下文无关文法<span class="arithmatex">\(G=(V,T,P,S)\)</span>的语言定义为</p>
+<div class="arithmatex">\[L(G)=\{w|w\in T^*,S\xRightarrow[G]{*}w\}\]</div>
+<p>需要满足:</p>
+<ol>
+<li>w仅由终结符组成</li>
+<li>初始符号S能派生出w</li>
+</ol>
+<h2 id="cfl">上下文无关语言(CFL)<a class="headerlink" href="#cfl" title="Permanent link">&para;</a></h2>
+<p>如果语言<span class="arithmatex">\(L\)</span>是某个 CFG <span class="arithmatex">\(G\)</span> 定义的语言, 即 <span class="arithmatex">\(L = L(G)\)</span>, 则称L为<strong>上下文无关语言</strong></p>
+<blockquote>
+<p>之所以称之为“上下文无关”，是因为文法派生的每一步<span class="arithmatex">\(\alpha A\beta \Rightarrow \alpha\gamma\beta\)</span>符号串<span class="arithmatex">\(\gamma\)</span>仅根据A的产生式派生，而无需依赖A的上下文<span class="arithmatex">\(\alpha\)</span>和<span class="arithmatex">\(\beta\)</span></p>
+</blockquote>
+<h2 id="_7">文法的歧义性<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>如果CFG <span class="arithmatex">\(G\)</span>使某些符号串有两棵不同的语法分析树，则称该文法是<strong>歧义的</strong></p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy9-2.png?raw=true" style="width:300px;" align=center></p>
 
 
 
