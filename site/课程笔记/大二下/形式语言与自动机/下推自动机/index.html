@@ -1717,7 +1717,7 @@
 <p>具备与上下文无关文法等价的定义语言的能力</p>
 <p>可以看作ε-NFA和一个栈(stack)的结合</p>
 <h2 id="_1">抽象装置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy9-1.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-1.png?raw=true" width="400" /></p>
 <h2 id="_2">形式定义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>P定义为七元组</p>
 <div class="arithmatex">\[P=(Q,\Sigma,\Gamma,\delta,q_0,Z_0,F)\]</div>
@@ -1743,21 +1743,22 @@
 </li>
 </ul>
 <h2 id="_3">瞬时描述<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>为描述PDA瞬间的格局，定义<span class="arithmatex">\(Q×Σ^∗×{Γ^∗}\)</span>中三元组<span class="arithmatex">\((q,w,γ)\)</span>为瞬时描述(instantaneous description(ID))</p>
+<p>为描述PDA瞬间的格局，定义<span class="arithmatex">\(Q×Σ^∗×{Γ^∗}\)</span>中三元组<span class="arithmatex">\((q,w,γ)\)</span>为瞬时描述(<strong>ID</strong>)</p>
 <ul>
 <li>q是当前状态</li>
 <li>w是剩下的输入符号串(remaining input)</li>
 <li>γ是栈中的符号串(stack contents)（栈顶符号在前）</li>
 </ul>
 <h2 id="_4">转移符号<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>在PDA的一个动作下，由ID I到ID J的变化，称为ID的转移。具体的，如果 (p, β) ∈ δ(q, a, Z), 由 (q, aw, Zα) 到 (p, w, βα) 的变化, 称为ID的转移</p>
+<p>在PDA的一个动作下，由<span class="arithmatex">\(\text{ID} I\)</span>到<span class="arithmatex">\(\text{ID} J\)</span>的变化，称为<span class="arithmatex">\(\text{ID}\)</span>的转移。</p>
+<p>例： <span class="arithmatex">\((q, aw, Zα)\)</span> 到 <span class="arithmatex">\((p, w, βα)\)</span> 表示状态q读取字符串aw，“消耗”字符<span class="arithmatex">\(a\)</span>，使用<span class="arithmatex">\(\beta\)</span>替换栈顶元素<span class="arithmatex">\(Z\)</span></p>
 <p><span class="arithmatex">\(⊢P\)</span>,或者<span class="arithmatex">\(⊢\)</span>（当所指PDA明确时） 记为</p>
+<div class="arithmatex">\[(q, aw, Zα)⊢(p, w, βα)\]</div>
 <blockquote>
 <p>扩展<span class="arithmatex">\(\vdash 到\vdash^*\)</span>，表示经过0个或多个动作进行转移</p>
 </blockquote>
-<div class="arithmatex">\[(q, aw, Zα)⊢(p, w, βα)\]</div>
 <p>例：语言<span class="arithmatex">\(L_{01}=\{0^n1^n|n≥1\}\)</span>的PDA，识别000111的ID序列</p>
-<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy9-2.png?raw=true" align=right></p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-2.png?raw=true" align=right></p>
 <div class="arithmatex">\[\begin{split}
     (q_0,000111,Z_0)\vdash\\
     (q_0,00111,0Z_0)\vdash\\
@@ -1770,19 +1771,20 @@
 \end{split}\]</div>
 <h2 id="_5">下推自动机接受的语言<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>PDA <span class="arithmatex">\(P = (Q, Σ, Γ, δ, q_0, Z_0, F)\)</span>的语言一般通过终态方式接受来定义，记为<span class="arithmatex">\(\text{L}(P)\)</span>，定义为</p>
-<div class="arithmatex">\[\text{L}(P)= {w |(q_0, w,Z_0)⊢^∗(p, ε, γ), p ∈ F}\]</div>
+<div class="arithmatex">\[\text{L}(P)= \{w |(q_0, w,Z_0)⊢^∗(p, ε, γ), p ∈ F\}\]</div>
 <p>即能够使PDA到达终态的符号串的集合</p>
-<p>也有另外一种PDA定义的语言是以空栈方式接受的语言，记为<span class="arithmatex">\(N(P)\)</span>，定义为</p>
+<p>另外一种PDA定义的语言是以空栈方式接受的语言，记为<span class="arithmatex">\(N(P)\)</span>，定义为</p>
 <div class="arithmatex">\[\text{N}(P)=\{w|(q_0,w,Z_0)\vdash* (p,\epsilon,\epsilon)\}\]</div>
 <p>即能够使得PDA的栈变空的符号串集合</p>
 <p>例：设PDA接受的语言示例L：识别<span class="arithmatex">\(L_{wwr}=\{ww^R|w\in (0+1)^*\}\)</span>的PDA <span class="arithmatex">\(P\)</span></p>
 <p>以终态方式接受：</p>
-<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy9-3.png?raw=true"></p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-3.png?raw=true"></p>
 <p>以空栈方式接受：</p>
-<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy9-4.png?raw=true"></p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-4.png?raw=true"></p>
 <h2 id="_6">从终态方式到空栈方式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="_7">定理<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p>如果PDA <span class="arithmatex">\(P_F\)</span>以终态方式接受语言L, 那么一定存在PDA <span class="arithmatex">\(P_N\)</span>以空栈方式接受L</p>
+<p>如果PDA <span class="arithmatex">\(P_F\)</span>以终态方式接受语言<span class="arithmatex">\(L\)</span>, 那么一定存在PDA <span class="arithmatex">\(P_N\)</span>以空栈方式接受<span class="arithmatex">\(L\)</span></p>
+<p>同样的，如果PDA <span class="arithmatex">\(P_N\)</span>以空栈方式接受语言<span class="arithmatex">\(L\)</span>, 那么一定存在PDA <span class="arithmatex">\(P_F\)</span>以终态方式接受<span class="arithmatex">\(L\)</span></p>
 
 
 
