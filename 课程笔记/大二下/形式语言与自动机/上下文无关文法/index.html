@@ -958,6 +958,46 @@
     文法的歧义性
   </a>
   
+    <nav class="md-nav" aria-label="文法的歧义性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    固有歧义性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    文法的化简
+  </a>
+  
+    <nav class="md-nav" aria-label="文法的化简">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    消除无用符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epsilon-" class="md-nav__link">
+    消除\(\epsilon\)-产生式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1705,6 +1745,46 @@
     文法的歧义性
   </a>
   
+    <nav class="md-nav" aria-label="文法的歧义性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    固有歧义性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    文法的化简
+  </a>
+  
+    <nav class="md-nav" aria-label="文法的化简">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    消除无用符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epsilon-" class="md-nav__link">
+    消除\(\epsilon\)-产生式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1806,7 +1886,27 @@
 </blockquote>
 <h2 id="_7">文法的歧义性<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>如果CFG <span class="arithmatex">\(G\)</span>使某些符号串有两棵不同的语法分析树，则称该文法是<strong>歧义的</strong></p>
-<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy9-2.png?raw=true" style="width:300px;" align=center></p>
+<p>例：算数表达式的文法<span class="arithmatex">\(G_exp\)</span>中，对句型a+a∗a有下面两棵语法树</p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy9-2.png?raw=true" style="width:400px;"></p>
+<h3 id="_8">固有歧义性<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>定义:定义同样的语言可以有多个文法，如果上下文无关语言L的所有文法都是有歧义的，那么称语言L是<strong>固有歧义的</strong>。</p>
+<h2 id="_9">文法的化简<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ol>
+<li>消除无用符号</li>
+<li>消除<span class="arithmatex">\(\epsilon\)</span>-产生式(<span class="arithmatex">\(A\to \epsilon\)</span>)</li>
+<li>消除单元产生式(<span class="arithmatex">\(A\to B\)</span>)</li>
+</ol>
+<h3 id="_10">消除无用符号<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>定义:<span class="arithmatex">\(CFG G = (V, T, P, S)\)</span>, 符号<span class="arithmatex">\(X ∈ (V∪T)\)</span>:</p>
+<ul>
+<li>如果<span class="arithmatex">\(S\xRightarrow{*}αXβ\)</span>,称X是<strong>可达的</strong></li>
+<li>如果<span class="arithmatex">\(\alphaX\beta\xRightarrow{*}w(w\in T^*)\)</span>，称X是<strong>产生的</strong></li>
+<li>如果X同时是产生的和可达的，那么称X是<strong>有用的</strong>，否则X是无用符号</li>
+</ul>
+<blockquote>
+<p>注意:先寻找并消除全部非“产生的”符号，再寻找并消除全部非“可达的”符号，否则可能消除不完整</p>
+</blockquote>
+<h3 id="epsilon-">消除<span class="arithmatex">\(\epsilon\)</span>-产生式<a class="headerlink" href="#epsilon-" title="Permanent link">&para;</a></h3>
 
 
 
