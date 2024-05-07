@@ -873,6 +873,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    数据通路要求
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1724,6 +1731,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    数据通路要求
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1901,7 +1915,23 @@
 <ul>
 <li>内部由32个寄存器构成</li>
 </ul>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-3.png?raw=true" width="450" /></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-3.png?raw=true" width="300" /></p>
+<ul>
+<li>读写控制<ul>
+<li>Ra/Rb(5位)：将对应编号的寄存器的内容放到busA/A/busB(读) </li>
+<li>Rw(5位)：在时钟信号(clk)的上升沿，如果写使能信号(WriteEnable)有效，将busW的内容存入Rw号寄存器</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>寄存器堆的读操作不受时钟控制</p>
+</blockquote>
+<h3 id="_7">数据通路要求<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>算术逻辑单元(ALU)</li>
+<li>立即数扩展部件</li>
+<li>程序计数器(PC)</li>
+</ul>
 <h2 id="risc-v_1">RISC-V部分指令的数据通路设计<a class="headerlink" href="#risc-v_1" title="Permanent link">&para;</a></h2>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
