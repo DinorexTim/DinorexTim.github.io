@@ -780,12 +780,87 @@
     处理器需求分析
   </a>
   
+    <nav class="md-nav" aria-label="处理器需求分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    功能层面上的CPU定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu_1" class="md-nav__link">
+    CPU的组成部分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    处理器设计步骤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    部分指令需求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    需求汇总
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#risc-v" class="md-nav__link">
     RISC-V数据通路的组件选择
   </a>
+  
+    <nav class="md-nav" aria-label="RISC-V数据通路的组件选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    组件分类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    冯诺依曼架构 vs 哈佛架构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    数据通路中的主要状态单元（存储器）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dm" class="md-nav__link">
+    数据存储器（DM）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1542,12 +1617,87 @@
     处理器需求分析
   </a>
   
+    <nav class="md-nav" aria-label="处理器需求分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    功能层面上的CPU定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu_1" class="md-nav__link">
+    CPU的组成部分
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    处理器设计步骤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    部分指令需求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    需求汇总
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#risc-v" class="md-nav__link">
     RISC-V数据通路的组件选择
   </a>
+  
+    <nav class="md-nav" aria-label="RISC-V数据通路的组件选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    组件分类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs" class="md-nav__link">
+    冯诺依曼架构 vs 哈佛架构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    数据通路中的主要状态单元（存储器）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dm" class="md-nav__link">
+    数据存储器（DM）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1586,7 +1736,123 @@
   <h1>处理器设计</h1>
 
 <h2 id="_1">处理器需求分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在单核情况下，一个系统内部，大致分为三个板块：输入、存储、输出</p>
+<p>应该有一块专门用于处理的处理器(Processor)，用于存储的内存(Memory),还有用于对接两者的处理器-内存接口(Processor-Memory Interface)</p>
+<blockquote>
+<p>缓存(Cache)是指可以进行高速数据交换的存储器</p>
+</blockquote>
+<h3 id="cpu">功能层面上的CPU定义<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h3>
+<p>CPU(Central Processing Unit)：能够通过输入的机器码，执行相应的操作、并保持相应状态的数字电路</p>
+<h3 id="cpu_1">CPU的组成部分<a class="headerlink" href="#cpu_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>数据通路：是处理器中执行操作的硬件<ul>
+<li>执行控制器的操作（例如:控制器“告诉”数据通路，执行add指令，则数据通路就会将相应操作数传给加法器/运算器...）</li>
+</ul>
+</li>
+<li>控制器：是对数据通路要做什么操作进行调度的硬件<ul>
+<li>“告诉”数据通路需要执行什么操作？需要读内存吗？读哪个寄存器？需要写寄存器吗？写哪个寄存器？...</li>
+</ul>
+</li>
+</ul>
+<p>例：<code>addi t0,x0,6</code> <code>000000000110 00000 000 00101 0010011</code></p>
+<ul>
+<li>数据通路：<ul>
+<li>根据收到的控制器信息可知：<ul>
+<li>操作数为0号寄存器的值和立即数“6”</li>
+<li>执行加法运算—&gt;选择0号寄存器的值和立即数作为操作数，并选择加法器的结果作为最终结果</li>
+<li>加法运算结果写入目的寄存器t0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>控制器<ul>
+<li>要让数据通路执行什么操作？（人工查表...）<ul>
+<li>加减乘除...、分支...</li>
+</ul>
+</li>
+<li>源操作数应该如何选择？ </li>
+<li><strong>哪个寄存器？</strong>t0(x5), x0 </li>
+<li>立即数是什么？</li>
+<li>指令执行完，PC如何改变？</li>
+</ul>
+</li>
+</ul>
+<h3 id="_2">处理器设计步骤<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>分析指令系统，得出对数据通路的需求</li>
+<li>为数据通路选择合适组件</li>
+<li>根据指令需求连接组件建立数据通路</li>
+<li>分析每条指令的实现，以确定控制信号</li>
+<li>集成控制信号，形成完整的控制逻辑</li>
+</ol>
+<h3 id="_3">部分指令需求<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>R型指令: <code>op dst,src1,src2</code></p>
+<ul>
+<li>需求：算术逻辑运算器，可读写的寄存器（需要同时读2个）</li>
+</ul>
+<p>I型指令: <code>opi dst,src,imm</code>、<code>load dst，offffsfset(bAddrReg)</code>、<code>jalr rd, offffsfset(rs1)</code></p>
+<ul>
+<li>新增需求：立即数扩展、PC寄存器、存储器可读、加法器</li>
+</ul>
+<p>S型指令： <code>store src, offset(bAddrReg)</code></p>
+<ul>
+<li>新增需求：存储器可写、立即数生成器</li>
+</ul>
+<p>B型指令：<code>bxx src1,src2, label</code></p>
+<ul>
+<li>新增需求：多路选择器、更复杂的立即数生成器</li>
+</ul>
+<p>J型指令：<code>jal rd, offset</code></p>
+<ul>
+<li>新增需求：更复杂的立即数生成器</li>
+</ul>
+<p>U型指令：AUIPC将长立即数加到PC并写入目的寄存器</p>
+<ul>
+<li>...</li>
+</ul>
+<h3 id="_4">需求汇总<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>算术逻辑单元（ALU）<ul>
+<li>运算类型：加、减、或、比较等各种运算</li>
+</ul>
+</li>
+<li>立即数生成器 <ul>
+<li>零扩展、符号扩展、字段拼接等</li>
+</ul>
+</li>
+<li>程序计数器（PC）</li>
+<li>存储组件<ul>
+<li>寄存器堆(RF:Register File)，存储器(Memory)</li>
+</ul>
+</li>
+</ul>
 <h2 id="risc-v">RISC-V数据通路的组件选择<a class="headerlink" href="#risc-v" title="Permanent link">&para;</a></h2>
+<h3 id="_5">组件分类<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>组合逻辑单元</li>
+<li>时序逻辑单元（状态单元）</li>
+</ol>
+<h3 id="vs">冯诺依曼架构 vs 哈佛架构<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
+<p>冯诺依曼架构（X86）</p>
+<ul>
+<li>程序空间和数据空间一体</li>
+<li>指令和数据的<strong>宽度相同</strong></li>
+<li>指令和数不能同时进行操作，只能顺序进行</li>
+</ul>
+<p>哈佛架构（ARM、DSP）</p>
+<ul>
+<li>存储器分为数据存储器和程序存储器，总线分为程序存储器的数据总线和地址总线以及数据存储器的数据总线和地址总线</li>
+<li>可以对数据和程序同时进行操作，有较高的执行效率</li>
+<li>指令和数据可以有<strong>不同的宽度</strong></li>
+</ul>
+<h3 id="_6">数据通路中的主要状态单元（存储器）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>将指令和数据保存在<strong>字节寻址</strong>的存储空间中</li>
+<li>指令存储器和数据存储器<strong>分开</strong></li>
+<li>从指令存储器<strong>读</strong>（取）指令，在数据存储器读写数据</li>
+</ul>
+<h3 id="dm">数据存储器（DM）<a class="headerlink" href="#dm" title="Permanent link">&para;</a></h3>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-1.png?raw=true" width="600" /></p>
 <h2 id="risc-v_1">RISC-V部分指令的数据通路设计<a class="headerlink" href="#risc-v_1" title="Permanent link">&para;</a></h2>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
