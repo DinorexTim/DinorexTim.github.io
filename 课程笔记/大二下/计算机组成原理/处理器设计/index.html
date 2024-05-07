@@ -859,6 +859,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#im" class="md-nav__link">
+    指令存储器（IM）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf" class="md-nav__link">
+    寄存器堆（RF）
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1696,6 +1710,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#im" class="md-nav__link">
+    指令存储器（IM）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf" class="md-nav__link">
+    寄存器堆（RF）
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1852,7 +1880,24 @@
 <li>从指令存储器<strong>读</strong>（取）指令，在数据存储器读写数据</li>
 </ul>
 <h3 id="dm">数据存储器（DM）<a class="headerlink" href="#dm" title="Permanent link">&para;</a></h3>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-1.png?raw=true" width="600" /></p>
+<p><img align="right" alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-1.png?raw=true" width="300" /></p>
+<p>读写控制</p>
+<ul>
+<li>Address：指定一个存储单元，将其内容送到数据输出端</li>
+<li>WriteEnable：写使能。在时钟信号（clk）的上升沿，如果该信号有效，将输入数据存入地址信号指定的存储单元</li>
+</ul>
+<blockquote>
+<p>存储器的读操作不受时钟控制</p>
+</blockquote>
+<h3 id="im">指令存储器（IM）<a class="headerlink" href="#im" title="Permanent link">&para;</a></h3>
+<p><img align="right" alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-2.png?raw=true" width="300" /></p>
+<ul>
+<li>输入总线：Instruction Address</li>
+<li>输出总线：Instruction</li>
+<li>数据通路中<strong>不会写</strong>指令存储器</li>
+<li>“读操作”可以视为组合逻辑电路</li>
+</ul>
+<h3 id="rf">寄存器堆（RF）<a class="headerlink" href="#rf" title="Permanent link">&para;</a></h3>
 <h2 id="risc-v_1">RISC-V部分指令的数据通路设计<a class="headerlink" href="#risc-v_1" title="Permanent link">&para;</a></h2>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
