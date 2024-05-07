@@ -820,6 +820,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    线程的状态
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    创建线程
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1543,6 +1557,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    线程的状态
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    创建线程
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1581,7 +1609,80 @@
 <li>一个进程<strong>至少包含</strong>一个线程</li>
 <li>多个线程之间共享内存</li>
 </ul>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/java6-1.png?raw=true" width="600" /></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/java6-1.png?raw=true" width="400" /></p>
+<table>
+    <tr>
+        <th align=center>进程</th>
+        <th align=center>线程</th>
+    </tr>
+    <tr>
+        <th>重量级</th>
+        <th>轻量级</th>
+    </tr>
+    <tr>
+        <th>一个应用包含多个进程</th>
+        <th>一个进程包含多个线程</th>
+    </tr>
+    <tr>
+        <th>多个进程之间不共享内存</th>
+        <th>一个进程的多个线程之间共享内存</th>
+    </tr>
+    <tr>
+        <th>进程表现为虚拟机</th>
+        <th>线程表现为虚拟CPU</th>
+    </tr>
+</table>
+
+<h2 id="_4">线程的状态<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>新建状态</li>
+<li>可运行状态</li>
+<li>阻塞状态</li>
+<li>等待状态</li>
+<li>计时等待状态</li>
+<li>终止状态</li>
+</ul>
+<h2 id="_5">创建线程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>两种方式<ol>
+<li>继承<code>Thread</code>类</li>
+<li>实现<code>Runnable</code>接口</li>
+</ol>
+</li>
+<li>调用<code>start</code>方法<ol>
+<li>启动线程，将引发调用<code>run</code>方法</li>
+<li><code>start</code>方法将立即返回</li>
+<li>新线程将并发运行</li>
+</ol>
+</li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><span class="c1">// 实现方法1：继承</span>
+</span><span id="__span-0-2"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Thread1</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="p">{</span>
+</span><span id="__span-0-3"><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-0-4"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">(){</span>
+</span><span id="__span-0-5"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;New Thread&quot;</span><span class="p">);</span>
+</span><span id="__span-0-6"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-7"><span class="p">}</span>
+</span><span id="__span-0-8">
+</span><span id="__span-0-9"><span class="c1">// 实现方法2：实现接口</span>
+</span><span id="__span-0-10"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Thread2</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Runnable</span><span class="p">{</span>
+</span><span id="__span-0-11"><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-0-12"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">(){</span>
+</span><span id="__span-0-13"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;New Thread&quot;</span><span class="p">);</span>
+</span><span id="__span-0-14"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-15"><span class="p">}</span>
+</span><span id="__span-0-16">
+</span><span id="__span-0-17"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="p">{</span>
+</span><span id="__span-0-18"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">){</span>
+</span><span id="__span-0-19"><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Thread1</span><span class="p">().</span><span class="na">start</span><span class="p">();</span>
+</span><span id="__span-0-20"><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Thread2</span><span class="p">()).</span><span class="na">start</span><span class="p">();</span>
+</span><span id="__span-0-21"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-22"><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>直接调用 run 方法只会执行同一个线程中的任务， 而不会启动新线程</p>
+<p>在实际生成中<code>Runnable</code>更常用，其优势在于：<strong>任务与运行机制解耦</strong>，降低开销；更容易实现<strong>多线程资源共享</strong></p>
+</blockquote>
 
 
 
