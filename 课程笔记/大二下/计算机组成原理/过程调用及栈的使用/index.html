@@ -791,6 +791,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    实现sort过程（非叶过程）
+  </a>
+  
+    <nav class="md-nav" aria-label="实现sort过程（非叶过程）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rv" class="md-nav__link">
+    外层循环RV实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rv_1" class="md-nav__link">
+    内层循环RV实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -811,6 +838,26 @@
   
   <span class="md-ellipsis">
     RISC-V指令表示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%84%E7%90%86%E5%99%A8%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    处理器设计
   </span>
   
 
@@ -1601,6 +1648,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    实现sort过程（非叶过程）
+  </a>
+  
+    <nav class="md-nav" aria-label="实现sort过程（非叶过程）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rv" class="md-nav__link">
+    外层循环RV实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rv_1" class="md-nav__link">
+    内层循环RV实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1764,6 +1838,41 @@
 </span><span id="__span-6-4"><span class="p">}</span>
 </span></code></pre></div>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz5-1.png?raw=true" width="600" /></p>
+<h2 id="sort">实现sort过程（非叶过程）<a class="headerlink" href="#sort" title="Permanent link">&para;</a></h2>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><span class="kt">void</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[],</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
+</span><span id="__span-7-2"><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+</span><span id="__span-7-3"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-4"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span>
+</span><span id="__span-7-5"><span class="w">            </span><span class="n">swap</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+</span><span id="__span-7-6"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-7"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-8"><span class="p">}</span>
+</span></code></pre></div>
+<p>假设v保存在x10，n保存在x11，i保存在x19，j保存在x20</p>
+<h3 id="rv">外层循环RV实现<a class="headerlink" href="#rv" title="Permanent link">&para;</a></h3>
+<p><code>for (i = 1; i &lt; n; i += 1){...}</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1">li x19,0
+</span><span id="__span-8-2">for1tst:
+</span><span id="__span-8-3">    bge x19,x11,exit1
+</span><span id="__span-8-4">    ... # 外层循环包围的函数体
+</span><span id="__span-8-5">    addi x19,x19,1
+</span><span id="__span-8-6">    j for1st
+</span><span id="__span-8-7">exit1:
+</span></code></pre></div>
+<h3 id="rv_1">内层循环RV实现<a class="headerlink" href="#rv_1" title="Permanent link">&para;</a></h3>
+<p><code>for (j (j = i − 1; j &gt;= 0 &amp;&amp; v[j] &gt; v[j + 1]; j − = 1) { ...}</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1">for2tst:
+</span><span id="__span-9-2">    blt x20,x0,exit2 # 如果j &lt; 0，跳转到exit2
+</span><span id="__span-9-3">    slli x5,x20,3 # x5 = j * 8
+</span><span id="__span-9-4">    add x5,x10,x5 # x5 = v + (j * 8)
+</span><span id="__span-9-5">    ld x6,0(x5) # x6 = v[j][j]
+</span><span id="__span-9-6">    ld x7,8(x5) # x7 = v[j][j + 1]
+</span><span id="__span-9-7">    ble x6,x7,exit2 # 如果x6 ≤ x7，转exit2
+</span><span id="__span-9-8">    mv x21, x10 # 将参数x10复制到x21
+</span><span id="__span-9-9">    mv x22, x11 # 将参数x11复制到x22
+</span><span id="__span-9-10">    mv x10, x21 # swap的第一个参数是v
+</span><span id="__span-9-11">    mv x11, x20 # swap的第二个参数是j是j
+</span></code></pre></div>
 
 
 
