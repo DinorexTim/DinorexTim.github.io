@@ -529,6 +529,8 @@
       
         
       
+        
+      
     
     
     
@@ -1098,7 +1100,7 @@
         
           <li class="md-nav__item">
   <a href="#epsilon-" class="md-nav__link">
-    消除\(\epsilon\)-产生式
+    消除epsilon-产生式
   </a>
   
 </li>
@@ -1174,6 +1176,48 @@
   
   <span class="md-ellipsis">
     毛泽东思想和中国特色社会主义理论体系概论
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../%E7%BB%9F%E8%AE%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BA%8F%E7%AB%A0/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    统计机器学习
   </span>
   
 
@@ -2013,7 +2057,7 @@
         
           <li class="md-nav__item">
   <a href="#epsilon-" class="md-nav__link">
-    消除\(\epsilon\)-产生式
+    消除epsilon-产生式
   </a>
   
 </li>
@@ -2133,16 +2177,16 @@
 <li>消除单元产生式(<span class="arithmatex">\(A\to B\)</span>)</li>
 </ol>
 <h3 id="_10">消除无用符号<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p>定义:<span class="arithmatex">\(CFG G = (V, T, P, S)\)</span>, 符号<span class="arithmatex">\(X ∈ (V∪T)\)</span>:</p>
+<p>定义:CFG<span class="arithmatex">\(G = (V, T, P, S)\)</span>, 符号<span class="arithmatex">\(X ∈ (V∪T)\)</span>:</p>
 <ul>
 <li>如果<span class="arithmatex">\(S\xRightarrow{*}αXβ\)</span>,称X是<strong>可达的</strong></li>
-<li>如果<span class="arithmatex">\(\alphaX\beta\xRightarrow{*}w(w\in T^*)\)</span>，称X是<strong>产生的</strong></li>
+<li>如果<span class="arithmatex">\(\alpha X\beta\xRightarrow{*}w(w\in T^*)\)</span>，称X是<strong>产生的</strong></li>
 <li>如果X同时是产生的和可达的，那么称X是<strong>有用的</strong>，否则X是无用符号</li>
 </ul>
 <blockquote>
 <p>注意:先寻找并消除全部非“产生的”符号，再寻找并消除全部非“可达的”符号，否则可能消除不完整</p>
 </blockquote>
-<h3 id="epsilon-">消除<span class="arithmatex">\(\epsilon\)</span>-产生式<a class="headerlink" href="#epsilon-" title="Permanent link">&para;</a></h3>
+<h3 id="epsilon-">消除epsilon-产生式<a class="headerlink" href="#epsilon-" title="Permanent link">&para;</a></h3>
 <ul>
 <li>假如<span class="arithmatex">\(A\to \epsilon\)</span>，则A是可空的</li>
 <li>如果<span class="arithmatex">\(B\to \alpha\)</span>且<span class="arithmatex">\(\alpha\)</span>中的每个符号都是可空的，那么B是可空的</li>
