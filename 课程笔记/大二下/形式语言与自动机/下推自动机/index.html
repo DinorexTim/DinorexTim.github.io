@@ -1099,6 +1099,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    下推自动机和文法的等价性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnfpda" class="md-nav__link">
+    构造与GNF格式文法等价的PDA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pdacfg" class="md-nav__link">
     由PDA到CFG
   </a>
@@ -2016,6 +2030,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    下推自动机和文法的等价性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnfpda" class="md-nav__link">
+    构造与GNF格式文法等价的PDA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pdacfg" class="md-nav__link">
     由PDA到CFG
   </a>
@@ -2129,11 +2157,11 @@
 <p>S是初始栈底符号</p>
 </blockquote>
 <ul>
-<li>对于每个变元A：(输入空串，压入产生式)</li>
+<li>对每个变元A：(读取空串，压入产生式)</li>
 </ul>
 <div class="arithmatex">\[\delta(q,\epsilon,A)=\{(q,\alpha)|A\to \alpha\in P\}\]</div>
 <ul>
-<li>对每个终结符a：(输入字符a，弹出字符a)</li>
+<li>对终结符a：(读取字符a，弹出字符a)</li>
 </ul>
 <div class="arithmatex">\[\delta(q,a,a)=\{(q,\epsilon)\}\]</div>
 <p>例：根据语言<span class="arithmatex">\(L=\{0^n1^m|1≤m≤n\}\)</span>对应的如下文法，设计相应的PDA</p>
@@ -2150,6 +2178,18 @@
 <blockquote>
 <p>这里只讨论正确的路径，由于不确定性必然会出现dead path</p>
 </blockquote>
+<h3 id="_9">下推自动机和文法的等价性<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>对于任何CFL <span class="arithmatex">\(L\)</span>，一定存在PDA <span class="arithmatex">\(P\)</span>，使得<span class="arithmatex">\(L=\text{N}(P)\)</span></p>
+<h3 id="gnfpda">构造与GNF格式文法等价的PDA<a class="headerlink" href="#gnfpda" title="Permanent link">&para;</a></h3>
+<p>回顾GNF：每个不带<span class="arithmatex">\(\epsilon\)</span>的CFL都可以由这样的CFG <span class="arithmatex">\(𝐺\)</span>定义,<span class="arithmatex">\(𝐺\)</span>中每个产生式的形式都为</p>
+<div class="arithmatex">\[A\to a\alpha\]</div>
+<blockquote>
+<p><span class="arithmatex">\(A\)</span>是变元, <span class="arithmatex">\(a\)</span>是终结符, <span class="arithmatex">\(\alpha\)</span>是零或多个变元的串</p>
+</blockquote>
+<p>如果GNF格式的CFG <span class="arithmatex">\(G = (V, T, P, S)\)</span>, 那么构造 PDA <span class="arithmatex">\(P_N= ({q}, T, V, δ, q, S, \Phi)\)</span></p>
+<p>为每个产生式，定义<span class="arithmatex">\(\delta\)</span>为</p>
+<div class="arithmatex">\[\delta(q,a,A)=\{(q,\beta)|A\to a\beta \in P\}\]</div>
+<p>例：文法<span class="arithmatex">\(S\to aAA,A\to aS|bS|a\)</span>为GNF格式</p>
 <h3 id="pdacfg">由PDA到CFG<a class="headerlink" href="#pdacfg" title="Permanent link">&para;</a></h3>
 
 

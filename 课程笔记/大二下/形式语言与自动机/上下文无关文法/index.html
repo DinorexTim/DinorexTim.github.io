@@ -1110,6 +1110,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#gnf" class="md-nav__link">
+    格雷巴赫范式（GNF）
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2067,6 +2074,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#gnf" class="md-nav__link">
+    格雷巴赫范式（GNF）
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2193,6 +2207,33 @@
 </ul>
 <p>例：消除CFG <span class="arithmatex">\(G=(\{S,A,B\},\{a,b\},P,S)\)</span>的<span class="arithmatex">\(\epsilon\)</span>-产生式。<span class="arithmatex">\(S\to AB,A\to AaA|\epsilon,B\to BbB|\epsilon\)</span></p>
 <p>先确定全部可空的变元，再替换全部带有可空符号的产生式</p>
+<h2 id="gnf">格雷巴赫范式（GNF）<a class="headerlink" href="#gnf" title="Permanent link">&para;</a></h2>
+<ul>
+<li>每个不带<span class="arithmatex">\(\epsilon\)</span>的CFL都可以由这样的CFG G定义，G的每个产生式的形式都为</li>
+</ul>
+<div class="arithmatex">\[A\to a\alpha\]</div>
+<blockquote>
+<p>其中 A 是变元, a 是终结符, α 是零或多个变元的串</p>
+</blockquote>
+<ul>
+<li>特点<ul>
+<li>GNF的每个产生式都会引入一个终结符</li>
+<li>长度为n的串的派生正好是n步</li>
+</ul>
+</li>
+</ul>
+<p>例：将下列文法转换为GNF</p>
+<div class="arithmatex">\[\begin{split}
+    S\to AB\\
+    A\to aA|bB|b\\
+    B\to b
+\end{split}\]</div>
+<p>转换为GNF后：</p>
+<div class="arithmatex">\[\begin{split}
+    S\to aAB|bBB|bB\\
+    A\to aA|bB|b\\
+    B\to b
+\end{split}\]</div>
 
 
 
