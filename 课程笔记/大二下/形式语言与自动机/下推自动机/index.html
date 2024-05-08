@@ -2189,7 +2189,11 @@
 <p>如果GNF格式的CFG <span class="arithmatex">\(G = (V, T, P, S)\)</span>, 那么构造 PDA <span class="arithmatex">\(P_N= ({q}, T, V, δ, q, S, \Phi)\)</span></p>
 <p>为每个产生式，定义<span class="arithmatex">\(\delta\)</span>为</p>
 <div class="arithmatex">\[\delta(q,a,A)=\{(q,\beta)|A\to a\beta \in P\}\]</div>
-<p>例：文法<span class="arithmatex">\(S\to aAA,A\to aS|bS|a\)</span>为GNF格式</p>
+<p>例：文法<span class="arithmatex">\(S\to aAA,A\to aS|bS|a\)</span>为GNF格式，构造与之等价的PDA</p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-6.png?raw=true"></p>
+<blockquote>
+<p>注意这里GNF的<span class="arithmatex">\(\delta\)</span>函数是<span class="arithmatex">\(\delta(q,a,A)=\{(q,\beta)|A\to a\beta \in P\}\)</span></p>
+</blockquote>
 <h3 id="pdacfg">由PDA到CFG<a class="headerlink" href="#pdacfg" title="Permanent link">&para;</a></h3>
 
 
