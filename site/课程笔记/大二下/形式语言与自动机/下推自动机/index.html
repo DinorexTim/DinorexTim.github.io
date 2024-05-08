@@ -529,6 +529,8 @@
       
         
       
+        
+      
     
     
     
@@ -1154,6 +1156,48 @@
   
   <span class="md-ellipsis">
     毛泽东思想和中国特色社会主义理论体系概论
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../%E7%BB%9F%E8%AE%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BA%8F%E7%AB%A0/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    统计机器学习
   </span>
   
 
@@ -2011,13 +2055,15 @@
 <h2 id="_2">形式定义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>P定义为七元组</p>
 <div class="arithmatex">\[P=(Q,\Sigma,\Gamma,\delta,q_0,Z_0,F)\]</div>
-<p>(1)Q：有穷状态集;</p>
-<p>(2)Σ: 有穷输入符号集 (input alphabet);</p>
-<p>(3)Γ: 有穷栈符号集(stack alphabet);</p>
-<p>(4)δ:<span class="arithmatex">\(Q×(Σ∪{ε})×Γ→ 2^{Q×Γ^∗}\)</span>:状态转移函数;</p>
-<p>(5)<span class="arithmatex">\(q_0∈Q\)</span>：初始状态;</p>
-<p>(6)<span class="arithmatex">\(Z_0∈Γ−Σ\)</span>:初始栈底符号(start stack symbol);</p>
-<p>(7)F⊆Q：接受状态集。</p>
+<ol>
+<li><span class="arithmatex">\(Q\)</span>：有穷状态集;</li>
+<li><span class="arithmatex">\(Σ\)</span>: 有穷输入符号集 (input alphabet);</li>
+<li><span class="arithmatex">\(Γ\)</span>: 有穷栈符号集(stack alphabet);</li>
+<li><span class="arithmatex">\(δ\)</span>:<span class="arithmatex">\(\quad Q×(Σ∪{ε})×Γ→ 2^{Q×Γ^∗}\)</span>:状态转移函数;</li>
+<li><span class="arithmatex">\(q_0∈Q\)</span>：初始状态;</li>
+<li><span class="arithmatex">\(Z_0∈Γ−Σ\)</span>:初始栈底符号(start stack symbol);</li>
+<li><span class="arithmatex">\(F⊆Q\)</span>：接受状态集。</li>
+</ol>
 <p>例：构造<span class="arithmatex">\(\{0^n1^n|n≥1\}\)</span>的PDA</p>
 <ul>
 <li>当PDA读入0，栈压入0</li>
@@ -2082,14 +2128,28 @@
 <blockquote>
 <p>S是初始栈底符号</p>
 </blockquote>
-<ol>
+<ul>
 <li>对于每个变元A：(输入空串，压入产生式)</li>
-</ol>
+</ul>
 <div class="arithmatex">\[\delta(q,\epsilon,A)=\{(q,\alpha)|A\to \alpha\in P\}\]</div>
-<ol>
+<ul>
 <li>对每个终结符a：(输入字符a，弹出字符a)</li>
-</ol>
-<p><span class="arithmatex">\(\delta(q,a,a)=\{(q,\epsilon)\}\)</span></p>
+</ul>
+<div class="arithmatex">\[\delta(q,a,a)=\{(q,\epsilon)\}\]</div>
+<p>例：根据语言<span class="arithmatex">\(L=\{0^n1^m|1≤m≤n\}\)</span>对应的如下文法，设计相应的PDA</p>
+<p>文法产生式：<span class="arithmatex">\(S\to AB,A\to 0A|\epsilon,B\to 0B1|01\)</span></p>
+<p>有PDA的转移函数</p>
+<div class="arithmatex">\[\begin{split}
+    \delta(q,\epsilon,S)=\{(q,AB)\}\\
+    \delta(q,\epsilon,A)=\{(q,0A),(q,\epsilon)\}\\
+    \delta(q,\epsilon,B)=\{(q,0B1),(q,01)\}\\
+    \delta(q,0,0)=\{(q,\epsilon)\},\delta(q,1,1)=\{(q,\epsilon)\}
+\end{split}\]</div>
+<p>例如识别00011：有<span class="arithmatex">\(S\to AB \to 0AB \to 0B \to 00B1 \to 00011\)</span></p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-5.png?raw=true"></p>
+<blockquote>
+<p>这里只讨论正确的路径，由于不确定性必然会出现dead path</p>
+</blockquote>
 <h3 id="pdacfg">由PDA到CFG<a class="headerlink" href="#pdacfg" title="Permanent link">&para;</a></h3>
 
 
