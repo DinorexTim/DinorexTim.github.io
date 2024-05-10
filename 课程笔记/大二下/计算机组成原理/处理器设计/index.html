@@ -964,6 +964,26 @@
     RISC-V部分指令的数据通路设计
   </a>
   
+    <nav class="md-nav" aria-label="RISC-V部分指令的数据通路设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    所有指令的共同需求——取指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    实现add指令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2030,6 +2050,26 @@
     RISC-V部分指令的数据通路设计
   </a>
   
+    <nav class="md-nav" aria-label="RISC-V部分指令的数据通路设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    所有指令的共同需求——取指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    实现add指令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2215,6 +2255,30 @@
 <li>程序计数器(PC)</li>
 </ul>
 <h2 id="risc-v_1">RISC-V部分指令的数据通路设计<a class="headerlink" href="#risc-v_1" title="Permanent link">&para;</a></h2>
+<h3 id="_8">所有指令的共同需求——取指令<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>取指令<ul>
+<li><mark>程序计数器PC的内容是当前指令的地址</mark></li>
+<li>用PC的内容作为地址，访问指令存储器，获得指令编码</li>
+</ul>
+</li>
+<li>顺序执行更新PC<ul>
+<li>PC←PC+4</li>
+</ul>
+</li>
+<li>发生分支时更新<ul>
+<li>PC←分布目标地址</li>
+</ul>
+</li>
+</ul>
+<h3 id="add">实现add指令<a class="headerlink" href="#add" title="Permanent link">&para;</a></h3>
+<p><img align="right" alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-4.png?raw=true" width="300" /></p>
+<p><code>add rd,rs1,rs2</code></p>
+<ul>
+<li>指令对机器状态进行两次更改：</li>
+<li>寄存器内容发生改变</li>
+<li>PC内容改变(PC=PC+4)</li>
+</ul>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
 
