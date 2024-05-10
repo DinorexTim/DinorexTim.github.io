@@ -981,6 +981,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sub" class="md-nav__link">
+    实现sub指令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2067,6 +2074,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sub" class="md-nav__link">
+    实现sub指令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2272,15 +2286,18 @@
 </li>
 </ul>
 <h3 id="add">实现add指令<a class="headerlink" href="#add" title="Permanent link">&para;</a></h3>
-<p><img align="right" alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-4.png?raw=true" width="250" /></p>
 <p><code>add rd,rs1,rs2</code></p>
 <ul>
 <li>指令对机器状态进行两次更改：</li>
 <li>寄存器内容发生改变</li>
 <li>PC内容改变(PC=PC+4)</li>
-<li>控制器根据IM的输出分析指令的opcode和fufunct域，确定控制信号</li>
+<li>控制器根据IM的输出分析指令的opcode和funct域，确定控制信号</li>
 <li>根据IM的输出读出RF中相应2个寄存器的值</li>
 </ul>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-4.png?raw=true" width="450" /></p>
+<h3 id="sub">实现sub指令<a class="headerlink" href="#sub" title="Permanent link">&para;</a></h3>
+<p>与<code>add</code>几乎相同，inst[30]在加法和减法之间进行选择</p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-5.png?raw=true" width="450" /></p>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
 
