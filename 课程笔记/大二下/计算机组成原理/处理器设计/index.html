@@ -1035,6 +1035,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    实现B型指令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2175,6 +2182,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    实现B型指令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2424,6 +2438,38 @@
 </blockquote>
 <h4 id="is">I型指令与S型指令中的立即数生成<a class="headerlink" href="#is" title="Permanent link">&para;</a></h4>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-10.png?raw=true" width="450" /></p>
+<ul>
+<li>立即数低5位由I型和S型对应的控制信号<code>immSel</code>选择</li>
+<li>立即数中的其他位连接到指令中的固定位置</li>
+</ul>
+<h3 id="b">实现B型指令<a class="headerlink" href="#b" title="Permanent link">&para;</a></h3>
+<ul>
+<li>B型指令格式与S型指令格式基本相同</li>
+<li>但立即数字段以2字节为增量表示-4096到+4094的偏移量</li>
+<li>12位立即数字段表示13位有符号字节地址的偏移量<ul>
+<li>偏移量的最低位<strong>始终为零</strong>，因此无需存储</li>
+</ul>
+</li>
+</ul>
+<p>B型指令：beq、bne、blt、bge、bltu、bgeu</p>
+<ul>
+<li>PC不同的状态变化：<ul>
+<li>PC+ 4 (不发生分支转移)</li>
+<li>PC + immediate (发生分支转移)</li>
+</ul>
+</li>
+<li>需要比较rsl和rs2的数值关系，并计算 PC+立即数 的结果</li>
+<li>需要添加一个ALU vs. 加专门的比较硬件电路(??)</li>
+</ul>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-11.png?raw=true" width="450" /></p>
+<p>BranchComp为分支跳转比较器</p>
+<ul>
+<li>当A = B时，输出 BrEq = 1，否则为0</li>
+<li>当A &lt; B时，输出 BrLt = 1，否则为0</li>
+<li>输入 BrUrUn = 1时，进行无符号比较</li>
+<li>输入 BrUrUn = 0时，进行有符号比较</li>
+<li>对于bge，可以根据BrLt信号取反判断A ≥ B</li>
+</ul>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
 
