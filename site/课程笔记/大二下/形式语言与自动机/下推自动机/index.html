@@ -1023,7 +1023,7 @@
       
         <li class="md-nav__item">
   <a href="#pda" class="md-nav__link">
-    PDA
+    PDA（下推自动机）
   </a>
   
 </li>
@@ -1096,7 +1096,8 @@
     由CFG到PDA
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="由CFG到PDA">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
@@ -1109,6 +1110,11 @@
   <a href="#gnfpda" class="md-nav__link">
     构造与GNF格式文法等价的PDA
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1954,7 +1960,7 @@
       
         <li class="md-nav__item">
   <a href="#pda" class="md-nav__link">
-    PDA
+    PDA（下推自动机）
   </a>
   
 </li>
@@ -2027,7 +2033,8 @@
     由CFG到PDA
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="由CFG到PDA">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
@@ -2040,6 +2047,11 @@
   <a href="#gnfpda" class="md-nav__link">
     构造与GNF格式文法等价的PDA
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2075,7 +2087,7 @@
 
   <h1>下推自动机</h1>
 
-<h2 id="pda">PDA<a class="headerlink" href="#pda" title="Permanent link">&para;</a></h2>
+<h2 id="pda">PDA（下推自动机）<a class="headerlink" href="#pda" title="Permanent link">&para;</a></h2>
 <p>具备与上下文无关文法等价的定义语言的能力</p>
 <p>可以看作ε-NFA和一个栈(stack)的结合</p>
 <h2 id="_1">抽象装置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -2178,9 +2190,9 @@
 <blockquote>
 <p>这里只讨论正确的路径，由于不确定性必然会出现dead path</p>
 </blockquote>
-<h3 id="_9">下推自动机和文法的等价性<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h4 id="_9">下推自动机和文法的等价性<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <p>对于任何CFL <span class="arithmatex">\(L\)</span>，一定存在PDA <span class="arithmatex">\(P\)</span>，使得<span class="arithmatex">\(L=\text{N}(P)\)</span></p>
-<h3 id="gnfpda">构造与GNF格式文法等价的PDA<a class="headerlink" href="#gnfpda" title="Permanent link">&para;</a></h3>
+<h4 id="gnfpda">构造与GNF格式文法等价的PDA<a class="headerlink" href="#gnfpda" title="Permanent link">&para;</a></h4>
 <p>回顾GNF：每个不带<span class="arithmatex">\(\epsilon\)</span>的CFL都可以由这样的CFG <span class="arithmatex">\(𝐺\)</span>定义,<span class="arithmatex">\(𝐺\)</span>中每个产生式的形式都为</p>
 <div class="arithmatex">\[A\to a\alpha\]</div>
 <blockquote>
@@ -2195,6 +2207,23 @@
 <p>注意这里GNF的<span class="arithmatex">\(\delta\)</span>函数是<span class="arithmatex">\(\delta(q,a,A)=\{(q,\beta)|A\to a\beta \in P\}\)</span></p>
 </blockquote>
 <h3 id="pdacfg">由PDA到CFG<a class="headerlink" href="#pdacfg" title="Permanent link">&para;</a></h3>
+<p>如果 PDA <span class="arithmatex">\(P_N\)</span>, 有<span class="arithmatex">\(L= N(P)\)</span>, 那么<span class="arithmatex">\(L\)</span>是上下文无关语言</p>
+<p>构造：设PDA <span class="arithmatex">\(P_N= (Q, Σ, Γ, δ, q_0, Z_0, ∅)\)</span>，那么构造CFG <span class="arithmatex">\(G = (V, Σ, P, S)\)</span>,</p>
+<p>其中<span class="arithmatex">\(V=\{[qXp]|p,q\in Q,X\in \Gamma\}\cup\{S\}\)</span>，[qXp]表示从状态q出发，弹出栈符号串X，到达状态p</p>
+<p>产生式P包括</p>
+<ol>
+<li><span class="arithmatex">\(\forall p\in Q\)</span>，构造产生式<span class="arithmatex">\(S\to[q_0,Z_0,p]\)</span></li>
+<li>对<span class="arithmatex">\(\forall(p,Y_1Y_2\dots Y_n)\in \delta(q,a,X)\)</span>构造<span class="arithmatex">\(|Q|^n\)</span>个产生式<span class="arithmatex">\([qXr_n]\to a[pY_1r_1][r_1Y_2r_2]\dots[p_{n-1}Y_nr_n]\)</span></li>
+</ol>
+<p>例：将PDA <span class="arithmatex">\(P=(\{q_0,q_1\},(0,1),\{X,Z_0\},\delta,q_0,Z_0)\)</span>转为CFG</p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-7.png?raw=true" style="width:300px"></p>
+<p><span class="arithmatex">\(\delta(q_0,0,Z_0)=\{(q_0,XZ_0)\}\)</span>产生式</p>
+<div class="arithmatex">\[\begin{split}
+    [q_0Z_0q_0]\to 0[q_0Xq_0][q_0Z_0q_0]\\
+    [q_0Z_0q_1]\to 0[q_0Xq_0][q_0Xq_1]\\
+    [q_0Xq_0]\to 0[q_0Xq_1][q_1Xq_0]\\
+    [q_0Xq_1]\to 0[q_0Xq_1][q_1Xq_1]
+\end{split}\]</div>
 
 
 
