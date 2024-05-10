@@ -993,6 +993,19 @@
     实现addi指令
   </a>
   
+    <nav class="md-nav" aria-label="实现addi指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    I型指令的立即数生成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2093,6 +2106,19 @@
     实现addi指令
   </a>
   
+    <nav class="md-nav" aria-label="实现addi指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    I型指令的立即数生成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2315,6 +2341,12 @@
 <h3 id="addi">实现addi指令<a class="headerlink" href="#addi" title="Permanent link">&para;</a></h3>
 <p>在<code>sub</code>电路中的<code>Reg[rs2]</code>处添加一个多路复用器用于选择立即数与<code>Reg[rs2]</code>，并且将12位的立即数扩展为32位</p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-6.png?raw=true" width="450" /></p>
+<h4 id="i">I型指令的立即数生成<a class="headerlink" href="#i" title="Permanent link">&para;</a></h4>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-7.png?raw=true" width="450" /></p>
+<ul>
+<li>指令将12位立即数字段复制到立即数的<strong>低12位</strong></li>
+<li>将指令的最高比特位复制填充到立即数的高位完成符号扩展</li>
+</ul>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
 
