@@ -11,18 +11,15 @@ theme:
     previous: fontawesome/solid/angle-left
     next: fontawesome/solid/angle-right
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: brown
-      accent: brown
+    - scheme: 'default'
+      primary: 'brown'
+      accent: 'brown'
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
-      accent: black
+    - scheme: 'slate'
+      primary: 'black'
+      accent: 'black'
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -41,6 +38,7 @@ theme:
     - search.suggest
     - navigation.footer
     - content.code.copy
+    - content.code.annotate
 extra:
   social:
     - icon: fontawesome/brands/github-alt
