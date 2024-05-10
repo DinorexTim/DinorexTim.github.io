@@ -12,7 +12,7 @@
         <link rel="prev" href="../%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95/">
       
       
-        <link rel="next" href="../../%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E6%AF%9B%E6%A6%82%E5%BA%8F%E7%AB%A0/">
+        <link rel="next" href="../%E7%A1%AE%E5%AE%9A%E5%9E%8B%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -764,6 +764,8 @@
       
         
       
+        
+      
     
     
     
@@ -1134,6 +1136,26 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AE%E5%AE%9A%E5%9E%8B%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    确定型下推自动机
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2210,13 +2232,22 @@
 <p>如果 PDA <span class="arithmatex">\(P_N\)</span>, 有<span class="arithmatex">\(L= N(P)\)</span>, 那么<span class="arithmatex">\(L\)</span>是上下文无关语言</p>
 <p>构造：设PDA <span class="arithmatex">\(P_N= (Q, Σ, Γ, δ, q_0, Z_0, ∅)\)</span>，那么构造CFG <span class="arithmatex">\(G = (V, Σ, P, S)\)</span>,</p>
 <p>其中<span class="arithmatex">\(V=\{[qXp]|p,q\in Q,X\in \Gamma\}\cup\{S\}\)</span>，[qXp]表示从状态q出发，弹出栈符号串X，到达状态p</p>
-<p>产生式P包括</p>
+<p>产生式集合<span class="arithmatex">\(P\)</span>包括</p>
 <ol>
 <li><span class="arithmatex">\(\forall p\in Q\)</span>，构造产生式<span class="arithmatex">\(S\to[q_0,Z_0,p]\)</span></li>
-<li>对<span class="arithmatex">\(\forall(p,Y_1Y_2\dots Y_n)\in \delta(q,a,X)\)</span>构造<span class="arithmatex">\(|Q|^n\)</span>个产生式<span class="arithmatex">\([qXr_n]\to a[pY_1r_1][r_1Y_2r_2]\dots[p_{n-1}Y_nr_n]\)</span></li>
+<li>对<span class="arithmatex">\(\forall(p,Y_1Y_2\dots Y_n)\in \delta(q,a,X)\)</span>构造<span class="arithmatex">\(|Q|^n\)</span>个产生式<span class="arithmatex">\([qXr_n]\to a[pY_1r_1][r_1Y_2r_2]\dots[r_{n-1}Y_nr_n]\)</span></li>
+<li>若<span class="arithmatex">\(Y_1Y_2\dots Y_n=\epsilon\)</span>，则有产生式<span class="arithmatex">\([qXp]\to a\)</span></li>
 </ol>
+<blockquote>
+<p>其中<span class="arithmatex">\(a ∈ Σ ∪ {ε}, X,Y_i∈ Γ, r_1,r_2,⋯,r_n\)</span>是<span class="arithmatex">\(Q\)</span>中各种可能组合的n个状态，即<span class="arithmatex">\(r_i\)</span> 可以是<span class="arithmatex">\(Q\)</span>中任意一个状态</p>
+</blockquote>
 <p>例：将PDA <span class="arithmatex">\(P=(\{q_0,q_1\},(0,1),\{X,Z_0\},\delta,q_0,Z_0)\)</span>转为CFG</p>
 <p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-7.png?raw=true" style="width:300px"></p>
+<p>初始符号产生式:</p>
+<div class="arithmatex">\[\begin{split}
+    S\to [q_0Z_0q_0]\\
+    S\to [q_0Z_0q_1]
+\end{split}\]</div>
 <p><span class="arithmatex">\(\delta(q_0,0,Z_0)=\{(q_0,XZ_0)\}\)</span>产生式</p>
 <div class="arithmatex">\[\begin{split}
     [q_0Z_0q_0]\to 0[q_0Xq_0][q_0Z_0q_0]\\
@@ -2268,13 +2299,13 @@
         
         
           
-          <a href="../../%E6%AF%9B%E6%B3%BD%E4%B8%9C%E6%80%9D%E6%83%B3%E5%92%8C%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E7%90%86%E8%AE%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA/%E6%AF%9B%E6%A6%82%E5%BA%8F%E7%AB%A0/" class="md-footer__link md-footer__link--next" aria-label="下一页: 毛概序章">
+          <a href="../%E7%A1%AE%E5%AE%9A%E5%9E%8B%E4%B8%8B%E6%8E%A8%E8%87%AA%E5%8A%A8%E6%9C%BA/" class="md-footer__link md-footer__link--next" aria-label="下一页: 确定型下推自动机">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                毛概序章
+                确定型下推自动机
               </div>
             </div>
             <div class="md-footer__button md-icon">
