@@ -1008,6 +1008,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ld" class="md-nav__link">
+    实现ld指令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2121,6 +2128,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ld" class="md-nav__link">
+    实现ld指令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2347,6 +2361,19 @@
 <li>指令将12位立即数字段复制到立即数的<strong>低12位</strong></li>
 <li>将指令的最高比特位复制填充到立即数的高位完成符号扩展</li>
 </ul>
+<h3 id="ld">实现ld指令<a class="headerlink" href="#ld" title="Permanent link">&para;</a></h3>
+<p><code>ld x14,8(x2)</code></p>
+<ul>
+<li>寄存器<code>rs1</code>保存基地址，加上立即数，得到目标访问地址<ul>
+<li>与addi类似，但ALU用于计算地址，而不是获得最终结果</li>
+</ul>
+</li>
+<li>从<strong>存储器</strong>读出的数据装入寄存器<code>rd</code>中</li>
+</ul>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-8.png?raw=true" width="450" /></p>
+<blockquote>
+<p>ld指令中写回DataW的数据是从DM内读取的值，需要在ALU与DM后增加一个多路复用器用于控制写回的数据</p>
+</blockquote>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
 
