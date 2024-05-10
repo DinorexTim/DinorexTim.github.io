@@ -988,6 +988,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#addi" class="md-nav__link">
+    实现addi指令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2081,6 +2088,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#addi" class="md-nav__link">
+    实现addi指令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2298,6 +2312,9 @@
 <h3 id="sub">实现sub指令<a class="headerlink" href="#sub" title="Permanent link">&para;</a></h3>
 <p>与<code>add</code>几乎相同，inst[30]在加法和减法之间进行选择</p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-5.png?raw=true" width="450" /></p>
+<h3 id="addi">实现addi指令<a class="headerlink" href="#addi" title="Permanent link">&para;</a></h3>
+<p>在<code>sub</code>电路中的<code>Reg[rs2]</code>处添加一个多路复用器用于选择立即数与<code>Reg[rs2]</code>，并且将12位的立即数扩展为32位</p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-6.png?raw=true" width="450" /></p>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
 
