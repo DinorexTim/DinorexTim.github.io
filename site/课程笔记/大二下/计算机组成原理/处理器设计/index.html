@@ -1015,6 +1015,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sd" class="md-nav__link">
+    实现sd指令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2135,6 +2142,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sd" class="md-nav__link">
+    实现sd指令
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2374,6 +2388,12 @@
 <blockquote>
 <p>ld指令中写回DataW的数据是从DM内读取的值，需要在ALU与DM后增加一个多路复用器用于控制写回的数据</p>
 </blockquote>
+<p>在RISC-V访存装载指令中，还有lb,lh等指令。为了支持8位，16位，32位，之后还需要增加额外的逻辑电路，用于从存储器取出的数据中提取出字节、半字、字等不同大小的数据并且对数据进行符号扩展或零扩展</p>
+<h3 id="sd">实现sd指令<a class="headerlink" href="#sd" title="Permanent link">&para;</a></h3>
+<p><code>sd x14, 8(x2)</code></p>
+<p>读取两个寄存器，rs1作为提供基地址的源寄存器，rs2作为提供待保存数据的源寄存器，以及立即数偏移量</p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-8.png?raw=true" width="450" /></p>
+<blockquote></blockquote>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
 
