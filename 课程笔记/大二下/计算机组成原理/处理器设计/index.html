@@ -968,8 +968,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    所有指令的共同需求——取指令
+  <a href="#pc" class="md-nav__link">
+    所有指令的共同需求——取指令、更新PC
   </a>
   
 </li>
@@ -2054,8 +2054,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    所有指令的共同需求——取指令
+  <a href="#pc" class="md-nav__link">
+    所有指令的共同需求——取指令、更新PC
   </a>
   
 </li>
@@ -2255,7 +2255,7 @@
 <li>程序计数器(PC)</li>
 </ul>
 <h2 id="risc-v_1">RISC-V部分指令的数据通路设计<a class="headerlink" href="#risc-v_1" title="Permanent link">&para;</a></h2>
-<h3 id="_8">所有指令的共同需求——取指令<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="pc">所有指令的共同需求——取指令、更新PC<a class="headerlink" href="#pc" title="Permanent link">&para;</a></h3>
 <ul>
 <li>取指令<ul>
 <li><mark>程序计数器PC的内容是当前指令的地址</mark></li>
@@ -2272,12 +2272,14 @@
 </li>
 </ul>
 <h3 id="add">实现add指令<a class="headerlink" href="#add" title="Permanent link">&para;</a></h3>
-<p><img align="right" alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-4.png?raw=true" width="300" /></p>
+<p><img align="right" alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-4.png?raw=true" width="250" /></p>
 <p><code>add rd,rs1,rs2</code></p>
 <ul>
 <li>指令对机器状态进行两次更改：</li>
 <li>寄存器内容发生改变</li>
 <li>PC内容改变(PC=PC+4)</li>
+<li>控制器根据IM的输出分析指令的opcode和fufunct域，确定控制信号</li>
+<li>根据IM的输出读出RF中相应2个寄存器的值</li>
 </ul>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
