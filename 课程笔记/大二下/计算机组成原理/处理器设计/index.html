@@ -1020,6 +1020,19 @@
     实现sd指令
   </a>
   
+    <nav class="md-nav" aria-label="实现sd指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is" class="md-nav__link">
+    I型指令与S型指令中的立即数生成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2147,6 +2160,19 @@
     实现sd指令
   </a>
   
+    <nav class="md-nav" aria-label="实现sd指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is" class="md-nav__link">
+    I型指令与S型指令中的立即数生成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2392,8 +2418,12 @@
 <h3 id="sd">实现sd指令<a class="headerlink" href="#sd" title="Permanent link">&para;</a></h3>
 <p><code>sd x14, 8(x2)</code></p>
 <p>读取两个寄存器，rs1作为提供基地址的源寄存器，rs2作为提供待保存数据的源寄存器，以及立即数偏移量</p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-8.png?raw=true" width="450" /></p>
-<blockquote></blockquote>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-9.png?raw=true" width="450" /></p>
+<blockquote>
+<p>在ld基础上，将rs2地址传入DM以进行写操作</p>
+</blockquote>
+<h4 id="is">I型指令与S型指令中的立即数生成<a class="headerlink" href="#is" title="Permanent link">&para;</a></h4>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-10.png?raw=true" width="450" /></p>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
 
 
