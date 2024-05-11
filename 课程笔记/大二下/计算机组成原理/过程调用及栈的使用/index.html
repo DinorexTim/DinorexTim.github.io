@@ -860,7 +860,7 @@
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    实现递归
+    用栈实现递归
   </a>
   
 </li>
@@ -1935,7 +1935,7 @@
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    实现递归
+    用栈实现递归
   </a>
   
 </li>
@@ -2020,12 +2020,12 @@
 <h2 id="_3">过程调用相关的寄存器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>RISC-V实现过程调用的的相关寄存器<ul>
-<li>返回地址寄存器 x1(ra)</li>
-<li>参数寄存器 x10-x17(a0-a7)</li>
-<li>返回值寄存器 x10-x11(a0-a1)</li>
-<li>保存寄存器 x8,x9,x18-x27(s0,s1,s2-s11)</li>
-<li>临时寄存器 x5-x7,x28-x31(t0-t2,t3-t6)</li>
-<li>栈指针 x2(sp)</li>
+<li>返回地址寄存器 <code>x1(ra)</code></li>
+<li>参数寄存器 <code>x10-x17(a0-a7)</code></li>
+<li>返回值寄存器 <code>x10-x11(a0-a1)</code></li>
+<li>保存寄存器 <code>x8,x9,x18-x27(s0,s1,s2-s11)</code></li>
+<li>临时寄存器 <code>x5-x7,x28-x31(t0-t2,t3-t6)</code></li>
+<li>栈指针 <code>x2(sp)</code></li>
 </ul>
 </li>
 </ul>
@@ -2083,22 +2083,22 @@
 <ul>
 <li>x86指令集有压栈和出栈命令</li>
 <li>RISC-V没有对应指令</li>
-<li>sp(x2)是RISC-V中的栈指针寄存器，用来保存<strong>栈顶地址</strong></li>
+<li><code>sp(x2)</code>是RISC-V中的栈指针寄存器，用来保存<strong>栈顶地址</strong></li>
 <li>按照惯例，RISC-V中的栈按照从高到低的地址顺序增长（栈底高地址，栈顶低地址）<ul>
 <li>压栈，指针向下移动，sp减少</li>
 <li>弹栈，指针向上移动，sp增加</li>
 </ul>
 </li>
-<li>栈指针寄存器sp总是指向栈中最后使用的空间</li>
+<li>栈指针寄存器sp总是<strong>指向栈中最后使用的空间</strong></li>
 <li><strong>首先将栈指针减少所需的空间量，然后用需要保存的信息填充相应的存储空间</strong></li>
 </ul>
 <h2 id="_6">过程调用时栈的变化<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li>压栈</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1">addi sp, sp, -24
-</span><span id="__span-3-2">sd x5, 16(sp)
-</span><span id="__span-3-3">sd x6, 8(sp)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1">addi sp, sp, -24 //预留栈空间
+</span><span id="__span-3-2">sd x5, 16(sp)   //先压入x5保存的值
+</span><span id="__span-3-3">sd x6, 8(sp)    //先压入x6保存的值
 </span><span id="__span-3-4">sd x20,0(sp)
 </span></code></pre></div>
 <ul>
@@ -2107,63 +2107,98 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1">ld x20,0(sp)
 </span><span id="__span-4-2">ld x6, 8(sp)
 </span><span id="__span-4-3">ld x5, 16(sp)
-</span><span id="__span-4-4">addi sp, sp, 24
+</span><span id="__span-4-4">addi sp, sp, 24 //回复栈指针
 </span></code></pre></div>
 <p>例：过程嵌套</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1">numSquare:
-</span><span id="__span-5-2">    addi sp,sp,-8   # 预留栈空间
-</span><span id="__span-5-3">    sw ra, 4(sp)    # ra寄存器入栈
-</span><span id="__span-5-4">    sw al, 0(sp)    # 参数寄存器al值y入栈
-</span><span id="__span-5-5">    mv al, a0       # a1=a0=x，为mult(x, x)准备参数
-</span><span id="__span-5-6">    jal mult        # 调用mult计算x*x
-</span><span id="__span-5-7">    lw al, 0(sp)    #  出栈，恢复a1的值y
-</span><span id="__span-5-8">    add a0, a0, a1 # x*x+y
-</span><span id="__span-5-9">    lw ra, 4(sp) # 返回地址出栈
-</span><span id="__span-5-10">    addi sp, sp, 8 # 恢复栈指针
-</span><span id="__span-5-11">    jr ra
-</span><span id="__span-5-12">mult:…
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><span class="kt">int</span><span class="w"> </span><span class="nf">numSquare</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">){</span>
+</span><span id="__span-5-2"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mult</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</span><span id="__span-5-3"><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="_7">实现递归<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">fact</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
-</span><span id="__span-6-2"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-6-3"><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">fafact</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-</span><span id="__span-6-4"><span class="p">}</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1">numSquare:  # a0=x,a1=y
+</span><span id="__span-6-2">    addi sp,sp,-8   # 预留栈空间
+</span><span id="__span-6-3">    sw ra, 4(sp)    # ra寄存器入栈
+</span><span id="__span-6-4">    sw al, 0(sp)    # 参数寄存器al值y入栈
+</span><span id="__span-6-5">
+</span><span id="__span-6-6">    mv al, a0       # al=a0=x，为mult(x, x)准备参数
+</span><span id="__span-6-7">    jal mult        # 调用mult计算x*x
+</span><span id="__span-6-8">    lw al, 0(sp)    #  出栈，恢复a1的值y
+</span><span id="__span-6-9">
+</span><span id="__span-6-10">    add a0, a0, a1 # x*x+y
+</span><span id="__span-6-11">
+</span><span id="__span-6-12">    lw ra, 4(sp) # 返回地址出栈
+</span><span id="__span-6-13">    addi sp, sp, 8 # 恢复栈指针
+</span><span id="__span-6-14">    jr ra
+</span><span id="__span-6-15">mult:…
 </span></code></pre></div>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz5-1.png?raw=true" width="600" /></p>
+<h2 id="_7">用栈实现递归<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">fact</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
+</span><span id="__span-7-2"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-7-4"><span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-5"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">fafact</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-7-6"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-7"><span class="p">}</span>
+</span></code></pre></div>
+<p>设定：参数n在<code>x10</code>中，结果在<code>x10</code>中</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1">fact:
+</span><span id="__span-8-2">    addi sp, sp, -16
+</span><span id="__span-8-3">    sd x1, 8(sp) # 返回地址存在栈中
+</span><span id="__span-8-4">    sd x10, 0(sp)
+</span><span id="__span-8-5">    addi x5 , x10, -1
+</span><span id="__span-8-6">
+</span><span id="__span-8-7">    bge x5, x0, L1 # 判断参数n-1是否≥0,如果是，跳转至L1
+</span><span id="__span-8-8">    addi x10, x0, 1 返回值1并且存入寄存器
+</span><span id="__span-8-9">    addi sp, sp, 16 # 释放2个双字空间
+</span><span id="__span-8-10">    jalr x0, 0(x1) # 返回fact调用者
+</span><span id="__span-8-11">
+</span><span id="__span-8-12">L1:
+</span><span id="__span-8-13">    addi x10, x10, -1
+</span><span id="__span-8-14">    jal x1, fact    # 调用fact(n-1)，重复直到fact(0)
+</span><span id="__span-8-15">
+</span><span id="__span-8-16">Calc: 
+</span><span id="__span-8-17">    addi t1, a0, 0 # 将fact()计算得到的值存入t1
+</span><span id="__span-8-18">    ld a0, 0(sp)    # 恢复调用者的参数
+</span><span id="__span-8-19">    ld ra, 8(sp)    # 恢复调用者的返回地址
+</span><span id="__span-8-20">    addi sp,sp ,16  # 释放两个双字栈空间
+</span><span id="__span-8-21">    mul a0, a0, t1
+</span><span id="__span-8-22">    jalr x0, 0(ra)  # 返回主程序
+</span></code></pre></div>
+<!-- ![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz5-1.png?raw=true){width=600} -->
+
 <h2 id="sort">实现sort过程（非叶过程）<a class="headerlink" href="#sort" title="Permanent link">&para;</a></h2>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><span class="kt">void</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[],</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
-</span><span id="__span-7-2"><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
-</span><span id="__span-7-3"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-4"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span>
-</span><span id="__span-7-5"><span class="w">            </span><span class="n">swap</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
-</span><span id="__span-7-6"><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-7-7"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-7-8"><span class="p">}</span>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><span class="kt">void</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[],</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
+</span><span id="__span-9-2"><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+</span><span id="__span-9-3"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">){</span>
+</span><span id="__span-9-5"><span class="w">            </span><span class="n">swap</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+</span><span id="__span-9-6"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-9-7"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-8"><span class="p">}</span>
 </span></code></pre></div>
 <p>假设v保存在x10，n保存在x11，i保存在x19，j保存在x20</p>
 <h3 id="rv">外层循环RV实现<a class="headerlink" href="#rv" title="Permanent link">&para;</a></h3>
 <p><code>for (i = 1; i &lt; n; i += 1){...}</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1">li x19,0
-</span><span id="__span-8-2">for1tst:
-</span><span id="__span-8-3">    bge x19,x11,exit1
-</span><span id="__span-8-4">    ... # 外层循环包围的函数体
-</span><span id="__span-8-5">    addi x19,x19,1
-</span><span id="__span-8-6">    j for1st
-</span><span id="__span-8-7">exit1:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1">li x19,0
+</span><span id="__span-10-2">for1tst:
+</span><span id="__span-10-3">    bge x19,x11,exit1
+</span><span id="__span-10-4">    ... # 外层循环包围的函数体
+</span><span id="__span-10-5">    addi x19,x19,1
+</span><span id="__span-10-6">    j for1st
+</span><span id="__span-10-7">exit1:
 </span></code></pre></div>
 <h3 id="rv_1">内层循环RV实现<a class="headerlink" href="#rv_1" title="Permanent link">&para;</a></h3>
 <p><code>for (j (j = i − 1; j &gt;= 0 &amp;&amp; v[j] &gt; v[j + 1]; j − = 1) { ...}</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1">for2tst:
-</span><span id="__span-9-2">    blt x20,x0,exit2 # 如果j &lt; 0，跳转到exit2
-</span><span id="__span-9-3">    slli x5,x20,3 # x5 = j * 8
-</span><span id="__span-9-4">    add x5,x10,x5 # x5 = v + (j * 8)
-</span><span id="__span-9-5">    ld x6,0(x5) # x6 = v[j][j]
-</span><span id="__span-9-6">    ld x7,8(x5) # x7 = v[j][j + 1]
-</span><span id="__span-9-7">    ble x6,x7,exit2 # 如果x6 ≤ x7，转exit2
-</span><span id="__span-9-8">    mv x21, x10 # 将参数x10复制到x21
-</span><span id="__span-9-9">    mv x22, x11 # 将参数x11复制到x22
-</span><span id="__span-9-10">    mv x10, x21 # swap的第一个参数是v
-</span><span id="__span-9-11">    mv x11, x20 # swap的第二个参数是j是j
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1">for2tst:
+</span><span id="__span-11-2">    blt x20,x0,exit2 # 如果j &lt; 0，跳转到exit2
+</span><span id="__span-11-3">    slli x5,x20,3 # x5 = j * 8
+</span><span id="__span-11-4">    add x5,x10,x5 # x5 = v + (j * 8)
+</span><span id="__span-11-5">    ld x6,0(x5) # x6 = v[j][j]
+</span><span id="__span-11-6">    ld x7,8(x5) # x7 = v[j][j + 1]
+</span><span id="__span-11-7">    ble x6,x7,exit2 # 如果x6 ≤ x7，转exit2
+</span><span id="__span-11-8">    mv x21, x10 # 将参数x10复制到x21
+</span><span id="__span-11-9">    mv x22, x11 # 将参数x11复制到x22
+</span><span id="__span-11-10">    mv x10, x21 # swap的第一个参数是v
+</span><span id="__span-11-11">    mv x11, x20 # swap的第二个参数是j是j
 </span></code></pre></div>
 
 
