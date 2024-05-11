@@ -2332,6 +2332,12 @@
 <li>获取一个指定方法名和参数类型的成员方法</li>
 </ul>
 <p><code>public Method getMethod(String name, Class&lt;?&gt;... parameterTypes)</code></p>
+<p><code>Object invoke(Object obj, Object… args)</code></p>
+<ul>
+<li>第一个参数是哪个对象要来调用这个方法</li>
+<li>第一个参数是调用方法时所传递的实参</li>
+<li>对于<strong>静态方法</strong>，第一个参数可以忽略，即可设为<code>null</code></li>
+</ul>
 <h3 id="_10">分析<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <ul>
 <li>优点<ul>
