@@ -2552,7 +2552,12 @@
 <h3 id="jjal">J型指令——jal<a class="headerlink" href="#jjal" title="Permanent link">&para;</a></h3>
 <ul>
 <li>jal将PC+4写入目的寄存器当中</li>
-<li>设置 PC = PC + offset</li>
+<li>
+<p>设置 PC = PC + offset</p>
+</li>
+<li>
+<p>立即数字段20位，对应一个<span class="arithmatex">\(2^{19}\)</span>的偏移量(以2字节为单位)</p>
+</li>
 </ul>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz6-14.png?raw=true" width="450" /></p>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
