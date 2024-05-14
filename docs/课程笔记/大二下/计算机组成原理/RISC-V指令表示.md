@@ -9,3 +9,7 @@
     - B型指令 用于条件跳转/分支/转移操作 
     - U型指令 用于长立即数操作
     - J型指令 用于无条件跳转操作
+
+- 实际上用来区分某条指令种类的编码只有`inst[30],inst[14:12],inst[6:2]`
+
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz7-1.png?raw=true){width=450}
