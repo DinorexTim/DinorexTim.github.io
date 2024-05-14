@@ -1122,6 +1122,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cpu_3" class="md-nav__link">
+    单周期CPU处理器小姐
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2347,6 +2354,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cpu_3" class="md-nav__link">
+    单周期CPU处理器小姐
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2660,6 +2674,23 @@
 <h3 id="_9">分阶段的数据通路<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>问题：单块的逻辑结构完成对所有指令从取指到执行的所有操作，设计笨重，效率低下</p>
 <p>分阶段的数据通路设计：（<strong>分而治之</strong>）将原来执行一条指令的过程，拆分为几个阶段，然后将这几个阶段对应的电路结构<strong>前后串联</strong>起来构成完整的数据通路</p>
+<h2 id="cpu_3">单周期CPU处理器小姐<a class="headerlink" href="#cpu_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>实现了RISC-V处理器的数据通路<ul>
+<li>能够在一个时钟周期内执行给定RISC-V指令子集</li>
+<li>并非所有指令都会用到所有硬件单元</li>
+<li><strong>关键路径</strong>（在数据通路上的延时决定了时钟周期的下限）</li>
+</ul>
+</li>
+<li>控制器指定如何执行指令<ul>
+<li>基于ROM或组合逻辑实现</li>
+</ul>
+</li>
+<li>5个执行阶段<ul>
+<li>取址、译码、执行、访存、写回</li>
+</ul>
+</li>
+</ul>
 
 
 
