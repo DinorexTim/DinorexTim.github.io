@@ -1784,7 +1784,9 @@
 <ul>
 <li>每个字段有特定的含义和作用</li>
 <li>理论上可以为每条指令定义不同的字段</li>
-<li>RISC-V定义了六种基本类型的指令格式：<ul>
+<li>
+<p>RISC-V定义了六种基本类型的指令格式：</p>
+<ul>
 <li>R型指令 用于寄存器 —— 寄存器操作</li>
 <li>I型指令 用于<strong>短立即数</strong>和访问内存的 load 操作</li>
 <li>S型指令 用于访问内存的 store 操作</li>
@@ -1793,7 +1795,11 @@
 <li>J型指令 用于无条件跳转操作</li>
 </ul>
 </li>
+<li>
+<p>实际上用来区分某条指令种类的编码只有<code>inst[30],inst[14:12],inst[6:2]</code></p>
+</li>
 </ul>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz7-1.png?raw=true" width="450" /></p>
 
 
 
