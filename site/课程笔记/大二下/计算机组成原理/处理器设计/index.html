@@ -1093,6 +1093,33 @@
     RISC-V控制器
   </a>
   
+    <nav class="md-nav" aria-label="RISC-V控制器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rom" class="md-nav__link">
+    ROM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    指令时延
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    分阶段的数据通路
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2291,6 +2318,33 @@
     RISC-V控制器
   </a>
   
+    <nav class="md-nav" aria-label="RISC-V控制器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rom" class="md-nav__link">
+    ROM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    指令时延
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    分阶段的数据通路
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2597,6 +2651,15 @@
 <li>在下一有效时钟沿到来时，所有时序逻辑单元状态更新</li>
 </ul>
 <h2 id="risc-v_2">RISC-V控制器<a class="headerlink" href="#risc-v_2" title="Permanent link">&para;</a></h2>
+<h3 id="rom">ROM<a class="headerlink" href="#rom" title="Permanent link">&para;</a></h3>
+<p>ROM是一种具有n个输入b个输出的组合逻辑电路</p>
+<h3 id="_8">指令时延<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz7-2.png?raw=true" width="450" /></p>
+<p>最大时钟频率<span class="arithmatex">\(f_{max},ALU=1/(800ps)=1.25GHz\)</span></p>
+<p>有些段多数时间处于空闲状态，单个段最大时钟频率<span class="arithmatex">\(f_{max}=5GHz\)</span></p>
+<h3 id="_9">分阶段的数据通路<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>问题：单块的逻辑结构完成对所有指令从取指到执行的所有操作，设计笨重，效率低下</p>
+<p>分阶段的数据通路设计：（<strong>分而治之</strong>）将原来执行一条指令的过程，拆分为几个阶段，然后将这几个阶段对应的电路结构<strong>前后串联</strong>起来构成完整的数据通路</p>
 
 
 
