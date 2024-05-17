@@ -900,9 +900,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    - 例如：所有阶段需要相同的时间
+  <a href="#_4" class="md-nav__link">
+    面向流水线的指令系统设计
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    流水线冒险
+  </a>
+  
+    <nav class="md-nav" aria-label="流水线冒险">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    结构冒险
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    数据冒险
+  </a>
+  
+    <nav class="md-nav" aria-label="数据冒险">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    可能的解决方法——
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1889,9 +1929,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    - 例如：所有阶段需要相同的时间
+  <a href="#_4" class="md-nav__link">
+    面向流水线的指令系统设计
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    流水线冒险
+  </a>
+  
+    <nav class="md-nav" aria-label="流水线冒险">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    结构冒险
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    数据冒险
+  </a>
+  
+    <nav class="md-nav" aria-label="数据冒险">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    可能的解决方法——
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1949,9 +2029,40 @@
 
 <h2 id="_3">流水线加速比<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li>如果让流水线各阶段操作平衡<h2 id="-">- 例如：所有阶段需要相同的时间<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<li>如果让流水线各阶段操作平衡<ul>
+<li>例如：所有阶段需要相同的时间，则</li>
+</ul>
 </li>
 </ul>
+<div class="arithmatex">\[指令执行时间\approx指令执行时间（非流水线）/流水线级数\]</div>
+<ul>
+<li>通过<strong>提高指令吞吐率</strong>来提高性能<ul>
+<li>单个指令执行时间没有减少，反而可能增加</li>
+</ul>
+</li>
+</ul>
+<h2 id="_4">面向流水线的指令系统设计<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>所有的RISC-V的<strong>指令长度相同</strong></li>
+<li>只有<strong>六种指令格式</strong>，格式整齐</li>
+<li>存储器操作（耗时操作）只出现在<code>load/store</code>操作中</li>
+</ul>
+<h2 id="_5">流水线冒险<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>有时在下一个时钟周期中无法正确执行相应指令，称之为<strong>冒险</strong></p>
+<p>冒险分为三类：结构冒险、数据冒险、控制冒险（分支冒险）</p>
+<h3 id="_6">结构冒险<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>假设流水线结构只有一个存储器（<strong>指令和数据共用</strong>）</p>
+<p>如果下图出现了第四条指令，那么在第一条指令从存储器取数据的同时，第四条指令从同一个存储器取指令，流水线发生结构冒险</p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz8-4.png?raw=true" style="width:400px"></p>
+<blockquote>
+<p>流水线数据通路需要可以<strong>独立访问的指令存储器和数据存储器</strong>（哈佛架构，也是区分冯诺依曼架构的最主要依据）</p>
+</blockquote>
+<h3 id="_7">数据冒险<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>指一条指令<strong>依赖于</strong>前面一条<strong>尚在流水线中</strong>的指令运行结果，比如</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1">add x19, x0, x1
+</span><span id="__span-0-2">sub x2, x19, x3
+</span></code></pre></div>
+<h4 id="_8">可能的解决方法——<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 
 
 
