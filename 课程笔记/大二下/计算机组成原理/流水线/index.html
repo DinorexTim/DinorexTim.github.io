@@ -941,6 +941,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    载入-使用型数据冒险
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1970,6 +1977,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    载入-使用型数据冒险
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2065,6 +2079,27 @@
 <h4 id="_8">可能的解决方法——前递<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <p>ALU计算出结果，立刻传数据给后续指令使用，而不是等到数据到达寄存器或存储器</p>
 <p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz8-5.png?raw=true" style="width:400px"></p>
+<h3 id="-">载入-使用型数据冒险<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<p>前递不能避免所有的流水线停顿</p>
+<ul>
+<li>当载入指令要取的数据还没被取回，而后续指令却需要该数据</li>
+<li>
+<p>一种可能的解决方案：<strong>流水线停顿</strong>(stall)，也称为气泡</p>
+</li>
+<li>
+<p>重排代码以避免流水线停顿</p>
+</li>
+</ul>
+<p>例：<code>code: a=b+e; c=b+f</code></p>
+<p>假如流水线CPU有前递机制</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><span class="n">ld</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="n">x31</span><span class="p">)</span>
+</span><span id="__span-1-2"><span class="n">ld</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">(</span><span class="n">x31</span><span class="p">)</span>
+</span><span id="__span-1-3"><span class="n">add</span><span class="w"> </span><span class="n">x3</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span>
+</span><span id="__span-1-4"><span class="n">sd</span><span class="w"> </span><span class="n">x3</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">(</span><span class="n">x31</span><span class="p">)</span>
+</span><span id="__span-1-5"><span class="n">ld</span><span class="w"> </span><span class="n">x4</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">(</span><span class="n">x31</span><span class="p">)</span>
+</span><span id="__span-1-6"><span class="n">add</span><span class="w"> </span><span class="n">x5</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x4</span>
+</span><span id="__span-1-7"><span class="n">sd</span><span class="w"> </span><span class="n">x5</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">(</span><span class="n">x31</span><span class="p">)</span>
+</span></code></pre></div>
 
 
 
