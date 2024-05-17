@@ -878,6 +878,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#risc-v" class="md-nav__link">
+    RISC-V指令执行的五个阶段
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    流水线性能分析
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1839,6 +1853,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#risc-v" class="md-nav__link">
+    RISC-V指令执行的五个阶段
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    流水线性能分析
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1862,6 +1890,28 @@
 <h2 id="_1">生活中的流水线<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>假设洗衣服包含四个步骤：洗衣机中洗衣、烘干机烘干、叠衣服、收纳，每个步骤耗时0.5h</p>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz8-1.png?raw=true" width="450" /></p>
+<p>假如洗衣服阶段氛围n段，加速比为<span class="arithmatex">\(2*4/(2+0.5*3)\approx 2.3\)</span></p>
+<h2 id="risc-v">RISC-V指令执行的五个阶段<a class="headerlink" href="#risc-v" title="Permanent link">&para;</a></h2>
+<ol>
+<li>IF，从指令存储器中取出指令</li>
+<li>ID，读寄存器堆并译码指令</li>
+<li>EX，ALU执行操作或者计算地址</li>
+<li>MEM，访问数据存储器</li>
+<li>WB，将结果写回寄存器</li>
+</ol>
+<blockquote>
+<p>让五个阶段重叠执行可提高性能</p>
+</blockquote>
+<h2 id="_2">流水线性能分析<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>假设各个阶段的耗时：<ul>
+<li>寄存器堆的读或写为100ps</li>
+<li>其他阶段为200ps</li>
+</ul>
+</li>
+<li>比较流水线指令执行与单周期指令执行的平均执行时间</li>
+</ul>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz8-2.png?raw=true" width="450" /></p>
 
 
 
