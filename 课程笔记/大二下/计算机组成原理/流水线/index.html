@@ -2092,13 +2092,13 @@
 </ul>
 <p>例：<code>code: a=b+e; c=b+f</code></p>
 <p>假如流水线CPU有前递机制</p>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><span class="n">ld</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="n">x31</span><span class="p">)</span>
-</span><span id="__span-1-2"><span class="n">ld</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">(</span><span class="n">x31</span><span class="p">)</span>
-</span><span id="__span-1-3"><span class="n">add</span><span class="w"> </span><span class="n">x3</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span>
-</span><span id="__span-1-4"><span class="n">sd</span><span class="w"> </span><span class="n">x3</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">(</span><span class="n">x31</span><span class="p">)</span>
-</span><span id="__span-1-5"><span class="n">ld</span><span class="w"> </span><span class="n">x4</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">(</span><span class="n">x31</span><span class="p">)</span>
-</span><span id="__span-1-6"><span class="n">add</span><span class="w"> </span><span class="n">x5</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x4</span>
-</span><span id="__span-1-7"><span class="n">sd</span><span class="w"> </span><span class="n">x5</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">(</span><span class="n">x31</span><span class="p">)</span>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1">ld x1, 0(x31)
+</span><span id="__span-1-2">ld x2, 8(x31)
+</span><span id="__span-1-3">add x3, x1, x2
+</span><span id="__span-1-4">sd x3, 24(x31)
+</span><span id="__span-1-5">ld x4, 16(x31)
+</span><span id="__span-1-6">add x5, x1, x4
+</span><span id="__span-1-7">sd x5, 32(x31)
 </span></code></pre></div>
 
 
