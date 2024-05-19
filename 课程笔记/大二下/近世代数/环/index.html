@@ -2112,14 +2112,14 @@
 <p>例：R为整数集，证明R对以下二元运算作成环</p>
 <div class="arithmatex">\[a\oplus b=a+b-1\quad a\circ b=a+b-ab\]</div>
 <p>证明：首先，R关于<span class="arithmatex">\(\oplus\)</span>作成一个群，满足结合律、封闭性，有单位元1，<span class="arithmatex">\(\forall x \in R\)</span>，都有逆元<span class="arithmatex">\(1-x\)</span></p>
-<p>接着证明<span class="arithmatex">\(\circ\)</span>满足左右分配律：<span class="arithmatex">\(a\circ(b\oplus c)=(a\circ b)\oplus(a\circ c)\)</span></p>
+<p>接着证明<span class="arithmatex">\(\circ\)</span>满足结合律与左右分配律：<span class="arithmatex">\(a(bc)=(ab)c\quad a\circ(b\oplus c)=(a\circ b)\oplus(a\circ c)\)</span></p>
 <p>且乘法下可交换，所以R在两个代数运算下构成<strong>交换环</strong></p>
 <h3 id="2">定义2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>如果环R中有元素e，它对R中每个元素a都有<span class="arithmatex">\(ea=a\)</span>，则称e为R的一个左单位元，如果环R中有元素e'，使得它对R中每个元素a都有<span class="arithmatex">\(ae'=a\)</span>，则称为这个环R的右单位元</p>
+<p>如果环R中有元素e，它对R中每个元素a都有<span class="arithmatex">\(ea=a\)</span>，则称e为R的一个左<strong>单位元</strong>，如果环R中有元素e'，使得它对R中每个元素a都有<span class="arithmatex">\(ae'=a\)</span>，则称为这个环R的<strong>右单位元</strong></p>
 <blockquote>
 <p>既是左单位元又是右单位元的元素，叫做R的<strong>单位元</strong></p>
 <p>环对乘法作成<strong>半群</strong>，环的左右单位元或单、位元也是<strong>此半群的左右单位元或单位元</strong></p>
-<p>如果环R有单位元，那么是唯一的，一般用1表示</p>
+<p>如果环R有单位元，那么是唯一的，<strong>一般用1表示</strong></p>
 </blockquote>
 <ul>
 <li>一个环可能既没有左单位元也没有右单位元，比如偶数环；也有可能只有左单位元没有右单位元，或者相反</li>
@@ -2171,6 +2171,12 @@
 <h2 id="_2">环的零因子<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="1_2">定义1<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
 <p>设<span class="arithmatex">\(a\neq 0\)</span>是环R的一个元素，如果R中存在元素<span class="arithmatex">\(b\neq 0\)</span>使得<span class="arithmatex">\(ab=0\)</span>，称<span class="arithmatex">\(a\)</span>为环R的一个左零因子，同样可以定义环R的一个右零因子</p>
+<p>左右零因子统称为<strong>零因子</strong></p>
+<p>例：设R为一切形如<span class="arithmatex">\(\left(\begin{matrix}x&amp;0\\y&amp;0\end{matrix}\right)(x,y\in Q)\)</span>的方阵的普通加法和乘法作成的环则<span class="arithmatex">\(\left(\begin{matrix}1&amp;0\\0&amp;0\end{matrix}\right)\)</span>是R的一个左零因子</p>
+<blockquote>
+<p>数环以及数域上的多项式环，都没有零因子</p>
+<p>在无零因子的环中，关于乘法的消去律成立</p>
+</blockquote>
 
 
 
