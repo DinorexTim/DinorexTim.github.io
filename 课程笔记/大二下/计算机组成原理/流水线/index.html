@@ -974,6 +974,26 @@
     数据冒险的检测方法
   </a>
   
+    <nav class="md-nav" aria-label="数据冒险的检测方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ex" class="md-nav__link">
+    EX冒险检测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mem" class="md-nav__link">
+    MEM冒险检测：两次数据冒险
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -992,6 +1012,19 @@
   <a href="#_13" class="md-nav__link">
     停顿
   </a>
+  
+    <nav class="md-nav" aria-label="停顿">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-use" class="md-nav__link">
+    载入使用(load-use)型数据冒险
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2013,6 +2046,26 @@
     数据冒险的检测方法
   </a>
   
+    <nav class="md-nav" aria-label="数据冒险的检测方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ex" class="md-nav__link">
+    EX冒险检测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mem" class="md-nav__link">
+    MEM冒险检测：两次数据冒险
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2031,6 +2084,19 @@
   <a href="#_13" class="md-nav__link">
     停顿
   </a>
+  
+    <nav class="md-nav" aria-label="停顿">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-use" class="md-nav__link">
+    载入使用(load-use)型数据冒险
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2181,9 +2247,32 @@
 </span><span id="__span-3-2">add x1, x1, x3
 </span><span id="__span-3-3">add x1, x1, x4
 </span></code></pre></div>
+<h5 id="ex">EX冒险检测<a class="headerlink" href="#ex" title="Permanent link">&para;</a></h5>
+<h5 id="mem">MEM冒险检测：两次数据冒险<a class="headerlink" href="#mem" title="Permanent link">&para;</a></h5>
+<p>MEM冒险前递的条件：只有EX冒险不发生的时候才前递</p>
 <h4 id="_12">实现前递<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
-<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz8-6.png?raw=true" style="width:400px"></p>
+<p>例：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1">sub x2, x1, x3
+</span><span id="__span-4-2">and x12, x2, x5
+</span></code></pre></div>
+<p>新增一个前递处理单元(Forward unit)用于判断是否需要前递操作，在ALU输入前加入两个MUX用于选择（该指令从寄存器堆读取的/上一个ALU计算结果的前递/来自数据存储器挥着更早的ALU计算结果的前递）数据</p>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz8-6.png?raw=true" style="width:500px"></p>
 <h3 id="_13">停顿<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<h4 id="load-use">载入使用(load-use)型数据冒险<a class="headerlink" href="#load-use" title="Permanent link">&para;</a></h4>
+<p>例：</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1">ld x2,20(x1)
+</span><span id="__span-5-2">and x4, x2, x5
+</span><span id="__span-5-3">or x8, x2, x6
+</span></code></pre></div>
+如何检测？</p>
+<ul>
+<li>在ID阶段进行检测</li>
+<li>ALU操作数寄存器字段名称为<ul>
+<li>IF/ID.RegisterRs1, IF/ID.RegisterRs2</li>
+</ul>
+</li>
+<li>检测条件：<code>ID/EX.MemRead and ((ID/EX.RegisterRd = IF/ID.RegisterRs1) or (ID/EX.RegisterRd = IF/ID.RegisterRs2))</code></li>
+</ul>
 
 
 
