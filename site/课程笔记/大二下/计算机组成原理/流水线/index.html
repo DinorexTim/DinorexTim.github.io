@@ -953,6 +953,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    解决数据冒险的方法
+  </a>
+  
+    <nav class="md-nav" aria-label="解决数据冒险的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    前递
+  </a>
+  
+    <nav class="md-nav" aria-label="前递">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    数据冒险的检测方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    实现前递
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    停顿
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1945,6 +1992,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    解决数据冒险的方法
+  </a>
+  
+    <nav class="md-nav" aria-label="解决数据冒险的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    前递
+  </a>
+  
+    <nav class="md-nav" aria-label="前递">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    数据冒险的检测方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    实现前递
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    停顿
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2056,6 +2150,40 @@
 </span><span id="__span-1-6">add x5, x1, x4
 </span><span id="__span-1-7">sd x5, 32(x31)
 </span></code></pre></div>
+<h2 id="_9">解决数据冒险的方法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">前递<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>ALU相关指令中的数据冒险</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1">sub x2, x1, x3  # x2:10(before)
+</span><span id="__span-2-2">and x12, x2, x5 # x2:-20(after)
+</span><span id="__span-2-3">or x13, x6, x2
+</span></code></pre></div>
+<blockquote>
+<p>寄存器堆的硬件实现：一个周期内先写后读，若写操作发生在前半时钟周期，而读操作后半时钟周期，那么读操作会得到本周期内被写入的值</p>
+</blockquote>
+<p><strong>关键在于如何确定前递？</strong></p>
+<h4 id="_11">数据冒险的检测方法<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<ul>
+<li>命名流水线寄存器中的具体寄存器</li>
+<li>EX阶段，ALU操作数来源于立即数或寄存器</li>
+<li>EX冒险和MEM冒险<ul>
+<li><code>1a. EX/MEM.RegisterRd == ID/EX.RegisterRs1</code></li>
+<li><code>1b. EX/MEM.RegisterRd == ID/EX.RegisterRs2</code></li>
+<li><code>2a. MEM/WB.RegisterRd == ID/EX.RegisterRs1</code></li>
+<li><code>2b. MEM/WB.RegisterRd == ID/EX.RegisterRs2</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>要注意的是，并非所有的指令都要写回寄存器，例如<code>Rd=0</code>的情况：<code>sub x0, x1, x3</code><br>
+在某些情况下还会出现<strong>二次冒险</strong>的情况，如： </p>
+</blockquote>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1">add x1, x1, x2 
+</span><span id="__span-3-2">add x1, x1, x3
+</span><span id="__span-3-3">add x1, x1, x4
+</span></code></pre></div>
+<h4 id="_12">实现前递<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz8-6.png?raw=true" style="width:400px"></p>
+<h3 id="_13">停顿<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 
 
 
