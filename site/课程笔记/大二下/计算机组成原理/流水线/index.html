@@ -289,8 +289,14 @@
   
     
     
+      
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
-        <a href="../../../../%E6%AF%94%E8%B5%9B/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%B5%9B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%83%B3/" class="md-tabs__link">
+        <a href="../../../../%E6%AF%94%E8%B5%9B/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%9B%B8%E5%85%B3%E5%9F%BA%E7%A1%80/%E4%B8%AD%E5%BF%83%E5%B7%AE%E5%88%86%E6%B3%95/" class="md-tabs__link">
           
   
     
@@ -299,6 +305,9 @@
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -1080,6 +1089,8 @@
       
         
       
+        
+      
     
     
     
@@ -1302,8 +1313,6 @@
       
         
       
-        
-      
     
     
     
@@ -1336,26 +1345,6 @@
             数学建模
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../%E6%AF%94%E8%B5%9B/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%B5%9B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%83%B3/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    赛后的一些感想
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -2272,6 +2261,22 @@
 </ul>
 </li>
 <li>检测条件：<code>ID/EX.MemRead and ((ID/EX.RegisterRd = IF/ID.RegisterRs1) or (ID/EX.RegisterRd = IF/ID.RegisterRs2))</code></li>
+</ul>
+<p>如何停顿流水线？</p>
+<p>被停顿的指令正处于ID阶段:</p>
+<ul>
+<li>将ID/EX寄存器中控制信号全置为0(RegWrWrite, MemWrWrite...)<ul>
+<li>被停顿的指令在EX, MEM, WB 阶段执行空指令 nop </li>
+<li>不会有寄存器或者存储器被写入数据</li>
+</ul>
+</li>
+<li>禁止PC寄存器和IF/ID寄存器内容发生改变 <ul>
+<li>ID阶段的寄存器会继续使用IF/ID寄存器中相同字段读寄存器 </li>
+<li>下一条指令会重新取指</li>
+<li>1个时钟周期的停顿，能够让ld指令的MEM阶段完成</li>
+<li>就可以把取到的数据前递到EX阶段</li>
+</ul>
+</li>
 </ul>
 
 
