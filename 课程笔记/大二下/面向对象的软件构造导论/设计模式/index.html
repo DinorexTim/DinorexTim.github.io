@@ -926,28 +926,49 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    设计模式的作用
+    设计模式
   </a>
   
-    <nav class="md-nav" aria-label="设计模式的作用">
+    <nav class="md-nav" aria-label="设计模式">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    单例模式
+    四个基本要素
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    工厂模式
+    设计模式分类
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    单例模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    简单工厂模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    工厂模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     策略模式
   </a>
   
@@ -1886,28 +1907,49 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    设计模式的作用
+    设计模式
   </a>
   
-    <nav class="md-nav" aria-label="设计模式的作用">
+    <nav class="md-nav" aria-label="设计模式">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    单例模式
+    四个基本要素
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    工厂模式
+    设计模式分类
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    单例模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    简单工厂模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    工厂模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     策略模式
   </a>
   
@@ -1938,10 +1980,136 @@
 
   <h1>设计模式</h1>
 
-<h2 id="_1">设计模式的作用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="_2">单例模式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<h3 id="_3">工厂模式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<h3 id="_4">策略模式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h2 id="_1">设计模式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">四个基本要素<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>模式名</li>
+<li>问题</li>
+<li>解决方案</li>
+<li>效果</li>
+</ol>
+<h3 id="_3">设计模式分类<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>创建型</strong>（工厂方法下的抽象工厂、单例模式）</li>
+<li><strong>结构型</strong></li>
+<li><strong>行为型</strong>（如模板方法下的观察者模式、策略模式）</li>
+</ol>
+<h3 id="_4">单例模式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>实现单例模式的三种方法：</p>
+<ul>
+<li>饿汉式<ul>
+<li>类的构造方法变为<strong>私有</strong></li>
+<li>在类初始化的时候就加载对象</li>
+<li>客户只能通过调用<code>getInstance</code>方法来访问类的唯一实例</li>
+<li>无需同步，执行效率高</li>
+</ul>
+</li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Singleton</span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">singleton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Singleton</span><span class="p">();</span>
+</span><span id="__span-0-3"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Singleton</span><span class="p">(){}</span>
+</span><span id="__span-0-4"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">(){</span>
+</span><span id="__span-0-5"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">singleton</span><span class="p">;</span>
+</span><span id="__span-0-6"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-7"><span class="p">}</span>
+</span></code></pre></div>
+<ul>
+<li>懒汉式<ul>
+<li>类的构造方法变为<strong>私有</strong></li>
+<li>在定义的<code>getInstance</code>方法中判断对象是否已经被创建</li>
+</ul>
+</li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Singleton</span><span class="p">{</span>
+</span><span id="__span-1-2"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">singleton</span><span class="p">;</span>
+</span><span id="__span-1-3"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Singleton</span><span class="p">(){}</span>
+</span><span id="__span-1-4"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">(){</span>
+</span><span id="__span-1-5"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">singleton</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+</span><span id="__span-1-6"><span class="w">            </span><span class="n">singleton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Singleton</span><span class="p">();</span>
+</span><span id="__span-1-7"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-8"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">singleton</span><span class="p">;</span>
+</span><span id="__span-1-9"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-10"><span class="p">}</span>
+</span></code></pre></div>
+<ul>
+<li>线程锁<ul>
+<li>在多线程情况下，同时访问<code>getInstance</code>方法可能会导致创建多个实例</li>
+<li>使用<code>sychronized</code>修饰<code>getInstance</code>方法，强制线程访问该方法时，必须等待其他线程离开该方法后，才可以访问</li>
+<li>虽然保证了线程安全，但是执行效率较低
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Singleton</span><span class="p">{</span>
+</span><span id="__span-2-2"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">singleton</span><span class="p">;</span>
+</span><span id="__span-2-3"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Singleton</span><span class="p">(){}</span>
+</span><span id="__span-2-4"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">(){</span>
+</span><span id="__span-2-5"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">singleton</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">){</span>
+</span><span id="__span-2-6"><span class="w">            </span><span class="n">singleton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Singleton</span><span class="p">();</span>
+</span><span id="__span-2-7"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-8"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">singleton</span><span class="p">;</span>
+</span><span id="__span-2-9"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-10"><span class="p">}</span>
+</span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h3 id="_5">简单工厂模式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>例：用程序模拟一家披萨店，在<code>orderPizza</code>方法中进行创建pizza，交付pizza的过程</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PizzaStore</span><span class="p">{</span>
+</span><span id="__span-3-2"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Pizza</span><span class="w"> </span><span class="nf">orderPizza</span><span class="p">(</span><span class="n">type</span><span class="p">){</span>
+</span><span id="__span-3-3"><span class="w">        </span><span class="n">Pizza</span><span class="w"> </span><span class="n">pizza</span><span class="p">;</span>
+</span><span id="__span-3-4"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">type</span><span class="p">.</span><span class="na">equal</span><span class="p">(</span><span class="n">pizza1</span><span class="p">)){</span>
+</span><span id="__span-3-5"><span class="w">            </span><span class="n">pizza</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pizza1</span><span class="p">();</span>
+</span><span id="__span-3-6"><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">type</span><span class="p">.</span><span class="na">equal</span><span class="p">(</span><span class="n">pizza1</span><span class="p">)){</span>
+</span><span id="__span-3-7"><span class="w">            </span><span class="n">pizza</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pizza2</span><span class="p">();</span>
+</span><span id="__span-3-8"><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span><span id="__span-3-9"><span class="w">            </span><span class="p">...</span>
+</span><span id="__span-3-10"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-11">
+</span><span id="__span-3-12"><span class="w">        </span><span class="n">pizza</span><span class="p">.</span><span class="na">prepare</span><span class="p">();</span>
+</span><span id="__span-3-13"><span class="w">        </span><span class="n">pizza</span><span class="p">.</span><span class="na">bake</span><span class="p">();</span>
+</span><span id="__span-3-14"><span class="w">        </span><span class="n">pizza</span><span class="p">.</span><span class="na">box</span><span class="p">();</span>
+</span><span id="__span-3-15">
+</span><span id="__span-3-16"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pizza</span><span class="p">;</span>
+</span><span id="__span-3-17"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-18"><span class="p">}</span>
+</span></code></pre></div>
+<p>在上面的代码中，不难发现：如果在之后的运营中要上架新的pizza或者下架过气的pizza，需要对<code>if-else</code>语句进行修改，违反了OCP原则；同时，上面的代码将订购pizza和制作pizza的逻辑全部放在一个方法内实现，我们需要将创建pizza的逻辑从<code>orderPizza</code>内分离</p>
+<p>定义一个新的类<code>PizzaFactory</code>去创建pizza</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PizzaFactory</span><span class="p">{</span>
+</span><span id="__span-4-2"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Pizza</span><span class="w"> </span><span class="nf">createPizza</span><span class="p">(</span><span class="n">type</span><span class="p">){</span>
+</span><span id="__span-4-3"><span class="w">        </span><span class="n">Pizza</span><span class="w"> </span><span class="n">pizza</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</span><span id="__span-4-4"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">type</span><span class="p">.</span><span class="na">equal</span><span class="p">(</span><span class="n">pizza1</span><span class="p">)){</span>
+</span><span id="__span-4-5"><span class="w">            </span><span class="n">pizza</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pizza1</span><span class="p">();</span>
+</span><span id="__span-4-6"><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">type</span><span class="p">.</span><span class="na">equal</span><span class="p">(</span><span class="n">pizza1</span><span class="p">)){</span>
+</span><span id="__span-4-7"><span class="w">            </span><span class="n">pizza</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pizza2</span><span class="p">();</span>
+</span><span id="__span-4-8"><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span><span id="__span-4-9"><span class="w">            </span><span class="p">...</span>
+</span><span id="__span-4-10"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-11">
+</span><span id="__span-4-12"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pizza</span><span class="p">;</span>
+</span><span id="__span-4-13"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-14"><span class="p">}</span>
+</span></code></pre></div>
+<p>与此同时，修改PizzaStore类，使用factory的<code>createPizza</code>方法代替<code>new</code>来创建pizza对象</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PizzaStore</span><span class="p">{</span>
+</span><span id="__span-5-2"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">PizzaFactory</span><span class="w"> </span><span class="n">factory</span><span class="p">;</span>
+</span><span id="__span-5-3"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PizzaStore</span><span class="p">(</span><span class="n">PizzaFactory</span><span class="w"> </span><span class="n">factory</span><span class="p">){</span>
+</span><span id="__span-5-4"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">;</span>
+</span><span id="__span-5-5"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-6"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Pizza</span><span class="w"> </span><span class="nf">orderPizza</span><span class="p">(</span><span class="n">type</span><span class="p">){</span>
+</span><span id="__span-5-7"><span class="w">        </span><span class="n">Pizza</span><span class="w"> </span><span class="n">pizza</span><span class="p">;</span>
+</span><span id="__span-5-8">
+</span><span id="__span-5-9"><span class="w">        </span><span class="n">pizza</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="na">createPizza</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+</span><span id="__span-5-10">
+</span><span id="__span-5-11"><span class="w">        </span><span class="n">pizza</span><span class="p">.</span><span class="na">prepare</span><span class="p">();</span>
+</span><span id="__span-5-12"><span class="w">        </span><span class="n">pizza</span><span class="p">.</span><span class="na">bake</span><span class="p">();</span>
+</span><span id="__span-5-13"><span class="w">        </span><span class="n">pizza</span><span class="p">.</span><span class="na">box</span><span class="p">();</span>
+</span><span id="__span-5-14">
+</span><span id="__span-5-15"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pizza</span><span class="p">;</span>
+</span><span id="__span-5-16"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-17"><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>简单工厂模式并非是一个真正的设计模式</strong>，因为它违背了开闭原则（如果有复杂的产品结构或者增加新产品，工厂类的产品创建的逻辑就不得不被修改），但是工厂模式是在此基础上建立的。</p>
+<h3 id="_6">工厂模式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_7">策略模式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 
 
 
