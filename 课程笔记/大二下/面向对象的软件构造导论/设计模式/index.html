@@ -962,14 +962,14 @@
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    工厂模式
+    工厂方法模式
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    策略模式
+    抽象工厂模式
   </a>
   
 </li>
@@ -1943,14 +1943,14 @@
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    工厂模式
+    工厂方法模式
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    策略模式
+    抽象工厂模式
   </a>
   
 </li>
@@ -2107,9 +2107,17 @@
 </span><span id="__span-5-16"><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-5-17"><span class="p">}</span>
 </span></code></pre></div>
-<p><strong>简单工厂模式并非是一个真正的设计模式</strong>，因为它违背了开闭原则（如果有复杂的产品结构或者增加新产品，工厂类的产品创建的逻辑就不得不被修改），但是工厂模式是在此基础上建立的。</p>
-<h3 id="_6">工厂模式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<h3 id="_7">策略模式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>简单工厂模式并非是一个真正的设计模式</strong>，因为它违背了<strong>开闭原则</strong>（如果有复杂的产品结构或者增加新产品，工厂类的产品创建的逻辑就不得不被修改），但是工厂方法模式是在此基础上建立的。</p>
+<h3 id="_6">工厂方法模式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>如何避免修改创建pizza方法的逻辑？</p>
+<p>将创建pizza的方法放回<code>PizzaStore</code>类，将<code>PizzaStore</code>设置为抽象类，该方法设置为抽象方法，让每个不同的PizzaStore去实现对应的创建pizza的方法。<strong>实际上就是把创建对象的行为放到子类中，让不同子类去实现不同的创建逻辑</strong></p>
+<h3 id="_7">抽象工厂模式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>有手机和路由器两种产品，有A和B两种品牌，两种品牌都可以生产手机和路由器</p>
+<p>有两个产品，所以定义两个创建产品的接口</p>
+<p>接着创建A和B品牌的工厂类：首先需要将工厂类进行抽象，其中包含了创建两个产品的方法，返回的是产品的接口类</p>
+<p>客户端调用时，<strong>直接用工厂接口类创建需要的工厂</strong>，拿到对应的产品</p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/java5-1.png?raw=true" width="500" /></p>
+<p>抽象工厂的<strong>产品等级</strong>扩展十分容易（如加入新的品牌C），但是<strong>产品族</strong>扩展十分困难（需要修改）</p>
 
 
 
