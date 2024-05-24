@@ -2078,12 +2078,16 @@
 <li>存储的是<strong>键值对映射</strong></li>
 <li>无序、无下标、<strong>键不可重复</strong>、<strong>值可重复</strong></li>
 </ul>
+<blockquote>
+<p>ps：<code>HashSet</code>和<code>HashMap</code>的“无序”指的是遍历的输出结果是无序的，但是内部实际是有序的</p>
+</blockquote>
 <h2 id="_2">策略模式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>一种<strong>对象行为型模式</strong></p>
 <p>如何实现：让算法和对象分开，使得算法可以独立于它的客户而变化？</p>
 <p>策略模式将一系列算法封装起来，<strong>在客户端</strong>判断使用何种算法</p>
 <ul>
 <li>优点<ul>
-<li>提供一种替**代继承方法，既实现了代码重用，还实现了任意扩展</li>
+<li>提供一种<strong>替代继承方法</strong>，既实现了代码重用，还实现了任意扩展</li>
 <li>将“应该采取哪一种策略”和“算法”分离，避免程序中使用多重条件转移语句</li>
 </ul>
 </li>
