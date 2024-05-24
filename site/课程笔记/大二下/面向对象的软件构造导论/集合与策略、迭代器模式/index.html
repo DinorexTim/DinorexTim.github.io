@@ -1616,6 +1616,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    迭代器模式
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1687,6 +1694,34 @@
 <h2 id="_2">策略模式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>如何实现：让算法和对象分开，使得算法可以独立于它的客户而变化？</p>
 <p>策略模式将一系列算法封装起来，<strong>在客户端</strong>判断使用何种算法</p>
+<ul>
+<li>优点<ul>
+<li>提供一种替**代继承方法，既实现了代码重用，还实现了任意扩展</li>
+<li>将“应该采取哪一种策略”和“算法”分离，避免程序中使用多重条件转移语句</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>客户端必须知道所有的策略类，并且自行决定使用哪一个策略类</li>
+</ul>
+</li>
+</ul>
+<h2 id="_3">迭代器模式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>“<strong>对遍历行为进行抽象</strong>”</p>
+<p><code>Java Iterator</code>(迭代器)不是一个集合，是用于访问集合的方法，它采用<strong>顺序访问</strong></p>
+<p>如何引入？</p>
+<p><code>import java.util.Iterator</code></p>
+<ul>
+<li>迭代器<code>it</code>三个基本操作<ul>
+<li>it.next()，返回迭代器下一个元素，更新迭代器状态</li>
+<li>it.hasNext()，判断集合中是否还有元素</li>
+<li>it.remove()，将迭代器返回的元素删除</li>
+</ul>
+</li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">while</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">()){</span>
+</span><span id="__span-0-2"><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">());</span>
+</span><span id="__span-0-3"><span class="p">}</span>
+</span></code></pre></div>
 
 
 
