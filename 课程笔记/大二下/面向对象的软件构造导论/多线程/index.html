@@ -1067,6 +1067,75 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    线程阻塞（被动）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    线程等待（主动）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    终止线程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    线程同步
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    线程死锁
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    任务创建与线程池
+  </a>
+  
+    <nav class="md-nav" aria-label="任务创建与线程池">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    任务创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    线程池
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    生产者-消费者模式
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1954,6 +2023,75 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    线程阻塞（被动）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    线程等待（主动）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    终止线程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    线程同步
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    线程死锁
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    任务创建与线程池
+  </a>
+  
+    <nav class="md-nav" aria-label="任务创建与线程池">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    任务创建
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    线程池
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    生产者-消费者模式
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2063,9 +2201,118 @@
 </span><span id="__span-0-22"><span class="p">}</span>
 </span></code></pre></div>
 <blockquote>
-<p>直接调用 run 方法只会执行同一个线程中的任务， 而不会启动新线程</p>
-<p>在实际生成中<code>Runnable</code>更常用，其优势在于：<strong>任务与运行机制解耦</strong>，降低开销；更容易实现<strong>多线程资源共享</strong></p>
+<p><strong>直接调用 run 方法只会执行同一个线程中的任务， 而不会启动新线程</strong></p>
 </blockquote>
+<p>在实际生成中<code>Runnable</code>更常用，其优势在于：</p>
+<ul>
+<li><strong>任务与运行机制解耦</strong>，降低开销；</li>
+<li>更容易实现<strong>多线程资源共享</strong></li>
+<li>避免由于<strong>单继承局限</strong>所带来的影响</li>
+</ul>
+<p>Java8之后引入了<code>lambda</code>语法，可以将创建线程简化为</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">){</span>
+</span><span id="__span-1-2"><span class="w">    </span><span class="n">Runnable</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="o">-&gt;</span><span class="p">{</span>
+</span><span id="__span-1-3"><span class="w">        </span><span class="c1">// do sth...</span>
+</span><span id="__span-1-4"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-5"><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">r</span><span class="p">).</span><span class="na">start</span><span class="p">();</span>
+</span><span id="__span-1-6"><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="_6">线程阻塞（被动）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>线程在什么情况下会进入阻塞状态？</p>
+<ul>
+<li>当一个线程试图获取<strong>一个内部的对象锁</strong>，但是这个锁<strong>被其他线程持有</strong></li>
+</ul>
+<p>线程在什么情况下会变成非阻塞状态？</p>
+<ul>
+<li>当所有<strong>其他线程释放该锁</strong>，并且线程调度器允许本线程持有它的时候</li>
+</ul>
+<h2 id="_7">线程等待（主动）<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ol>
+<li>运行<span class="arithmatex">\(\to\)</span>等待<ul>
+<li>当前线程调用<code>Object.wait()</code>方法，等待被其他线程<strong>唤醒</strong></li>
+<li>其他线程调用<code>Thread.join()</code>方法，等待其他线程结束后，主线程再执行</li>
+</ul>
+</li>
+<li>等待<span class="arithmatex">\(\to\)</span>运行<ul>
+<li>等待的线程被其他线程对象唤醒，调用<code>Object.notify()</code>或者<code>Object.notifyAll()</code></li>
+<li>调用<code>Thread.join()</code>方法的线程结束</li>
+</ul>
+</li>
+</ol>
+<h2 id="_8">终止线程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>线程终止的原因：</p>
+<ul>
+<li>run方法正常退出</li>
+<li>因为一个没有捕获的异常而终止了run方法</li>
+</ul>
+<p>正确退出线程的方法：</p>
+<ul>
+<li>使用<code>interrupt</code>方法中断线程</li>
+<li>使用退出标志（也就是当<code>run</code>方法完成后线程终止）</li>
+</ul>
+<h2 id="_9">线程同步<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>当多个线程同时运行时，线程的调度由操作系统决定，程序本身<strong>无法决定</strong></p>
+<p>如果多个线程同时读写共享变量，会出现<strong>数据不一致</strong>的问题</p>
+<p>代码实现：使用关键字<code>synchronized</code>对一个对象加锁</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><span class="kd">class</span> <span class="nc">AddThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><span class="w">            </span><span class="kd">synchronized</span><span class="p">(</span><span class="n">Counter</span><span class="p">.</span><span class="na">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="c1">// 获取锁</span>
+</span><span id="__span-2-5"><span class="w">                </span><span class="n">Counter</span><span class="p">.</span><span class="na">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-2-6"><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="c1">// 释放锁</span>
+</span><span id="__span-2-7"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-8"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-9"><span class="p">}</span>
+</span><span id="__span-2-10">
+</span><span id="__span-2-11"><span class="kd">class</span> <span class="nc">DecThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-12"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-13"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-14"><span class="w">            </span><span class="kd">synchronized</span><span class="p">(</span><span class="n">Counter</span><span class="p">.</span><span class="na">lock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="c1">// 获取锁</span>
+</span><span id="__span-2-15"><span class="w">                </span><span class="n">Counter</span><span class="p">.</span><span class="na">count</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-2-16"><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="c1">// 释放锁</span>
+</span><span id="__span-2-17"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-18"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-19"><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="_10">线程死锁<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>例：在线程A持有锁A并想获得锁B的同时，线程B持有锁B并尝试获得锁A，那么这两个线程将永远地等待下去</p>
+<p>为避免出现死锁，线程获取锁的顺序要一致</p>
+<h2 id="_11">任务创建与线程池<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h3 id="_12">任务创建<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>在前面提到可以实现Runnable接口以封装一个异步运行的任务(没有参数和返回值)，如果要在线程执行结束后<strong>获得执行结果</strong>的话，就必须通过共享变量或者线程通信的方式来达到效果</p>
+<p><code>Callable</code>可以更简单的实现这一要求</p>
+<ul>
+<li>需要实现<code>call</code>方法</li>
+<li>例：<code>Callable&lt;Integer&gt;</code>表示返回<code>Interger</code>对象的异步计算任务</li>
+<li>可以抛出异常</li>
+<li>不能直接进行线程操作，也不能传入<code>Thread</code></li>
+</ul>
+<p>例：</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><span class="c1">// 实例化 Callable 任务，指定返回类型为 String</span>
+</span><span id="__span-3-2"><span class="n">Callable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">callable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Callable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">call</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><span class="w">        </span><span class="c1">// balabalabala~</span>
+</span><span id="__span-3-5"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hello world ~&quot;</span><span class="p">;</span>
+</span><span id="__span-3-6"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-7"><span class="p">}</span>
+</span></code></pre></div>
+<p>如何执行<code>Callable</code>？</p>
+<p>使用<code>FutureTask</code>执行（调用<code>java.util.concurrent</code>包）</p>
+<ul>
+<li>将<code>callable</code>任务委托给<code>FutureTask</code></li>
+<li>因为<code>FutureTask</code>实现了<code>Runnable</code>接口，所以使用<code>new Thread(task).start()</code>便可以启动线程</li>
+</ul>
+<p>如何获取返回值？</p>
+<p>例：<code>String call = task.get()</code></p>
+<h3 id="_13">线程池<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>池化技术能够<strong>减少资源对象的创建次数</strong>，提高程序的性能，特别是在<strong>高并发</strong>下这种提高更加明显</p>
+<p>线程池<strong>优点</strong></p>
+<ul>
+<li><strong>降低资源消耗</strong>。 通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</li>
+<li><strong>提高响应速度</strong>。 当任务到达时，任务可以<strong>不需要等到线程创建就能立即执行</strong>。</li>
+<li><strong>提高线程的可管理性</strong>。</li>
+</ul>
+<h2 id="-">生产者-消费者模式<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
 
 
 
