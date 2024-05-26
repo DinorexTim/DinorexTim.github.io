@@ -1134,6 +1134,19 @@
     生产者-消费者模式
   </a>
   
+    <nav class="md-nav" aria-label="生产者-消费者模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    优点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2090,6 +2103,19 @@
     生产者-消费者模式
   </a>
   
+    <nav class="md-nav" aria-label="生产者-消费者模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    优点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2313,6 +2339,15 @@
 <li><strong>提高线程的可管理性</strong>。</li>
 </ul>
 <h2 id="-">生产者-消费者模式<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<p>某个模块负责产生数据，这些数据由另一个模块来负责处理</p>
+<p>产生数据的模块，就形象地称为生产者；而处理数据的模块，就称为消费者</p>
+<p>如果生产者生产速度过快，消费者消费的很慢，并且缓存区达到了最大时。缓存区会阻塞生产者，
+让生产者停止生产，等待消费者消费了数据后，再唤醒生产者</p>
+<p>当消费者消费速度过快时，缓存区为空时。缓存区则会阻塞消费者，待生产者向队列添加数据后，
+再唤醒消费者</p>
+<h3 id="_14">优点<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><strong>并发</strong>：生产者和消费者各司其职，都只需要关注缓冲区，不需要相互关注，支持高并发，将一个耗时的流程拆分成两个阶段</p>
+<p><strong>解耦</strong>：生产者和消费者进行解耦（通过缓冲区通讯）</p>
 
 
 
