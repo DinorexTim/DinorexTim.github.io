@@ -1,4 +1,4 @@
-## Machine learning
+## 什么是Machine learning
 
 Machine learning $\approx$ Looking for function
 
@@ -34,4 +34,11 @@ Machine learning $\approx$ Looking for function
 
 一个好的Pre-train model就好比一个优秀的操作系统，当要开发新的训练任务时，其难度会大大降低。在众多预训练模型中，比较知名的有`BERT`模型(340M参数)
 
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml1-1.png?raw=true){width=600}
+<figure markdown>
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml1-1.png?raw=true){width=450}
+<figcaption>贝尔托特是你吗（</figcaption>
+</figure>
+
+## 生成式对抗网络(Generative adversarial network)
+
+对于一个自监督学习，假如你要收集大量的**成对的**数据（输入和对应的输出），但是Gan允许你只需有收集到大量的输入数据和大量的输出数据而**无需配对**
