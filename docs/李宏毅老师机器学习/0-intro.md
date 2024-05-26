@@ -4,7 +4,7 @@ Machine learning $\approx$ Looking for function
 
 **“机器学习”实质就是帮助人类寻找人类无法写出的函数**
 
-如果机器学习的任务是寻找一个函数。那么深度学习的意思是使用类神经网络寻找一个函数
+如果机器学习的任务是寻找一个函数，那么深度学习的意思是使用类神经网络寻找一个函数
 
 这个类神经网络可以包含各种各样的输入：比如向量、矩阵、一段序列（文字、语音等等）；输出可以是：数值(regression)、做出选择(classification)等等
 
@@ -35,7 +35,7 @@ Machine learning $\approx$ Looking for function
 一个好的Pre-train model就好比一个优秀的操作系统，当要开发新的训练任务时，其难度会大大降低。在众多预训练模型中，比较知名的有`BERT`模型(340M参数)
 
 <figure markdown>
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml1-1.png?raw=true){width=450}
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-1.png?raw=true){width=450}
 <figcaption>贝尔托特是你吗（</figcaption>
 </figure>
 
@@ -72,6 +72,12 @@ Machine learning $\approx$ Looking for function
 
 当模型实现了分类的能力后，还需要它具备解释这样**分类的原因**
 
+## 模型攻击
 
+假设现在有一个图像识别的模型，对于一张正常的猫的图片，它能够正确地识别，但是在这张图片里面加入一些特定的噪点后，会导致模型识别出来的生物与猫大相径庭
 
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-2.png?raw=true){width=450}
 
+## 领域自适应(Domain Adaption)
+
+假设对于一个手写识别模型，假设训练数据全是黑白的手写字体，那么在实际运用中即使输入的是“彩色手写字”，模型也应该理解这份手写字体
