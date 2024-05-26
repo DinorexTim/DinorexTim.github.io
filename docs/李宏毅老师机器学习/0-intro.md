@@ -42,3 +42,36 @@ Machine learning $\approx$ Looking for function
 ## 生成式对抗网络(Generative adversarial network)
 
 对于一个自监督学习，假如你要收集大量的**成对的**数据（输入和对应的输出），但是Gan允许你只需有收集到大量的输入数据和大量的输出数据而**无需配对**
+
+<details>
+    <summary>Gan相关论文</summary>
+
+<a href="https://arxiv.org/abs/1804.00316">https://arxiv.org/abs/1804.00316</a><br>
+
+<a href="https://arxiv.org/abs/1812.09323">https://arxiv.org/abs/1812.09323</a><br>
+
+<a href="https://arxiv.org/abs/1904.04100">https://arxiv.org/abs/1904.04100</a><br>
+
+<a href="https://arxiv.org/abs/2105.11084">https://arxiv.org/abs/2105.11084</a><br>
+
+</details>
+
+## 强化学习(Reinforcement learning)
+
+**解决不知道如何标注数据的情况**
+
+假如想让机器学会下围棋，但是问题在于人类自己也不清楚在目前棋子排列的情况下，下一步到底要怎么走。
+
+但是，人类可以定义“好”与“坏”，即赢得比赛为“good”，输了比赛判定为"bad"，那么就可以使用强化学习的方法
+
+## 异常检测
+
+假如真的训练了一个可以进行分类猫狗的模型，在实际运用过程中，当输入了一个完全不同于训练数据种类的生物（比如老鼠），模型需要具备回答“我不知道”的能力
+
+## 可解释性AI
+
+当模型实现了分类的能力后，还需要它具备解释这样**分类的原因**
+
+
+
+
