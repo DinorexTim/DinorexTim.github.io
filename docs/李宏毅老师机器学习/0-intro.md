@@ -8,6 +8,8 @@ Machine learning $\approx$ Looking for function
 
 这个类神经网络可以包含各种各样的输入：比如向量、矩阵、一段序列（文字、语音等等）；输出可以是：数值(regression)、做出选择(classification)等等
 
+实际上机器学习领域中还有Structured Learning的任务，让机器去“创造”一个有结构的事物
+
 ## 如何让机器去寻找函数？
 
 **需要先寻找样本（数据），每获得一份数据就给它做上标记(label)，用于训练模型**
@@ -81,3 +83,44 @@ Machine learning $\approx$ Looking for function
 ## 领域自适应(Domain Adaption)
 
 假设对于一个手写识别模型，假设训练数据全是黑白的手写字体，那么在实际运用中即使输入的是“彩色手写字”，模型也应该理解这份手写字体
+
+## 实例：预测Youtube频道观看人数
+
+假如现在频道主想根据过往的播放信息，去预测未来某一天特定的观看人数，那么如何去找到想要的函数？
+
+分为三个步骤
+
+### 1.猜测携带未知参数的函数
+
+令第二天待预测的观看人数为$y$，$x$为今天的观看人数
+
+则可以**假设**一个函数为$y=b+wx_1\quad 其中w和b都是未知参数，需要从数据中学习$
+
+我们将这个带有未知参数的函数叫做“**模型**”(`model`)，$x_1$称为`feature`，$w$叫做`weight`，$b$称为`bias`
+
+### 2.定义损失函数Loss
+
+`Loss`也是一个函数$L(b,w)$，这个函数内的参数是`model`的参数b,w
+
+`Loss`输出的值表示“预测值与实际的偏差”
+
+实际的正确值称为`label`
+
+当计算出了一系列的weight和bias后，可以得到一个`Error Surface`
+
+<figure markdown>
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-3.png?raw=true){width=450}
+</figure>
+
+### 3.优化(Optimization)
+
+寻找一组$w$与$b$，使得$Loss$值最小，即
+
+$$w^*,b^*=arg\min_{w,b} L$$
+
+目前可以使用梯度下降法(Gradient Descent)进行优化
+
+为了简化起见，假设未知参数仅有w，当w取值不同时，对应的Loss值也不一样
+
+随机选择一个初始点$w^0$，计算$\frac{\partial L}{\partial w}|_{w=w^0}$，当计算出的偏导数为负数，那么增加w的值，否则减小w的值
+
