@@ -1751,6 +1751,19 @@
     3.优化(Optimization)
   </a>
   
+    <nav class="md-nav" aria-label="3.优化(Optimization)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1921,6 +1934,19 @@
     3.优化(Optimization)
   </a>
   
+    <nav class="md-nav" aria-label="3.优化(Optimization)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2007,7 +2033,7 @@
 <p>则可以<strong>假设</strong>一个函数为<span class="arithmatex">\(y=b+wx_1\quad 其中w和b都是未知参数，需要从数据中学习\)</span></p>
 <p>我们将这个带有未知参数的函数叫做“<strong>模型</strong>”(<code>model</code>)，<span class="arithmatex">\(x_1\)</span>称为<code>feature</code>，<span class="arithmatex">\(w\)</span>叫做<code>weight</code>，<span class="arithmatex">\(b\)</span>称为<code>bias</code></p>
 <h3 id="2loss">2.定义损失函数Loss<a class="headerlink" href="#2loss" title="Permanent link">&para;</a></h3>
-<p><code>Loss</code>也是一个函数<span class="arithmatex">\(L(b,w)\)</span>，这个函数内的参数是<code>model</code>的参数b,w</p>
+<p><code>Loss</code>是一个自定义的函数<span class="arithmatex">\(L(b,w)\)</span>，这个函数内的参数是<code>model</code>的参数b,w</p>
 <p><code>Loss</code>输出的值表示“预测值与实际的偏差”</p>
 <p>实际的正确值称为<code>label</code></p>
 <p>当计算出了一系列的weight和bias后，可以得到一个<code>Error Surface</code></p>
@@ -2017,9 +2043,27 @@
 <h3 id="3optimization">3.优化(Optimization)<a class="headerlink" href="#3optimization" title="Permanent link">&para;</a></h3>
 <p>寻找一组<span class="arithmatex">\(w\)</span>与<span class="arithmatex">\(b\)</span>，使得<span class="arithmatex">\(Loss\)</span>值最小，即</p>
 <div class="arithmatex">\[w^*,b^*=arg\min_{w,b} L\]</div>
-<p>目前可以使用梯度下降法(Gradient Descent)进行优化</p>
+<p>目前可以使用<strong>梯度下降法</strong>(Gradient Descent)进行优化</p>
 <p>为了简化起见，假设未知参数仅有w，当w取值不同时，对应的Loss值也不一样</p>
-<p>随机选择一个初始点<span class="arithmatex">\(w^0\)</span>，计算<span class="arithmatex">\(\frac{\partial L}{\partial w}|_{w=w^0}\)</span>，当计算出的偏导数为负数，那么增加w的值，否则减小w的值</p>
+<p>随机选择一个初始点<span class="arithmatex">\(w^0\)</span>，计算<span class="arithmatex">\(\frac{\partial L}{\partial w}|_{w=w^0}\)</span>，当计算出的偏导数为负数，那么增加w的值，否则减小w的值，使用<span class="arithmatex">\(w^1\leftarrow w^0-步幅\)</span>反复进行计算，当w的取值越靠近Loss最小值对应的<span class="arithmatex">\(w^*\)</span>，“步幅”会变得越来越小</p>
+<p>增加或减少的“步幅”可以用<span class="arithmatex">\(\eta\frac{\partial L}{\partial w}|_{w=w^0}\)</span>表示，其中<span class="arithmatex">\(\eta\)</span>表示<strong>学习速率</strong>(learning rate)，该参数是自定义的。</p>
+<blockquote>
+<p>在机器学习里面，像<span class="arithmatex">\(\eta\)</span>这样手动设置的参数称为<strong>超参数</strong><code>hyperparameter</code></p>
+</blockquote>
+<p>梯度下降法存在一个非常明显的问题：随机取得的初始点在经过迭代后，很有可能会陷入<strong>局部最低点</strong>无法跳出，导致无法求得真正的<strong>全局最低点</strong>。但是在实际的深度学习中，梯度下降法的“局部最低点”问题实际上并非其真正的“痛点”</p>
+<h4 id="_4">小结<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>优化步骤</p>
+<ul>
+<li>随机取样<span class="arithmatex">\(w^0,b^0\)</span></li>
+<li>进行迭代</li>
+</ul>
+<div class="arithmatex">\[\begin{align*}
+    &amp;w^1\leftarrow w^0-\eta\frac{\partial L}{\partial w}|_{w=w^0}\\
+    &amp;b^1\leftarrow b^0-\eta\frac{\partial L}{\partial b}|_{b=b^0}
+\end{align*}\]</div>
+<figure>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-4.png?raw=true" width="450" /></p>
+</figure>
 
 
 
