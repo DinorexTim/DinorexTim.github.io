@@ -146,10 +146,44 @@ $$\begin{align*}
 ![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-4.png?raw=true){width=450}
 </figure>
 
-### 4.预测效果的分析
+### 4.预测效果分析和模型修改
 
 在学习了2017年-2020年的观看数据后，模型预测了2021年每天的观看人数，将模型预测值和实际的值进行对比得到下图
 
 <figure markdown>
 ![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-5.png?raw=true){width=450}
 </figure>
+
+从上面的图像可以看出的是，观看次数呈现出一定的“周期性”，大概是7天为一个周期，在周末时间段观看人数会明显降低（~~谁周末还看深度学习~~），所以之前的一次函数模型还有可以修改的空间
+
+> **对模型的修改一般都基于对问题理解的改变**。在一开始的时候，对问题完全没有理解，所以会胡乱猜测一个一次函数作为预测模型，而这样胡乱猜测的模型一般的预测效果也不会很好
+
+新模型可以基于周期性规律，考虑前7天对于未来一天观看数量的影响，修改为
+
+$$y=b+\sum_{j=1}^{7}w_jx_j$$
+
+经实验证实增加考虑的天数确实有助于降低损失函数的数值，但是随着考虑天数的增加模型的进步会愈发不明显
+
+## 线性模型局限与改进
+
+上述实例中的模型可以统称为**线性模型**，但是对于大部分要预测的对象来说，这个模型限制过大，因为无论怎样调整模型的$w$和$b$都只能得到一条“直线”，这种模型本身的限制称为`Model Bias`
+
+*如何突破线性模型的限制？*
+
+**写出一个更复杂、更具弹性的模型**
+
+从分段线性函数开始：
+
+<figure markdown>
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-6.png?raw=true){width=450}
+</figure>
+
+对于单一的线性函数，永远不可能得到图中红色的函数图像，经过观察，红色的折线其实可以拆分为一个常数值与“蓝色函数”的和
+
+<figure markdown>
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-7.png?raw=true){width=450}
+</figure>
+
+不管对于什么样的分段线性函数折线，都可以用一个常数值与“蓝色函数”的和组成，即使考虑函数图像的不是分段线性函数（比如指数函数），也可以先在曲线上去若干点然后讲这些点相连近似处理为分段线性函数
+
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-8.png?raw=true){width=300 align=right}
