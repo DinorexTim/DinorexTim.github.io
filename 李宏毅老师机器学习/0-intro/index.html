@@ -1734,7 +1734,7 @@
         
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1.猜测携带未知参数的函数
+    1.猜测含未知参数的函数
   </a>
   
 </li>
@@ -1763,6 +1763,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.预测效果的分析
+  </a>
   
 </li>
         
@@ -1917,7 +1924,7 @@
         
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1.猜测携带未知参数的函数
+    1.猜测含未知参数的函数
   </a>
   
 </li>
@@ -1946,6 +1953,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.预测效果的分析
+  </a>
   
 </li>
         
@@ -2028,15 +2042,15 @@
 <h2 id="youtube">实例：预测Youtube频道观看人数<a class="headerlink" href="#youtube" title="Permanent link">&para;</a></h2>
 <p>假如现在频道主想根据过往的播放信息，去预测未来某一天特定的观看人数，那么如何去找到想要的函数？</p>
 <p>分为三个步骤</p>
-<h3 id="1">1.猜测携带未知参数的函数<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h3 id="1">1.猜测含未知参数的函数<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>令第二天待预测的观看人数为<span class="arithmatex">\(y\)</span>，<span class="arithmatex">\(x\)</span>为今天的观看人数</p>
-<p>则可以<strong>假设</strong>一个函数为<span class="arithmatex">\(y=b+wx_1\quad 其中w和b都是未知参数，需要从数据中学习\)</span></p>
+<p>在没有任何知识储备的情况下，可以<strong>假设</strong>一个函数为<span class="arithmatex">\(y=b+wx_1\quad 其中w和b都是未知参数，需要从数据中学习\)</span></p>
 <p>我们将这个带有未知参数的函数叫做“<strong>模型</strong>”(<code>model</code>)，<span class="arithmatex">\(x_1\)</span>称为<code>feature</code>，<span class="arithmatex">\(w\)</span>叫做<code>weight</code>，<span class="arithmatex">\(b\)</span>称为<code>bias</code></p>
 <h3 id="2loss">2.定义损失函数Loss<a class="headerlink" href="#2loss" title="Permanent link">&para;</a></h3>
 <p><code>Loss</code>是一个自定义的函数<span class="arithmatex">\(L(b,w)\)</span>，这个函数内的参数是<code>model</code>的参数b,w</p>
 <p><code>Loss</code>输出的值表示“预测值与实际的偏差”</p>
 <p>实际的正确值称为<code>label</code></p>
-<p>当计算出了一系列的weight和bias后，可以得到一个<code>Error Surface</code></p>
+<p>当计算出了一系列的weight和bias后，可以得到一个<strong>误差曲面</strong><code>Error Surface</code></p>
 <figure>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-3.png?raw=true" width="450" /></p>
 </figure>
@@ -2055,7 +2069,7 @@
 <p>优化步骤</p>
 <ul>
 <li>随机取样<span class="arithmatex">\(w^0,b^0\)</span></li>
-<li>进行迭代</li>
+<li>进行迭代，达到设定的迭代次数上限后结束</li>
 </ul>
 <div class="arithmatex">\[\begin{align*}
     &amp;w^1\leftarrow w^0-\eta\frac{\partial L}{\partial w}|_{w=w^0}\\
@@ -2063,6 +2077,11 @@
 \end{align*}\]</div>
 <figure>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-4.png?raw=true" width="450" /></p>
+</figure>
+<h3 id="4">4.预测效果的分析<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>在学习了2017年-2020年的观看数据后，模型预测了2021年每天的观看人数，将模型预测值和实际的值进行对比得到下图</p>
+<figure>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-5.png?raw=true" width="450" /></p>
 </figure>
 
 
