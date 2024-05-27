@@ -90,11 +90,11 @@ Machine learning $\approx$ Looking for function
 
 分为三个步骤
 
-### 1.猜测携带未知参数的函数
+### 1.猜测含未知参数的函数
 
 令第二天待预测的观看人数为$y$，$x$为今天的观看人数
 
-则可以**假设**一个函数为$y=b+wx_1\quad 其中w和b都是未知参数，需要从数据中学习$
+在没有任何知识储备的情况下，可以**假设**一个函数为$y=b+wx_1\quad 其中w和b都是未知参数，需要从数据中学习$
 
 我们将这个带有未知参数的函数叫做“**模型**”(`model`)，$x_1$称为`feature`，$w$叫做`weight`，$b$称为`bias`
 
@@ -106,7 +106,7 @@ Machine learning $\approx$ Looking for function
 
 实际的正确值称为`label`
 
-当计算出了一系列的weight和bias后，可以得到一个`Error Surface`
+当计算出了一系列的weight和bias后，可以得到一个**误差曲面**`Error Surface`
 
 <figure markdown>
 ![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-3.png?raw=true){width=450}
@@ -135,7 +135,7 @@ $$w^*,b^*=arg\min_{w,b} L$$
 优化步骤
 
 - 随机取样$w^0,b^0$
-- 进行迭代
+- 进行迭代，达到设定的迭代次数上限后结束
 
 $$\begin{align*}
     &w^1\leftarrow w^0-\eta\frac{\partial L}{\partial w}|_{w=w^0}\\
@@ -144,4 +144,12 @@ $$\begin{align*}
 
 <figure markdown>
 ![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-4.png?raw=true){width=450}
+</figure>
+
+### 4.预测效果的分析
+
+在学习了2017年-2020年的观看数据后，模型预测了2021年每天的观看人数，将模型预测值和实际的值进行对比得到下图
+
+<figure markdown>
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-5.png?raw=true){width=450}
 </figure>
