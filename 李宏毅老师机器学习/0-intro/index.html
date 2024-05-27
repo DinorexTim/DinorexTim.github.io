@@ -12,6 +12,8 @@
         <link rel="prev" href="../../%E6%AF%94%E8%B5%9B/%E4%B8%AD%E5%AD%A6%E7%89%A9%E7%AB%9E/%E7%89%A9%E7%AB%9E%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB/">
       
       
+        <link rel="next" href="../1-%E5%86%8D%E6%8E%A2%E5%88%86%E7%B1%BB%E5%99%A8/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
@@ -1564,6 +1566,8 @@
       
         
       
+        
+      
     
     
     
@@ -1720,10 +1724,64 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#youtube" class="md-nav__link">
+    实例：预测Youtube频道观看人数
+  </a>
+  
+    <nav class="md-nav" aria-label="实例：预测Youtube频道观看人数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.猜测携带未知参数的函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2loss" class="md-nav__link">
+    2.定义损失函数Loss
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3optimization" class="md-nav__link">
+    3.优化(Optimization)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-%E5%86%8D%E6%8E%A2%E5%88%86%E7%B1%BB%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1-再探分类器
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1836,6 +1894,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#youtube" class="md-nav__link">
+    实例：预测Youtube频道观看人数
+  </a>
+  
+    <nav class="md-nav" aria-label="实例：预测Youtube频道观看人数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.猜测携带未知参数的函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2loss" class="md-nav__link">
+    2.定义损失函数Loss
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3optimization" class="md-nav__link">
+    3.优化(Optimization)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1861,6 +1953,7 @@
 <p><strong>“机器学习”实质就是帮助人类寻找人类无法写出的函数</strong></p>
 <p>如果机器学习的任务是寻找一个函数，那么深度学习的意思是使用类神经网络寻找一个函数</p>
 <p>这个类神经网络可以包含各种各样的输入：比如向量、矩阵、一段序列（文字、语音等等）；输出可以是：数值(regression)、做出选择(classification)等等</p>
+<p>实际上机器学习领域中还有Structured Learning的任务，让机器去“创造”一个有结构的事物</p>
 <h2 id="_1">如何让机器去寻找函数？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><strong>需要先寻找样本（数据），每获得一份数据就给它做上标记(label)，用于训练模型</strong></p>
 <p>但是实际上的标记工作量十分巨大，假如要做一套分类模型的训练（比如识别猫和狗、识别轿车和自行车...），为每个任务寻找对应的数据集是十分耗时的</p>
@@ -1906,6 +1999,27 @@
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-2.png?raw=true" width="450" /></p>
 <h2 id="domain-adaption">领域自适应(Domain Adaption)<a class="headerlink" href="#domain-adaption" title="Permanent link">&para;</a></h2>
 <p>假设对于一个手写识别模型，假设训练数据全是黑白的手写字体，那么在实际运用中即使输入的是“彩色手写字”，模型也应该理解这份手写字体</p>
+<h2 id="youtube">实例：预测Youtube频道观看人数<a class="headerlink" href="#youtube" title="Permanent link">&para;</a></h2>
+<p>假如现在频道主想根据过往的播放信息，去预测未来某一天特定的观看人数，那么如何去找到想要的函数？</p>
+<p>分为三个步骤</p>
+<h3 id="1">1.猜测携带未知参数的函数<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>令第二天待预测的观看人数为<span class="arithmatex">\(y\)</span>，<span class="arithmatex">\(x\)</span>为今天的观看人数</p>
+<p>则可以<strong>假设</strong>一个函数为<span class="arithmatex">\(y=b+wx_1\quad 其中w和b都是未知参数，需要从数据中学习\)</span></p>
+<p>我们将这个带有未知参数的函数叫做“<strong>模型</strong>”(<code>model</code>)，<span class="arithmatex">\(x_1\)</span>称为<code>feature</code>，<span class="arithmatex">\(w\)</span>叫做<code>weight</code>，<span class="arithmatex">\(b\)</span>称为<code>bias</code></p>
+<h3 id="2loss">2.定义损失函数Loss<a class="headerlink" href="#2loss" title="Permanent link">&para;</a></h3>
+<p><code>Loss</code>也是一个函数<span class="arithmatex">\(L(b,w)\)</span>，这个函数内的参数是<code>model</code>的参数b,w</p>
+<p><code>Loss</code>输出的值表示“预测值与实际的偏差”</p>
+<p>实际的正确值称为<code>label</code></p>
+<p>当计算出了一系列的weight和bias后，可以得到一个<code>Error Surface</code></p>
+<figure>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-3.png?raw=true" width="450" /></p>
+</figure>
+<h3 id="3optimization">3.优化(Optimization)<a class="headerlink" href="#3optimization" title="Permanent link">&para;</a></h3>
+<p>寻找一组<span class="arithmatex">\(w\)</span>与<span class="arithmatex">\(b\)</span>，使得<span class="arithmatex">\(Loss\)</span>值最小，即</p>
+<div class="arithmatex">\[w^*,b^*=arg\min_{w,b} L\]</div>
+<p>目前可以使用梯度下降法(Gradient Descent)进行优化</p>
+<p>为了简化起见，假设未知参数仅有w，当w取值不同时，对应的Loss值也不一样</p>
+<p>随机选择一个初始点<span class="arithmatex">\(w^0\)</span>，计算<span class="arithmatex">\(\frac{\partial L}{\partial w}|_{w=w^0}\)</span>，当计算出的偏导数为负数，那么增加w的值，否则减小w的值</p>
 
 
 
@@ -1948,6 +2062,22 @@
             </div>
           </a>
         
+        
+          
+          <a href="../1-%E5%86%8D%E6%8E%A2%E5%88%86%E7%B1%BB%E5%99%A8/" class="md-footer__link md-footer__link--next" aria-label="下一页: 1-再探分类器">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                1-再探分类器
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
