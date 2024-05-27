@@ -180,10 +180,16 @@ $$y=b+\sum_{j=1}^{7}w_jx_j$$
 
 对于单一的线性函数，永远不可能得到图中红色的函数图像，经过观察，红色的折线其实可以拆分为一个常数值与“蓝色函数”的和
 
-<figure markdown>
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-7.png?raw=true){width=450}
-</figure>
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-8.png?raw=true){width=200 align=right}
 
-不管对于什么样的分段线性函数折线，都可以用一个常数值与“蓝色函数”的和组成，即使考虑函数图像的不是分段线性函数（比如指数函数），也可以先在曲线上去若干点然后讲这些点相连近似处理为分段线性函数
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-7.png?raw=true){width=200 align=right}
 
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-8.png?raw=true){width=300 align=right}
+不管对于什么样的分段线性函数折线，都可以用一个常数值与“蓝色函数”的和组成。即使考虑函数图像的不是分段线性函数（比如指数函数），也可以先在曲线上去若干点然后讲这些点相连近似处理为分段线性函数，也就是说：只要有足够的“蓝色函数”求和相加，或许就可以得到任何的连续曲线
+
+*那么如何写出“蓝色函数”的表达式呢？*
+
+使用**S型函数**(Sigmoid Function)逼近“蓝色函数”，其表达式为
+
+$$y=c\cdot sigmoid(b+wx_1)=c\frac{1}{1+e^{-(b+wx_1)}}$$
+
+修改$w,b,c$可以调整S型函数图像，c调整高度，b左右平移，w调整倾斜程度
