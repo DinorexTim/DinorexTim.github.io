@@ -100,7 +100,7 @@ Machine learning $\approx$ Looking for function
 
 ### 2.定义损失函数Loss
 
-`Loss`也是一个函数$L(b,w)$，这个函数内的参数是`model`的参数b,w
+`Loss`是一个自定义的函数$L(b,w)$，这个函数内的参数是`model`的参数b,w
 
 `Loss`输出的值表示“预测值与实际的偏差”
 
@@ -118,9 +118,30 @@ Machine learning $\approx$ Looking for function
 
 $$w^*,b^*=arg\min_{w,b} L$$
 
-目前可以使用梯度下降法(Gradient Descent)进行优化
+目前可以使用**梯度下降法**(Gradient Descent)进行优化
 
 为了简化起见，假设未知参数仅有w，当w取值不同时，对应的Loss值也不一样
 
-随机选择一个初始点$w^0$，计算$\frac{\partial L}{\partial w}|_{w=w^0}$，当计算出的偏导数为负数，那么增加w的值，否则减小w的值
+随机选择一个初始点$w^0$，计算$\frac{\partial L}{\partial w}|_{w=w^0}$，当计算出的偏导数为负数，那么增加w的值，否则减小w的值，使用$w^1\leftarrow w^0-步幅$反复进行计算，当w的取值越靠近Loss最小值对应的$w^*$，“步幅”会变得越来越小
 
+增加或减少的“步幅”可以用$\eta\frac{\partial L}{\partial w}|_{w=w^0}$表示，其中$\eta$表示**学习速率**(learning rate)，该参数是自定义的。
+
+> 在机器学习里面，像$\eta$这样手动设置的参数称为**超参数**`hyperparameter`
+
+梯度下降法存在一个非常明显的问题：随机取得的初始点在经过迭代后，很有可能会陷入**局部最低点**无法跳出，导致无法求得真正的**全局最低点**。但是在实际的深度学习中，梯度下降法的“局部最低点”问题实际上并非其真正的“痛点”
+
+#### 小结
+
+优化步骤
+
+- 随机取样$w^0,b^0$
+- 进行迭代
+
+$$\begin{align*}
+    &w^1\leftarrow w^0-\eta\frac{\partial L}{\partial w}|_{w=w^0}\\
+    &b^1\leftarrow b^0-\eta\frac{\partial L}{\partial b}|_{b=b^0}
+\end{align*}$$
+
+<figure markdown>
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-4.png?raw=true){width=450}
+</figure>
