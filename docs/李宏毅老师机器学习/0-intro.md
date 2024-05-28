@@ -203,11 +203,48 @@ $$\begin{align}
 
 这样我们就可以写出非常有“弹性”的函数
 
-<figure>
+<figure markdown>
 ![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-9.png?raw=true){width=400}
 </figure>
 
 上面的式子还可以进一步变形，修改为矩阵相乘的形式
 
-$$$$
+$$y=b+\mathbf{c}^T\sigma(\mathbf{b}+\mathbf{W}\mathbf{x})$$
 
+其中x为`feature`,$\vec{W},\vec{b},\vec{c}^T,b$都是未知参数
+
+将未知参数“拉伸”，可以得到一个长的向量$\mathbf{\theta}=\left[\begin{matrix}\theta1\\\theta2\\theta3\\\dots\end{matrix}\right]$，其中$\theta_i$表示一个数值
+
+当参数越来越多时，为了简化表达，将损失函数定义为$L(\theta)$
+
+那么对应的优化步骤也目标也成了$\theta^*=arg\min_{\theta} L$
+
+在优化开始时，随机挑选一个初始值$\theta_0$
+
+根据下式进行迭代
+
+$$\theta^{i+1}=\theta_i-\left[\begin{matrix}
+\eta\frac{\partial L}{\partial \theta_1}|_{\theta=\theta^i}\\
+\eta\frac{\partial L}{\partial \theta_2}|_{\theta=\theta^i}\\
+\dots
+\end{matrix}\right]$$
+
+简写为$\theta^{i+1}=\theta^0-\eta\nabla L(\theta^i)=\theta^0-\eta \mathbf{g}$
+
+### 更常见的优化操作（批处理）
+
+比起使用所有参数进行损失函数的计算，使用批处理更为常见
+
+将$\theta$随机分为一个一个一个`batch`，只拿其中的第一份batch进行损失函数的计算，在这里将计算出的结果命名为$L^1$，根据这个$L^1$来计算$\theta$的梯度，进而更新参数，再拿出第二份batch重复上述操作，以此类推，使用了所有的batch进行了一次优化，叫做一个`epoch`，更新一次的操作叫做`update`
+
+> 一次epoch的训练，实际的更新次数不确定的，因为batch的大小是手动设定的
+
+## 更多模型的变形
+
+“蓝色函数”实际上可以由两个**线性整流函数**`Rectified Linear Unit`(ReLU)构成
+
+ReLU的表达式为$c\cdot max(0,b+wx_1)$
+
+<figure markdown>
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-10.png?raw=true){width=400}
+</figure>
