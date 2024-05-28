@@ -48,7 +48,11 @@ ipa下载完成后可以使用sideloadly或者爱思助手完成签名安装到i
 
 双击`Brokenithm-Envolved-IOS.exe`运行，用数据线连接电脑和ipad
 
-若出现xxxx则代表平板和你的电脑连接成功，可以开始愉快地玩耍了
+连接成功后，就可以开始愉快地玩耍力
+
+<figure markdown>
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/chunithm_0cost-2.png?raw=true){width=300}
+</figure>
 
 > 如果server没有任何反应，则可能是电脑没有安装**iTunes驱动**，去微软商店下载iTunes后重试，大概率会解决问题
 
