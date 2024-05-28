@@ -166,8 +166,6 @@ nav:
         - 相关资料/数据: 比赛/数学建模/复现/2023mcmData.md
         - 探究过程: 比赛/数学建模/复现/2023mcmSol.md
       - 2022美赛B题分析: 比赛/数学建模/复现/2022mcm.md
-    - 信息安全作品赛:
-      - scql部署流程(可信第三方ver.): 比赛/信息安全作品赛/scql部署center.md
     - CUPT:
       - CUPT宣讲会: 比赛/CUPT/CUPT宣讲会.md 
       - 赛题分析 液滴显微镜: 比赛/CUPT/液滴显微镜.md
@@ -176,6 +174,7 @@ nav:
         - 研究题目流程: 比赛/CUPT/研究题目流程.md
         - COMSOL入门: 比赛/CUPT/COMSOL.md
         - Tracker入门: 比赛/CUPT/Tracker.md
+      - 肥皂螺旋: 比赛/CUPT/肥皂螺旋.md
     - 中学物竞:
       - 物竞心得分享: 比赛/中学物竞/物竞心得分享.md
   - 李宏毅老师机器学习:
