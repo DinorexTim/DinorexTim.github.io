@@ -77,8 +77,13 @@ markdown_extensions:
   - tables
 plugins:
   - search
+  - blog:
+      blog_toc: true
+      post_date_format: medium
 nav:
   - index.md
+  - Blog: 
+    - blog/index.md
   - Notes:
     - 大二上:
       - 马原: 

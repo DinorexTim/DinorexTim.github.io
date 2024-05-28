@@ -1,6 +1,6 @@
 # About Me
 
-Hi👋，我是Dinorex，这里是我的个人博客
+Hi👋，我是Dinorex
 
 HITSZ在读22级本科生，喜欢物理、网球、音游，无涯学海苦渡中
 
