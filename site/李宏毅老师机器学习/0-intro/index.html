@@ -2071,8 +2071,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    更多模型的变形
+  <a href="#sigmoid-relu" class="md-nav__link">
+    Sigmoid → ReLU
   </a>
   
 </li>
@@ -2288,8 +2288,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    更多模型的变形
+  <a href="#sigmoid-relu" class="md-nav__link">
+    Sigmoid → ReLU
   </a>
   
 </li>
@@ -2461,12 +2461,14 @@
 <blockquote>
 <p>一次epoch的训练，实际的更新次数不确定的，因为batch的大小是手动设定的</p>
 </blockquote>
-<h2 id="_7">更多模型的变形<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>“蓝色函数”实际上可以由两个<strong>线性整流函数</strong><code>Rectified Linear Unit</code>(ReLU)构成</p>
+<h2 id="sigmoid-relu">Sigmoid → ReLU<a class="headerlink" href="#sigmoid-relu" title="Permanent link">&para;</a></h2>
+<p>“蓝色函数”实际上也可以由两个<strong>线性整流函数</strong><code>Rectified Linear Unit</code>(ReLU)构成</p>
 <p>ReLU的表达式为<span class="arithmatex">\(c\cdot max(0,b+wx_1)\)</span></p>
 <figure>
 <p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-10.png?raw=true" width="400" /></p>
 </figure>
+<p>所以之前提到的模型函数<span class="arithmatex">\(y=b+\sum_i c_i\cdot sigmoid(b_i+\sum_j w_{ij}x_j)\)</span></p>
+<p>可以替换为<span class="arithmatex">\(y=b+\sum_{2i} c_i\cdot max(0,b_i+\sum_j w_{ijx_j})\)</span></p>
 
 
 
