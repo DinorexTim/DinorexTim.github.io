@@ -2055,6 +2055,26 @@
     线性模型局限与改进
   </a>
   
+    <nav class="md-nav" aria-label="线性模型局限与改进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    更常见的优化操作（批处理）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    更多模型的变形
+  </a>
+  
 </li>
       
     </ul>
@@ -2252,6 +2272,26 @@
     线性模型局限与改进
   </a>
   
+    <nav class="md-nav" aria-label="线性模型局限与改进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    更常见的优化操作（批处理）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    更多模型的变形
+  </a>
+  
 </li>
       
     </ul>
@@ -2399,11 +2439,34 @@
 \end{align}\]</div>
 <p>这样我们就可以写出非常有“弹性”的函数</p>
 <figure>
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-9.png?raw=true){width=400}
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-9.png?raw=true" width="400" /></p>
 </figure>
-
 <p>上面的式子还可以进一步变形，修改为矩阵相乘的形式</p>
-<p>$$$$</p>
+<div class="arithmatex">\[y=b+\mathbf{c}^T\sigma(\mathbf{b}+\mathbf{W}\mathbf{x})\]</div>
+<p>其中x为<code>feature</code>,<span class="arithmatex">\(\vec{W},\vec{b},\vec{c}^T,b\)</span>都是未知参数</p>
+<p>将未知参数“拉伸”，可以得到一个长的向量<span class="arithmatex">\(\mathbf{\theta}=\left[\begin{matrix}\theta1\\\theta2\\theta3\\\dots\end{matrix}\right]\)</span>，其中<span class="arithmatex">\(\theta_i\)</span>表示一个数值</p>
+<p>当参数越来越多时，为了简化表达，将损失函数定义为<span class="arithmatex">\(L(\theta)\)</span></p>
+<p>那么对应的优化步骤也目标也成了<span class="arithmatex">\(\theta^*=arg\min_{\theta} L\)</span></p>
+<p>在优化开始时，随机挑选一个初始值<span class="arithmatex">\(\theta_0\)</span></p>
+<p>根据下式进行迭代</p>
+<div class="arithmatex">\[\theta^{i+1}=\theta_i-\left[\begin{matrix}
+\eta\frac{\partial L}{\partial \theta_1}|_{\theta=\theta^i}\\
+\eta\frac{\partial L}{\partial \theta_2}|_{\theta=\theta^i}\\
+\dots
+\end{matrix}\right]\]</div>
+<p>简写为<span class="arithmatex">\(\theta^{i+1}=\theta^0-\eta\nabla L(\theta^i)=\theta^0-\eta \mathbf{g}\)</span></p>
+<h3 id="_6">更常见的优化操作（批处理）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>比起使用所有参数进行损失函数的计算，使用批处理更为常见</p>
+<p>将<span class="arithmatex">\(\theta\)</span>随机分为一个一个一个<code>batch</code>，只拿其中的第一份batch进行损失函数的计算，在这里将计算出的结果命名为<span class="arithmatex">\(L^1\)</span>，根据这个<span class="arithmatex">\(L^1\)</span>来计算<span class="arithmatex">\(\theta\)</span>的梯度，进而更新参数，再拿出第二份batch重复上述操作，以此类推，使用了所有的batch进行了一次优化，叫做一个<code>epoch</code>，更新一次的操作叫做<code>update</code></p>
+<blockquote>
+<p>一次epoch的训练，实际的更新次数不确定的，因为batch的大小是手动设定的</p>
+</blockquote>
+<h2 id="_7">更多模型的变形<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>“蓝色函数”实际上可以由两个<strong>线性整流函数</strong><code>Rectified Linear Unit</code>(ReLU)构成</p>
+<p>ReLU的表达式为<span class="arithmatex">\(c\cdot max(0,b+wx_1)\)</span></p>
+<figure>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-10.png?raw=true" width="400" /></p>
+</figure>
 
 
 
