@@ -239,12 +239,16 @@ $$\theta^{i+1}=\theta_i-\left[\begin{matrix}
 
 > 一次epoch的训练，实际的更新次数不确定的，因为batch的大小是手动设定的
 
-## 更多模型的变形
+## Sigmoid → ReLU
 
-“蓝色函数”实际上可以由两个**线性整流函数**`Rectified Linear Unit`(ReLU)构成
+“蓝色函数”实际上也可以由两个**线性整流函数**`Rectified Linear Unit`(ReLU)构成
 
 ReLU的表达式为$c\cdot max(0,b+wx_1)$
 
 <figure markdown>
 ![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-10.png?raw=true){width=400}
 </figure>
+
+所以之前提到的模型函数$y=b+\sum_i c_i\cdot sigmoid(b_i+\sum_j w_{ij}x_j)$
+
+可以替换为$y=b+\sum_{2i} c_i\cdot max(0,b_i+\sum_j w_{ijx_j})$
