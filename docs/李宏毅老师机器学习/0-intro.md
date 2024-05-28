@@ -193,3 +193,21 @@ $$y=b+\sum_{j=1}^{7}w_jx_j$$
 $$y=c\cdot sigmoid(b+wx_1)=c\frac{1}{1+e^{-(b+wx_1)}}$$
 
 修改$w,b,c$可以调整S型函数图像，c调整高度，b左右平移，w调整倾斜程度
+
+再回头看红色的分段线性函数，可以得到表达式
+
+$$\begin{align}
+    y=b+\sum_i c_i\cdot sigmoid(b_i+w_ix_1)
+    \\=b+\sum_i c_i\cdot sigmoid(b_i+\sum_j w_{ij}x_j)
+\end{align}$$
+
+这样我们就可以写出非常有“弹性”的函数
+
+<figure>
+![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-9.png?raw=true){width=400}
+</figure>
+
+上面的式子还可以进一步变形，修改为矩阵相乘的形式
+
+$$$$
+
