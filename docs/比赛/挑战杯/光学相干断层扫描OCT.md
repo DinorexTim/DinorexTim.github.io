@@ -19,3 +19,5 @@ TD-OCT是第一代OCT成像系统，采用低相干（Low Coherence）光源进�
 <figure markdown>
 ![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/oct-1.png?raw=true){width=300}
 </figure>
+
+在TD-OCT成像系统中，需要通过轴向移动参考镜，来调整样品臂和参考臂之间的光程差，以实现样品深度的扫描，进行深度方向的层析成像
