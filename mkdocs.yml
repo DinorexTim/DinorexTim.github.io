@@ -11,15 +11,15 @@ theme:
     previous: fontawesome/solid/angle-left
     next: fontawesome/solid/angle-right
   palette:
-    - scheme: 'default'
-      primary: 'brown'
-      accent: 'brown'
+    - scheme: default
+      primary: grey
+      accent: grey
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-    - scheme: 'slate'
-      primary: 'black'
-      accent: 'black'
+    - scheme: slate
+      primary: black
+      accent: black
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -183,7 +183,6 @@ nav:
       - CUPT培训:
         - 研究题目流程: 比赛/CUPT/研究题目流程.md
         - COMSOL入门: 比赛/CUPT/COMSOL.md
-        - Tracker入门: 比赛/CUPT/Tracker.md
       - 肥皂螺旋: 比赛/CUPT/肥皂螺旋.md
     - 中学物竞:
       - 物竞心得分享: 比赛/中学物竞/物竞心得分享.md

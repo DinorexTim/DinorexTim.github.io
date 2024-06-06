@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../../../05/31/">
+        <link rel="prev" href="../../03/1/">
       
-      
-        <link rel="next" href="../../10/2/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>挑战杯周会1 - Dinorex 's blog</title>
+        <title>挑战杯周会2 - Dinorex 's blog</title>
       
     
     
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              挑战杯周会1
+              挑战杯周会2
             
           </span>
         </div>
@@ -2022,20 +2020,47 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    机器学习课程
+    客观题三
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    基础知识
+    二分类常用算法
+  </a>
+  
+    <nav class="md-nav" aria-label="二分类常用算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    算法选取建议
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    眼顺应性概念
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
+    区分高顺应性和低顺应性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     文献阅读
   </a>
   
@@ -2092,7 +2117,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2024-06-03 00:00:00" class="md-ellipsis">2024年6月3日</time>
+                        <time datetime="2024-06-10 00:00:00" class="md-ellipsis">2024年6月10日</time>
                       </div>
                     </li>
                     
@@ -2114,7 +2139,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                           <span class="md-ellipsis">
                             
-                              需要 1 分钟阅读时间
+                              需要 2 分钟阅读时间
                             
                           </span>
                         </div>
@@ -2137,31 +2162,86 @@
   
 
 
-  <h1>挑战杯周会1</h1>
+  <h1>挑战杯周会2</h1>
 
-<p>了解OCT成像原理，MPR多平面重建基本知识，深度学习预测近视风险样例分析</p>
+<p>眼球<strong>后部顺应性</strong>的具体评价指标以及评价方案</p>
 <!-- more -->
 
-<h2 id="_1">机器学习课程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><a href="https://dinorexnb.github.io/%E6%9D%8E%E5%AE%8F%E6%AF%85%E8%80%81%E5%B8%88%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0-intro/#youtube">李宏毅老师course01</a></p>
-<p>了解了模型建立基本步骤，复杂函数的分解，sigmoid函数与线性整流函数ReLU的基本运用</p>
-<h2 id="_2">基础知识<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_1">客观题三<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>人工智能算法只采用单次成像数据对眼球后部顺应性预测的二分类<strong>AUC&gt;0.7</strong></p>
+<p>基于第一步眼球应变大小，对眼球后部顺应性分为两类：<strong>高和低</strong>。</p>
+<p>只采用“基线图像”对顺应性进行<strong>二分类预测</strong>。</p>
+<p>需提供源代码和代码详细使用说明，尽量简化代码运行步骤；评委根据提交的代码和使用说明，运行代码，代码在赛事主办方保留的测试集上运行。评委对输出的结果与真值相比较，AUROC 越高，评分越高</p>
+<h2 id="_2">二分类常用算法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>分类算法</th>
+<th>适用范围</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>朴素贝叶斯</td>
+<td>对小规模的数据表现很好，能处理多分类任务</td>
+<td></td>
+</tr>
+<tr>
+<td>逻辑回归(LR)</td>
+<td>可解决多重共线性问题；目标变量是分类变量</td>
+<td></td>
+</tr>
+<tr>
+<td>KNN(K近邻算法)</td>
+<td>具有较强的一致性结果；样本容量比较大的类域自动分类</td>
+<td></td>
+</tr>
+<tr>
+<td>决策树</td>
+<td>适合处理有缺失属性的高维数据样本</td>
+<td></td>
+</tr>
+<tr>
+<td>Ada boosting</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SVM(支持向量机)</td>
+<td>小样本、非线性及高维、超高维模式识别问题中有优势</td>
+<td></td>
+</tr>
+<tr>
+<td>K-Means聚类</td>
+<td>当簇是密集的、球状或团状的，且簇与簇之间区别明显时，聚类效果较好；对数据类型要求较高，适合数值型数据</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">算法选取建议<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ol>
-<li><a href="https://dinorexnb.github.io/%E6%AF%94%E8%B5%9B/%E6%8C%91%E6%88%98%E6%9D%AF/%E4%BA%94%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/">五折交叉验证方法</a></li>
-<li><a href="https://dinorexnb.github.io/%E6%AF%94%E8%B5%9B/%E6%8C%91%E6%88%98%E6%9D%AF/%E5%8C%BB%E5%AD%A6%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/">近视成因</a>、SE</li>
-<li>MPR技术：利用算法在冠状面、矢状面、横断面（或者斜面）重建三维医学影像数据（<a href="https://www.radiantviewer.com/dicom-viewer-manual/multiplanar_reconstructions_mp.html">RadiAnt DICOM Viewer的MPR教程</a>）</li>
-<li><a href="https://dinorexnb.github.io/%E6%AF%94%E8%B5%9B/%E6%8C%91%E6%88%98%E6%9D%AF/%E5%85%89%E5%AD%A6%E7%9B%B8%E5%B9%B2%E6%96%AD%E5%B1%82%E6%89%AB%E6%8F%8FOCT/">OCT基础知识与成像原理</a></li>
+<li>首选逻辑回归，如果它的效果不怎么样，那么可以将它的结果作为基准来参考，在基础上与其他算法进行比较；</li>
+<li>然后试试决策树（随机森林）看看是否可以大幅度提升你的模型性能。即便最后你并没有把它当做为最终模型，你也可以使用随机森林来移除噪声变量，做特征选择；</li>
+<li>如果特征的数量和观测样本特别多，那么当资源和时间充足时，使用SVM不失为一种选择</li>
 </ol>
-<h2 id="_3">文献阅读<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p><a href="https://www.nature.com/articles41746-023-00752-8#data-availability">Deep learning system to predict the 5-year risk of high myopia using fundus imaging in children</a></p>
+<h2 id="_4">眼顺应性概念<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
-<li>推导出三种不同的算法——图像、临床、图像+临床的混合模型来预测青少年时期的高度近视发展</li>
-<li>数据集来源：新加坡学校里965名儿童的7456张视网膜图像</li>
-<li>评估优化方法：<a href="https://dinorexnb.github.io/%E6%AF%94%E8%B5%9B/%E6%8C%91%E6%88%98%E6%9D%AF/%E4%BA%94%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/">五重交叉验证训练</a></li>
+<li>眼睛的压力-容积关系由角膜巩膜外壳的生物力学特性决定，典型特征是Friedenwald的<strong>眼顺应性(OC)</strong>，定义为</li>
 </ul>
-</li>
+<div class="arithmatex">\[\phi=\frac{dV}{dP}\quad(1)\]</div>
+<blockquote>
+<p>它代表眼内容积<span class="arithmatex">\(V\)</span>的变化<span class="arithmatex">\(dV\)</span>与每单位眼压<span class="arithmatex">\(P\)</span>的相应变化<span class="arithmatex">\(dP\)</span>的比值</p>
+</blockquote>
+<p>在眼睛体积受到干扰的任何情况下，都会产生压力变化，其大小取决于这种<span class="arithmatex">\(P-V\)</span>关系，在无法直接测得体积的情况下，可以通过下式确定<span class="arithmatex">\(\phi\)</span></p>
+<div class="arithmatex">\[\phi=\phi_r\left(\frac{P_{r,\phi}+\gamma}{P+\gamma}\right)\quad(2)\]</div>
+<blockquote>
+<p><span class="arithmatex">\(\phi_r\)</span>是参考顺应性，<span class="arithmatex">\(\gamma\)</span>为实验室测定的经验参数（在 Ethier et al. (2004)中给出<span class="arithmatex">\(\gamma=\frac{2Ah}{R}\)</span>，其中h与R分别是角膜和巩膜的厚度，A是基于Fung本构关系定义，即<span class="arithmatex">\(\sigma=A(e^{\alpha\epsilon}-1)\)</span>），对于<span class="arithmatex">\(\gamma=0\)</span>的特殊情况，公式(2)便会退化到公式(1)</p>
+</blockquote>
+<h2 id="_5">区分高顺应性和低顺应性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">文献阅读<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="https://www.frontiersin.org/articles/10.3389/fbioe.2019.00276/full">利用iPerfusion测量眼球顺应性</a></li>
 </ol>
 
 
@@ -2194,7 +2274,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../../05/31/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 美赛后的一些感想">
+          <a href="../../03/1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 挑战杯周会1">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
@@ -2204,27 +2284,11 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                美赛后的一些感想
+                挑战杯周会1
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../../10/2/" class="md-footer__link md-footer__link--next" aria-label="下一页: 挑战杯周会2">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                挑战杯周会2
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
