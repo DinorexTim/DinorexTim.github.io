@@ -74,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#-" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1285,6 +1290,8 @@
       
         
       
+        
+      
     
     
     
@@ -1969,6 +1976,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1-再探分类器
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1978,6 +1996,37 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    从宝可梦-数码宝贝分类器开始
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    观察
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2009,6 +2058,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    从宝可梦-数码宝贝分类器开始
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    观察
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2027,7 +2098,17 @@
 
   <h1>1-再探分类器</h1>
 
-
+<h2 id="-">从宝可梦-数码宝贝分类器开始<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<p>我们想要找到一个这样的函数：</p>
+<div class="arithmatex">\[f(Image)=\begin{cases}
+    Digimon\\Pokemon
+\end{cases}\]</div>
+<h2 id="_1">观察<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>从画风来看：Pokemon的线条更加简约，Digimon更加“复杂”</p>
+<p>对于两类生物，可以使用<strong>边缘检测</strong>获得图像轮廓，将轮廓处的像素设置为白色，其余设为黑色，那么就可以得到一个<strong>边缘占比</strong></p>
+<figure>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml1-1.png?raw=true" width="400" /></p>
+</figure>
 
 
 
