@@ -2024,6 +2024,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    定义损失函数
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2078,6 +2085,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    定义损失函数
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2105,10 +2119,24 @@
 \end{cases}\]</div>
 <h2 id="_1">观察<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>从画风来看：Pokemon的线条更加简约，Digimon更加“复杂”</p>
-<p>对于两类生物，可以使用<strong>边缘检测</strong>获得图像轮廓，将轮廓处的像素设置为白色，其余设为黑色，那么就可以得到一个<strong>边缘占比</strong></p>
+<p>对于两类生物，可以使用<strong>边缘检测</strong>获得图像轮廓，将轮廓处的像素设置为白色，其余设为黑色，那么就可以得到白色像素点的数目，我们定义数目=<span class="arithmatex">\(e(Image)\)</span></p>
 <figure>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml1-1.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml1-1.png?raw=true" width="300" /></p>
 </figure>
+<p>一个简单的分类依据是：假设分类的阈值(threshold)为<span class="arithmatex">\(h\)</span>，当输入的图像I得到的<span class="arithmatex">\(e(I)&gt;h\)</span>，则为数码宝贝，否则为宝可梦</p>
+<p>由于这个阈值是未知参数，所以h其实是有很多可能的取值，考虑h的所有可能取值的集合，得到<span class="arithmatex">\(\mathbf{H}=\{1,2,\dots 10000\}\)</span></p>
+<blockquote>
+<p><span class="arithmatex">\(|\mathbf{H}|\)</span>指模型的复杂程度("complexity")</p>
+</blockquote>
+<h2 id="_2">定义损失函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>需要有数据集<span class="arithmatex">\(D\)</span></li>
+</ul>
+<div class="arithmatex">\[D=\{(x^1,\hat{y}^1),(x^2,\hat{y}^2),\dots,(x^n,\hat{y}^n)\}\]</div>
+<ul>
+<li>给定一个阈值<span class="arithmatex">\(h\)</span>，可以根据一组训练数据集<span class="arithmatex">\(D\)</span>计算出相应的损失函数值，损失函数定义为</li>
+</ul>
+<div class="arithmatex">\[L(h,D)=\frac{1}{N}\sum_{n=1}^{N}l(h,x^n,\hat{y}^n)\]</div>
 
 
 
