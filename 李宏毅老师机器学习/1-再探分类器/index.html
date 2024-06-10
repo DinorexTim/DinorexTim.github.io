@@ -63,7 +63,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="grey">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
   
     
     
@@ -121,7 +121,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -131,7 +131,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -2031,6 +2031,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    训练
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2092,6 +2099,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    训练
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2133,10 +2147,24 @@
 <li>需要有数据集<span class="arithmatex">\(D\)</span></li>
 </ul>
 <div class="arithmatex">\[D=\{(x^1,\hat{y}^1),(x^2,\hat{y}^2),\dots,(x^n,\hat{y}^n)\}\]</div>
+<blockquote>
+<p>x为图像，y为种类</p>
+</blockquote>
 <ul>
-<li>给定一个阈值<span class="arithmatex">\(h\)</span>，可以根据一组训练数据集<span class="arithmatex">\(D\)</span>计算出相应的损失函数值，损失函数定义为</li>
+<li>给定一个阈值<span class="arithmatex">\(h\)</span>，可以根据一组训练数据集<span class="arithmatex">\(D\)</span>计算出相应的损失函数，损失函数定义为</li>
 </ul>
 <div class="arithmatex">\[L(h,D)=\frac{1}{N}\sum_{n=1}^{N}l(h,x^n,\hat{y}^n)\]</div>
+<blockquote>
+<p><span class="arithmatex">\(l(h,x^n,\hat{y}^n)\)</span>的一种计算方法——<span class="arithmatex">\(I(f_h(x^n)\neq \hat{y}^n)\)</span>：若输出与正解相同则为0，否则为1</p>
+</blockquote>
+<h2 id="_3">训练<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>假如可以找到全世界所有的数据<span class="arithmatex">\({D_{all}}\)</span>，那么可以找到一个最好的阈值<span class="arithmatex">\(h^{all}\)</span></p>
+<p>但是实际上只能找到<strong>部分</strong>宝可梦、数码宝贝数据集，那么这个训练数据集称为<span class="arithmatex">\(D_{train}\)</span>，根据<span class="arithmatex">\(D_{train}\)</span>得到的阈值成为<span class="arithmatex">\(h^{train}\)</span></p>
+<blockquote>
+<p>我们希望<span class="arithmatex">\(L(h^{train},D_{all})\)</span>和<span class="arithmatex">\(L(h^{all},D_{all})\)</span>尽可能的接近，即<span class="arithmatex">\(L(h^{train},D_{all})-L(h^{all},D_{all})≤\delta\)</span></p>
+</blockquote>
+<p>定理：<span class="arithmatex">\(\forall h\in \mathbf{H},|L(h,D_{train})-L(h,D_{all})|≤\delta/2\)</span></p>
+<p>根据上述定理可以得到一个<span class="arithmatex">\(D_{all}\)</span>的代表数据集<span class="arithmatex">\(D_{train}\)</span></p>
 
 
 
