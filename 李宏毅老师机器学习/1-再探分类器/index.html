@@ -2036,6 +2036,19 @@
     训练
   </a>
   
+    <nav class="md-nav" aria-label="训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hoeffdings-inequality" class="md-nav__link">
+    霍夫丁不等式(Hoeffding's Inequality)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2104,6 +2117,19 @@
     训练
   </a>
   
+    <nav class="md-nav" aria-label="训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hoeffdings-inequality" class="md-nav__link">
+    霍夫丁不等式(Hoeffding's Inequality)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2165,6 +2191,13 @@
 </blockquote>
 <p>定理：<span class="arithmatex">\(\forall h\in \mathbf{H},|L(h,D_{train})-L(h,D_{all})|≤\delta/2\)</span></p>
 <p>根据上述定理可以得到一个<span class="arithmatex">\(D_{all}\)</span>的代表数据集<span class="arithmatex">\(D_{train}\)</span></p>
+<p>如何定义一个不好的数据集？</p>
+<p><span class="arithmatex">\(\exist h, s.t. |L(h,D_{train})-L(h,D_{all})&gt;\epsilon|\)</span></p>
+<h3 id="hoeffdings-inequality">霍夫丁不等式(Hoeffding's Inequality)<a class="headerlink" href="#hoeffdings-inequality" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[P(D_{train} \quad is \quad bad \quad due \quad to \quad h)≤ 2exp(-2N\epsilon^2)\]</div>
+<blockquote>
+<p>L范围为[0,1]；N是<span class="arithmatex">\(D_{train}\)</span>的样本数量</p>
+</blockquote>
 
 
 
