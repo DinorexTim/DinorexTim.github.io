@@ -2057,10 +2057,23 @@
     区分高顺应性和低顺应性
   </a>
   
+    <nav class="md-nav" aria-label="区分高顺应性和低顺应性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    定义损失函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     文献阅读
   </a>
   
@@ -2239,7 +2252,24 @@
 <p><span class="arithmatex">\(\phi_r\)</span>是参考顺应性，<span class="arithmatex">\(\gamma\)</span>为实验室测定的经验参数（在 Ethier et al. (2004)中给出<span class="arithmatex">\(\gamma=\frac{2Ah}{R}\)</span>，其中h与R分别是角膜和巩膜的厚度，A是基于Fung本构关系定义，即<span class="arithmatex">\(\sigma=A(e^{\alpha\epsilon}-1)\)</span>），对于<span class="arithmatex">\(\gamma=0\)</span>的特殊情况，公式(2)便会退化到公式(1)</p>
 </blockquote>
 <h2 id="_5">区分高顺应性和低顺应性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h2 id="_6">文献阅读<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_6">定义损失函数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>需要有数据集<span class="arithmatex">\(D\)</span></li>
+</ul>
+<div class="arithmatex">\[D=\{(x^1,\hat{y}^1),(x^2,\hat{y}^2),\dots,(x^n,\hat{y}^n)\}\]</div>
+<blockquote>
+<p>其中x为给定的眼底影像，y为是否近视的特征量<br>
+比如近视（低顺应性）：1，非近视（高顺应性）：0</p>
+</blockquote>
+<ul>
+<li>给定一个阈值<span class="arithmatex">\(h\)</span>，可以根据一组训练数据集<span class="arithmatex">\(D\)</span>计算出相应的损失函数，损失函数定义为</li>
+</ul>
+<div class="arithmatex">\[L(h,D)=\frac{1}{N}\sum_{n=1}^{N}l(h,x^n,\hat{y}^n)\]</div>
+<blockquote>
+<p><span class="arithmatex">\(l(h,x^n,\hat{y}^n)\)</span>的一种计算方法——<span class="arithmatex">\(I(f_h(x^n)\neq \hat{y}^n)\)</span>：若输出与正解相同则为0，否则为1<br>
+也可以使用<a href="https://microsoft.github.io/ai-edu/%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/A2-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/%E7%AC%AC1%E6%AD%A5%20-%20%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/03.2-%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/">交叉熵损失函数</a>作为<span class="arithmatex">\(l(h,x^n,\hat{y}^n)\)</span>的计算方法，这样方便使用梯度下降法找到最优阈值</p>
+</blockquote>
+<h2 id="_7">文献阅读<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ol>
 <li><a href="https://www.frontiersin.org/articles/10.3389/fbioe.2019.00276/full">利用iPerfusion测量眼球顺应性</a></li>
 <li><a href="https://iovs.arvojournals.org/article.aspx?articleid=2126312#89906924">诱导近视对豚鼠巩膜肌成纤维细胞及体内眼部生物力学顺应性的影响</a></li>
