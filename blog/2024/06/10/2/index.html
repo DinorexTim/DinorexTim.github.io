@@ -2244,7 +2244,9 @@
 </ul>
 <div class="arithmatex">\[\phi=\frac{dV}{dP}\quad(1)\]</div>
 <blockquote>
-<p>它代表眼内容积<span class="arithmatex">\(V\)</span>的变化<span class="arithmatex">\(dV\)</span>与每单位眼压<span class="arithmatex">\(P\)</span>的相应变化<span class="arithmatex">\(dP\)</span>的比值</p>
+<p>它代表眼内容积<span class="arithmatex">\(V\)</span>的变化<span class="arithmatex">\(dV\)</span>与每单位眼压<span class="arithmatex">\(P\)</span>的相应变化<span class="arithmatex">\(dP\)</span>的比值<br>
+眼压测量方法:Schiotz眼压计、Goldmann压平眼压计(GAT)等<br>
+眼内容积测量方法:<a href="https://rs.yiigle.com/cmaid/300257">MRI磁共振成像</a>（优点：活体测量）</p>
 </blockquote>
 <p>在眼睛体积受到干扰的任何情况下，都会产生压力变化，其大小取决于这种<span class="arithmatex">\(P-V\)</span>关系，在无法直接测得体积的情况下，可以通过下式确定<span class="arithmatex">\(\phi\)</span></p>
 <div class="arithmatex">\[\phi=\phi_r\left(\frac{P_{r,\phi}+\gamma}{P+\gamma}\right)\quad(2)\]</div>
@@ -2254,12 +2256,12 @@
 <h2 id="_5">区分高顺应性和低顺应性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">定义损失函数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <ul>
-<li>需要有数据集<span class="arithmatex">\(D\)</span></li>
+<li>令数据集为<span class="arithmatex">\(D\)</span></li>
 </ul>
 <div class="arithmatex">\[D=\{(x^1,\hat{y}^1),(x^2,\hat{y}^2),\dots,(x^n,\hat{y}^n)\}\]</div>
 <blockquote>
-<p>其中x为给定的眼底影像，y为是否近视的特征量<br>
-比如近视（低顺应性）：1，非近视（高顺应性）：0</p>
+<p>其中x为给定眼底影像的眼底应变场，y为是否近视的特征量<br>
+近视（低顺应性）：1，非近视（高顺应性）：0</p>
 </blockquote>
 <ul>
 <li>给定一个阈值<span class="arithmatex">\(h\)</span>，可以根据一组训练数据集<span class="arithmatex">\(D\)</span>计算出相应的损失函数，损失函数定义为</li>
