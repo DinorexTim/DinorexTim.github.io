@@ -2020,13 +2020,33 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    客观题一
+  </a>
+  
+    <nav class="md-nav" aria-label="客观题一">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    位移点的追踪
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     客观题三
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     二分类常用算法
   </a>
   
@@ -2034,7 +2054,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     算法选取建议
   </a>
   
@@ -2046,14 +2066,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     眼顺应性概念
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     区分高顺应性和低顺应性
   </a>
   
@@ -2061,7 +2081,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     定义损失函数
   </a>
   
@@ -2073,7 +2093,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     文献阅读
   </a>
   
@@ -2180,12 +2200,22 @@
 <p>眼球<strong>后部顺应性</strong>的具体评价指标以及评价方案</p>
 <!-- more -->
 
-<h2 id="_1">客观题三<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">客观题一<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>有限应变理论（finite strain theory）也称为大应变理论或大形变理论，是连续介质力学中处理有较大应变或转动的形变，已不符合无限小应变理论假设下的理论。此情形下，物体在未形变的组态及已形变的组态有明显的不同。有限应变理论常用于弹性体、塑性变形材料、流体及生物软组织。</p>
+<p>物体的位移可以分为二个分量：刚体位移以及形变。</p>
+<p>刚体位移包括物体的平移或旋转，物体的形状、大小都维持不变。</p>
+<p>形变表示物体形状或大小的变化，从未形变的组态<span class="arithmatex">\(k_0(B)\)</span>变成形变后的组态</p>
+<p><strong>连续体组态的变化可以用位移场来描述</strong>。位移场是物体中<strong>所有点的位移向量组合成的场</strong>，可以找到形变后组态和形变前组态之间的关系。物体中二点之间的距离改变，当且仅当物体出现形变。若物体有位移，但没有形变，即为刚体运动。</p>
+<h3 id="_2">位移点的追踪<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>角点划分，参考文章<a href="https://blog.csdn.net/sheldor/article/details/38517987">目标跟踪的点跟踪技术</a></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/tz2-0.png?raw=true" width="300" /></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/tz2-1.png?raw=true" width="300" /></p>
+<h2 id="_3">客观题三<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>人工智能算法只采用单次成像数据对眼球后部顺应性预测的二分类<strong>AUC&gt;0.7</strong></p>
 <p>基于第一步眼球应变大小，对眼球后部顺应性分为两类：<strong>高和低</strong>。</p>
 <p>只采用“基线图像”对顺应性进行<strong>二分类预测</strong>。</p>
 <p>需提供源代码和代码详细使用说明，尽量简化代码运行步骤；评委根据提交的代码和使用说明，运行代码，代码在赛事主办方保留的测试集上运行。评委对输出的结果与真值相比较，AUROC 越高，评分越高</p>
-<h2 id="_2">二分类常用算法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_4">二分类常用算法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2232,13 +2262,13 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_3">算法选取建议<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_5">算法选取建议<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <ol>
 <li>首选逻辑回归，如果它的效果不怎么样，那么可以将它的结果作为基准来参考，在基础上与其他算法进行比较；</li>
 <li>然后试试决策树（随机森林）看看是否可以大幅度提升你的模型性能。即便最后你并没有把它当做为最终模型，你也可以使用随机森林来移除噪声变量，做特征选择；</li>
 <li>如果特征的数量和观测样本特别多，那么当资源和时间充足时，使用SVM不失为一种选择</li>
 </ol>
-<h2 id="_4">眼顺应性概念<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_6">眼顺应性概念<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li>眼睛的压力-容积关系由角膜巩膜外壳的生物力学特性决定，典型特征是Friedenwald的<strong>眼顺应性(OC)</strong>，定义为</li>
 </ul>
@@ -2253,8 +2283,8 @@
 <blockquote>
 <p><span class="arithmatex">\(\phi_r\)</span>是参考顺应性，<span class="arithmatex">\(\gamma\)</span>为实验室测定的经验参数（在 Ethier et al. (2004)中给出<span class="arithmatex">\(\gamma=\frac{2Ah}{R}\)</span>，其中h与R分别是角膜和巩膜的厚度，A是基于Fung本构关系定义，即<span class="arithmatex">\(\sigma=A(e^{\alpha\epsilon}-1)\)</span>），对于<span class="arithmatex">\(\gamma=0\)</span>的特殊情况，公式(2)便会退化到公式(1)</p>
 </blockquote>
-<h2 id="_5">区分高顺应性和低顺应性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h3 id="_6">定义损失函数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h2 id="_7">区分高顺应性和低顺应性<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">定义损失函数<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <ul>
 <li>令数据集为<span class="arithmatex">\(D\)</span></li>
 </ul>
@@ -2271,7 +2301,7 @@
 <p><span class="arithmatex">\(l(h,x^n,\hat{y}^n)\)</span>的一种计算方法——<span class="arithmatex">\(I(f_h(x^n)\neq \hat{y}^n)\)</span>：若输出与正解相同则为0，否则为1<br>
 也可以使用<a href="https://microsoft.github.io/ai-edu/%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/A2-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/%E7%AC%AC1%E6%AD%A5%20-%20%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/03.2-%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/">交叉熵损失函数</a>作为<span class="arithmatex">\(l(h,x^n,\hat{y}^n)\)</span>的计算方法，这样方便使用梯度下降法找到最优阈值</p>
 </blockquote>
-<h2 id="_7">文献阅读<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_9">文献阅读<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <ol>
 <li><a href="https://www.frontiersin.org/articles/10.3389/fbioe.2019.00276/full">利用iPerfusion测量眼球顺应性</a></li>
 <li><a href="https://iovs.arvojournals.org/article.aspx?articleid=2126312#89906924">诱导近视对豚鼠巩膜肌成纤维细胞及体内眼部生物力学顺应性的影响</a></li>
