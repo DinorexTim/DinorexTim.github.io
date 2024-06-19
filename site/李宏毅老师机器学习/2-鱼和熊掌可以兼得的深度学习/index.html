@@ -2039,6 +2039,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#deep-learningwide-learning" class="md-nav__link">
+    为什么是"deep" learning而非"wide" learning?
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2086,6 +2093,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#deep-learningwide-learning" class="md-nav__link">
+    为什么是"deep" learning而非"wide" learning?
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2110,7 +2124,13 @@
 <div class="arithmatex">\[P(D_{train} \quad is \quad bad \quad due \quad to \quad h)≤ 2exp(-2N\epsilon^2)\]</div>
 <p>假如拥有一个较大的<span class="arithmatex">\(|\mathbf{H}|\)</span>虽然可以得到更低的理论损失函数值但是训练集得到的损失函数值可能与理论偏差更大，反之亦然</p>
 <figure>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml2-1.png?raw=true" width="300" /></p>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml2-1.png?raw=true" width="400" /></p>
+</figure>
+<p>如何得到<span class="arithmatex">\(h^{all}=arg \min_{h\in H}L(h,D_{all})\)</span>这种理想情况？</p>
+<h2 id="deep-learningwide-learning">为什么是"deep" learning而非"wide" learning?<a class="headerlink" href="#deep-learningwide-learning" title="Permanent link">&para;</a></h2>
+<p>假如构造一个分段线性函数，<span class="arithmatex">\(a_1=1\cdot \max(0,x-0.5)+1\cdot \max(0,-x+0.5)\)</span></p>
+<figure>
+<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml2-2.png?raw=true" width="400" /></p>
 </figure>
 
 
