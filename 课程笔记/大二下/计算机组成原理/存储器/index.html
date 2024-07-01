@@ -1273,6 +1273,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cpu_1" class="md-nav__link">
+    主存储器与CPU的连接
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2286,6 +2293,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cpu_1" class="md-nav__link">
+    主存储器与CPU的连接
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2354,7 +2368,7 @@
 <p><code>MDR</code>（主存数据寄存器）通过数据总线将数据存储至主存</p>
 <p><code>MAR</code>（主存地址寄存器）通过地址总线访问主存数据</p>
 <h3 id="_6">主存中存储单元地址的分配<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>假如有16MB（<span class="arithmatex">\(2^27\)</span>）的存储器，</p>
+<p>假如有16MB（<span class="arithmatex">\(2^{27}\)</span>）的存储器，</p>
 <p>如果按照字节寻址，寻址范围为<span class="arithmatex">\(2^{24}\)</span></p>
 <p>如果按照字（16位）寻址，寻址范围为<span class="arithmatex">\(2^{23}\)</span></p>
 <h3 id="_7">存储器常用技术指标<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
@@ -2366,12 +2380,36 @@
 <p><img alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz9-0.png?raw=true" width="400" /></p>
 <h2 id="cpu">存储器与CPU的连接<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h2>
 <p>如何扩展存储器的容量？</p>
-<p>采用位扩展——增加存储的字长</p>
+<ul>
+<li>采用<strong>位扩展</strong>——增加存储的字长</li>
+</ul>
 <p>比如：使用两个1Kx4位存储芯片组成1Kx8位的存储器</p>
 <p><img alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz9-1.png?raw=true" width="400" /></p>
 <blockquote>
 <p>1K意味着10根地址线(<span class="arithmatex">\(2^10\)</span>)，8位代表有8根数据线</p>
 </blockquote>
+<ul>
+<li>采用<strong>字扩展</strong>——增加存储字数量</li>
+</ul>
+<p>比如：使用两个1Kx8位存储芯片组成2Kx8位的存储器</p>
+<p><img alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz9-2.png?raw=true" width="400" /></p>
+<blockquote>
+<p>2K意味着11根地址线</p>
+</blockquote>
+<ul>
+<li>采用<strong>字、位扩展</strong></li>
+</ul>
+<p>比如：用8个1Kx4位存储芯片组成4Kx8位的存储器</p>
+<p><img alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz9-3.png?raw=true" width="400" /></p>
+<h2 id="cpu_1">主存储器与CPU的连接<a class="headerlink" href="#cpu_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>地址线的连接：通常将CPU 地址线低位与存储芯片地址线相连，高位用于存储芯片扩充，或用做片选信号等。</li>
+<li>数据线的连接：存储芯片与CPU的数据线数不等时，必须对存储芯片进行位扩展，使二者相等。</li>
+<li>读/写控制线的连接 </li>
+<li>片选线的连接</li>
+<li>合理选择存储芯片</li>
+<li>其他：时序、负载等</li>
+</ul>
 
 
 
