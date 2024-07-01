@@ -1266,6 +1266,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    存储器与CPU的连接
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2272,6 +2279,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    存储器与CPU的连接
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2337,8 +2351,8 @@
 </ul>
 <h2 id="_4">主存储器<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="_5">主存储器的基本构成<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p><code>MDR</code>通过数据总线将数据存储至主存</p>
-<p><code>MAR</code>通过地址总线访问主存数据</p>
+<p><code>MDR</code>（主存数据寄存器）通过数据总线将数据存储至主存</p>
+<p><code>MAR</code>（主存地址寄存器）通过地址总线访问主存数据</p>
 <h3 id="_6">主存中存储单元地址的分配<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>假如有16MB（<span class="arithmatex">\(2^27\)</span>）的存储器，</p>
 <p>如果按照字节寻址，寻址范围为<span class="arithmatex">\(2^{24}\)</span></p>
@@ -2350,6 +2364,14 @@
 </ol>
 <h2 id="_8">半导体存储芯片的基本结构<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz9-0.png?raw=true" width="400" /></p>
+<h2 id="cpu">存储器与CPU的连接<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h2>
+<p>如何扩展存储器的容量？</p>
+<p>采用位扩展——增加存储的字长</p>
+<p>比如：使用两个1Kx4位存储芯片组成1Kx8位的存储器</p>
+<p><img alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz9-1.png?raw=true" width="400" /></p>
+<blockquote>
+<p>1K意味着10根地址线(<span class="arithmatex">\(2^10\)</span>)，8位代表有8根数据线</p>
+</blockquote>
 
 
 
