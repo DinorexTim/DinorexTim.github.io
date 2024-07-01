@@ -1271,12 +1271,18 @@
     存储器与CPU的连接
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="存储器与CPU的连接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#cpu_1" class="md-nav__link">
     主存储器与CPU的连接
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2291,12 +2297,18 @@
     存储器与CPU的连接
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="存储器与CPU的连接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#cpu_1" class="md-nav__link">
     主存储器与CPU的连接
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2401,7 +2413,7 @@
 </ul>
 <p>比如：用8个1Kx4位存储芯片组成4Kx8位的存储器</p>
 <p><img alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/jz9-3.png?raw=true" width="400" /></p>
-<h2 id="cpu_1">主存储器与CPU的连接<a class="headerlink" href="#cpu_1" title="Permanent link">&para;</a></h2>
+<h3 id="cpu_1">主存储器与CPU的连接<a class="headerlink" href="#cpu_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>地址线的连接：通常将CPU 地址线低位与存储芯片地址线相连，高位用于存储芯片扩充，或用做片选信号等。</li>
 <li>数据线的连接：存储芯片与CPU的数据线数不等时，必须对存储芯片进行位扩展，使二者相等。</li>
@@ -2409,6 +2421,17 @@
 <li>片选线的连接</li>
 <li>合理选择存储芯片</li>
 <li>其他：时序、负载等</li>
+</ul>
+<p>例：假设CPU有16根地址线，8根数据线，<span class="arithmatex">\(\overline{MREQ}\)</span>为访存控制信号（低电平有效），<span class="arithmatex">\(\overline{WR}\)</span>为读/写控制信号（高电平为读，低电平为写），下列有芯片若干：RAM：1Kx4位；4Kx8位；8Kx8位；ROM：2Kx8位；4Kx8位；8Kx8位；74LS138译码器和各种门电路。请画出CPU与存储器的连接图</p>
+<p>要求：</p>
+<ul>
+<li>主存地址空间分配<ul>
+<li>6000H~67FFH为系统程序区</li>
+<li>6800H~6BFFH为用户程序区</li>
+</ul>
+</li>
+<li>合理选用上述芯片</li>
+<li>详细画出存储芯片的片选逻辑</li>
 </ul>
 
 
