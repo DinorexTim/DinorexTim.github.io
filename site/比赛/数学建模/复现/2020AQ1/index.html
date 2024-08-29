@@ -1794,7 +1794,7 @@
 <div class="arithmatex">\[-0.5ru_{i-1,j+1}+(1+r)u_{i,j+1}-0.5ru_{i+1,j+1}=0.5u_{i-1,j}+(1-r)u_{i,j}+0.5ru_{i+1,j}\]</div>
 <p>可以转化为线性方程组求解</p>
 <div class="arithmatex">\[\left(\begin{matrix}1+h_1\Delta z &amp; -1 &amp;&amp;&amp;\\-r&amp;2(1+r)&amp;-r&amp;&amp;\\&amp;-r&amp;2(1+r)&amp;-r&amp;&amp;\\&amp;&amp;-r&amp;2(1+r)&amp;-r&amp;\\&amp;&amp;&amp;-1&amp;1+h_1\Delta z\end{matrix}\right)_{(m+1,m+1)}\left(\begin{matrix}u_{1,j+1}\\u_{2,j+1}\\u_{3,j+1}\\u_{4,j+1}\\u_{5,j+1}\end{matrix}\right)\]</div>
-<div class="arithmatex">\[=\left(\begin{matrix} &amp;&amp;&amp;&amp;\\-r&amp;2(1+r)&amp;-r&amp;&amp;\\&amp;-r&amp;2(1+r)&amp;-r&amp;&amp;\\&amp;&amp;-r&amp;2(1+r)&amp;-r&amp;\\&amp;&amp;&amp;&amp;\end{matrix}\right)\left(\begin{matrix}u_{1,j}\\u_{2,j}\\u_{3,j}\\u_{4,j}\\u_{5,j}\end{matrix}\right)+\left(\begin{matrix}h_1f_{j+1}\Delta z\\ \\ \\ \\h_1f_{j+1}\Delta z\end{matrix}\right)\]</div>
+<div class="arithmatex">\[=\left(\begin{matrix} &amp;&amp;&amp;&amp;\\r&amp;2(1-r)&amp;r&amp;&amp;\\&amp;r&amp;2(1-r)&amp;r&amp;&amp;\\&amp;&amp;r&amp;2(1-r)&amp;r&amp;\\&amp;&amp;&amp;&amp;\end{matrix}\right)\left(\begin{matrix}u_{1,j}\\u_{2,j}\\u_{3,j}\\u_{4,j}\\u_{5,j}\end{matrix}\right)+\left(\begin{matrix}h_1f_{j+1}\Delta z\\ \\ \\ \\h_1f_{j+1}\Delta z\end{matrix}\right)\]</div>
 <blockquote>
 <p>利用时间为0的温度初值求解下一时刻的温度</p>
 </blockquote>
