@@ -1398,6 +1398,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="数据模型模型与模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      经典数据模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1611,6 +1626,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="数据模型模型与模式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      经典数据模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1679,10 +1709,33 @@
 <p>视图——展现的数据(View)：某一种表现形式下表现出来的数据库中的数据</p>
 <p><img alt="" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/dbs1-3.png?raw=true" /></p>
 <blockquote>
-<p>模式与视图根据DBMS的三个层次分为三级</p>
+<p>模式与视图根据DBMS的三个层次分为三级，即External、Conceptual、Internal</p>
 </blockquote>
 <h3 id="_7">数据库系统标准结构<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>两层映像<ul>
+<li>E-C Mapping：将外模式映射为概念模式，从而支持实现数据概念视图想外部视图转换，便于用户观察和使用</li>
+<li>C-I Mapping：将概念模式映射为内模式，从而便于计算机进行存储和处理</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>分层原因：逻辑数据独立性——当概念模式发生变化，可以不改变外部模式（只需修改E-C映像），无需修改应用程序；物理数据独立性——当内部模式发生变化，可以不改变概念模式（只需要改变C-I 映像），不改变外部模式</p>
+</blockquote>
 <h3 id="_8">数据模型模型与模式<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>数据模型：规定模式统一描述方式的模型；<strong>数据模型是对模式本身结构的抽象</strong>，模式是对数据本身结构形式的抽象</p>
+<blockquote>
+<p>比如关系模型中所有模型都可以抽象为表的形式，而每一个具体的模式都是拥有不同列名的具体的表</p>
+</blockquote>
+<h4 id="_9">经典数据模型<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<ul>
+<li>层次模型：<strong>树</strong>的形式组织数据</li>
+<li>网状模型：<strong>图</strong>的形式组织数据</li>
+<li>关系模型：<strong>表</strong>的形式组织数据</li>
+<li>实体-联系模型</li>
+<li>基于对象的数据类型</li>
+<li>半结构化数据模型：允许<strong>相同类型的数据项含有不同属性集的数据定义</strong>，如XML</li>
+</ul>
 
 
 
