@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../../../%E5%A4%A7%E4%BA%8C%E4%B8%8B/%E6%AF%9B%E6%A6%82/%E6%AF%9B%E6%A6%82%E4%B8%B2%E8%AE%B2/">
+        <link rel="prev" href="../%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
       
       
         <link rel="next" href="../../%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80/intro/">
@@ -20,7 +20,7 @@
     
     
       
-        <title>什么是操作系统 - Dinorex 's blog</title>
+        <title>进程 - Dinorex 's blog</title>
       
     
     
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              什么是操作系统
+              进程
             
           </span>
         </div>
@@ -1080,6 +1080,8 @@
       
         
       
+        
+      
     
     
       
@@ -1119,6 +1121,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    什么是操作系统
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1128,14 +1151,12 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    什么是操作系统
+    进程
   </span>
   
 
@@ -1146,7 +1167,7 @@
         
   
   <span class="md-ellipsis">
-    什么是操作系统
+    进程
   </span>
   
 
@@ -1158,8 +1179,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1168,9 +1187,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程的概念与特征
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      计算机的基本结构
+      进程的状态、转换和控制
     </span>
   </a>
   
@@ -1179,7 +1207,16 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      从打开电源开始
+      异常控制流
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程间通信
     </span>
   </a>
   
@@ -1447,8 +1484,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1457,9 +1492,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程的概念与特征
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      计算机的基本结构
+      进程的状态、转换和控制
     </span>
   </a>
   
@@ -1468,7 +1512,16 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      从打开电源开始
+      异常控制流
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程间通信
     </span>
   </a>
   
@@ -1492,11 +1545,27 @@
   
 
 
-<h1 id="_1">什么是操作系统<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">计算机的基本结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>从上至下的结构：软件——OS——硬件</p>
-<p>当我们要使用硬件时，需要通过OS提供的<strong>接口</strong>与硬件进行交互</p>
-<h2 id="_3">从打开电源开始<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+  <h1>进程</h1>
+
+<h2 id="_1">进程的概念与特征<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>OS如何处理程序/作业的发展</p>
+<ul>
+<li>一次装入并运行一个“作业”</li>
+<li>铜焊丝装入多个“程序”，并发执行</li>
+<li>同时装入多个程序，并发执行，仅当等待I/O时切换程序执行</li>
+<li>同时装入多个程序，并发执行，程序切换条件：执行时间长度到<strong>或者</strong>I/O等待</li>
+</ul>
+<p>进程概念的提出（Multics,1964）</p>
+<p>不同角度下描述的进程</p>
+<ol>
+<li>一个正在执行的程序</li>
+<li>计算机中正在运行的程序的一个实例</li>
+<li>可以分配给处理器，并由处理器执行的一个实体</li>
+<li>由一个顺序执行的代码段、一个当前状态和一组相关系统资源所刻画的活动单元</li>
+</ol>
+<h2 id="_2">进程的状态、转换和控制<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">异常控制流<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">进程间通信<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 
 
 
@@ -1532,7 +1601,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../../%E5%A4%A7%E4%BA%8C%E4%B8%8B/%E6%AF%9B%E6%A6%82/%E6%AF%9B%E6%A6%82%E4%B8%B2%E8%AE%B2/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 毛概串讲">
+          <a href="../%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 什么是操作系统">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
@@ -1542,7 +1611,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                毛概串讲
+                什么是操作系统
               </div>
             </div>
           </a>
