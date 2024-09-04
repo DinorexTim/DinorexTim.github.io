@@ -1193,19 +1193,67 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="进程的概念与特征">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程的基本特征
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程与程序的区别
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       进程的状态、转换和控制
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="进程的状态、转换和控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程的三种基本状态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程状态的转换
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       异常控制流
     </span>
@@ -1214,7 +1262,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       进程间通信
     </span>
@@ -1498,19 +1546,67 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="进程的概念与特征">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程的基本特征
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程与程序的区别
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       进程的状态、转换和控制
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="进程的状态、转换和控制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程的三种基本状态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程状态的转换
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       异常控制流
     </span>
@@ -1519,7 +1615,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       进程间通信
     </span>
@@ -1548,24 +1644,63 @@
   <h1>进程</h1>
 
 <h2 id="_1">进程的概念与特征<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>OS如何处理程序/作业的发展</p>
+<p>OS处理程序/作业的发展</p>
 <ul>
 <li>一次装入并运行一个“作业”</li>
 <li>铜焊丝装入多个“程序”，并发执行</li>
 <li>同时装入多个程序，并发执行，仅当等待I/O时切换程序执行</li>
 <li>同时装入多个程序，并发执行，程序切换条件：执行时间长度到<strong>或者</strong>I/O等待</li>
 </ul>
-<p>进程概念的提出（Multics,1964）</p>
+<p>进程概念的提出（Multics, 1964）</p>
 <p>不同角度下描述的进程</p>
 <ol>
-<li>一个正在执行的程序</li>
-<li>计算机中正在运行的程序的一个实例</li>
-<li>可以分配给处理器，并由处理器执行的一个实体</li>
-<li>由一个顺序执行的代码段、一个当前状态和一组相关系统资源所刻画的活动单元</li>
+<li>一个正在执行的<strong>程序</strong></li>
+<li>计算机中正在运行的程序的一个<strong>实例</strong></li>
+<li>可以分配给处理器，并由处理器执行的一个<strong>实体</strong></li>
+<li>由一个顺序执行的<strong>代码段</strong>、一个<strong>当前状态</strong>和一组相关<strong>系统资源</strong>所刻画的活动单元</li>
 </ol>
-<h2 id="_2">进程的状态、转换和控制<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h2 id="_3">异常控制流<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h2 id="_4">进程间通信<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>定义：一个执行中程序的实例</strong></p>
+<p>进程给应用程序提供两个关键抽象</p>
+<ul>
+<li>逻辑控制流<ul>
+<li>每个程序似乎独占地使用CPU</li>
+<li>通过OS内核的上下文切换机制提供</li>
+</ul>
+</li>
+<li>私有地址空间<ul>
+<li>每个程序似乎独占地使用内存系统</li>
+<li>OS内核的虚拟内存机制提供</li>
+</ul>
+</li>
+</ul>
+<h3 id="_2">进程的基本特征<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>动态性</li>
+<li>并发性</li>
+<li>独立性（进程是一个能独自运行的基本单位，是系统进行资源分配和调度的基本单位）</li>
+<li>异步性</li>
+<li>结构性（程序+数据+进程控制块PCB）</li>
+</ol>
+<h3 id="_3">进程与程序的区别<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>程序不具备进程的前四个特征</li>
+<li>进程和程序并非一一对应：通过多次执行，一个程序可对应多个线程；通过调用关系，一个进程可执行多个程序</li>
+</ol>
+<h2 id="_4">进程的状态、转换和控制<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">进程的三种基本状态<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>就绪状态：进程分配到了必要资源，等待获得CPU执行的状态</li>
+<li>运行状态：进程分配到了必要资源和CPU，在CPU上执行的状态</li>
+<li>阻塞状态：又称为等待态，程序正在等待某一事件而暂停运行，放弃CPU而处于暂停状态。即使CPU空闲，但是并未等到所需资源时，该进程也不能运行</li>
+</ol>
+<h3 id="_6">进程状态的转换<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>新建：至少建立PCB，但进程相关的其他内容<strong>可能</strong>未调入主存</li>
+<li>终止：进程已终止，但资源等待父进程或系统回收</li>
+</ul>
+<p><img alt="" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/os2-1.png?raw=true" /></p>
+<h2 id="_7">异常控制流<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_8">进程间通信<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 
 
 
