@@ -1547,6 +1547,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-theta-theta-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      纯关系操作-\(\theta\)连接 (\(\theta\)-join)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1883,6 +1892,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-theta-theta-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      纯关系操作-\(\theta\)连接 (\(\theta\)-join)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1954,10 +1972,12 @@
 </ul>
 <h2 id="_5">关系与关系模型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">关系<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>一些疑问</p>
 <ul>
 <li>为什么把表称为“关系”？</li>
 <li>如何严格定义Table？</li>
 </ul>
+<p>一些定义：</p>
 <p>行被称为<strong>元组</strong></p>
 <p>首先定义列的取值范围为“<strong>域</strong>(Domain)”</p>
 <ul>
@@ -2167,10 +2187,97 @@
 </table>
 <h4 id="-project">纯关系操作-投影 (Project)<a class="headerlink" href="#-project" title="Permanent link">&para;</a></h4>
 <p>定义：给定一个关系R，投影运算结果也是一个关系，记作<span class="arithmatex">\(\prod_A R\)</span></p>
-<p>它从关系R中选出属性包含在A中的<strong>列</strong>构成，若投影后有重复元组，则应该去掉</p>
+<p>它从关系R中选出属性包含在A中的<strong>列</strong>构成，若投影后有重复元组，则应该去掉*</p>
 <blockquote>
-<p>简而言之：<strong>选择</strong>操作获取<strong>行</strong>，<strong>投影</strong>操作获得<strong>列</strong></p>
+<p>投影操作默认可能会保留重复的元组（行），但是在有些数据库系统中，投影操作可能会默认去除重复项。是否去除重复项通常取决于数据库的配置或查询的定义。</p>
 </blockquote>
+<h4 id="-theta-theta-join">纯关系操作-<span class="arithmatex">\(\theta\)</span>连接 (<span class="arithmatex">\(\theta\)</span>-join)<a class="headerlink" href="#-theta-theta-join" title="Permanent link">&para;</a></h4>
+<p>投影与选择操作只是对单个关系进行操作，而实际应用中往往涉及多个表之间的操作。比如：查询数据结构成绩在90分以上的学生姓名</p>
+<p>定义：给定关系R和关系S，R与S的<span class="arithmatex">\(\theta\)</span>-连接运算结果也是一个关系，记作<span class="arithmatex">\(R\underset{A\theta B}{\Join} S\)</span></p>
+<blockquote>
+<p>上述符号表示由关系R、S的笛卡尔积中，选取属性R中A与S中属性B之间满足<span class="arithmatex">\(\theta\)</span>条件的元组构成</p>
+</blockquote>
+<p>R关系</p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>1</td>
+</tr>
+<tr>
+<td>b</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>S关系</p>
+<table>
+<thead>
+<tr>
+<th>H</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>x</td>
+</tr>
+<tr>
+<td>1</td>
+<td>y</td>
+</tr>
+<tr>
+<td>3</td>
+<td>z</td>
+</tr>
+</tbody>
+</table>
+<p><span class="arithmatex">\(R\underset{A\theta B}{\Join} S\)</span></p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>H</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>1</td>
+<td>1</td>
+<td>x</td>
+</tr>
+<tr>
+<td>a</td>
+<td>1</td>
+<td>1</td>
+<td>y</td>
+</tr>
+<tr>
+<td>a</td>
+<td>1</td>
+<td>3</td>
+<td>z</td>
+</tr>
+<tr>
+<td>b</td>
+<td>2</td>
+<td>3</td>
+<td>z</td>
+</tr>
+</tbody>
+</table>
+<p>与自身Join示例：查询至少210130101与210130102号同学学过的所有课程号</p>
+<p><span class="arithmatex">\(\pi_{SC.CNo}(\sigma_{SC.SNo="2101300101"\land SC1.SNo="2101300102"}(SC\underset{SC.CNo=SC1.CNo}{\Join}\rho_{SC1}(SC1)))\)</span></p>
 
 
 
