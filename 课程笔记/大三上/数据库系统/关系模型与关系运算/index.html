@@ -1556,6 +1556,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      纯关系操作-除
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1896,6 +1905,15 @@
   <a href="#-theta-theta-join" class="md-nav__link">
     <span class="md-ellipsis">
       纯关系操作-\(\theta\)连接 (\(\theta\)-join)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      纯关系操作-除
     </span>
   </a>
   
@@ -2278,6 +2296,9 @@
 </table>
 <p>与自身Join示例：查询至少210130101与210130102号同学学过的所有课程号</p>
 <p><span class="arithmatex">\(\pi_{SC.CNo}(\sigma_{SC.SNo="2101300101"\land SC1.SNo="2101300102"}(SC\underset{SC.CNo=SC1.CNo}{\Join}\rho_{SC1}(SC1)))\)</span></p>
+<h4 id="-">纯关系操作-除<a class="headerlink" href="#-" title="Permanent link">&para;</a></h4>
+<p>示例：查询选修了学号2101400201学生所学全部课程的同学的姓名</p>
+<p><span class="arithmatex">\(\pi_{Sname}(S\Join \left(\pi_{S_{CNo,SNo}}(SC)\div \pi_{CNo}(\sigma_{SNo="2101400201"}(SC)))\]\right)\)</span></p>
 
 
 
