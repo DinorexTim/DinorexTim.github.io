@@ -1382,9 +1382,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#s" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      压缩运算S
+      压缩运算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s-" class="md-nav__link">
+    <span class="md-ellipsis">
+      S-盒的构造方法
     </span>
   </a>
   
@@ -1739,9 +1748,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#s" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      压缩运算S
+      压缩运算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s-" class="md-nav__link">
+    <span class="md-ellipsis">
+      S-盒的构造方法
     </span>
   </a>
   
@@ -1839,7 +1857,116 @@
 <p><img alt="img" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/enc3-1.png?raw=true" width="500" /></p>
 <figcaption></figcaption>
 </figure>
-<h3 id="s">压缩运算S<a class="headerlink" href="#s" title="Permanent link">&para;</a></h3>
+<h3 id="_8">压缩运算<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<figure>
+<p><img alt="img" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/enc3-2.png?raw=true" width="500" /></p>
+<figcaption>压缩算法示意图</figcaption>
+</figure>
+<h3 id="s-">S-盒的构造方法<a class="headerlink" href="#s-" title="Permanent link">&para;</a></h3>
+<p>示例：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>15</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>0</b></td>
+<td>12</td>
+<td>1</td>
+<td>10</td>
+<td>15</td>
+<td>9</td>
+<td>2</td>
+<td>6</td>
+<td>7</td>
+<td>0</td>
+<td>13</td>
+<td>3</td>
+<td>4</td>
+<td>14</td>
+<td>7</td>
+<td>5</td>
+<td>11</td>
+</tr>
+<tr>
+<td><b>1</b></td>
+<td>10</td>
+<td>15</td>
+<td>4</td>
+<td>2</td>
+<td>7</td>
+<td>12</td>
+<td>3</td>
+<td>7</td>
+<td>0</td>
+<td>4</td>
+<td>10</td>
+<td>1</td>
+<td>13</td>
+<td>11</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr>
+<td><b>2</b></td>
+<td>9</td>
+<td>14</td>
+<td>15</td>
+<td>5</td>
+<td>2</td>
+<td>8</td>
+<td>12</td>
+<td>3</td>
+<td>7</td>
+<td>0</td>
+<td>4</td>
+<td>0</td>
+<td>10</td>
+<td>1</td>
+<td>13</td>
+<td>11</td>
+</tr>
+<tr>
+<td><b>3</b></td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>12</td>
+<td>9</td>
+<td>5</td>
+<td>15</td>
+<td>10</td>
+<td>11</td>
+<td>14</td>
+<td>1</td>
+<td>7</td>
+<td>6</td>
+<td>0</td>
+<td>8</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<p>现在有6bit数据<span class="arithmatex">\(b_1b_2b_3b_4b_5b_6\)</span>，将其拆分为<span class="arithmatex">\(b_1b_6\)</span>与<span class="arithmatex">\(b_2b_3b_4b_5\)</span>d带入S盒进行计算，有：</p>
+<div class="arithmatex">\[\frac{b_1b_2b_3b_4b_5b_6}{110011}\Rightarrow\frac{行：b_1b_6=11_2=3}{列：b_2b_3b_4b_4b_5=1001=9}\Rightarrow\frac{S-盒3行9列}{值：14_{10}=1100}\]</div>
 
 
 
