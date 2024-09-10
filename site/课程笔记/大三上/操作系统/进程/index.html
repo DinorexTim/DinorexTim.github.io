@@ -1307,13 +1307,64 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      并发处理的真相
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      并发进程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      上下文切换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程的一些其他操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="进程的一些其他操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      回收子进程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       异常控制流
     </span>
@@ -1322,7 +1373,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       进程间通信
     </span>
@@ -1726,13 +1777,64 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      并发处理的真相
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      并发进程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      上下文切换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程的一些其他操作
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="进程的一些其他操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      回收子进程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       异常控制流
     </span>
@@ -1741,7 +1843,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       进程间通信
     </span>
@@ -1897,8 +1999,70 @@
 <li>更新内存管理的数据结构</li>
 <li>恢复处理机上下文</li>
 </ol>
-<h2 id="_12">异常控制流<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
-<h2 id="_13">进程间通信<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_12">并发处理的真相<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>你以为的：计算机同时运行许多进程</p>
+<ol>
+<li>单/多用户的应用程序</li>
+<li>后台任务，如监测网络和I/O设备</li>
+</ol>
+<p>实际上的：单处理器在并发地执行多个进程</p>
+<ol>
+<li>进程<strong>交错进行</strong></li>
+<li>地址空间由虚拟内存系统管理</li>
+<li>未执行进程的寄存器保存在内存中</li>
+</ol>
+<blockquote>
+<p>寄存器当前值保存到内存→调度下一个进程执行→加载保存的寄存器组，并切换地址空间-上下文切换</p>
+</blockquote>
+<p>对于<strong>多核处理器</strong></p>
+<ol>
+<li>单个芯片有多个CPU</li>
+<li>共享主存，有的还共享cache</li>
+<li>每个核可执行独立的进程，kernel负责处理器的内核调度</li>
+</ol>
+<h3 id="_13">并发进程<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>每个进程都是个逻辑控制流</li>
+<li>如果两个逻辑流在宏观时间上有重叠，则称这两个进程是<strong>并发的</strong>，否则是<strong>顺序的</strong></li>
+</ul>
+<blockquote>
+<p>在用户角度来看，并发进程的控制流在物理上是不相交的，但是我们仍然可以认为并发进程是并行运行的</p>
+<p>进程内是串行、进程之间的并行</p>
+</blockquote>
+<h3 id="_14">上下文切换<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>内核</strong>：一块共享的内存驻留操作系统代码</p>
+</li>
+<li>
+<p>内核并不是一个独立进程，但是作为其他存在的进程的一部分来运行</p>
+</li>
+</ul>
+<p>控制流的切换传递通过<strong>上下文切换</strong>进行</p>
+<figure>
+<p><img alt="img" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/os2-2.png?raw=true" width="500" /></p>
+<figcaption></figcaption>
+</figure>
+<h3 id="_15">进程的一些其他操作<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<h4 id="_16">回收子进程<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<ul>
+<li>原因<ul>
+<li>进程终止后任然消耗着系统资源</li>
+<li>僵尸进程：终止了但是还没有被回收</li>
+</ul>
+</li>
+<li>回收(Reaping)<ul>
+<li>父进程执行回收：收到子进程退出状态</li>
+<li>内核删除僵尸子进程</li>
+</ul>
+</li>
+<li>如果父进程不执行回收工作会发生什么？<ul>
+<li>如果父进程没有回收子进程并终止，则僵尸进程将会由<strong>Init进程</strong>(PID=1)进行回收</li>
+</ul>
+</li>
+</ul>
+<h2 id="_17">异常控制流<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h2 id="_18">进程间通信<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
 
 
 

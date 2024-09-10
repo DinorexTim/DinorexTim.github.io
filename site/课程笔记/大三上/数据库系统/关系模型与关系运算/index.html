@@ -1526,6 +1526,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="用关系代数表达检索请求的示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-select" class="md-nav__link">
+    <span class="md-ellipsis">
+      纯关系操作-选择 (Select)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      纯关系操作-投影 (Project)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1838,6 +1862,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="用关系代数表达检索请求的示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-select" class="md-nav__link">
+    <span class="md-ellipsis">
+      纯关系操作-选择 (Select)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      纯关系操作-投影 (Project)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1979,10 +2027,78 @@
 </blockquote>
 <h2 id="_15">关系代数<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <h3 id="_16">基本操作<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
-<ul>
-<li>基本的：并、差、广义积、选择、投影、更名</li>
-<li>扩展的：交、连接、除</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>集合操作</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNION</td>
+<td>R</td>
+<td>S</td>
+<td><span class="arithmatex">\(R\cup S\)</span></td>
+</tr>
+<tr>
+<td>INTERSECTION</td>
+<td>R</td>
+<td>S</td>
+<td><span class="arithmatex">\(R\cap S\)</span></td>
+</tr>
+<tr>
+<td>DIFFERENCE</td>
+<td>R</td>
+<td>S</td>
+<td><span class="arithmatex">\(R- S\)</span></td>
+</tr>
+<tr>
+<td>Cartesian PRODUCT</td>
+<td>R</td>
+<td>S</td>
+<td><span class="arithmatex">\(R\times S\)</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>纯关系操作</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROJECTION</td>
+<td>R</td>
+<td></td>
+<td><span class="arithmatex">\(\pi_A(R)\)</span></td>
+</tr>
+<tr>
+<td>SELECT</td>
+<td>R</td>
+<td></td>
+<td><span class="arithmatex">\(\sigma_{Con}(R)\)</span></td>
+</tr>
+<tr>
+<td>JOIN</td>
+<td>R</td>
+<td>S</td>
+<td><span class="arithmatex">\(R\Join S\)</span></td>
+</tr>
+<tr>
+<td>DIVISION</td>
+<td>R</td>
+<td>S</td>
+<td><span class="arithmatex">\(R\div S\)</span></td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>某些关系代数操作，如并、差、交等，需满足“并相容性”</p>
 </blockquote>
@@ -1997,8 +2113,64 @@
 </li>
 <li>对于任意i，关系R的第i个属性的域必须和关系S的第i个属性的域相同</li>
 </ul>
-<p>假设：<span class="arithmatex">\(R(A1, A2, … ,An) , S(B1, B2, …,Bm)\)</span> R和S满足并相容性：n = m 并且 <code>Domain(Ai) = Domain(Bi)</code></p>
+<p>假设：<span class="arithmatex">\(R(A1, A2, … ,An) , S(B1, B2, …,Bm)\)</span> R和S满足并相容性：<span class="arithmatex">\(n = m\)</span> 并且 <code>Domain(Ai) = Domain(Bi)</code></p>
 <h3 id="_18">用关系代数表达检索请求的示例<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h4 id="-select">纯关系操作-选择 (Select)<a class="headerlink" href="#-select" title="Permanent link">&para;</a></h4>
+<p>定义：<span class="arithmatex">\(\sigma+{Con}(R)\)</span>，从关系R中选择出满足给定条件condition的元组构成</p>
+<p>示例：给定关系R，获取<span class="arithmatex">\(\sigma_{A3&gt;0}(R)\)</span></p>
+<table>
+<thead>
+<tr>
+<th>A1</th>
+<th>A2</th>
+<th>A3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>a</td>
+<td>10</td>
+</tr>
+<tr>
+<td>a</td>
+<td>d</td>
+<td>-4</td>
+</tr>
+<tr>
+<td>f</td>
+<td>b</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>A1</th>
+<th>A2</th>
+<th>A3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>a</td>
+<td>10</td>
+</tr>
+<tr>
+<td>f</td>
+<td>b</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-project">纯关系操作-投影 (Project)<a class="headerlink" href="#-project" title="Permanent link">&para;</a></h4>
+<p>定义：给定一个关系R，投影运算结果也是一个关系，记作<span class="arithmatex">\(\prod_A R\)</span></p>
+<p>它从关系R中选出属性包含在A中的<strong>列</strong>构成，若投影后有重复元组，则应该去掉</p>
+<blockquote>
+<p>简而言之：<strong>选择</strong>操作获取<strong>行</strong>，<strong>投影</strong>操作获得<strong>列</strong></p>
+</blockquote>
 
 
 
