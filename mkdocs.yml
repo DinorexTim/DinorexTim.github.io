@@ -1,10 +1,10 @@
-site_name: Dinorex 's blog
+site_name: Tim's blog
 copyright: 'Alea jacta est!'
-repo_name: 'DINOREXNB.github.io'
-repo_url: 'https://github.com/DINOREXNB/DINOREXNB.github.io'
+repo_name: 'dinorextim.github.io'
+repo_url: 'https://github.com/dinorextim/dinorextim.github.io'
 
 theme:
-  logo: https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/assets/logo.png?raw=true
+  logo: https://github.com/dinorextim/dinorextim.github.io/blob/main/assets/logo.png?raw=true
   name: material
   language: zh
   icon:
