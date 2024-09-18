@@ -1975,7 +1975,7 @@
 <p>具备与上下文无关文法等价的定义语言的能力</p>
 <p>可以看作ε-NFA和一个栈(stack)的结合</p>
 <h2 id="_1">抽象装置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-1.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy10-1.png?raw=true" width="400" /></p>
 <h2 id="_2">形式定义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>P定义为七元组</p>
 <div class="arithmatex">\[P=(Q,\Sigma,\Gamma,\delta,q_0,Z_0,F)\]</div>
@@ -2018,7 +2018,7 @@
 <p>扩展<span class="arithmatex">\(\vdash 到\vdash^*\)</span>，表示经过0个或多个动作进行转移</p>
 </blockquote>
 <p>例：语言<span class="arithmatex">\(L_{01}=\{0^n1^n|n≥1\}\)</span>的PDA，识别000111的ID序列</p>
-<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-2.png?raw=true" align=right></p>
+<p><img src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy10-2.png?raw=true" align=right></p>
 <div class="arithmatex">\[\begin{split}
     (q_0,000111,Z_0)\vdash\\
     (q_0,00111,0Z_0)\vdash\\
@@ -2038,9 +2038,9 @@
 <p>即能够使得PDA的栈变空的符号串集合</p>
 <p>例：设PDA接受的语言示例L：识别<span class="arithmatex">\(L_{wwr}=\{ww^R|w\in (0+1)^*\}\)</span>的PDA <span class="arithmatex">\(P\)</span></p>
 <p>以终态方式接受：</p>
-<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-3.png?raw=true"></p>
+<p><img src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy10-3.png?raw=true"></p>
 <p>以空栈方式接受：</p>
-<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-4.png?raw=true"></p>
+<p><img src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy10-4.png?raw=true"></p>
 <h2 id="_6">从终态方式到空栈方式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="_7">定理<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>如果PDA <span class="arithmatex">\(P_F\)</span>以终态方式接受语言<span class="arithmatex">\(L\)</span>, 那么一定存在PDA <span class="arithmatex">\(P_N\)</span>以空栈方式接受<span class="arithmatex">\(L\)</span></p>
@@ -2070,7 +2070,7 @@
     \delta(q,0,0)=\{(q,\epsilon)\},\delta(q,1,1)=\{(q,\epsilon)\}
 \end{split}\]</div>
 <p>例如识别00011：有<span class="arithmatex">\(S\to AB \to 0AB \to 0B \to 00B1 \to 00011\)</span></p>
-<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-5.png?raw=true"></p>
+<p><img src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy10-5.png?raw=true"></p>
 <blockquote>
 <p>这里只讨论正确的路径，由于不确定性必然会出现dead path</p>
 </blockquote>
@@ -2086,7 +2086,7 @@
 <p>为每个产生式，定义<span class="arithmatex">\(\delta\)</span>为</p>
 <div class="arithmatex">\[\delta(q,a,A)=\{(q,\beta)|A\to a\beta \in P\}\]</div>
 <p>例：文法<span class="arithmatex">\(S\to aAA,A\to aS|bS|a\)</span>为GNF格式，构造与之等价的PDA</p>
-<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-6.png?raw=true" style="width:300px"></p>
+<p><img src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy10-6.png?raw=true" style="width:300px"></p>
 <blockquote>
 <p>注意这里GNF的<span class="arithmatex">\(\delta\)</span>函数是<span class="arithmatex">\(\delta(q,a,A)=\{(q,\beta)|A\to a\beta \in P\}\)</span></p>
 </blockquote>
@@ -2104,7 +2104,7 @@
 <p>其中<span class="arithmatex">\(a ∈ Σ ∪ {ε}, X,Y_i∈ Γ, r_1,r_2,⋯,r_n\)</span>是<span class="arithmatex">\(Q\)</span>中各种可能组合的n个状态，即<span class="arithmatex">\(r_i\)</span> 可以是<span class="arithmatex">\(Q\)</span>中任意一个状态</p>
 </blockquote>
 <p>例：将PDA <span class="arithmatex">\(P=(\{q_0,q_1\},(0,1),\{X,Z_0\},\delta,q_0,Z_0)\)</span>转为CFG</p>
-<p><img src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy10-7.png?raw=true" style="width:300px"></p>
+<p><img src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy10-7.png?raw=true" style="width:300px"></p>
 <p>初始符号产生式:</p>
 <div class="arithmatex">\[\begin{split}
     S\to [q_0Z_0q_0]\\

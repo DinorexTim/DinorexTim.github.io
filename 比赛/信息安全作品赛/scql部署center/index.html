@@ -668,7 +668,7 @@
 <p><strong>声明</strong>：一切以<a href="https://www.secretflow.org.cn/zh-CN/docs/scql/0.5.0b2/topics">隐语官方文档</a>为准</p>
 <p>官方部署文档有的地方说的不太清楚，我把自己的一点个人理解和自己的部署流程写在下面作为参考（）</p>
 <h2 id="scql">scql系统基本架构<a class="headerlink" href="#scql" title="Permanent link">&para;</a></h2>
-<p><img alt="image" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/xxaq1-1.png?raw=true" width="400" /></p>
+<p><img alt="image" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xxaq1-1.png?raw=true" width="400" /></p>
 <p>简单来说就是两个参与方想要用双方的数据进行一些“操作”，于是他们将自己的数据放进scql系统当中取进行计算从而得到他们想要的查询结果</p>
 <p>在这个查询过程当中，<code>scql</code>系统中的<code>SCDB</code>负责转化用户的查询语句转化“执行图”(我把他理解为一种计算任务)；然后把计算任务下发给各个参与查询的<code>SCQLEngine</code>。而<code>SCQLEngine</code>则会执行下发的计算任务，在本机进行计算后将计算结果发送给<code>SCDB</code></p>
 <h2 id="_2">部署流程（多机部署）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>

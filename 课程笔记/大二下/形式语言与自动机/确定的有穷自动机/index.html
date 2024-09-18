@@ -1820,7 +1820,7 @@
 <li><span class="arithmatex">\(F\subseteq Q\)</span>: 终结状态集或接受状态集</li>
 </ol>
 <p>例：用DFA表示电视遥控开关</p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy2-2.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy2-2.png?raw=true" width="400" /></p>
 <ul>
 <li>字母表<span class="arithmatex">\(\Sigma=\{p\}\)</span>，p——按开关键</li>
 <li>有穷状态集<span class="arithmatex">\(Q\)</span><ul>
@@ -1863,10 +1863,10 @@
 <li>从初始状态开始，重点关注可以到达结束状态的路径，然后对每个节点补充其他字符作为输入时的边和状态</li>
 </ul>
 <p>例：若<span class="arithmatex">\(\Sigma=\{0,1\}\)</span>，给出接受全部含有偶数个0和偶数个1的串的DFA</p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy2-3.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy2-3.png?raw=true" width="400" /></p>
 <p>例：设计DFA接收以下语言</p>
 <div class="arithmatex">\[L=\{x|x\in \{0,1\}^* \wedge x中至少包含一个子串010\}\]</div>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy2-4.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy2-4.png?raw=true" width="400" /></p>
 <h2 id="_2">扩展转移函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>扩展状态转移函数<span class="arithmatex">\(\delta\)</span>到字符串，定义扩展转移函数<span class="arithmatex">\(\hat{\delta}\)</span>:</p>
 <div class="arithmatex">\[\hat{\delta}(q,w)=\begin{cases}q&amp;w=\epsilon\\\delta(\hat{\delta}(q,x),a)&amp;w=xa\end{cases}\]</div>
@@ -1874,7 +1874,7 @@
 <p>上式中<span class="arithmatex">\(a\)</span>是一个字符，<span class="arithmatex">\(w\)</span>和<span class="arithmatex">\(x\)</span>是字符串</p>
 </blockquote>
 <p>例：接受全部含有01子串的DFA，<span class="arithmatex">\(\hat{\delta}处理串0101的过程\)</span></p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy2-5.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy2-5.png?raw=true" width="400" /></p>
 <h2 id="dfa_2">DFA语言与正则语言<a class="headerlink" href="#dfa_2" title="Permanent link">&para;</a></h2>
 <p>若<span class="arithmatex">\(D=(Q,\Sigma,\delta,q_0,F)\)</span>是一个DFA，则<span class="arithmatex">\(D\)</span>接受的语言为</p>
 <div class="arithmatex">\[L(D)=\{w\in \Sigma^*|\hat{\delta}(q_0,w)\in F\}\]</div>
@@ -1883,7 +1883,7 @@
 <blockquote>
 <p>有限字符串对应的语言是正则语言<br>
 <span class="arithmatex">\(\Phi\)</span>，<span class="arithmatex">\(\{\epsilon\}\)</span>都是正则语言，状态转移图如下<br>
-<img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy2-6.png?raw=true" width="400" /></p>
+<img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy2-6.png?raw=true" width="400" /></p>
 </blockquote>
 
 

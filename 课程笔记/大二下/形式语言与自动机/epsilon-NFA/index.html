@@ -1789,13 +1789,13 @@
 <li><span class="arithmatex">\(F\subseteq Q\)</span>: 终结状态集或接受状态集</li>
 </ol>
 <p>例：<span class="arithmatex">\(L=\{w\in\{0,1\}^*|w倒数3个字符至少有一个是1\}\)</span>的<span class="arithmatex">\(\epsilon-NFA\)</span></p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy5-1.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy5-1.png?raw=true" width="400" /></p>
 <h2 id="epsilon-">状态的<span class="arithmatex">\(\epsilon\)</span>-闭包<a class="headerlink" href="#epsilon-" title="Permanent link">&para;</a></h2>
 <p>定义：状态q的<span class="arithmatex">\(\epsilon\)</span>-闭包，记为<span class="arithmatex">\(\text{ECLOSE}(q)\)</span>，表示从q经过<span class="arithmatex">\(\epsilon\epsilon\dots\epsilon\)</span>序列可到达的全部状态集合（即经过0个或&gt;0个空转移到达的状态集合）</p>
 <p>递归定义：</p>
 <p><span class="arithmatex">\(q\in\text{ECLOSE}(q)\)</span></p>
 <p><span class="arithmatex">\(\forall p\in \text{ECLOSE}(q),若r\in\delta(p,\epsilon),则r\in\text{ECLOSE}(q)\)</span></p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy5-2.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy5-2.png?raw=true" width="400" /></p>
 <blockquote>
 <p><span class="arithmatex">\(\text{ECLOSE}(1)=\{1,2,5,3,4\}\quad\text{ECLOSE}(2)=\{2,3,4\}\)</span></p>
 </blockquote>

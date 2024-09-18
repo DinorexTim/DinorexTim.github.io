@@ -828,7 +828,7 @@
 <p>当下的应用开发门槛降低了许多，软件开发工程师并不需要从头开发，去和硬件打交道，因为真正复杂的工作已经交给操作系统去完成了。</p>
 <p>一个好的Pre-train model就好比一个优秀的操作系统，当要开发新的训练任务时，其难度会大大降低。在众多预训练模型中，比较知名的有<code>BERT</code>模型(340M参数)</p>
 <figure>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-1.png?raw=true" width="450" /></p>
+<p><img alt="img" src="/blob/main/docs/images/ml0-1.png?raw=true" width="450" /></p>
 <figcaption>贝尔托特是你吗（</figcaption>
 </figure>
 <h2 id="generative-adversarial-network">生成式对抗网络(Generative adversarial network)<a class="headerlink" href="#generative-adversarial-network" title="Permanent link">&para;</a></h2>
@@ -856,7 +856,7 @@
 <p>当模型实现了分类的能力后，还需要它具备解释这样<strong>分类的原因</strong></p>
 <h2 id="_3">模型攻击<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>假设现在有一个图像识别的模型，对于一张正常的猫的图片，它能够正确地识别，但是在这张图片里面加入一些特定的噪点后，会导致模型识别出来的生物与猫大相径庭</p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-2.png?raw=true" width="450" /></p>
+<p><img alt="img" src="/blob/main/docs/images/ml0-2.png?raw=true" width="450" /></p>
 <h2 id="domain-adaption">领域自适应(Domain Adaption)<a class="headerlink" href="#domain-adaption" title="Permanent link">&para;</a></h2>
 <p>假设对于一个手写识别模型，假设训练数据全是黑白的手写字体，那么在实际运用中即使输入的是“彩色手写字”，模型也应该理解这份手写字体</p>
 <h2 id="youtube">实例：预测Youtube频道观看人数<a class="headerlink" href="#youtube" title="Permanent link">&para;</a></h2>
@@ -872,7 +872,7 @@
 <p>实际的正确值称为<code>label</code></p>
 <p>当计算出了一系列的weight和bias后，可以得到一个<strong>误差曲面</strong><code>Error Surface</code></p>
 <figure>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-3.png?raw=true" width="450" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-3.png?raw=true" width="450" /></p>
 </figure>
 <h3 id="3optimization">3.优化(Optimization)<a class="headerlink" href="#3optimization" title="Permanent link">&para;</a></h3>
 <p>寻找一组<span class="arithmatex">\(w\)</span>与<span class="arithmatex">\(b\)</span>，使得<span class="arithmatex">\(Loss\)</span>值最小，即</p>
@@ -896,12 +896,12 @@
     &amp;b^1\leftarrow b^0-\eta\frac{\partial L}{\partial b}|_{b=b^0}
 \end{align*}\]</div>
 <figure>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-4.png?raw=true" width="450" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-4.png?raw=true" width="450" /></p>
 </figure>
 <h3 id="4">4.预测效果分析和模型修改<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>在学习了2017年-2020年的观看数据后，模型预测了2021年每天的观看人数，将模型预测值和实际的值进行对比得到下图</p>
 <figure>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-5.png?raw=true" width="450" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-5.png?raw=true" width="450" /></p>
 </figure>
 <p>从上面的图像可以看出的是，观看次数呈现出一定的“周期性”，大概是7天为一个周期，在周末时间段观看人数会明显降低（<del>谁周末还看深度学习</del>），所以之前的一次函数模型还有可以修改的空间</p>
 <blockquote>
@@ -916,11 +916,11 @@
 <p><strong>写出一个更复杂、更具弹性的模型</strong></p>
 <p>从分段线性函数开始：</p>
 <figure>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-6.png?raw=true" width="450" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-6.png?raw=true" width="450" /></p>
 </figure>
 <p>对于单一的线性函数，永远不可能得到图中红色的函数图像，经过观察，红色的折线其实可以拆分为一个常数值与“蓝色函数”的和</p>
-<p><img align="right" alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-8.png?raw=true" width="200" /></p>
-<p><img align="right" alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-7.png?raw=true" width="200" /></p>
+<p><img align="right" alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-8.png?raw=true" width="200" /></p>
+<p><img align="right" alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-7.png?raw=true" width="200" /></p>
 <p>不管对于什么样的分段线性函数折线，都可以用一个常数值与“蓝色函数”的和组成。即使考虑函数图像的不是分段线性函数（比如指数函数），也可以先在曲线上去若干点然后讲这些点相连近似处理为分段线性函数，也就是说：只要有足够的“蓝色函数”求和相加，或许就可以得到任何的连续曲线</p>
 <p><em>那么如何写出“蓝色函数”的表达式呢？</em></p>
 <p>使用<strong>S型函数</strong>(Sigmoid Function)逼近“蓝色函数”，其表达式为</p>
@@ -933,7 +933,7 @@
 \end{align}\]</div>
 <p>这样我们就可以写出非常有“弹性”的函数</p>
 <figure>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-9.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-9.png?raw=true" width="400" /></p>
 </figure>
 <p>上面的式子还可以进一步变形，修改为矩阵相乘的形式</p>
 <div class="arithmatex">\[y=b+\mathbf{c}^T\sigma(\mathbf{b}+\mathbf{W}\mathbf{x})\]</div>
@@ -959,7 +959,7 @@
 <p>“蓝色函数”实际上也可以由两个<strong>线性整流函数</strong><code>Rectified Linear Unit</code>(ReLU)构成</p>
 <p>ReLU的表达式为<span class="arithmatex">\(c\cdot max(0,b+wx_1)\)</span></p>
 <figure>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-10.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-10.png?raw=true" width="400" /></p>
 </figure>
 <p>所以之前提到的模型函数<span class="arithmatex">\(y=b+\sum_i c_i\cdot sigmoid(b_i+\sum_j w_{ij}x_j)\)</span></p>
 <p>可以替换为<span class="arithmatex">\(y=b+\sum_{2i} c_i\cdot max(0,b_i+\sum_j w_{ijx_j})\)</span></p>

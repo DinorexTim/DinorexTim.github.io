@@ -1878,7 +1878,7 @@
 <ul>
 <li>DFA，NFA，<span class="arithmatex">\(\epsilon\)</span>-NFA和正则表达式在表示语言的能力上是等价的</li>
 </ul>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-1.png?raw=true" width="600" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy7-1.png?raw=true" width="600" /></p>
 <h2 id="_1">定理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>若<span class="arithmatex">\(L=L(A)\)</span>是某DFA <span class="arithmatex">\(A\)</span>的语言，那么存在正则表达式R满足<span class="arithmatex">\(L=L(R)\)</span></p>
 <h3 id="_2">证明：递归法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
@@ -1906,26 +1906,26 @@
 </ul>
 <p>得到如下递归关系</p>
 <div class="arithmatex">\[R_{i,j}^{(k)}=R_{i,j}^{(k-1)}+R_{i,k}^{(k-1)}(R_{k,k}^{(k-1)})^*R_{k,j}^{(k-1)}\]</div>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-3.png?raw=true" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy7-3.png?raw=true" /></p>
 <blockquote>
 <p>这个递归关系实际上可分为「“不经过k”的状态节点集合」与「经过了k节点的集合」<br>
 「经过了k节点的集合」当中“经过k节点”的状态又分为两种：经过1次/多次，可以由下图表示</p>
 </blockquote>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-2.png?raw=true" width="600" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy7-2.png?raw=true" width="600" /></p>
 <p>如果1是开始结点，则和DFA等价的正则表达式就是</p>
 <div class="arithmatex">\[\bigcup_{j\in F}R_{1,j}^{(n)}\]</div>
 <p>即从状态1（开始状态）到终结状态的所有路径的集合。</p>
 <h2 id="dfa-to">DFA to 正则表达式<a class="headerlink" href="#dfa-to" title="Permanent link">&para;</a></h2>
 <p>例：把下图所示DFA转换成正则表达式。这个DFA接收至少含有一个0的串</p>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-4.png?raw=true" width="400" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy7-4.png?raw=true" width="400" /></p>
 <h3 id="_3">状态消除法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p><img align="right" alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-6.png?raw=true" width="350" /></p>
+<p><img align="right" alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy7-6.png?raw=true" width="350" /></p>
 <ul>
 <li>DFA和从开始节点到结束节点所有路径对应的正则表达式集合等价；如果DFA能转化成只含有开始节点和终止节点的形式，则只需把开始节点到终止节点所有边上的正则表达式取出来即可</li>
 <li>利用空转移，增加新的开始和结束状态</li>
 <li>DFA中的“路径”与正则表达式运算（连接，加，闭包）的关系</li>
 </ul>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-5.png?raw=true" width="300" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy7-5.png?raw=true" width="300" /></p>
 <blockquote>
 <p>在删除状态节点时，要为被删除的状态S的每个“入”和“出”路径的组合, 补一条等价的新路径, 并用新的正则表达式表示</p>
 </blockquote>
@@ -1933,14 +1933,14 @@
 <h3 id="_4">定理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>每个正则表达式定义的语言，都可被有穷自动机识别</p>
 <h4 id="_5">证明<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p><img align="left" alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-7.png?raw=true" width="110" /></p>
+<p><img align="left" alt="" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy7-7.png?raw=true" width="110" /></p>
 <ul>
 <li>归纳基础</li>
 <li>对正则表达式∅，有ε−NFA</li>
 <li>对正则表达式ε，有ε−NFA</li>
 <li>∀a∈Σ，对正则表达式a，有ε−NFA</li>
 </ul>
-<p><img align="left" alt="" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy7-8.png?raw=true" width="200" /></p>
+<p><img align="left" alt="" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy7-8.png?raw=true" width="200" /></p>
 <ul>
 <li>归纳递推<ul>
 <li>r+s的ε−NFA</li>

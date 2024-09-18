@@ -1326,6 +1326,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      加密流程
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1591,6 +1600,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      加密流程
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1642,7 +1660,21 @@
 <p>AES为分组密码，每组长度相等，在<strong>AES标准规范</strong>中，分组长度只能是<strong>128位</strong>，也就是说，每个分组为<strong>16个字节</strong>（每个字节8位）</p>
 <p>密钥的长度可以使用128位、192位或256位。密钥的长度不同，推荐加密轮数也不同</p>
 <figure>
-<p><img alt="img" src="https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/enc5-1.png?raw=true" width="500" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/enc5-1.png?raw=true" width="500" /></p>
+<figcaption></figcaption>
+</figure>
+<h2 id="_2">加密流程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>加密公式：<span class="arithmatex">\(C=E(K,P)\)</span></p>
+<p>在加密函数<span class="arithmatex">\(E\)</span>中，会执行一个轮函数，并且执行10次这个轮函数，这个轮函数的前9次执行的操作是一样的，只有第10次有所不同。也就是说，一个明文分组会被加密10轮。AES的核心就是实现一轮中的所有操作。</p>
+<p>AES的处理单位是<strong>字节</strong>，128位的输入明文分组P和输入密钥K都被分成16个字节，分别记为<span class="arithmatex">\(P = P_0 P_1\dots P_{15}\quad K=K_1K_2\dots P_{15}\)</span></p>
+<p>一般地，明文分组用<strong>字节</strong>为单位的<strong>正方形矩阵</strong>描述，称为状态矩阵。在算法的每一轮中，状态矩阵的内容不断发生变化，最后的结果作为密文输出。该矩阵中字节的排列顺序为<strong>从上到下、从左至右</strong>依次排列，如下图所示：</p>
+<figure>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/enc5-2.png?raw=true" width="500" /></p>
+<figcaption></figcaption>
+</figure>
+<p>类似地，128位密钥也是用<strong>字节</strong>为单位的矩阵表示，矩阵的每一列被称为1个32位比特字。通过<strong>密钥编排函数</strong>，该密钥矩阵被扩展成一个44个字组成的序列</p>
+<figure>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/enc5-3.png?raw=true" width="500" /></p>
 <figcaption></figcaption>
 </figure>
 
