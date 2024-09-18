@@ -6,7 +6,7 @@
 
 ## scql系统基本架构
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/xxaq1-1.png?raw=true){width=400}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xxaq1-1.png?raw=true){width=400}
 
 简单来说就是两个参与方想要用双方的数据进行一些“操作”，于是他们将自己的数据放进scql系统当中取进行计算从而得到他们想要的查询结果
 

@@ -16,7 +16,7 @@ $\epsilon-NFA$：对NFA进行扩展，在不输入任何字符的情况下（空
 
 例：$L=\{w\in\{0,1\}^*|w倒数3个字符至少有一个是1\}$的$\epsilon-NFA$
 
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy5-1.png?raw=true){width=400}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy5-1.png?raw=true){width=400}
 
 ## 状态的$\epsilon$-闭包
 
@@ -28,7 +28,7 @@ $q\in\text{ECLOSE}(q)$
 
 $\forall p\in \text{ECLOSE}(q),若r\in\delta(p,\epsilon),则r\in\text{ECLOSE}(q)$
 
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/xsyy5-2.png?raw=true){width=400}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/xsyy5-2.png?raw=true){width=400}
 
 > $\text{ECLOSE}(1)=\{1,2,5,3,4\}\quad\text{ECLOSE}(2)=\{2,3,4\}$
 

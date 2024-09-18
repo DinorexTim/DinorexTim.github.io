@@ -37,7 +37,7 @@ Machine learning $\approx$ Looking for function
 一个好的Pre-train model就好比一个优秀的操作系统，当要开发新的训练任务时，其难度会大大降低。在众多预训练模型中，比较知名的有`BERT`模型(340M参数)
 
 <figure markdown>
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-1.png?raw=true){width=450}
+![img](/blob/main/docs/images/ml0-1.png?raw=true){width=450}
 <figcaption>贝尔托特是你吗（</figcaption>
 </figure>
 
@@ -78,7 +78,7 @@ Machine learning $\approx$ Looking for function
 
 假设现在有一个图像识别的模型，对于一张正常的猫的图片，它能够正确地识别，但是在这张图片里面加入一些特定的噪点后，会导致模型识别出来的生物与猫大相径庭
 
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-2.png?raw=true){width=450}
+![img](/blob/main/docs/images/ml0-2.png?raw=true){width=450}
 
 ## 领域自适应(Domain Adaption)
 
@@ -109,7 +109,7 @@ Machine learning $\approx$ Looking for function
 当计算出了一系列的weight和bias后，可以得到一个**误差曲面**`Error Surface`
 
 <figure markdown>
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-3.png?raw=true){width=450}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-3.png?raw=true){width=450}
 </figure>
 
 ### 3.优化(Optimization)
@@ -143,7 +143,7 @@ $$\begin{align*}
 \end{align*}$$
 
 <figure markdown>
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-4.png?raw=true){width=450}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-4.png?raw=true){width=450}
 </figure>
 
 ### 4.预测效果分析和模型修改
@@ -151,7 +151,7 @@ $$\begin{align*}
 在学习了2017年-2020年的观看数据后，模型预测了2021年每天的观看人数，将模型预测值和实际的值进行对比得到下图
 
 <figure markdown>
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-5.png?raw=true){width=450}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-5.png?raw=true){width=450}
 </figure>
 
 从上面的图像可以看出的是，观看次数呈现出一定的“周期性”，大概是7天为一个周期，在周末时间段观看人数会明显降低（~~谁周末还看深度学习~~），所以之前的一次函数模型还有可以修改的空间
@@ -175,14 +175,14 @@ $$y=b+\sum_{j=1}^{7}w_jx_j$$
 从分段线性函数开始：
 
 <figure markdown>
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-6.png?raw=true){width=450}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-6.png?raw=true){width=450}
 </figure>
 
 对于单一的线性函数，永远不可能得到图中红色的函数图像，经过观察，红色的折线其实可以拆分为一个常数值与“蓝色函数”的和
 
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-8.png?raw=true){width=200 align=right}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-8.png?raw=true){width=200 align=right}
 
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-7.png?raw=true){width=200 align=right}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-7.png?raw=true){width=200 align=right}
 
 不管对于什么样的分段线性函数折线，都可以用一个常数值与“蓝色函数”的和组成。即使考虑函数图像的不是分段线性函数（比如指数函数），也可以先在曲线上去若干点然后讲这些点相连近似处理为分段线性函数，也就是说：只要有足够的“蓝色函数”求和相加，或许就可以得到任何的连续曲线
 
@@ -204,7 +204,7 @@ $$\begin{align}
 这样我们就可以写出非常有“弹性”的函数
 
 <figure markdown>
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-9.png?raw=true){width=400}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-9.png?raw=true){width=400}
 </figure>
 
 上面的式子还可以进一步变形，修改为矩阵相乘的形式
@@ -246,7 +246,7 @@ $$\theta^{i+1}=\theta_i-\left[\begin{matrix}
 ReLU的表达式为$c\cdot max(0,b+wx_1)$
 
 <figure markdown>
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml0-10.png?raw=true){width=400}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml0-10.png?raw=true){width=400}
 </figure>
 
 所以之前提到的模型函数$y=b+\sum_i c_i\cdot sigmoid(b_i+\sum_j w_{ij}x_j)$

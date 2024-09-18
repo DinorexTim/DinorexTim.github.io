@@ -22,7 +22,7 @@
 >
 > 建模难点在于如何反向简化模型
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol1.png?raw=true){width=200}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol1.png?raw=true){width=200}
 
 ### 定义问题逻辑
 
@@ -34,40 +34,40 @@
 
 ### 几何体素
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol2.png?raw=true){width=200 align=right}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol2.png?raw=true){width=200 align=right}
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol3.png?raw=true){width=150}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol3.png?raw=true){width=150}
 
 每个对象包含“域”、“边界”、“边”、“点”属性，对任意一个几何体素进行变换操作时，都要选中对应的域/边界/边/点进行操作，同时要注意操作的结果是否符合逻辑
 
 ### 几何操作
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol4.png?raw=true){width=200}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol4.png?raw=true){width=200}
 
 #### 阵列
 
 用于在x,y,z方向上生成相同的几何体素，快速构建零部件
 
 <figure markdown>
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol5.png?raw=true){width=500}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol5.png?raw=true){width=500}
 <figcaption>变换前几何体素</figcaption>
 </figure>
 
 <figure markdown>
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol6.png?raw=true){width=400}
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol7.png?raw=true){width=400}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol6.png?raw=true){width=400}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol7.png?raw=true){width=400}
 <figcaption>阵列操作选项</figcaption>
 </figure>
 
 <figure markdown>
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol8.png?raw=true){width=400}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol8.png?raw=true){width=400}
 <figcaption>阵列变换效果</figcaption>
 </figure>
 
 #### 移动
 
 <figure markdown>
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol9.png?raw=true){width=400}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol9.png?raw=true){width=400}
 <figcaption>移动特定几何体素选项</figcaption>
 </figure>
 
@@ -78,7 +78,7 @@
 - 差集
 
 <figure markdown>
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol10.png?raw=true){width=400}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol10.png?raw=true){width=400}
 <figcaption>圆柱与长方体进行差集运算后几何图像</figcaption>
 </figure>
 
@@ -87,7 +87,7 @@
 可以选取平面绘制二维图像，方便进行变换操作（拉伸，旋转等）
 
 <figure markdown>
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol11.png?raw=true){width=400}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol11.png?raw=true){width=400}
 </figure>
 
 ### 几何模型定义的逻辑
@@ -131,7 +131,7 @@ $$Ma=\frac{|u|}{a}=\frac{流速}{音速}$$
 
 ### 层流
 
-![image](https://github.com/DINOREXNB/dinorexnb.github.io/blob/main/docs/images/comsol12.png?raw=true){width=250 align=right}
+![image](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/comsol12.png?raw=true){width=250 align=right}
 
 - 求解NS方程
     - 针对低雷诺数情况

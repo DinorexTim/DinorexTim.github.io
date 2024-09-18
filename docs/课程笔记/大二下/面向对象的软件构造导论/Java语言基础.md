@@ -109,7 +109,7 @@ C++
 
 内存映射图：
 
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/java2-1.png?raw=true){width=400}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/java2-1.png?raw=true){width=400}
 
 ### 「多维」数组
 
@@ -129,7 +129,7 @@ int[][] arr = new int[][]{ { 1, 4, 2}, {2, 1}, {9, 1, 5, 6} };
 
 ## 异常
 
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/java2-3.png?raw=true){width=400 align=right}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/java2-3.png?raw=true){width=400 align=right}
 
 异常关键字:
 
@@ -183,7 +183,7 @@ try {
 
 类的访问权限：
 
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/java2-2.png?raw=true){width=400}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/java2-2.png?raw=true){width=400}
 
 ```java
 // 见上表
@@ -259,7 +259,7 @@ JVM是通过软件来模拟`Java`字节码的指令集，是`Java`程序的运�
 
 ### JVM体系结构
 
-![img](https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/java2-4.png?raw=true){width=400 align=right}
+![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/java2-4.png?raw=true){width=400 align=right}
 
 主要包含两个子系统和两个组件
 

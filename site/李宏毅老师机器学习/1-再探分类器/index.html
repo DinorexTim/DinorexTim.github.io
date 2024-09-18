@@ -673,7 +673,7 @@
 <p>从画风来看：Pokemon的线条更加简约，Digimon更加“复杂”</p>
 <p>对于两类生物，可以使用<strong>边缘检测</strong>获得图像轮廓，将轮廓处的像素设置为白色，其余设为黑色，那么就可以得到白色像素点的数目，我们定义数目=<span class="arithmatex">\(e(Image)\)</span></p>
 <figure>
-<p><img alt="img" src="https://github.com/DINOREXNB/DINOREXNB.github.io/blob/main/docs/images/ml1-1.png?raw=true" width="300" /></p>
+<p><img alt="img" src="https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/ml1-1.png?raw=true" width="300" /></p>
 </figure>
 <p>一个简单的分类依据是：假设分类的阈值(threshold)为<span class="arithmatex">\(h\)</span>，当输入的图像I得到的<span class="arithmatex">\(e(I)&gt;h\)</span>，则为数码宝贝，否则为宝可梦</p>
 <p>由于这个阈值是未知参数，所以h其实是有很多可能的取值，考虑h的所有可能取值的集合，得到<span class="arithmatex">\(\mathbf{H}=\{1,2,\dots 10000\}\)</span></p>
