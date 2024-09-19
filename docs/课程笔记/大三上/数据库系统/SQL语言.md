@@ -59,6 +59,54 @@ SELECT SNo, Sname, Sage FROM Students WHERE Sage <= 19;
 
 ### 子查询
 
+#### IN谓词
+
+练习：求选修了001号课程的学生的学号和姓名
+
+```sql
+SELECT sno, sname FROM Student
+WHERE sno IN (
+    SELECT sno FROM SC WHERE cno == "001"
+);
+```
+
+- 求既学过001号课程，又学过002号课程学生的学号
+
+```sql
+SELECT sno FROM SC
+WHERE cno = "001" AND sno IN(SELECT sno FROM SC WHERE cno = "002");
+```
+
+- 列出**没有**学过李明老师讲授课程的所有同学的姓名
+
+```sql
+SELECT sname FROM Student
+WHERE sno NOT IN(
+    SELECT sno FROM SC ,Course C, Teacher T
+    WHERE T.name = "李明"
+    AND SC.cno = C.cno
+    AND T.tno = C.tno
+);
+```
+
+#### 相关子查询
+
+内层查询有时候需要依靠外层查询的某些参量作为**限定条件**才能进行
+
+外层向内层传递的参量需要使用**外层的表名或者表别名来限定**
+
+例：求学过001号课程同学的姓名
+
+```sql
+SELECT sname
+FROM Student Stud
+WHERE sno IN(
+    SELECT sno 
+    FROM SC 
+    WHERE sno = Stud.sno AND cno = "001"
+);
+```
+
 ### 分组查询
 
 ### 空值处理
