@@ -1404,15 +1404,24 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      恐慌模式
+      预测分析中的错误恢复
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="恐慌模式">
+    <nav class="md-nav" aria-label="预测分析中的错误恢复">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      恐慌模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       分析表使用方法
     </span>
@@ -1610,15 +1619,24 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      恐慌模式
+      预测分析中的错误恢复
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="恐慌模式">
+    <nav class="md-nav" aria-label="预测分析中的错误恢复">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      恐慌模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       分析表使用方法
     </span>
@@ -1653,23 +1671,26 @@
 
 <h2 id="_1">错误检测基本思路<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>栈顶的终结符和当前输入符号不匹配</li>
-<li>栈顶非终结符与当前输入符号在预测分析表对应项中的信息为空</li>
+<li><strong>栈顶的终结符</strong>和<strong>当前输入符号</strong>不匹配</li>
+<li><strong>栈顶非终结符</strong>与<strong>当前输入符号</strong>在预测分析表<strong>对应项中的信息为空</strong></li>
 </ul>
-<h2 id="_2">恐慌模式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">预测分析中的错误恢复<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">恐慌模式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><strong>忽略</strong>输入中的一些符号，直到输入中出现由设计者选定的<strong>同步词法单元</strong>(synchronizing token)集合中的某个词法单元</p>
 <blockquote>
 <p>其效果依赖于同步集合的选取。集合的选取应该使得语法分析器能从实际遇到的错误中快速恢复<br>
 例如可以把FOLLOW(A)中的所有终结符放入非终结符A的同步记号集合</p>
 </blockquote>
 <p>如果终结符在栈顶而不能匹配，一个简单的办法就是弹出此终结符</p>
-<h3 id="_3">分析表使用方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_4">分析表使用方法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p><img alt="" src="../6-1.png" /></p>
 <ul>
 <li>如果M[A,a]是空，表示检测到错误，根据恐慌模式，忽略输入符号a</li>
 <li>如果M[A,a]是synch，则弹出栈顶的非终结符A，试图继续分析后面的语法成分</li>
 <li>如果栈顶的终结符和输入符号不匹配，则弹出栈顶的终结符</li>
 </ul>
+<p>例：</p>
+<p><img alt="" src="../6-2.png" width="450" /></p>
 
 
 
