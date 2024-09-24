@@ -107,6 +107,56 @@ WHERE sno IN(
 );
 ```
 
+#### $\theta$ SOME/ $\theta$ ALL谓词
+
+例：找出**工资最低**的教师姓名
+
+```sql
+SELECT tname FROM Teacher
+WHERE salary <= ALL(SELECT salary FROM Teacher);
+```
+
+例：找出所有课程**都不及格**的学生姓名
+
+```sql
+SELECT sname FROM Student
+WHERE 60 > ALL(SELECT score FROM SC WHERE sno = Studnet.sno);
+```
+
+#### EXISTS谓词
+
+基本语法：`[NOT] EXISTS (子查询)`
+
+例：检索选修了李明老师主讲课程的**所有同学**的姓名
+
+```sql
+SELECT DISTINCT sname FROM Student
+WHERE EXISTS (
+    SELECT * FROM SC, Course, Teacher 
+    WHERE SC.cno = Course.cno 
+        AND SC.sno = Student.sno 
+        AND Course.tno = Teacher.tno 
+        AND tname = "李明");
+```
+
+Extra: 强大的`NOT EXISTS`
+
+例：检索学过001号老师主讲的所有课程的所有同学的姓名
+
+> 可以将其转化为“**不存在**有一门001号老师主讲的课程该同学**没学过**”<br>
+> 本质是全称量词$\forall$与存在量词$\exists$的转换
+
+```sql
+SELECT DISTINCT sname FROM Student  
+WHERE NOT EXISTS(   -- 不存在
+    SELECT * FROM Course    -- 有一门001教师主讲课程
+    WHERE Course.tno = "001" AND NOT EXISTS(    -- 该同学没学过
+        SELECT * FROM SC 
+        WHERE sno = Student.sno AND cno = Course.cno
+    )
+)
+```
+
 ### 分组查询
 
 ### 空值处理
