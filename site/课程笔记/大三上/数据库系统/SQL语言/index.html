@@ -1499,6 +1499,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#theta-some-theta-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\theta\) SOME/ \(\theta\) ALL谓词
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXISTS谓词
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1787,6 +1805,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#theta-some-theta-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\theta\) SOME/ \(\theta\) ALL谓词
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXISTS谓词
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1937,6 +1973,41 @@
 </span><span id="__span-9-5"><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span>
 </span><span id="__span-9-6"><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stud</span><span class="p">.</span><span class="n">sno</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">cno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;001&quot;</span>
 </span><span id="__span-9-7"><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="theta-some-theta-all"><span class="arithmatex">\(\theta\)</span> SOME/ <span class="arithmatex">\(\theta\)</span> ALL谓词<a class="headerlink" href="#theta-some-theta-all" title="Permanent link">&para;</a></h4>
+<p>例：找出<strong>工资最低</strong>的教师姓名</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-10-1"><span class="k">SELECT</span><span class="w"> </span><span class="n">tname</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Teacher</span>
+</span><span id="__span-10-2"><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">ALL</span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Teacher</span><span class="p">);</span>
+</span></code></pre></div>
+<p>例：找出所有课程<strong>都不及格</strong>的学生姓名</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-11-1"><span class="k">SELECT</span><span class="w"> </span><span class="n">sname</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Student</span>
+</span><span id="__span-11-2"><span class="k">WHERE</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">ALL</span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Studnet</span><span class="p">.</span><span class="n">sno</span><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="exists">EXISTS谓词<a class="headerlink" href="#exists" title="Permanent link">&para;</a></h4>
+<p>基本语法：<code>[NOT] EXISTS (子查询)</code></p>
+<p>例：检索选修了李明老师主讲课程的<strong>所有同学</strong>的姓名</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-12-1"><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">sname</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Student</span>
+</span><span id="__span-12-2"><span class="k">WHERE</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-12-3"><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span><span class="p">,</span><span class="w"> </span><span class="n">Course</span><span class="p">,</span><span class="w"> </span><span class="n">Teacher</span><span class="w"> </span>
+</span><span id="__span-12-4"><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">SC</span><span class="p">.</span><span class="n">cno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Course</span><span class="p">.</span><span class="n">cno</span><span class="w"> </span>
+</span><span id="__span-12-5"><span class="w">        </span><span class="k">AND</span><span class="w"> </span><span class="n">SC</span><span class="p">.</span><span class="n">sno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Student</span><span class="p">.</span><span class="n">sno</span><span class="w"> </span>
+</span><span id="__span-12-6"><span class="w">        </span><span class="k">AND</span><span class="w"> </span><span class="n">Course</span><span class="p">.</span><span class="n">tno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Teacher</span><span class="p">.</span><span class="n">tno</span><span class="w"> </span>
+</span><span id="__span-12-7"><span class="w">        </span><span class="k">AND</span><span class="w"> </span><span class="n">tname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;李明&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Extra: 强大的<code>NOT EXISTS</code></p>
+<p>例：检索学过001号老师主讲的所有课程的所有同学的姓名</p>
+<blockquote>
+<p>可以将其转化为“<strong>不存在</strong>有一门001号老师主讲的课程该同学<strong>没学过</strong>”<br>
+本质是全称量词<span class="arithmatex">\(\forall\)</span>与存在量词<span class="arithmatex">\(\exists\)</span>的转换</p>
+</blockquote>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-13-1"><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">sname</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Student</span><span class="w">  </span>
+</span><span id="__span-13-2"><span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">(</span><span class="w">   </span><span class="c1">-- 不存在</span>
+</span><span id="__span-13-3"><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Course</span><span class="w">    </span><span class="c1">-- 有一门001教师主讲课程</span>
+</span><span id="__span-13-4"><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Course</span><span class="p">.</span><span class="n">tno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;001&quot;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">(</span><span class="w">    </span><span class="c1">-- 该同学没学过</span>
+</span><span id="__span-13-5"><span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span>
+</span><span id="__span-13-6"><span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Student</span><span class="p">.</span><span class="n">sno</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">cno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Course</span><span class="p">.</span><span class="n">cno</span>
+</span><span id="__span-13-7"><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-13-8"><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="_7">分组查询<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <h3 id="_8">空值处理<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>

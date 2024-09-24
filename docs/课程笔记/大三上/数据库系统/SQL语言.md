@@ -136,7 +136,8 @@ WHERE EXISTS (
     WHERE SC.cno = Course.cno 
         AND SC.sno = Student.sno 
         AND Course.tno = Teacher.tno 
-        AND tname = "李明");
+        AND tname = "李明"
+);
 ```
 
 Extra: 强大的`NOT EXISTS`
@@ -147,12 +148,27 @@ Extra: 强大的`NOT EXISTS`
 > 本质是全称量词$\forall$与存在量词$\exists$的转换
 
 ```sql
-SELECT DISTINCT sname FROM Student  
+SELECT sname FROM Student  
 WHERE NOT EXISTS(   -- 不存在
     SELECT * FROM Course    -- 有一门001教师主讲课程
     WHERE Course.tno = "001" AND NOT EXISTS(    -- 该同学没学过
         SELECT * FROM SC 
-        WHERE sno = Student.sno AND cno = Course.cno
+        WHERE sno = Student.sno 
+        AND cno = Course.cno
+    )
+);
+```
+
+例：已知SPJ(sno, pno, jno, qty)，其中sno为供应商号，pno为零件号，jno为工程号，qty为数量，列出至少用了供应商S1供应的全部零件的工程号
+
+```sql
+SELECT DISTINCT jno FROM SPJ spj1
+WHERE NOT EXISTS(   -- 不存在
+    SELECT * FROM SPJ spj2  -- 有一种S1的零件
+    WHERE spj2.sno = "S1" AND NOT EXISTS(   -- 该工程没用过
+        SELECT * FROM SPJ spj3
+        WHERE spj3.pno = spj2.pno
+        AND spj3.jno = spj1.jno
     )
 )
 ```
@@ -166,3 +182,4 @@ WHERE NOT EXISTS(   -- 不存在
 ## SQL-DML之更新INSERT/UPDATE/DELETE
 
 ## SQL-视图及DDL的进一步介绍
+
