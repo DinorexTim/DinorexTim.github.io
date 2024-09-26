@@ -175,7 +175,138 @@ WHERE NOT EXISTS(   -- 不存在
 
 ### 分组查询
 
+#### 聚集函数
+
+`COUNT`、`SUM`、`AVG`
+
+例：求数据库课程平均成绩
+
+```sql
+SELECT AVG(Score) FROM Course C, SC
+WHERE C.cname = '数据库' AND C.cname = SC.cname
+```
+
+#### GROUP BY
+
+为了解决若干个集合的聚集运算问题，引出了**分组**概念
+
+SQL可以将检索到的元组按照某一条件进行分类，**具有相同条件值的元组划分到一个组或者一个集合中**
+
+分组可以在基本的SELECT语句基础上引入分组子句来完成
+
+例：求**每一个学生**的平均成绩
+
+```sql
+SELECT sno, AVG(score) FROM SC
+GROUP BY sno;
+```
+
+例：求**每一门课程**的平均成绩
+
+```sql
+SELECT cno, AVG(score) FROM SC
+GROUP BY cno;
+```
+
+#### HAVING
+
+例：求不及格课程**超过两门**的同学的学号
+
+```sql
+-- WRONG!
+SELECT sno FROM SC
+WHERE score < 60 AND COUNT(*)>2 GROUP BY sno
+```
+
+> 聚集函数不可以用于WHERE子句中<br>
+> WHERE子句对每个元组进行条件过滤，而不是对集和进行条件过滤
+
+- 若要对集和进行条件过滤，可使用`HAVING`子句
+- HAVING子句中，又称为分组过滤子句，需要有GROUP BY子句
+
+修改后得到
+
+```sql
+SELECT sno FROM SC
+WHERE score < 60 
+GROUP BY sno HAVING COUNT(*)>2;
+```
+
+例：求有两门以上不及格课程的同学的学号的学号及其平均成绩
+
+```sql
+-- WRONG!
+SELECT sno, AVG(score) FROm SC
+WHERE score < 60
+GROUP BY sno HAVING COUNT(*) > 2;
+```
+
+注意语义问题，上述sql查询所求平均值为“**不及格课程的平均值**”
+
+修改为
+
+```sql
+SELECT sno, AVG(score) FROm SC
+GROUP BY sno 
+HAVING COUNT(*) > 2 AND score < 60;
+```
+
+### 并、交、差的处理
+
+UNION、INTERSECT、EXCEPT
+
+`子查询 {UNION[ALL] | INTERSECT[ALL] | EXCEPT[ALL] 子查询}`
+
+例：求学过002号课程或者学过003号课程的同学学号
+
+```sql
+SELECT sno FROM SC WHERE cno = "002" UNION
+SELECT sno FROM SC WHERE cno = "003"
+```
+
+例：假定所有学生都有选课，求没有学过002号课程的学生学号
+
+上例不能写成`SELECT sno FROM SC WHERE cno <> "002"`，这样只会排除“只选了002号课程的学生”
+ 
+```sql
+SELECT sno FROM SC EXCEPT 
+SELECT sno FROM SC WHERE cno = "002"
+```
+
+另解：
+
+```sql
+SELECT DISTINCT sno FROM SC SC1
+WHERE NOT EXISTS(
+    SELECT sno FROM SC SC2
+    WHERE SC2.cno = "002" AND SC1.sno = SC2.sno
+)
+```
+
+例：求没学过李明老师讲课的所有同学的姓名
+
+```sql
+SELECT sname FROM Student EXCEPT
+SELECT sname FROM Student
+JOIN SC ON SC.sno = Student.sno 
+JOIN Course ON SC.tno = Course.tno AND Course.tname = "李明"
+```
+ 
 ### 空值处理
+
+- 除了is [not] null 之外，空值不满足任何查找条件
+- 如果NULL参与算术运算，则算术表达式的值为NULL
+- 如果NULL参与比较运算，则返回结果均为False
+- 如果NULL参与聚集运算，则除了COUNT(*)之外的其他聚集函数都忽略NULL
+
+### JOIN
+
+```sql
+SELECT <column_name> [[,列名]...]
+FROM <table_name> [NATURAL] [INNER | {LEFT|RIGHT|FULL}[OUTER]] JOIN <column_name2>
+{ON <conditions> | USING (colname1{,colname...})}
+[WHERE <conidtions>]
+```
 
 ### SQL的完整语法
 
