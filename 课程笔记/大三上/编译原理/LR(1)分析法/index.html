@@ -16,7 +16,7 @@
     
     
       
-        <title>FIRST集和FOLLOW集的计算 - Tim's blog</title>
+        <title>LR(1)分析法 - Tim's blog</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#first" class="md-skip">
+        <a href="#lr1" class="md-skip">
           跳转至
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FIRST集和FOLLOW集的计算
+              LR(1)分析法
             
           </span>
         </div>
@@ -594,20 +594,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#first" class="md-nav__link">
+  <a href="#lr1" class="md-nav__link">
     <span class="md-ellipsis">
-      FIRST
+      LR(1)分析法的提出
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LR(1)分析法的提出">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slr" class="md-nav__link">
+    <span class="md-ellipsis">
+      SLR存在的问题
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#follow" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      FOLLOW
+      
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -629,12 +644,14 @@
   
 
 
-  <h1>FIRST集和FOLLOW集的计算</h1>
+  <h1>LR(1)分析法</h1>
 
-<h2 id="first">FIRST<a class="headerlink" href="#first" title="Permanent link">&para;</a></h2>
-<h2 id="follow">FOLLOW<a class="headerlink" href="#follow" title="Permanent link">&para;</a></h2>
-<p>如果存在一个产生式<span class="arithmatex">\(A→αBβ\)</span>，那么<span class="arithmatex">\(FIRST ( β )\)</span>中除<span class="arithmatex">\(ε\)</span>之外的所有符号都在<span class="arithmatex">\(FOLLOW( B )\)</span>中</p>
-<p>如果存在一个产生式<span class="arithmatex">\(A→αB\)</span>，或存在产生式<span class="arithmatex">\(A→αBβ\)</span>且<span class="arithmatex">\(FIRST ( β )\)</span>包含ε，那么<span class="arithmatex">\(FOLLOW( A )\)</span>中的所有符号都在<span class="arithmatex">\(FOLLOW( B )\)</span>中</p>
+<h2 id="lr1">LR(1)分析法的提出<a class="headerlink" href="#lr1" title="Permanent link">&para;</a></h2>
+<h3 id="slr">SLR存在的问题<a class="headerlink" href="#slr" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(SLR\)</span>只是简单考察了下一个输入符号<span class="arithmatex">\(b\)</span>是否归属于归约项目<span class="arithmatex">\(A\to\alpha\)</span>相关联的<span class="arithmatex">\(FOLLOW(A)\)</span>，但<span class="arithmatex">\(b\in FOLLOW(A)\)</span>只是归约<span class="arithmatex">\(\alpha\)</span>的一个<strong>必要条件，而非充分条件</strong></p>
+<h3 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>不含句柄右侧任何一个符号的规范句型前缀称为该句型的<strong>活前缀</strong></p>
+<p>假设符号栈中符号串为<span class="arithmatex">\(\delta\alpha\)</span>，输入指针指向终结符<span class="arithmatex">\(a\)</span></p>
 
 
 

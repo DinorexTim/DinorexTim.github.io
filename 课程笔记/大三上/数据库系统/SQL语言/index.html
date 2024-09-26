@@ -1529,12 +1529,63 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="分组查询">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
+      聚集函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      GROUP BY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#having" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAVING
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      并、交、差的处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
       空值处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    <span class="md-ellipsis">
+      JOIN
     </span>
   </a>
   
@@ -1835,12 +1886,63 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="分组查询">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
+      聚集函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      GROUP BY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#having" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAVING
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      并、交、差的处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
       空值处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    <span class="md-ellipsis">
+      JOIN
     </span>
   </a>
   
@@ -2023,7 +2125,93 @@
 </span><span id="__span-14-9"><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="_7">分组查询<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<h3 id="_8">空值处理<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="_8">聚集函数<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p><code>COUNT</code>、<code>SUM</code>、<code>AVG</code></p>
+<p>例：求数据库课程平均成绩</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-15-1"><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">Score</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Course</span><span class="w"> </span><span class="k">C</span><span class="p">,</span><span class="w"> </span><span class="n">SC</span>
+</span><span id="__span-15-2"><span class="k">WHERE</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">cname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;数据库&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">C</span><span class="p">.</span><span class="n">cname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SC</span><span class="p">.</span><span class="n">cname</span>
+</span></code></pre></div>
+<h4 id="group-by">GROUP BY<a class="headerlink" href="#group-by" title="Permanent link">&para;</a></h4>
+<p>为了解决若干个集合的聚集运算问题，引出了<strong>分组</strong>概念</p>
+<p>SQL可以将检索到的元组按照某一条件进行分类，<strong>具有相同条件值的元组划分到一个组或者一个集合中</strong></p>
+<p>分组可以在基本的SELECT语句基础上引入分组子句来完成</p>
+<p>例：求<strong>每一个学生</strong>的平均成绩</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-16-1"><span class="k">SELECT</span><span class="w"> </span><span class="n">sno</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span>
+</span><span id="__span-16-2"><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sno</span><span class="p">;</span>
+</span></code></pre></div>
+<p>例：求<strong>每一门课程</strong>的平均成绩</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-17-1"><span class="k">SELECT</span><span class="w"> </span><span class="n">cno</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span>
+</span><span id="__span-17-2"><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">cno</span><span class="p">;</span>
+</span></code></pre></div>
+<h4 id="having">HAVING<a class="headerlink" href="#having" title="Permanent link">&para;</a></h4>
+<p>例：求不及格课程<strong>超过两门</strong>的同学的学号</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-18-1"><span class="c1">-- WRONG!</span>
+</span><span id="__span-18-2"><span class="k">SELECT</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span>
+</span><span id="__span-18-3"><span class="k">WHERE</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">2</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sno</span>
+</span></code></pre></div>
+<blockquote>
+<p>聚集函数不可以用于WHERE子句中<br>
+WHERE子句对每个元组进行条件过滤，而不是对集和进行条件过滤</p>
+</blockquote>
+<ul>
+<li>若要对集和进行条件过滤，可使用<code>HAVING</code>子句</li>
+<li>HAVING子句中，又称为分组过滤子句，需要有GROUP BY子句</li>
+</ul>
+<p>修改后得到</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-19-1"><span class="k">SELECT</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span>
+</span><span id="__span-19-2"><span class="k">WHERE</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span>
+</span><span id="__span-19-3"><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">;</span>
+</span></code></pre></div>
+<p>例：求有两门以上不及格课程的同学的学号的学号及其平均成绩</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-20-1"><span class="c1">-- WRONG!</span>
+</span><span id="__span-20-2"><span class="k">SELECT</span><span class="w"> </span><span class="n">sno</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">FROm</span><span class="w"> </span><span class="n">SC</span>
+</span><span id="__span-20-3"><span class="k">WHERE</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span>
+</span><span id="__span-20-4"><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span></code></pre></div>
+<p>注意语义问题，上述sql查询所求平均值为“<strong>不及格课程的平均值</strong>”</p>
+<p>修改为</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-21-1"><span class="k">SELECT</span><span class="w"> </span><span class="n">sno</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">FROm</span><span class="w"> </span><span class="n">SC</span>
+</span><span id="__span-21-2"><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span>
+</span><span id="__span-21-3"><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="_9">并、交、差的处理<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>UNION、INTERSECT、EXCEPT</p>
+<p><code>子查询 {UNION[ALL] | INTERSECT[ALL] | EXCEPT[ALL] 子查询}</code></p>
+<p>例：求学过002号课程或者学过003号课程的同学学号</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-22-1"><span class="k">SELECT</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">cno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;002&quot;</span><span class="w"> </span><span class="k">UNION</span>
+</span><span id="__span-22-2"><span class="k">SELECT</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">cno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;003&quot;</span>
+</span></code></pre></div>
+<p>例：假定所有学生都有选课，求没有学过002号课程的学生学号</p>
+<p>上例不能写成<code>SELECT sno FROM SC WHERE cno &lt;&gt; "002"</code>，这样只会排除“只选了002号课程的学生”</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-23-1"><span class="k">SELECT</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">EXCEPT</span><span class="w"> </span>
+</span><span id="__span-23-2"><span class="k">SELECT</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">cno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;002&quot;</span>
+</span></code></pre></div>
+<p>另解：</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-24-1"><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="n">SC1</span>
+</span><span id="__span-24-2"><span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">(</span>
+</span><span id="__span-24-3"><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">sno</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="n">SC2</span>
+</span><span id="__span-24-4"><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">SC2</span><span class="p">.</span><span class="n">cno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;002&quot;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">SC1</span><span class="p">.</span><span class="n">sno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SC2</span><span class="p">.</span><span class="n">sno</span>
+</span><span id="__span-24-5"><span class="p">)</span>
+</span></code></pre></div>
+<p>例：求没学过李明老师讲课的所有同学的姓名</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-25-1"><span class="k">SELECT</span><span class="w"> </span><span class="n">sname</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Student</span><span class="w"> </span><span class="k">EXCEPT</span>
+</span><span id="__span-25-2"><span class="k">SELECT</span><span class="w"> </span><span class="n">sname</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Student</span>
+</span><span id="__span-25-3"><span class="k">JOIN</span><span class="w"> </span><span class="n">SC</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">SC</span><span class="p">.</span><span class="n">sno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Student</span><span class="p">.</span><span class="n">sno</span><span class="w"> </span>
+</span><span id="__span-25-4"><span class="k">JOIN</span><span class="w"> </span><span class="n">Course</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">SC</span><span class="p">.</span><span class="n">tno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Course</span><span class="p">.</span><span class="n">tno</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">Course</span><span class="p">.</span><span class="n">tname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;李明&quot;</span>
+</span></code></pre></div>
+<h3 id="_10">空值处理<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>除了is [not] null 之外，空值不满足任何查找条件</li>
+<li>如果NULL参与算术运算，则算术表达式的值为NULL</li>
+<li>如果NULL参与比较运算，则返回结果均为False</li>
+<li>如果NULL参与聚集运算，则除了COUNT(*)之外的其他聚集函数都忽略NULL</li>
+</ul>
+<h3 id="join">JOIN<a class="headerlink" href="#join" title="Permanent link">&para;</a></h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-26-1"><span class="k">SELECT</span><span class="w"> </span><span class="o">&lt;</span><span class="k">column_name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[[,</span><span class="err">列名</span><span class="p">]...]</span>
+</span><span id="__span-26-2"><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="k">NATURAL</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">INNER</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">{</span><span class="k">LEFT</span><span class="o">|</span><span class="k">RIGHT</span><span class="o">|</span><span class="k">FULL</span><span class="err">}</span><span class="p">[</span><span class="k">OUTER</span><span class="p">]]</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="o">&lt;</span><span class="n">column_name2</span><span class="o">&gt;</span>
+</span><span id="__span-26-3"><span class="err">{</span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">conditions</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">colname1</span><span class="err">{</span><span class="p">,</span><span class="n">colname</span><span class="p">...</span><span class="err">}</span><span class="p">)</span><span class="err">}</span>
+</span><span id="__span-26-4"><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">conidtions</span><span class="o">&gt;</span><span class="p">]</span>
+</span></code></pre></div>
 <h3 id="sql_1">SQL的完整语法<a class="headerlink" href="#sql_1" title="Permanent link">&para;</a></h3>
 <h2 id="sql-dmlinsertupdatedelete">SQL-DML之更新INSERT/UPDATE/DELETE<a class="headerlink" href="#sql-dmlinsertupdatedelete" title="Permanent link">&para;</a></h2>
 <h2 id="sql-ddl">SQL-视图及DDL的进一步介绍<a class="headerlink" href="#sql-ddl" title="Permanent link">&para;</a></h2>

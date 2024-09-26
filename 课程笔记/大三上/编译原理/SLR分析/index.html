@@ -16,7 +16,7 @@
     
     
       
-        <title>FIRST集和FOLLOW集的计算 - Tim's blog</title>
+        <title>SLR分析 - Tim's blog</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#first" class="md-skip">
+        <a href="#slr" class="md-skip">
           跳转至
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FIRST集和FOLLOW集的计算
+              SLR分析
             
           </span>
         </div>
@@ -594,18 +594,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#first" class="md-nav__link">
+  <a href="#slr" class="md-nav__link">
     <span class="md-ellipsis">
-      FIRST
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#follow" class="md-nav__link">
-    <span class="md-ellipsis">
-      FOLLOW
+      SLR分析基本思想
     </span>
   </a>
   
@@ -629,12 +620,36 @@
   
 
 
-  <h1>FIRST集和FOLLOW集的计算</h1>
+  <h1>SLR分析</h1>
 
-<h2 id="first">FIRST<a class="headerlink" href="#first" title="Permanent link">&para;</a></h2>
-<h2 id="follow">FOLLOW<a class="headerlink" href="#follow" title="Permanent link">&para;</a></h2>
-<p>如果存在一个产生式<span class="arithmatex">\(A→αBβ\)</span>，那么<span class="arithmatex">\(FIRST ( β )\)</span>中除<span class="arithmatex">\(ε\)</span>之外的所有符号都在<span class="arithmatex">\(FOLLOW( B )\)</span>中</p>
-<p>如果存在一个产生式<span class="arithmatex">\(A→αB\)</span>，或存在产生式<span class="arithmatex">\(A→αBβ\)</span>且<span class="arithmatex">\(FIRST ( β )\)</span>包含ε，那么<span class="arithmatex">\(FOLLOW( A )\)</span>中的所有符号都在<span class="arithmatex">\(FOLLOW( B )\)</span>中</p>
+<h2 id="slr">SLR分析基本思想<a class="headerlink" href="#slr" title="Permanent link">&para;</a></h2>
+<p>对项目集<span class="arithmatex">\(I\)</span>有</p>
+<div class="arithmatex">\[\begin{cases}
+    A_1\to \alpha_1\cdot a_1\beta_1\\
+    A_2\to \alpha_2\cdot a_2\beta_2\\
+    \dots\\
+    A_m\to \alpha_m\cdot a_m\beta_m\\
+    B_1\to \gamma_1\\
+    B_2\to \gamma_2\\
+    \dots\\
+    B_n\to \gamma_n
+\end{cases}\]</div>
+<p>如果集合<span class="arithmatex">\(\{a_1, a_2, …, a_m\}\)</span>和<span class="arithmatex">\(FOLLOW(B_1), FOLLOW(B_2),…,FOLLOW(B_n)\)</span>两两不相交，则项目集I中的冲突可以按以下原则解决： </p>
+<p>设<span class="arithmatex">\(a\)</span>是下一个输入符号</p>
+<ol>
+<li>若<span class="arithmatex">\(a\in \{a_1,a_2,\dots,a_m\}\)</span>，则移进a</li>
+<li>若<span class="arithmatex">\(a\in FOLLOW(B_i)\)</span>，则用产生式<span class="arithmatex">\(B_i\to\gamma_i\)</span>归约</li>
+<li>否则报错</li>
+</ol>
+<p>构造G'的规范LR(0)项集族C = { I0, I1, … , In}。</p>
+<p>根据<span class="arithmatex">\(I_i\)</span>构造得到状态<span class="arithmatex">\(i\)</span>。状态<span class="arithmatex">\(i\)</span>的句法分析动作按照下面的方法决定：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1">if A→α·aβ∈Ii and GOTO( Ii , a )=Ij then ACTION[ i, a ]=sj
+</span><span id="__span-0-2">if A→α.Bβ∈Ii and GOTO( Ii , B )=Ij then GOTO[ i, B ]=j 
+</span><span id="__span-0-3">if A→α·∈Ii且A ≠ S&#39; then for \forall a∈FOLLOW(A) do 
+</span><span id="__span-0-4">    ACTION[ i, a ]=rj （j是产生式A→α的编号）
+</span><span id="__span-0-5">if S&#39;→S·∈Ii then ACTION [ i , $ ]=acc;
+</span></code></pre></div>
+<p>没有定义的所有条目都设置为“error”。</p>
 
 
 
