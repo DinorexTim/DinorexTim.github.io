@@ -308,9 +308,64 @@ FROM <table_name> [NATURAL] [INNER | {LEFT|RIGHT|FULL}[OUTER]] JOIN <column_name
 [WHERE <conidtions>]
 ```
 
-### SQL的完整语法
+## SQL视图
 
-## SQL-DML之更新INSERT/UPDATE/DELETE
+对应概念模式的数据在SQL中被称为**基本表**(table)，而对应外模式的数据被称为**视图**(view)
 
-## SQL-视图及DDL的进一步介绍
+- 基本表是实际存储于存储文件中的表，**基本表**中的数据是**需要存储**的
+- 视图在SQL中只存储其由基本表导出视图所需要的公式，即由基本表产生视图的映像信息，其**数据并不存储**，而是在运行过程中动态产生与维护的
+- 对视图数据的更改最终要反映在**对基本表的更改**上
 
+### 视图的定义与使用
+
+#### 定义视图
+
+```sql
+CREATE VIEW view name [(<column_name>[,<column_name>])]
+AS 子查询 [with check option]
+```
+
+> `with check option`指明当对视图进行insert，update，delete时，要检查进行insert/update/delete的元组是否满足视图定义中子查询中定义的条件表达式
+
+例：定义一个视图CompStud为计算机系的学生，通过该视图可以将Student表中其他系的学生屏蔽掉
+
+```sql
+CREATE VIEW CompStud AS(
+    SELECT * FROM Student
+    WHERE dno IN (
+        SELECT dno FROM Dept
+        WHERE dname = "计算机"
+    )
+)
+```
+
+#### 使用视图
+
+例：定义好CompStud之后，可以检索计算机系中年龄小于20的所有学生
+
+```sql
+SELECT * FROM CompStud
+WHERE sage < 20;
+```
+
+### 视图的更新
+
+SQL视图更新操作是一个比较复杂的问题，因视图不保存数据，对视图的更新最终要反映到对基本表的更新上，而有时，视图定义的映射不是可逆的
+
+因此，SQL视图更新操作受到很大的约束，很多情况是不能进行视图更新的。
+
+- 如果视图的select目标列包含**聚集函数**，则不能更新
+- 如果视图的select子句使用了**UNIQUE**或**DISTINCT**，则不能更新
+- 如果视图中包括了**GROUP BY**子句，则不能更新
+- 如果视图中包括经**算术表达式**计算出来的列，则不能更新
+- 如果视图是由单个表的列构成，但并**没有包括主键**，则不能更新
+
+### 视图的撤消
+
+已经定义的视图也可以撤消
+
+```sql
+DROP VIEW view_name
+```
+
+例：撤消视图CompStud `Drop View CompStud`
