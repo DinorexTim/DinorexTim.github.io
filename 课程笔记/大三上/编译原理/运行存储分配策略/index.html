@@ -1596,6 +1596,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="非局部数据的访问">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      有过程嵌套声明的数据访问
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问链
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问链的建立
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1887,6 +1920,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="非局部数据的访问">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      有过程嵌套声明的数据访问
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问链
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问链的建立
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2089,6 +2155,75 @@
 </ul>
 </li>
 </ul>
+<h3 id="_11">有过程嵌套声明的数据访问<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>嵌套深度<ul>
+<li>过程的嵌套深度<ul>
+<li>不内嵌在任何其他过程中的过程，设其嵌套深度为1</li>
+<li>如果一个过程p在一个嵌套深度为i的过程中定义，则设定p的嵌套深度为i +1</li>
+</ul>
+</li>
+<li>变量的嵌套深度<ul>
+<li>将变量声明所在过程的嵌套深度作为该变量的嵌套深度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>例：</p>
+<div class="language-pascal highlight"><pre><span></span><code><span id="__span-1-1"><span class="k">program</span><span class="w"> </span><span class="n">sort</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">input</span><span class="o">,</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-1-2"><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">a</span><span class="o">:</span><span class="w"> </span><span class="k">array</span><span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span><span class="w"> </span>
+</span><span id="__span-1-3"><span class="w">           </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span>
+</span><span id="__span-1-4"><span class="w">    </span><span class="k">procedure</span><span class="w"> </span><span class="nf">readarray</span><span class="o">;</span>
+</span><span id="__span-1-5"><span class="w">        </span><span class="k">var</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span><span class="w"> </span>
+</span><span id="__span-1-6"><span class="w">        </span><span class="k">begin</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cm">{readarray}</span><span class="w"> </span><span class="err">；</span>
+</span><span id="__span-1-7"><span class="w">    </span><span class="k">procedure</span><span class="w"> </span><span class="nf">exchange</span><span class="p">(</span><span class="n">i</span><span class="o">,</span><span class="w"> </span><span class="n">j</span><span class="o">:</span><span class="kt">integer</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-1-8"><span class="w">        </span><span class="k">begin</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">;</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="o">;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cm">{exchange}</span><span class="w"> </span><span class="err">；</span>
+</span><span id="__span-1-9"><span class="w">    </span><span class="k">procedure</span><span class="w"> </span><span class="nf">quicksort</span><span class="p">(</span><span class="n">m</span><span class="o">,</span><span class="w"> </span><span class="n">n</span><span class="o">:</span><span class="kt">integer</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-1-10"><span class="w">        </span><span class="k">var</span><span class="w"> </span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span>
+</span><span id="__span-1-11"><span class="w">        </span><span class="k">function</span><span class="w"> </span><span class="nf">partition</span><span class="p">(</span><span class="n">y</span><span class="o">,</span><span class="w"> </span><span class="n">z</span><span class="o">:</span><span class="kt">integer</span><span class="p">)</span><span class="o">:</span><span class="kt">integer</span><span class="o">;</span>
+</span><span id="__span-1-12"><span class="w">            </span><span class="k">var</span><span class="w"> </span><span class="n">i</span><span class="o">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span>
+</span><span id="__span-1-13"><span class="w">            </span><span class="k">begin</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">exchange</span><span class="p">(</span><span class="n">i</span><span class="o">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cm">{partition}</span><span class="o">;</span>
+</span><span id="__span-1-14"><span class="w">        </span><span class="k">begin</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">quicksort</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cm">{quicksort}</span><span class="w"> </span><span class="err">；</span>
+</span><span id="__span-1-15"><span class="w">    </span><span class="k">begin</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">readarray</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">quicksort</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cm">{sort}</span><span class="err">；</span>
+</span></code></pre></div>
+<p><img alt="" src="../image-18.png" width="300" /></p>
+<h3 id="_12">访问链<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p><strong>静态作用域规则</strong>：只要过程b的声明嵌套在过程a的声明中，过程b就可以访问过程a中声明的对象</p>
+<p>可以在相互嵌套的过程的活动记录之间建立一种称为<strong>访问链</strong>(Access link)的指针，使得内嵌的过程可以访问外层过程中声明的对象</p>
+<p>如果过程b在源代码中<strong>直接嵌套</strong>在过程a中(b的嵌套深度比a的嵌套深度多1)，那么b的任何活动中的访问链都指向<strong>最近的a的活动</strong></p>
+<p>例：快速排序</p>
+<div class="language-pascal highlight"><pre><span></span><code><span id="__span-2-1"><span class="k">program</span><span class="w"> </span><span class="n">sort</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">input</span><span class="o">,</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-2-2"><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">a</span><span class="o">:</span><span class="w"> </span><span class="k">array</span><span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span><span class="w"> </span>
+</span><span id="__span-2-3"><span class="w">           </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span>
+</span><span id="__span-2-4"><span class="w">    </span><span class="k">procedure</span><span class="w"> </span><span class="nf">readarray</span><span class="o">;</span>
+</span><span id="__span-2-5"><span class="w">        </span><span class="k">var</span><span class="w"> </span><span class="n">i</span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span><span class="w"> </span>
+</span><span id="__span-2-6"><span class="w">        </span><span class="k">begin</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cm">{readarray}</span><span class="w"> </span><span class="err">；</span>
+</span><span id="__span-2-7"><span class="w">    </span><span class="k">procedure</span><span class="w"> </span><span class="nf">exchange</span><span class="p">(</span><span class="n">i</span><span class="o">,</span><span class="w"> </span><span class="n">j</span><span class="o">:</span><span class="kt">integer</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-2-8"><span class="w">        </span><span class="k">begin</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">;</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="o">;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cm">{exchange}</span><span class="w"> </span><span class="err">；</span>
+</span><span id="__span-2-9"><span class="w">    </span><span class="k">procedure</span><span class="w"> </span><span class="nf">quicksort</span><span class="p">(</span><span class="n">m</span><span class="o">,</span><span class="w"> </span><span class="n">n</span><span class="o">:</span><span class="kt">integer</span><span class="p">)</span><span class="o">;</span>
+</span><span id="__span-2-10"><span class="w">        </span><span class="k">var</span><span class="w"> </span><span class="n">k</span><span class="o">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span>
+</span><span id="__span-2-11"><span class="w">        </span><span class="k">function</span><span class="w"> </span><span class="nf">partition</span><span class="p">(</span><span class="n">y</span><span class="o">,</span><span class="w"> </span><span class="n">z</span><span class="o">:</span><span class="kt">integer</span><span class="p">)</span><span class="o">:</span><span class="kt">integer</span><span class="o">;</span>
+</span><span id="__span-2-12"><span class="w">            </span><span class="k">var</span><span class="w"> </span><span class="n">i</span><span class="o">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span>
+</span><span id="__span-2-13"><span class="w">            </span><span class="k">begin</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">exchange</span><span class="p">(</span><span class="n">i</span><span class="o">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cm">{partition}</span><span class="o">;</span>
+</span><span id="__span-2-14"><span class="w">        </span><span class="k">begin</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">partition</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">quicksort</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cm">{quicksort}</span><span class="w"> </span><span class="err">；</span>
+</span><span id="__span-2-15"><span class="w">    </span><span class="k">begin</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">readarray</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="n">quicksort</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="cm">{sort}</span><span class="err">；</span>
+</span></code></pre></div>
+<p><img alt="" src="../image-19.png" width="400" /></p>
+<p><img alt="" src="../image-20.png" width="400" /></p>
+<p><code>readarray</code>函数嵌套在sort函数中，指向最近的一次sort</p>
+<p><img alt="" src="../image-21.png" width="400" /></p>
+<p><code>exchange</code>函数嵌套在sort函数中，指向最近的一次sort</p>
+<h3 id="_13">访问链的建立<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>建立访问链的代码属于调用序列的一部分</p>
+<p>假设嵌套深度为<span class="arithmatex">\(n_x\)</span>的过程<span class="arithmatex">\(x\)</span>调用嵌套深度为<span class="arithmatex">\(n_y\)</span>的过程<span class="arithmatex">\(y\)</span> <span class="arithmatex">\((x→y)\)</span></p>
+<ol>
+<li><span class="arithmatex">\(n_x &lt; n_y\)</span>的情况(外层调用内层)<ul>
+<li>y一定是直接在x中定义的 (例如：s→q,  q→p) ，因此，<span class="arithmatex">\(n_y=n_x +1\)</span></li>
+<li>在调用代码序列中增加一个步骤：在y的访问链中放置一个指向x的活动记录的指针</li>
+</ul>
+</li>
+</ol>
 
 
 
