@@ -1514,9 +1514,33 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#lr1_1" class="md-nav__link">
     <span class="md-ellipsis">
+      LR(1)分析法的提出
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
+        <li class="md-nav__item">
+  <a href="#lr1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      规范LR(1)项目
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="规范LR(1)项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lr1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何构造LR(1)项目？
     </span>
   </a>
   
@@ -1815,9 +1839,33 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#lr1_1" class="md-nav__link">
     <span class="md-ellipsis">
+      LR(1)分析法的提出
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
+        <li class="md-nav__item">
+  <a href="#lr1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      规范LR(1)项目
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="规范LR(1)项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lr1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何构造LR(1)项目？
     </span>
   </a>
   
@@ -1851,9 +1899,16 @@
 <h2 id="lr1">LR(1)分析法的提出<a class="headerlink" href="#lr1" title="Permanent link">&para;</a></h2>
 <h3 id="slr">SLR存在的问题<a class="headerlink" href="#slr" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\(SLR\)</span>只是简单考察了下一个输入符号<span class="arithmatex">\(b\)</span>是否归属于归约项目<span class="arithmatex">\(A\to\alpha\)</span>相关联的<span class="arithmatex">\(FOLLOW(A)\)</span>，但<span class="arithmatex">\(b\in FOLLOW(A)\)</span>只是归约<span class="arithmatex">\(\alpha\)</span>的一个<strong>必要条件，而非充分条件</strong></p>
-<h3 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="lr1_1">LR(1)分析法的提出<a class="headerlink" href="#lr1_1" title="Permanent link">&para;</a></h3>
 <p>不含句柄右侧任何一个符号的规范句型前缀称为该句型的<strong>活前缀</strong></p>
-<p>假设符号栈中符号串为<span class="arithmatex">\(\delta\alpha\)</span>，输入指针指向终结符<span class="arithmatex">\(a\)</span></p>
+<p>假设符号栈中符号串为<span class="arithmatex">\(\delta\alpha\)</span>，输入指针指向<strong>终结符</strong><span class="arithmatex">\(a\)</span>；如果想要进行归约<span class="arithmatex">\(A\to \alpha\)</span>，那么<span class="arithmatex">\(\delta A a\)</span>应该为某一个规范句型的前缀</p>
+<h2 id="lr1_2">规范LR(1)项目<a class="headerlink" href="#lr1_2" title="Permanent link">&para;</a></h2>
+<p>将形式为<span class="arithmatex">\([A\to\alpha\cdot\beta,a]\)</span>的项称为<strong>LR(1)项</strong>，a是一个终结符(这里将$视为一个特殊的终结符)</p>
+<p>它表示在当前状态下，A后面必须紧跟的终结符，称为该项的<strong>展望符</strong></p>
+<h3 id="lr1_3">如何构造LR(1)项目？<a class="headerlink" href="#lr1_3" title="Permanent link">&para;</a></h3>
+<p>对于一个LR(1)项目：<span class="arithmatex">\([A\to \alpha\cdot B\beta, a]\)</span></p>
+<p>构建LR(1)项目：<span class="arithmatex">\([B\to \cdot \gamma, b]\)</span></p>
+<p>其中<span class="arithmatex">\(b=\text{FIRST}(\beta a)\)</span>，当<span class="arithmatex">\(\beta\Rightarrow^+ \epsilon\)</span>的时候，b为<strong>继承的</strong>后继符（b=a），否则称为<strong>自生的</strong>后继符</p>
 
 
 

@@ -1683,6 +1683,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数传递方式
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2056,6 +2065,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数传递方式
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2117,9 +2135,9 @@
 <p>对于2条件，递归的深度无法确定（例如斐波拉契数列的递归实现，不同的参数会导致不同的递归深度）</p>
 </blockquote>
 <h3 id="_4">常用方法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<ol>
+<ul>
 <li>顺序分配法</li>
-</ol>
+</ul>
 <p>按照过程<strong>出现的先后顺序</strong>逐段分配存储空间</p>
 <p>各过程的活动记录占用<strong>互不相交</strong>的存储空间 </p>
 <p><img alt="" src="../image-12.png" width="300" /></p>
@@ -2159,9 +2177,9 @@
 </table>
 <p>优点：处理上简单</p>
 <p>缺点：对内存的空间使用不够经济合理</p>
-<ol>
+<ul>
 <li>层次分配法</li>
-</ol>
+</ul>
 <p>通过对过程间的调用关系进行分析，凡属无相互调用关系的并列过程，尽量使其局部数据共享存储空间</p>
 <p><img alt="" src="../image-13.png" width="350" /></p>
 <table>
@@ -2324,7 +2342,10 @@
 <li>在调用代码序列中增加一个步骤：在y的访问链中放置一个指向x的活动记录的指针</li>
 </ul>
 </li>
+<li><span class="arithmatex">\(n_x &gt; n_y\)</span>的情况(内层调用外层)</li>
+<li><span class="arithmatex">\(n_x=n_y\)</span>的情况</li>
 </ol>
+<h2 id="_14">参数传递方式<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 
 
 
