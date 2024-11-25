@@ -33,8 +33,8 @@ $$FOLLOW(A)=\{\bold{a}|S\Rightarrow^*\alpha A \bold{a}\beta,\bold{a}\in V_T,\alp
 
 文法G是LL(1)的，当且仅当G的任意两个具有相同左部的产生式A → α | β 满足下面的条件：
 
-1. 不存在终结符a使得α 和β都能够推导出以a开头的串
-2. α 和β**至多**有一个能推导出ε
+1. 不存在终结符a使得α和β都能够推导出以a开头的串
+2. α和β**至多**有一个能推导出ε
 
 若$\beta\Rightarrow^*\epsilon$，则$FIRST(\alpha)\cap FOLLOW(A)=\Phi$<br>
 若$\alpha\Rightarrow^*\epsilon$，则$FIRST(\beta)\cap FOLLOW(A)=\Phi$
