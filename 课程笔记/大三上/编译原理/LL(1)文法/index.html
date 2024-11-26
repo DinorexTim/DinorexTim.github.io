@@ -1476,11 +1476,20 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      串首终结符
+      预测分析法实现步骤
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="串首终结符">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first" class="md-nav__link">
+    <span class="md-ellipsis">
+      串首终结符 FIRST集
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="串首终结符 FIRST集">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1498,9 +1507,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#follow" class="md-nav__link">
     <span class="md-ellipsis">
-      非终结符的后继符号集
+      非终结符的后继符号集 FOLLOW集
     </span>
   </a>
   
@@ -1978,11 +1987,20 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      串首终结符
+      预测分析法实现步骤
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="串首终结符">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first" class="md-nav__link">
+    <span class="md-ellipsis">
+      串首终结符 FIRST集
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="串首终结符 FIRST集">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2000,9 +2018,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#follow" class="md-nav__link">
     <span class="md-ellipsis">
-      非终结符的后继符号集
+      非终结符的后继符号集 FOLLOW集
     </span>
   </a>
   
@@ -2039,7 +2057,15 @@
 
 <h2 id="_1">预测分析法工作流程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>从文法开始符号出发，在每一步推导过程中根据当前句型的最左非终结符A和当前输入符号a，选择正确的A-产生式。为保证<strong>分析的确定性</strong>，选出的候选式必须是<strong>唯一</strong>的。</p>
-<h2 id="_2">串首终结符<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">预测分析法实现步骤<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>构造文法</li>
+<li>改造文法：消除二义性、消除左递归、消除回溯</li>
+<li>求每个变量的FIRST集和FOLLOW集</li>
+<li>检查是不是 LL(1) 文法。若是，构造预测分析表</li>
+<li>对于递归的预测分析，根据预测分析表为每一个非终结符<strong>编写一个过程</strong>；对于非递归的预测分析，<strong>实现表驱动</strong>的预测分析算法</li>
+</ol>
+<h2 id="first">串首终结符 FIRST集<a class="headerlink" href="#first" title="Permanent link">&para;</a></h2>
 <p>串首第一个符号，并且是终结符，简称首终结符。</p>
 <p>给定一个文法符号串α， α的串首终结符集<span class="arithmatex">\(FIRST(α)\)</span>被定义为可以从α推导出的所有串首终结符构成的集合。如果<span class="arithmatex">\(α\Rightarrow^* ε\)</span>，那么ε也在<span class="arithmatex">\(FIRST(α)\)</span>中</p>
 <div class="arithmatex">\[\forall \alpha\in (V_T\cup V_N)^+, FIRST(\alpha)=\{\alpha|\alpha\Rightarrow^*\alpha\beta,\alpha\in V_T,\beta\in (V_T\cup V_N)^*\}\]</div>
@@ -2049,9 +2075,10 @@
 <blockquote>
 <p>简单理解为：语法分析树的子树不能存在共享的叶子结点</p>
 </blockquote>
-<h2 id="_4">非终结符的后继符号集<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="follow">非终结符的后继符号集 FOLLOW集<a class="headerlink" href="#follow" title="Permanent link">&para;</a></h2>
 <p>对非终结符A，可能在某个句型中紧跟在A后边的终结符a的集合，记作<span class="arithmatex">\(FOLLOW(A)\)</span></p>
 <div class="arithmatex">\[FOLLOW(A)=\{\bold{a}|S\Rightarrow^*\alpha A \bold{a}\beta,\bold{a}\in V_T,\alpha,\beta\in (V_T\cup V_N)^*\}\]</div>
+<p>如果A是某个句型的的最右符号，则将结束符“$”添加到FOLLOW(A)中</p>
 <blockquote>
 <p>对G的任意两个具有相同左部的产生式<span class="arithmatex">\(A\to \alpha|\beta\)</span></p>
 <p>若<span class="arithmatex">\(\beta\Rightarrow^*\epsilon\)</span>，则<span class="arithmatex">\(FIRST(\alpha)\cap FOLLOW(A)=\Phi\)</span><br>
@@ -2060,7 +2087,7 @@
 <h2 id="ll1">LL(1)文法<a class="headerlink" href="#ll1" title="Permanent link">&para;</a></h2>
 <p>文法G是LL(1)的，当且仅当G的任意两个具有相同左部的产生式A → α | β 满足下面的条件：</p>
 <ol>
-<li>不存在终结符a使得α和β都能够推导出以a开头的串</li>
+<li>不存在终结符a使得α和β都能够推导出以a开头的串（<span class="arithmatex">\(FIRST(\alpha)\cap FIRST(\beta)=\Phi\)</span>）</li>
 <li>α和β<strong>至多</strong>有一个能推导出ε</li>
 </ol>
 <p>若<span class="arithmatex">\(\beta\Rightarrow^*\epsilon\)</span>，则<span class="arithmatex">\(FIRST(\alpha)\cap FOLLOW(A)=\Phi\)</span><br>

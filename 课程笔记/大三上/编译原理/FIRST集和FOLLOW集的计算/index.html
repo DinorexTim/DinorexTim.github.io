@@ -1488,7 +1488,7 @@
         <li class="md-nav__item">
   <a href="#first" class="md-nav__link">
     <span class="md-ellipsis">
-      FIRST
+      FIRST集的计算
     </span>
   </a>
   
@@ -1497,7 +1497,16 @@
         <li class="md-nav__item">
   <a href="#follow" class="md-nav__link">
     <span class="md-ellipsis">
-      FOLLOW
+      FOLLOW集的计算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      预测分析表的构造
     </span>
   </a>
   
@@ -1936,7 +1945,7 @@
         <li class="md-nav__item">
   <a href="#first" class="md-nav__link">
     <span class="md-ellipsis">
-      FIRST
+      FIRST集的计算
     </span>
   </a>
   
@@ -1945,7 +1954,16 @@
         <li class="md-nav__item">
   <a href="#follow" class="md-nav__link">
     <span class="md-ellipsis">
-      FOLLOW
+      FOLLOW集的计算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      预测分析表的构造
     </span>
   </a>
   
@@ -1971,10 +1989,29 @@
 
   <h1>FIRST集和FOLLOW集的计算</h1>
 
-<h2 id="first">FIRST<a class="headerlink" href="#first" title="Permanent link">&para;</a></h2>
-<h2 id="follow">FOLLOW<a class="headerlink" href="#follow" title="Permanent link">&para;</a></h2>
+<h2 id="first">FIRST集的计算<a class="headerlink" href="#first" title="Permanent link">&para;</a></h2>
+<p>如果 <span class="arithmatex">\(X \Rightarrow^* ε，那么 \epsilon\in FIRST(X)\)</span></p>
+<p>对串<span class="arithmatex">\(X_1X_2\dots X_n\)</span>的FIRST集合</p>
+<ol>
+<li>向FIRST(<span class="arithmatex">\(X_1X_2\dots X_n\)</span>)加入FIRST(X1)中所有的非ε符号</li>
+<li>如果ε在FIRST(<span class="arithmatex">\(X_1\)</span>)中，再加入FIRST(<span class="arithmatex">\(X_2\)</span>)中的所有非ε符号；如果ε在FIRST(<span class="arithmatex">\(X_1\)</span>)和FIRST(<span class="arithmatex">\(X_2\)</span>)中，再加入FIRST(<span class="arithmatex">\(X_3\)</span>)中的所有非ε符号，以此类推</li>
+<li>最后，如果对所有的i，ε都在FIRST(<span class="arithmatex">\(X_i\)</span>)中，那么将ε加入到FIRST(<span class="arithmatex">\(X_1X_2\dots X_n\)</span>) 中</li>
+</ol>
+<h2 id="follow">FOLLOW集的计算<a class="headerlink" href="#follow" title="Permanent link">&para;</a></h2>
+<p>将<span class="arithmatex">\(放入FOLLOW(S)中，其中S是开始符号，\)</span>是输入右端的结束标记</p>
 <p>如果存在一个产生式<span class="arithmatex">\(A→αBβ\)</span>，那么<span class="arithmatex">\(FIRST ( β )\)</span>中除<span class="arithmatex">\(ε\)</span>之外的所有符号都在<span class="arithmatex">\(FOLLOW( B )\)</span>中</p>
 <p>如果存在一个产生式<span class="arithmatex">\(A→αB\)</span>，或存在产生式<span class="arithmatex">\(A→αBβ\)</span>且<span class="arithmatex">\(FIRST ( β )\)</span>包含ε，那么<span class="arithmatex">\(FOLLOW( A )\)</span>中的所有符号都在<span class="arithmatex">\(FOLLOW( B )\)</span>中</p>
+<h2 id="_1">预测分析表的构造<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../image-29.png" /></p>
+<ul>
+<li>构造预测分析表<span class="arithmatex">\(M\)</span>，其中<span class="arithmatex">\(M[A,a]\)</span>表示当输入符号为<span class="arithmatex">\(a\)</span>时，当前状态为<span class="arithmatex">\(A\)</span>时，应该采取的动作</li>
+<li>对文法的每一条产生式<span class="arithmatex">\(A\to\alpha\)</span><ul>
+<li>对所有在<span class="arithmatex">\(FIRST(\alpha)\)</span>中的终结符<span class="arithmatex">\(a\)</span>，将产生式<span class="arithmatex">\(A\to \alpha\)</span>加入<span class="arithmatex">\(M[A,a]\)</span></li>
+<li>若<span class="arithmatex">\(\epsilon\in FIRST(\alpha)\)</span>，对所有在<span class="arithmatex">\(FOLLOW(A)\)</span>中的终结符<span class="arithmatex">\(b\)</span>，将产生式<span class="arithmatex">\(A\to \alpha\)</span>加入<span class="arithmatex">\(M[A,b]\)</span></li>
+<li>若结束符在<span class="arithmatex">\(FOLLOW(A)\)</span>中，将产生式<span class="arithmatex">\(A\to \alpha\)</span>加入<span class="arithmatex">\(M[A,\$]\)</span>中</li>
+</ul>
+</li>
+</ul>
 
 
 
