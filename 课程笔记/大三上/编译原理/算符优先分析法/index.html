@@ -1616,6 +1616,54 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="素短语与最左素短语">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      最左素短语
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      优先函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="优先函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      优先函数构造
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      构造举例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2076,6 +2124,54 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="素短语与最左素短语">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      最左素短语
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      优先函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="优先函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      优先函数构造
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      构造举例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2165,6 +2261,39 @@
 <blockquote>
 <p>换句话说，素短语是至少含一个终结符且不含其它素短语的短语</p>
 </blockquote>
+<h3 id="_10">最左素短语<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>设句型一般形式为<span class="arithmatex">\(\sharp N_1a_1N_2a_2\cdots N_na_n \sharp\)</span>其中<span class="arithmatex">\((N_i\in V_N\cup \{\epsilon\},a_i\in V_T)\)</span></p>
+<p>他的最左素短语是满足下列条件的<strong>最左子串</strong></p>
+<div class="arithmatex">\[N_ia_iN_{i+1}a_{i+1}\cdots N_ja_jN_{j+1}\]</div>
+<p>其中<span class="arithmatex">\(a_{i-1}\nless a_i\)</span>，<span class="arithmatex">\(a_i\equiv a_{i+1}\equiv\cdots\equiv a_{j-1}a_j\)</span>，<span class="arithmatex">\(a_j\ngtr a_{j+1}\)</span></p>
+<h2 id="_11">优先函数<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>为了节省存储空间和便于执行比较运算，用两个有限函数f和g来表示优先关系</p>
+<p>对于终结符a和b选择f和g，使之满足：</p>
+<div class="arithmatex">\[\begin{cases}
+    f(a)&lt;g(b)&amp;a\nless b\\
+    f(a)=g(b)&amp;a\equiv b\\
+    f(a)&gt;g(b)&amp;a\ngtr b
+\end{cases}\]</div>
+<blockquote>
+<p>缺点：降低了错误检测能力，比如：即使<span class="arithmatex">\(id\ngtr id\)</span>不存在，但是<span class="arithmatex">\(f(id),g(id)\)</span>仍然可以进行比较</p>
+</blockquote>
+<h3 id="_12">优先函数构造<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>输入：算符优先矩阵;</p>
+<p>输出：表示输入矩阵的优先函数，或指出其不存在;</p>
+<p>步骤：</p>
+<ol>
+<li>对<span class="arithmatex">\(\forall a\in T\cup \{\sharp\}\)</span>，建立以<span class="arithmatex">\(f_a\)</span>和<span class="arithmatex">\(g_a\)</span>为标记的顶点；</li>
+<li>对<span class="arithmatex">\(\forall a, b\in T\cup \{\sharp\}\)</span>，若<span class="arithmatex">\(a≯b\)</span>或者<span class="arithmatex">\(a≡b\)</span>，则从<span class="arithmatex">\(f_a\)</span>至<span class="arithmatex">\(g_b\)</span>画一条<strong>有向弧</strong>；若<span class="arithmatex">\(a≮b\)</span>或者<span class="arithmatex">\(a≡b\)</span>，则从<span class="arithmatex">\(g_b\)</span>至<span class="arithmatex">\(f_a\)</span>画一条<strong>有向弧</strong>；</li>
+<li>如果构造的有向图中<strong>有环路</strong>，则说明<strong>不存在优先函数</strong>；如果没有环路，则对<span class="arithmatex">\(\forall a\in T\cup\{\sharp\}\)</span>，将<span class="arithmatex">\(f(a)\)</span>设为从<span class="arithmatex">\(f_a\)</span>开始的<strong>最长路经的长度</strong>，将<span class="arithmatex">\(g(a)\)</span>设为从<span class="arithmatex">\(g_a\)</span>开始的<strong>最长路经的长度</strong>。 </li>
+</ol>
+<h3 id="_13">构造举例<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[G_{es} :\begin{cases}
+    E→E+T|T\\
+    T→T*F|F\\
+    F→id
+\end{cases}\]</div>
+<p><img alt="" src="../image-25.png" width="49%" />
+<img alt="" src="../image-26.png" width="49%" /></p>
 
 
 
