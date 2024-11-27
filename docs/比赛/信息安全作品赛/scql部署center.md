@@ -102,7 +102,7 @@ wget https://raw.githubusercontent.com/secretflow/scql/main/examples/scdb-tutori
 }
 ```
 
-## 客户端上的用户创建
+### 客户端上的用户创建
 
 这一部分是针对自定义客户端来写的，[官方文档快速开始部分](https://www.secretflow.org.cn/zh-CN/docs/scql/0.5.0b2/intro/tutorial#create-database-user-and-tables)有一创建用户的步骤
 
