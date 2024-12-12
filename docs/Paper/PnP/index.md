@@ -54,7 +54,7 @@ $$\begin{align}
 
 令有界去噪器$D_\sigma$是一个函数，对于任何输入$x\in R^n$，有
 
-$$\frac{1}{n}||D_\sigma(x)||^2_2\leq \sigma^2 C$$
+$$\frac{1}{n}||D_\sigma(x)-x||^2_2\leq \sigma^2 C$$
 
 > C为某一常数
 
