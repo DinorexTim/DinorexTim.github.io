@@ -246,7 +246,7 @@ nav:
     - Thesis: Paper/index.md
     - 数学基础:
       - 梯度有界性: Paper/数学基础/梯度有界性/index.md
-    - mambaIR: Paper/MambaIR/index.md
+    - MambaIR: Paper/mambaIR/index.md
     - PnP: Paper/PnP/index.md
   # - DL（多练）:
     # - 前向传播,反向传播: DL/前向传播，反向传播.md
