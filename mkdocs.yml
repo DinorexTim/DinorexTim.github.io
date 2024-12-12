@@ -243,9 +243,11 @@ nav:
     - 中学物竞:
       - 物竞心得分享: 比赛/中学物竞/物竞心得分享.md
   - Thesis: 
-    - Thesis: Paper阅读/index.md
-    - mambaIR: Paper阅读/mambaIR/index.md
-    - PnP: Paper阅读/PnP/index.md
+    - Thesis: Paper/index.md
+    - 数学基础:
+      - 梯度有界性: Paper/数学基础/梯度有界性/index.md
+    - mambaIR: Paper/MambaIR/index.md
+    - PnP: Paper/PnP/index.md
   # - DL（多练）:
     # - 前向传播,反向传播: DL/前向传播，反向传播.md
   # - 李宏毅老师机器学习:
