@@ -1919,7 +1919,7 @@
 <p>离群点未必要删除，可以对数据做变换（如对数变换），可能消除离群点且不损失信息</p>
 <p><img alt="" src="image.png" /></p>
 <h2 id="_5">数据标准化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>同<a href="https://DinorexTimes.github.io/课程笔记/大三上/模式识别/距离分类器/#_9">距离分类器-缩放方式</a></p>
+<p>同<a href="https://DinorexTim.github.io/课程笔记/大三上/模式识别/距离分类器/#_9">距离分类器-缩放方式</a></p>
 <h2 id="_6">特征工程<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li>适用于数据量少但有较多先验知识和领域知识的应用，模型可解释性和可调节性好</li>
@@ -1957,7 +1957,29 @@
 </ul>
 <p>评价指标：</p>
 <ul>
-<li>拒识：只对有把握的样本分分类</li>
+<li>
+<p>拒识：只对有把握的样本分类</p>
+<ul>
+<li>对m个样本分类，<span class="arithmatex">\(m_r\)</span>个被拒识，<span class="arithmatex">\(m_e\)</span>个被分类错误，则错误率为<span class="arithmatex">\(P_e\approx \frac{m_e}{m-m_r}\)</span>，拒识率<span class="arithmatex">\(P_r\approx\frac{m_r}{m}\)</span></li>
+</ul>
+</li>
+<li>
+<p>敏感性与特异性（医学相关领域）</p>
+<ul>
+<li>敏感性<span class="arithmatex">\(P_s\)</span>：患者被诊断出来的比率</li>
+<li>特异性<span class="arithmatex">\(P_n\)</span>：正常人不被误诊的比率</li>
+<li>假阳率<span class="arithmatex">\(1-P_n\)</span></li>
+<li>ROC曲线，通过实验改变分类器的参数，测试分类器在不同参数下对同一个样本集的敏感性和特异性</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="image-2.png" width="300px" /></p>
+<ul>
+<li>召回率与准确率<ul>
+<li>召回率（查全率）：相关信息被检索出来的比率（与敏感性相似）</li>
+<li>准确率：检索出的相关信息中，真正的相关信息的比率</li>
+</ul>
+</li>
 </ul>
 
 
