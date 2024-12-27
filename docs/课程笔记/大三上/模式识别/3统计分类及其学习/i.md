@@ -112,8 +112,235 @@ $$g_j(x)=p(x|\omega_j)P(\omega_j)$$
 
 > 计算各类决策风险后，选择风险最小的作为决策
 
-### Neyman-Pearson决策规则
+#### 最小平均风险准则的贝叶斯分类器
 
-限定一类错误率，最小化另一类错误率
+有c个类别$\omega_1,\omega_2,\cdots,\omega_c$，将$\omega_i$类样本判别为$\omega_j$类的代价为$\lambda_{ij}$
 
-## 高斯分布的贝叶斯分类器
+则将未知模式判别为$\omega_j$的平均风险为
+
+$$\gamma_j(x)=\sum_{i=1}^c\lambda_{ij}P(x|\omega_i)P(\omega_i)$$
+
+构造判别函数$g_j(x)=-\gamma_j(x)$
+
+#### 示例
+
+决策问题：
+
+- 判别类别$\{\omega_1,\omega_2,\dots,\omega_c\}$，正常人、癌症早期、癌症晚期
+- 治疗行为$\{\alpha_1,\alpha_2,\dots,\alpha_c\}$，不治疗、保守治疗、手术、化疗
+
+风险函数：在类别状态$\omega_j$时，采取行动$\alpha_i$的平均风险为
+
+$$\lambda_{手术，癌症早期}=\lambda(\alpha_{手术}|\omega_{癌症早期})$$
+
+条件风险：观察到某人体特征x，采取行动$\alpha_{手术}$的损失期望为
+
+$$\begin{align}
+    R(\alpha_{手术}|x)=\lambda(\alpha_{手术}|\omega_{正常})P(\omega_{正常}|x)\\
+    +\lambda(\alpha_{手术}|\omega_{癌症早期})P(\omega_{癌症早期}|x)\\
+    +\lambda(\alpha_{手术}|\omega_{癌症晚期})P(\omega_{癌症晚期}|x)
+\end{align}$$
+
+贝叶斯决策论的基本思想是**使统计意义上由于误判而蒙受的损失最小**
+
+贝叶斯风险：对所有x做出决策时，均进行条件风险最小化，总的期望风险R最小，即贝叶斯风险，记作$R*$
+
+#### 贝叶斯分类中的类条件概率
+
+![alt text](image-3.png)
+
+## 估计
+
+### 类的先验概率估计
+
+- 相对比较容易
+    - 依靠经验
+    - 用训练数据中各类出现的频率来估计
+
+### 类条件概率估计
+
+可以表述为已知c个类别的训练样本集合$D_1,D_2,\cdots,D_c$，估计类条件概率$P(x|\omega_i)$
+
+- 非常困难
+    - 概率密度函数包含了一个随机变量的全部信息
+    - 概率密度函数可以是满足线面条件的任何函数
+
+$$p(x)\geq 0, \quad \int_{-\infty}^{\infty}p(x)dx=1$$
+
+### 概率密度的估计思路
+
+1. 参数估计：根据对问题的一般性认识，假设随机变量服从某种分布，分布函数的参数通过训练数据来估计（如，假设x服从正态分布，要估计的参数就是$\mu、\Sigma$）
+2. 非参数估计：不用模型，只用训练数据本身对概率密度进行估计
+
+## 非参数估计
+
+现在已知训练样本的特征值分布，如何利用直方图统计来计算样本x的概率密度$p(x)$？
+
+![alt text](image-4.png)
+
+假设R是d维空间中包含样本x的一个小区域，n个训练样本有k个落入R的范围内，则有
+
+$$P(x\in R)\approx \frac{k}{n}$$
+
+假设R中每一点的概率密度是相等的，则有$P(x\in R)=\int_{R}p(x)dx=p(x)\times Vol$，即
+
+$$p_n(x)=\frac{k_n/n}{V_n}$$
+
+> 非参数估计相当于使用R区域的平均性质来作为一点x的估计，是一种数据的平滑
+
+### 区域选定
+
+当n固定时，V的大小对估计的效果影响很大：过大则平滑过多，不够精确；过小则可能导致在此区域内无样本点，k=0。
+
+1. Parzen窗法：区域体积V是样本数n的函数，如：$V_n=\frac{1}{\sqrt{n}}$（显式估计类条件概率密度）
+2. K-近邻法：落在区域内的样本数k是总样本数n的函数，如$k_n=\sqrt{n}$（估计后验概率，再计算条件概率密度）
+
+#### Parzen窗方法
+
+定义窗函数
+
+$$\phi(x)=\begin{cases}
+    1&|x_j|\leq 1/2\\
+    0&else
+\end{cases}$$
+
+<figure markdown>
+
+![alt text](image-5.png){width=300px}
+
+</figure>
+
+$$\phi(\frac{x-x_i}{h_n})=\begin{cases}
+    1&|x_j-x_{ij}|\leq h_n/2& j=1,\dots,d\\
+    0&else
+\end{cases}$$
+
+> $h_n$为窗的宽度
+
+则超立方体中的样本数$k_n=\sum_{i=1}^n\phi(\frac{x_i-x}{h_n})\quad V_n=h^d_n$
+
+##### 识别方法
+
+根据每个类别训练样本计算待识别样本x的类条件概率密度
+
+$$p_n(x|\omega_i)=\frac{1}{n_i}\sum_{j=1}^{n_i}\frac{1}{V_n}\phi\left(\frac{x-x_j^i}{h}\right)$$
+
+#### 高斯窗函数
+
+方形的窗函数是不连续的，在有限样本条件下得到的概率密度是阶梯型的函数，存在很多不连续点
+
+$$\phi(\frac{x-x_i}{h_n})=\frac{1}{(h_n\sqrt{2\pi})}\exp\left(-\frac{(x-x_i)^2}{2h_n^2}\right)$$
+
+> 高斯窗函数是连续的，在有限样本条件下得到的概率密度是高斯分布的函数，不存在不连续点
+
+#### K近邻估计
+
+将一个体积为V的区域放到待识别样本x周围，包含k个训练样本点，其中$k_i$属于$\omega_i$类，总的训练样本数为n，则有：$p_n(x,\omega_i)=\frac{k_i}{nV}$
+
+##### 识别方法
+
+计算与x距离最小的前k个样本，统计其中包含的各类别数目$k_i$，有$class=\argmax_{1\leq i\leq c}k_i$
+
+## 参数估计
+
+预先假设每一个类别的**概率密度函数形式已知**，具体参数未知
+
+1. 最大似然估计（MLE）
+2. 贝叶斯估计
+
+### 最大似然估计
+
+假设类条件概率密度形式已知，参数可以表示为参数矢量θ
+
+为了强调类条件概率密度依赖于$\theta$，记作$p(x|\omega_i,\theta_i)$或者$p(x|\theta)$
+
+最大似然估计的目标是通过求解合适的参数$\theta$，使得样本数据出现的概率最大（最大程度解释观测到的数据）
+
+#### 似然函数
+
+问题：已知样本集D，包含n个样本$x_1,x_2,\cdots,x_n$，每个样本根据分布独立抽取，求似然函数$L(\theta|D)$
+
+假设独立同分布，样本集出现的概率为
+
+$$L(\theta)=p(D|\theta)=p(x_1,x_2,\cdots,x_n|\theta)=\prod_{i=1}^n p(x_i|\theta)$$
+
+定义$l(\theta)=\ln p(D|\theta)=\sum_{i=1}^n\ln p(x_i|\theta)$
+
+#### 最大似然估计
+
+寻找一个最优矢量$\hat{\theta}$，使得似然函数$l(\theta)$最大
+
+即$\nabla_{\theta}l=0$
+
+#### 示例
+
+假设样本集$D=\{x_1,\dots,x_n\}$，满足均值为$\mu$，方差为$\sigma^2$的正态分布，推导单变量高斯正态分布参数的最大似然估计
+
+$p(x)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$
+
+似然函数为
+
+有$l(\theta)=\sum_{i=1}^n\ln p(x_i|\theta)=\sum_{i=1}^n\ln\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x_i-\mu)^2}{2\sigma^2}\right)$
+
+$$\frac{\partial l(\theta)}{\partial \mu}=\frac{1}{\sigma^2}\sum_{i=1}^n(x_i-\mu)=\frac{1}{\sigma^2}\sum_{i=1}^nx_i-\frac{n}{\sigma^2}\mu=0$$
+
+得$\mu=\frac{1}{n}\sum_{i=1}^nx_i$，$\sigma^2=\frac{1}{n}\sum_{i=1}^n(x_i-\mu)^2$
+
+### 贝叶斯估计
+
+#### 过程
+
+- 已知独立同分布训练样本集D
+- 已知类条件概率密度函数$p(x|\theta)$的形式，但是$\theta$未知
+- 已知参数$\theta$的先验概率密度函数$p(\theta)$
+
+求在已知数据集$D$条件下，类条件概率密度函数$p(x|D)$
+
+1. 确定$\theta$的先验分布
+2. 计算样本联合分布$p(D|\theta)$
+3. 利用贝叶斯公式求$\theta$的后验分布$p(\theta|D)=\frac{p(D|\theta)p(\theta)}{p(D)}$
+4. 求出贝叶斯估计值$\hat{\theta}=\int_{\theta}\theta p(\theta|D)d\theta$
+
+$\theta$是一个随机变量，$\theta$以一定的概率分布$p(\theta)$所有可能的值
+
+- 学习过程：估计$p(\theta|D)$
+- 计算过程：计算$p(x|D)$
+
+根据参数$\theta$的后验分布，计算x的概率密度函数
+
+> 贝叶斯估计的本质：通过贝叶斯决策得到参数θ的最优估计，使得总期望风险最小
+
+$$\begin{align}
+    p(x|D)=\int p(x,\theta|D)d\theta\\
+    =\int p(x|\theta,D)p(\theta|D)d\theta\\
+    =\int p(x|\theta)p(\theta|D)d\theta
+\end{align}$$
+
+#### 示例
+
+已知概率密度函数满足正态分布，其中方差$\sigma^2$已知，均值$\mu$未知，假设$\mu$的先验概率满足正态分布，即
+
+$$p(x|\mu)\sim N(\mu,\sigma^2)\quad p(\mu)\sim N(\mu_0,\sigma_0^2)$$
+
+估计x的概率密度函数
+
+$$p(x|D)=\int p(x|\mu)p(\mu|D)d\mu$$
+
+> 其中$p(\mu |D)=\frac{p(D|\mu)p(\mu)}{\int p(D|\mu)p(\mu)d\mu}$
+
+### 最大似然估计与贝叶斯估计的差别
+
+- 最大似然估计：$\theta$是一个确定的位置矢量
+- 贝叶斯估计：$\theta$是一个随机变量，$\theta$以一定的概率分布$p(\theta)$所有可能的值
+
+## 混合高斯模型
+
+复杂的概率密度模型：可以由多个简单的密度函数混合而成
+
+$$p(x|\theta)=\sum_{k=1}^K a_kp_k(x|\theta_k)\quad a_k>0,\sum_{k=1}^K a_k=1$$
+
+高斯混合模型（GMM）：由多个高斯密度函数混合，用于逼近复杂的概率密度
+
+$$p(x)=\sum_{k=1}^Ka_kN(x;\mu_k,\Sigma_k)$$
+
+## 隐马尔可夫模型
