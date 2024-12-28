@@ -12,14 +12,14 @@ theme:
     next: fontawesome/solid/angle-right
   palette:
     - scheme: default
-      primary: teal
-      accent: teal
+      primary: deep purple
+      accent: deep purple
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
-      primary: black
-      accent: teal
+      primary: deep purple
+      accent: deep purple
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -195,6 +195,7 @@ nav:
         - 模式识别系统: 课程笔记/大三上/模式识别/2模式识别系统/i.md
         - 统计分类及其学习: 课程笔记/大三上/模式识别/3统计分类及其学习/i.md
         - 聚类分析: 课程笔记/大三上/模式识别/4聚类分析/i.md
+        - 特征提取: 课程笔记/大三上/模式识别/5特征提取/i.md
   - Contests:
     - Contests: 比赛/index.md
     - 信息安全作品赛:
