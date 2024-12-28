@@ -67,6 +67,31 @@ $$\hat{x}=Ex'+\mu$$
 ### 示例
 
 
+<figure markdown>
+![alt text](image-4.png){width=450px}
+
+![alt text](image-5.png){width=450px}
+
+![alt text](image-6.png){width=450px}
+</figure>
+
+### 分析
+
+- 协方差矩阵 Σ 是实对称阵，其特征值为实数，其特征矢量正交。即，特征矢量构成一组正交基，主成分分析得到的新坐标系是一个**直角坐标系**
+
+- 几何理解：特征值越大，说明矩阵在对应特征向量上的**方差越大**，样本点越分散，越容易区分，**信息量也就越多**
+
+- 主成分分析时**应该保留多少特征**？
+
+主成分分析用 dʹ 个新特征表示原始的 d 维特征引起的误差是$J=\sum_{i=d'+1}^d\lambda_i$，舍弃的特征值越少则误差越小
+
+<figure markdown>
+![alt text](image-7.png){width=350px}
+</figure>
+
+<figure markdown>
+![alt text](image-8.png){width=400px}
+</figure>
 
 ## 基于Fisher准则的可分性分析
 
