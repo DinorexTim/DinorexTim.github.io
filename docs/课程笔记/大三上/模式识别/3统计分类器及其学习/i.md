@@ -560,3 +560,10 @@ $$b_{ij}=\frac{\sum_{t=1,v(t)=v_k}^T\sum_{l=1}^M\gamma_{li}(t)}{\sum_{t=1}^T\sum
 <figure markdown>
 ![alt text](image-15.png){width=400px}
 </figure>
+
+### HMM的其他问题
+
+- 连续HMM：在观察序列中每个观察值是一个特征矢量，相应的模型中输出概率就需要用一个概率密度函数描述，其函数形式需要假设，通常使用GMM
+- 模型的拓扑结构
+
+![alt text](image-16.png){width=500px}
