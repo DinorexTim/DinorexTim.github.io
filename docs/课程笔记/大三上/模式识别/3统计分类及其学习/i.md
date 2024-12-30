@@ -6,7 +6,7 @@
     - 关键在于计算x与训练样本$x_i$的内积关系
 - 产生式模型
     - 将x看做随机变量
-    - 根据x属于各类别$\omega_i$的概率分布p(x|\omega_i)来决定其类别
+    - 根据x属于各类别$\omega_i$的概率分布$p(x|\omega_i)$来决定其类别
     - 关键在于计算不同类别产生“待识别模式”的概率$P(x|\omega_i)$
 
 ### 推理
@@ -333,14 +333,230 @@ $$p(x|D)=\int p(x|\mu)p(\mu|D)d\mu$$
 - 最大似然估计：$\theta$是一个确定未知矢量
 - 贝叶斯估计：$\theta$是一个随机变量，$\theta$以一定的概率分布$p(\theta)$所有可能的值
 
-## 混合高斯模型
+## 混合高斯模型(GMM)
 
 复杂的概率密度模型：可以由多个简单的密度函数混合而成
 
 $$p(x|\theta)=\sum_{k=1}^K a_kp_k(x|\theta_k)\quad a_k>0,\sum_{k=1}^K a_k=1$$
 
-高斯混合模型（GMM）：由多个高斯密度函数混合，用于逼近复杂的概率密度
+高斯混合模型（GMM）：由多个高斯密度函数混合，用于**逼近复杂的概率密度**
 
 $$p(x)=\sum_{k=1}^Ka_kN(x;\mu_k,\Sigma_k)$$
 
-## 隐马尔可夫模型
+### 高斯混合模型参数估计
+
+1. 使用最大似然法估计。可写出GMM的对数似然函数l(θ) 并求出l(θ) 关于θ中每一个参数
+的偏导数；但直接令偏导数等于0求极值会导致一个复杂多元超越方程组，很难得到解析解
+2. 使用**期望最大化算法**(EM)估计
+
+参数估计中存在两组未知信息
+
+1. GMM的参数$\theta$
+2. 每个样本$x_i$产生自哪一个分量高斯分布？用$Y=\{y_1,\dots,y_n\}$表示这一组待估计信息，其中$y_i$表示第i个样本由第$y_i$个分量高斯分布生成
+
+<figure markdown>
+![alt text](image-6.png){width=500px}
+
+![alt text](image-7.png){width=500px}
+
+![alt text](image-8.png){width=500px}
+
+![alt text](image-9.png){width=500px}
+</figure>
+
+## 隐马尔可夫模型(HMM)
+
+### 以序列形式出现的模式
+
+在很多问题中，模式以序列形式出现的，例如视频、语音、基因序列等。如将这序列信号采用特征矢量的方式描述，会损失信号的先后次序变化信息。
+
+<figure markdown>
+![alt text](image-10.png){width=500px}
+</figure>
+
+以序列出现的模式可以表示为
+
+$$V^T=\{v_1,v_2,\cdots,v_T\}$$
+
+> 其中T表示序列长度，序列中的元素$v_i$称为时刻i的观察值
+
+如果希望采用贝叶斯分类器识别以序列形式出现的模式，就需要构建**描述序列的概率密度函数**，计算每个类别产生出需要识别序列的概率密度
+
+### 马尔科夫模型
+
+由若干状态构成，模型当前状态只依赖于前一时刻的状态，与之后的状态无关
+
+马尔科夫过程：由马尔科夫模型所产生的一类状态转移过程
+
+### 离散时间有限状态一阶马尔可夫模型
+
+一阶马尔科夫模型由**M个状态**$W=\{w_1,w_2,\cdots,w_M\}$构成，在每个时刻t，模型处于某个状态$w(t)\in W$，经过**T个时刻**，产生出一个长度为T的状态序列$W^T=w(1),w(2),\cdots,w(T)$
+
+- 状态转移概率$a_{ij}$，模型在t-1时刻状态为$w_i$，而在时刻t状态为$w_j$的概率
+
+$$a_{ij}=P(w(t)=w_j|w(t-1)=w_i)$$
+
+- 一阶马尔科夫模型中，$a_{ij}$完全由t-1时刻的状态决定，而与时刻t无关
+
+定义模型初始于状态$w_i$的概率为$\pi_i$
+
+完整的一阶马尔科夫模型可以用参数$\theta=(\pi,\{a_{ij}\})$表示
+
+$$\pi=\pi_1,\dots \pi_M,\quad A=\left[\begin{matrix}
+    a_{11} & a_{12} & \cdots & a_{1M}\\
+    a_{21} & a_{22} & \cdots & a_{2M}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    a_{M1} & a_{M2} & \cdots & a_{MM}
+\end{matrix}\right]$$
+
+且参数应该满足$\sum_{i=1}^M\pi_i=1,\quad, \sum_{j=1}^Ma_{ij}=1$
+
+模型输出状态序列的概率可以由**初始状态概率与各次状态转移概率相乘**得到
+
+<figure markdown>
+![alt text](image-11.png){width=500px}
+</figure>
+
+### 隐马尔可夫模型
+
+HMM的内部是一个马尔科夫模型，每一时刻都依据概率发生状态转移。但状态转移的过程是**观察不到的**，所能够观察到的是每一时刻模型根据所处的状态**产生**的一个**“观察值”序列**$V^T=v(1),v(2),\cdots,v(T)$
+
+HMM是一个双重随机过程，由两个随机过程组成：
+
+1. 隐状态序列：由初始状态$w_i$和状态转移概率$\{a_{ij}\}$决定，$W^T=w(1),w(2),\cdots,w(T)$
+2. 观察值序列：由状态$w_i$和观察概率$\{b_{ij}\}$决定，$V^T=v(1),v(2),\cdots,v(T)$
+
+> 隐状态输出的观察值可以是离散值，连续值，也可以是一个矢量
+
+以离散HMM为例，隐状态可能输出的观察集合为$v(t)\in V=\{v_1,v_2,\cdots,v_K\}$，第i个状态输出第j个观察值的概率为$b_{ij}=P(v_j|w_i)$
+
+HMM的完整参数为$\theta=(\pi,\{a_{ij}\},\{b_{ij}\})$，其中$\{b_{ij}\}$为$M\times K$的矩阵，表示第i个状态输出第j个观察值的条件概率
+
+### HMM的三个基本问题
+
+1. 估值问题：已知一个HMM，其参数已知，计算模型输出特定观察序列$V^T$的概率
+2. 解码问题：已知一个HMM，其参数已知，计算模型最有可能输出观察序列$V^T$的隐状态转移序列$W^{T}$
+3. 学习问题：已知一个观察序列$V^T$，估计HMM的参数$\theta$
+
+### 估值问题
+
+一个HMM产生观察序列$V^T$可由下式计算
+
+$$\begin{align*}
+    P(V^T|\theta)=\sum_{r=1}^{r_{max}}P(V^T,W_r^T|\theta)\\
+    =\sum_{r=1}^{r_{max}}P(V^T|W_r^T,\theta)P(W_r^T|\theta)\\
+    \\
+    P(V^T|W_r^T,\theta)=\prod_{t=1}^T b_{w_r(t)v(t)}\\
+    P(W^T_r|\theta)=\pi_{w_r(1)}\prod_{t=1}^{T-1}a_{w_r(t)w_r(t+1)}
+\end{align*}$$
+
+> $r_{max}$表示HMM所有可能的状态转移序列数
+
+#### 前向算法
+
+估值问题的计算复杂度为$O(M^T ×T)$。当状态数M较多，序列的长度T较长时，计算量大。随着序列长度的增加，计算复杂度呈指数增长
+
+事实上，计算过程中有很多重复项只需要计算1 次即可，这样就可以有效地减小计算量
+
+在每个节点上定义$\alpha_i(t)$值，表示HMM在第t时刻处于第i个状态，并且输出序列是$v(1),\dots, v(t)$的概率
+
+<figure markdown>
+![](image-12.png){width=300px}
+</figure>
+
+> $\alpha_i(1)=\pi_ib_{iv(1)}$
+> $\alpha_i(2)=\left[\sum_{j=1}^M\alpha_j(1)a_{ji}\right]b_{iv(2)}$<br>
+> $\alpha_i(3)=\left[\sum_{j=1}^M\alpha_j(2)a_{ji}\right]b_{iv(3)}$<br>
+> $\vdots$
+
+那么根据以上迭代算式，得到最终的$P(V^T|\theta)=\sum_{i=1}^M\alpha_i(T)$
+
+### 解码问题
+
+一个例子：如果知道此人连续**三天的活动**分别为**散步、做家务和购物**，推测这三天中该城市最有可能的**天气状况**
+
+> 解码问题实际上关心的是如何根据模型输出的结果（观察序列）来推测产生出该结果的内部机理（状态转移序列）的问题
+
+需要求解如下优化问题
+
+$$W*=\argmax_{W^T} P(W^T|V^T,\theta)$$
+
+根据贝叶斯公式：$P(W^T|V^T,\theta)\frac{P(V^T|W^T,\theta)P(W^T|\theta)}{P(V^T|\theta)}$
+
+解码问题可以被转化为求解如下优化问题
+
+$$\argmax_{W^T} P(V^T|W_r^T,\theta)P(W_r^T|\theta)$$
+
+#### Viterbi算法
+
+在每个节点上定义$\delta_i(t)$值，表示HMM在第t时刻处于第i个状态，并且输出序列是$v(1),\dots, v(t)$最优路径的概率值
+
+<figure markdown>
+![alt text](image-13.png){width=300px}
+</figure>
+
+> $\delta_i(1)=\pi_i b_{iv(1)}$<br>
+> $\delta_i(t+1)=\max_{1\leq j\leq M}\left[\delta_j(t)a_{ji}b_{iv(t+1)}\right]$<br>
+
+### 学习问题
+
+如何根据一组训练模式的观察序列集和V学习HMM参数$\theta$
+
+HMM描述的是观察序列发生的概率，所以对其的学习仍然是一个**参数估计问题**，采用最大似然估计方法求解
+
+$$\theta*=\argmax_{\theta} P(V|\theta)$$
+
+> 由于状态转移序列是隐含的，所以HMM的参数需要采用EM算法进行迭代估计
+
+#### Baum-Welch算法
+
+也称为前向后向算法，先设定一个转移概率的初值，然后获得对该初值的一个修正，反复迭代直至收敛
+
+为计算$\theta=(\pi,A,B)$，定义变量$\alpha,\beta,\gamma$
+
+- $\alpha$：$\alpha_i(t-1)$表示第t-1时刻HMM处于状态$w_i$的观察序列，并在$1\to t-1$期间产生出观察序列$V^{1\to t-1}$的概率
+- $\beta$：$\beta_j(t)$表示第t时刻HMM处于状态$w_j$的观察序列，并在$t+1\to T$期间产生出观察序列$V^{t+1\to T}$的概率
+
+- $\alpha$值的计算同前向算法，由第一列向最后一列迭代
+
+$$\begin{align*}
+    \alpha_i(1)=\pi_i b_{iv(1)}\\
+    \alpha_t(t+1)=\left[\sum_{j=1}^M\alpha_j(t)a_{ji}\right]b_{iv(t+1)}
+\end{align*}$$
+
+- $\beta$值的计算与$\alpha$值类似，但是是由最后一列向第一列迭代
+
+$$\begin{align*}
+    \beta_j(T)=1\\
+    \beta_j(t)=\sum_{i=1}^M\beta_i(t+1)a_{ij}b_{jv(t+1)}
+\end{align*}$$
+
+- $\gamma$值表示相邻两列任意两个节点之间：$\gamma_{ij}(t)$表示当HMM输出观察序列$V^T$时，在$t-1$时刻处于$w_i$，在$t$时刻处于$w_j$的概率
+
+$$\begin{align*}
+    \gamma_{ij}(t)=P[w(t-1)=w_i,w(t)=w_j|V^T,\theta]\\
+    =\frac{P[w(t-1)=w_i,w(t)=w_j,V^T|\theta]}{P(V^T|\theta)}\\
+    =\frac{\alpha_i(t-1)a_{ij}b_{jv(t)}\beta_j(t)}{P(V^T|\theta)}
+\end{align*}$$
+
+<figure markdown>
+![alt text](image-14.png){width=400px}
+</figure>
+
+- 当t=1，有$\gamma_j(1)=\frac{\pi_jb_{jv(1)}\beta_j(1)}{P(V^T|\theta)}$
+
+- 有了$\gamma$值，就可以计算$A$、$B$和$\pi$的值
+
+$$\pi_i=P[w(1)=w_i|V^T,\theta]=\gamma_i(1)$$
+
+- 从1到T时刻，HMM由状态$w_i$转移到状态$w_j$的期望次数为$\sum_{t=2}^T\gamma_{ij}(t)$，而由状态$w_i$转移到任意一个状态的期望次数$\sum_{t=2}^T\sum_{k=1}^M\gamma_{ik}(t)$，$a_{ij}$的迭代公式为
+
+$$a_{ij}=\frac{\sum_{t=2}^T\gamma_{ij}(t)}{\sum_{t=2}^T\sum_{k=1}^M\gamma_{ik}(t)}$$
+
+- 在1到T时刻，HMM在状态$w_i$输出观察值$v_k$的期望次数为$\sum_{t=1,v(t)=v_k}^T\sum_{l=1}^M\gamma_{li}(t)$，而在状态$w_i$输出任意一个观察值的期望次数$\sum_{t=1}^T\sum_{l=1}^M\gamma_{li}(t)$，$b_{ij}$的迭代公式为
+
+$$b_{ij}=\frac{\sum_{t=1,v(t)=v_k}^T\sum_{l=1}^M\gamma_{li}(t)}{\sum_{t=1}^T\sum_{l=1}^M\gamma_{li}(t)}$$
+
+<figure markdown>
+![alt text](image-15.png){width=400px}
+</figure>
