@@ -104,7 +104,7 @@ $$d(\vec{x},\vec{y})=\left[\sum_{i=1}^{n}|x_i-y_i|^q\right]^{\frac{1}{q}}$$
 
 马氏距离
 
-$$D(x,y)=\sqrt{(\vec{x}-\vec{y})^T(\vec{x}-\vec{y})}$$
+$$D(x,y)=\sqrt{(\vec{x}-\vec{y})^TC^{-1}(\vec{x}-\vec{y})}$$
 
 > 其中$C=\frac{1}{n-1}\sum_{i=1}^{n}\left((x_i-\bar{x})(y_i-\bar{y})\right)^T$为多维特征协方差矩阵，如果各维特征独立同分布，那么马氏距离就是欧氏距离
 
