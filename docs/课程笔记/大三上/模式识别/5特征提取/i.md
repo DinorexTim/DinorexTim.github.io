@@ -113,7 +113,7 @@ $$D_1\to Y_1=\{y_1^{(1)},\dots,y_{n_1}^{(1)}\},\quad D_2\to Y_2=\{y_1^{(2)},\dot
 
 用两类样本的**均值之差**$(\tilde{\mu_1}-\tilde{\mu_2})^2$度量两类样本之间的**分散程度**，用两类样本各自的方差之和$\tilde{s_1}^2+\tilde{s_2}^2$度量两类样本内的**离散程度**，可定义Fisher准则
 
-$$J(w)=\frac{\tilde{\mu_1}-\tilde{\mu_2}}{\tilde{s_1}^2+\tilde{s_2}^2}$$
+$$J(w)=\frac{(\tilde{\mu_1}-\tilde{\mu_2}^2)}{\tilde{s_1}^2+\tilde{s_2}^2}$$
 
 > Fisher准则越大，则类别可分性越强
 
