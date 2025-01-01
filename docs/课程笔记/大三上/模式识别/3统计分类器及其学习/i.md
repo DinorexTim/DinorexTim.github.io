@@ -149,7 +149,19 @@ $$\begin{align}
 
 ![alt text](image-3.png)
 
+### 朴素贝叶斯分类器
+
+解决**多特征少样本**贝叶斯分类的一种有效办法是采用朴素贝叶斯分类器
+
+朴素贝叶斯的一个基本假设是所有特征在类别一致的条件下是**相互独立**的
+
+$$p(x|\omega_i)=p(x_1,\dots, x_d|\omega_i)=\prod_{j=1}^d p(x_j|\omega_i)$$
+
 ## 估计
+
+<figure markdown>
+![alt text](image-17.png)
+</figure>
 
 ### 类的先验概率估计
 
