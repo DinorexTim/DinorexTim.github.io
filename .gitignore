@@ -1,7 +1,5 @@
-/cmd.txt
-/.DS_Store
-/cmd.sh
-/draft.html
+deploy.sh
+.DS_Store
 site/
 tmp/
 site/
