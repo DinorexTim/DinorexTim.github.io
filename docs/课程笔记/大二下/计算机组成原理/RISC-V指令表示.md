@@ -12,4 +12,4 @@
 
 - 实际上用来区分某条指令种类的编码只有`inst[30],inst[14:12],inst[6:2]`
 
-![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/jz7-1.png?raw=true)
+![img](https://github.com/amethysttim/amethysttim.github.io/blob/main/docs/images/jz7-1.png?raw=true)

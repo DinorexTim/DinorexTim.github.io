@@ -43,7 +43,7 @@ ipa下载完成后可以使用sideloadly或者爱思助手完成签名安装到i
 下载解压完成后将图中的所有文件拖入你存放hdd目录下的`bin`文件夹即可
 
 <figure markdown>
-![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/chunithm_0cost-0.png?raw=true){width=300}
+![img](https://github.com/amethysttim/amethysttim.github.io/blob/main/docs/images/chunithm_0cost-0.png?raw=true){width=300}
 </figure>
 
 双击`Brokenithm-Envolved-IOS.exe`运行，用数据线连接电脑和ipad
@@ -51,7 +51,7 @@ ipa下载完成后可以使用sideloadly或者爱思助手完成签名安装到i
 连接成功后，就可以开始愉快地玩耍力
 
 <figure markdown>
-![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/chunithm_0cost-2.png?raw=true){width=300}
+![img](https://github.com/amethysttim/amethysttim.github.io/blob/main/docs/images/chunithm_0cost-2.png?raw=true){width=300}
 </figure>
 
 > 如果server没有任何反应，则可能是电脑没有安装**iTunes驱动**，去微软商店下载iTunes后重试，大概率会解决问题

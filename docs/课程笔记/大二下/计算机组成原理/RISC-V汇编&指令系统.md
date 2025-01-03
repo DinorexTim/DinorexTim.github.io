@@ -14,7 +14,7 @@
 
 - ISA——抽象层，软件子系统与硬件子系统的桥梁和接口
 
-![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/jz4-1.png?raw=true){width=600}
+![img](https://github.com/amethysttim/amethysttim.github.io/blob/main/docs/images/jz4-1.png?raw=true){width=600}
 
 $$
 ISA功能\quad\begin{cases}
@@ -136,7 +136,7 @@ main: add  t0, x0,  x0
 1. 不能使用变量（如`int a; float b;`）
 2. 汇编语言的操作对象以寄存器为主
 
-![img](https://github.com/dinorextim/dinorextim.github.io/blob/main/docs/images/jz4-2.png?raw=true){width=600}
+![img](https://github.com/amethysttim/amethysttim.github.io/blob/main/docs/images/jz4-2.png?raw=true){width=600}
 
 ### 运算
 

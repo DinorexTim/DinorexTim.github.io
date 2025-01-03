@@ -1,10 +1,10 @@
 site_name: Tim's blog
 copyright: 'Alea jacta est!'
-repo_name: 'dinorextim.github.io'
-repo_url: 'https://github.com/dinorextim/dinorextim.github.io'
+repo_name: 'amethysttim.github.io'
+repo_url: 'https://github.com/amethysttim/amethysttim.github.io'
 
 theme:
-  logo: https://github.com/dinorextim/dinorextim.github.io/blob/main/assets/logo.png?raw=true
+  logo: https://github.com/amethysttim/amethysttim.github.io/blob/main/assets/logo.png?raw=true
   name: material
   language: zh
   icon:
@@ -42,7 +42,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/DINOREXNB
+      link: https://github.com/amethysttim
 extra_javascript:
   - javascripts/katex.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js

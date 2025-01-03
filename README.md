@@ -1,4 +1,4 @@
 # Myblog
 使用[squidfunk](https://github.com/squidfunk)的[Material for MkDocs](https://squidfunk.github.io/mkdocs-material)构建
 
-[点击跳转至博客](https://dinorextim.github.io)
+[点击跳转至博客](https://amethysttim.github.io)
